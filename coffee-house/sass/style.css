@@ -11,4 +11,10 @@ html {
 
 body {
   margin: 0, auto;
+  background-color: #E1D4C9;
+}
+
+.wrapper {
+  max-width: 1360px;
+  margin: 0 auto;
 }/*# sourceMappingURL=style.css.map */
