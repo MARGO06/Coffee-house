@@ -10,3 +10,15 @@
   border-radius: 100px;
   border:1px solid #E3E1D5;
 }
+
+%text-center{
+  text-align: center;
+}
+
+%arrow{
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: $color-background-body;
+  border: 1px solid $color-primary-text;
+}

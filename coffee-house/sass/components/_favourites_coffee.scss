@@ -1,0 +1,65 @@
+.favourites_coffee{
+  padding-top: 100px;
+}
+
+.favourites_coffee__title{
+  @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
+  @extend %text-center;
+  color: $color-primary-text;
+}
+
+.choose{
+  @include flex($display:flex,$content:space-between);
+  margin-top: 40px;
+}
+
+.choose__right{
+  @extend %arrow;
+  margin-left: 4px;
+  margin-top: 290px;
+}
+
+.choose__left{
+  @extend %arrow;
+  margin-right: 4px;
+  margin-top: 290px;
+  transform: rotate(180deg);
+}
+
+.coffee{
+  width: 35.3%;
+}
+.coffee__call{
+  margin-top: 16px;
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  @extend %text-center;
+  color: $color-primary-text;
+}
+
+.coffee__desription{
+  margin-top: 16px;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
+  @extend %text-center;
+  color: $color-primary-text;
+}
+
+.coffee__price{
+  margin-top: 16px;
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  @extend %text-center;
+  color: $color-primary-text;
+}
+
+.pagination{
+  @include flex($display:flex,$content:space-between);
+  margin-top: 40px;
+  margin-left: 44.7%;
+  align-items: center;
+  width: 144px;
+}
+
+.pagination__rectg{
+  width: 40px;
+  height: 4px;
+  background-color: $color-primary-border;
+}
