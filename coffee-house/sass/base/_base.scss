@@ -14,3 +14,8 @@ body{
   background-color: $color-background-body;
   font-family: Inter, Verdana, sans-serif;
 }
+
+h1{
+  @include font($size:$size-h1, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h1);
+  color: $color-background-body;
+}

@@ -6,6 +6,11 @@
   text-decoration: none;
 }
 
+.enjoy__btn {
+  border-radius: 100px;
+  border: 1px solid #E3E1D5;
+}
+
 * {
   box-sizing: border-box;
   padding: 0px;
@@ -21,6 +26,14 @@ body {
   margin: 0, auto;
   background-color: #E1D4C9;
   font-family: Inter, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 7.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 7.56rem;
+  color: #E1D4C9;
 }
 
 .wrapper {
@@ -67,4 +80,43 @@ body {
 
 .header__menu-img {
   margin-left: 4px;
+}
+
+.enjoy {
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/img-hero.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+}
+
+.enjoy__inform {
+  padding: 100px 0;
+  width: 38.9%;
+  margin-left: 100px;
+}
+
+.enjoy__word {
+  font-style: italic;
+  color: #B0907A;
+}
+
+.enjoy__text {
+  margin-top: 40px;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: #E1D4C9;
+}
+
+.enjoy__btn {
+  margin-top: 40px;
+  width: 37.7%;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.4rem;
+  padding: 20px 78px;
+  background-color: #E1D4C9;
 }/*# sourceMappingURL=style.css.map */

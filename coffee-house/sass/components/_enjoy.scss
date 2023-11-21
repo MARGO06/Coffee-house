@@ -1,0 +1,33 @@
+.enjoy{
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/img-hero.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+}
+
+.enjoy__inform{
+  padding: 100px 0;
+  width: 38.9%;
+  margin-left: 100px;
+}
+
+.enjoy__word{
+  font-style: italic;
+  color: $color-word;
+}
+.enjoy__text{
+  margin-top: 40px;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
+  color: $color-background-body;
+}
+
+.enjoy__btn{
+  margin-top: 40px;
+  width: 37.7%;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  padding: 20px 78px;
+  @extend %border;
+  background-color: $color-background-body;
+}
+
