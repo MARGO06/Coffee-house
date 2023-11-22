@@ -4,6 +4,7 @@
 
 .about__title{
   @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
+  color: $color-primary-text;
 }
 
 .photos{
