@@ -1,0 +1,61 @@
+.about{
+  margin-top: 100px;
+}
+
+.about__title{
+  @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
+}
+
+.photos{
+  @include flex($display:flex,$content:space-between);
+  margin-top: 40px;
+}
+.photos_column1{
+  @extend %column;
+  @include flex($display:flex,$content:flex-start);
+}
+
+.photos_column2{
+  @extend %column;
+  @include flex($display:flex,$content:flex-start);
+}
+
+.photos_1{
+  @extend %block_photo;
+  height: 590px;
+}
+
+.photos_img1{
+  @extend %block_img;
+  transform: scale(1.1,1.25);
+}
+
+.photos_2{
+  @extend %block_photo;
+  height: 430px;
+}
+
+.photos_img2{
+  @extend %block_img;
+  transform: scale(1.1,1.7);
+}
+
+.photos_4{
+  @extend %block_photo;
+  height: 590px;
+}
+
+.photos_img4{
+  @extend %block_img;
+  transform: scale(1.1,1.25);
+}
+ 
+.photos_3{
+  @extend %block_photo;
+  height: 430px;
+}
+
+.photos_img3{
+  @extend %block_img;
+  transform: scale(1.1,1.7);
+}
