@@ -11,6 +11,9 @@
   border:1px solid #E3E1D5;
 }
 
+%border-media{
+  border: 1px solid $color-background-body;
+}
 %text-center{
   text-align: center;
 }
