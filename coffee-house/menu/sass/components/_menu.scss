@@ -57,3 +57,55 @@
   @extend %circle;
   margin-left: -35px;
 }
+
+.cards{
+  margin-top: 40px;
+  @include flex($display:flex, $content:flex-start);
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.card{
+  width: 22.78%;
+  border-radius: 40px;
+  border: 1px solid $color-second-text;
+}
+
+.card__photo{
+  @extend %block_photo;
+}
+
+.card__img{
+  @extend %block_img;
+  border-radius: 40px;
+  transform: scale(1.1);
+}
+
+.card__inform{
+  @include flex($display:flex, $content:space-between);
+  flex-direction: column;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  height: 196px;
+}
+
+.card__title{
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  color: $color-primary-text;
+}
+
+.card__description{
+  margin-top: 12px;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
+  color: $color-primary-text;
+}
+
+.card__price{
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  color: $color-primary-text;
+}
+
+
+
+
