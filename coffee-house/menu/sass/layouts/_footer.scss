@@ -1,0 +1,84 @@
+.footer{
+  background-color: #665F55;
+  border-radius: 40px;
+  margin-bottom: 40px;
+}
+
+.footer__inform{
+  @include flex($display:flex,$content:flex-start);
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.footer__social-media{
+  width: 40%;
+  margin-left: 100px;
+}
+
+.footer__list{
+  @include flex($display:flex,$content:flex-start);
+  margin-top: 40px;
+}
+
+.footer__title{
+  @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
+  color: $color-background-body;
+}
+
+.footer__item{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  @extend %border-media;
+  @extend %list-style;
+  &:not(:first-child){
+    margin-left: 12px;
+  }
+}
+
+.footer__contact{
+  margin-left: 87px;
+}
+
+.footer__text{
+  margin-top: 32px;
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  color: $color-background-body;
+}
+
+.footer__local{
+  margin-top: 38px;
+}
+
+.dates__address{
+  margin-left: 8px;
+  @extend %text-decor;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  color: $color-background-body;
+}
+
+.footer__phone{
+  margin-top: 16px;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  color: $color-background-body;
+}
+
+.footer__time{
+  margin-top: 16px;
+  @include flex($display:flex,$content:flex-start);
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  color: $color-background-body;
+}
+
+.dates__time{
+  margin-left: 8px;
+}
+
+.dates__clock{
+  display: block;
+}
+
+.footer__img{
+  display: block;
+  margin: 17px auto;
+}
