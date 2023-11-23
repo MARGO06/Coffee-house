@@ -5,3 +5,19 @@
 %text-decor{
   text-decoration: none;
 }
+
+%button{
+  border-radius: 100px;
+  border: 1px solid $color-primary-border;
+}
+
+%circle{
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $color-primary-border;
+}
