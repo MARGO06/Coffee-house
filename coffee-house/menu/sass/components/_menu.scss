@@ -16,6 +16,7 @@
 }
 
 .btn{
+  display: inline-block;
   @include flex($display:flex, $content:flex-start);
   position: relative;
   align-items: center;
@@ -106,6 +107,10 @@
   color: $color-primary-text;
 }
 
+
+.btn__input {
+	display: none;
+}
 
 
 
