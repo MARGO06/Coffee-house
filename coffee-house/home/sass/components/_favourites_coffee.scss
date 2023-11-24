@@ -17,6 +17,7 @@
   @extend %arrow;
   margin-left: 4px;
   margin-top: 290px;
+  padding-top: 2px;
 }
 
 .choose__left{
@@ -24,6 +25,7 @@
   margin-right: 4px;
   margin-top: 290px;
   transform: rotate(180deg);
+  padding-top: 5px;
 }
 
 .coffee{
@@ -62,4 +64,5 @@
   width: 40px;
   height: 4px;
   background-color: $color-primary-border;
+  border-radius: 100px;
 }
