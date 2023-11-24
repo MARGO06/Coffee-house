@@ -42,6 +42,7 @@
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
+  text-decoration: none;
 }
 
 html {
@@ -224,6 +225,11 @@ h1 {
 .footer__img {
   display: block;
   margin: 17px auto;
+}
+
+.enjoy__word {
+  font-style: italic;
+  color: #B0907A;
 }
 
 .menu {
