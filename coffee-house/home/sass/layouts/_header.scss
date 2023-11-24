@@ -25,9 +25,11 @@
 }
 
 .header__text{
+  display: block;
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
   color: $color-primary-text;
   margin-top: 14px;
+  @extend %text-decor;
 }
 
 .header__menu-img{

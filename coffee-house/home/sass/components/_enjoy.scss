@@ -23,6 +23,9 @@
 }
 
 .enjoy__btn{
+  display: block;
+  @extend %text-decor;
+  color: $color-primary-text;
   margin-top: 40px;
   width: 37.7%;
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
