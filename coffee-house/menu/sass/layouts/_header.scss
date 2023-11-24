@@ -25,6 +25,13 @@
   color: $color-primary-text;
 }
 
+.header__link-logo{
+  display: block;
+}
+
+.header__logo{
+  display: block;
+}
 .header__text{
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
   color: $color-primary-text;
