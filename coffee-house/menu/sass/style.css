@@ -11,7 +11,7 @@
   border: 1px solid #C1B6AD;
 }
 
-.menu__desert:before, .menu__tea:before, .menu__coffee:before {
+.menu__dessert:before, .menu__tea:before, .menu__coffee:before {
   content: "";
   position: absolute;
   width: 30px;
@@ -176,7 +176,7 @@ h1 {
 }
 
 .dates__address {
-  margin-left: 8px;
+  margin-left: 5px;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -269,12 +269,12 @@ h1 {
   margin-left: -35px;
 }
 
-.menu__desert {
+.menu__dessert {
   width: 117px;
   padding-left: 43px;
 }
 
-.menu__desert:before {
+.menu__dessert:before {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/cake.svg);
   margin-left: -35px;
 }
@@ -288,6 +288,9 @@ h1 {
 }
 
 .card {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
   width: 22.78%;
   border-radius: 40px;
   border: 1px solid #B0907A;

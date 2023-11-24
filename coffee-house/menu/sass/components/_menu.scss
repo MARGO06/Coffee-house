@@ -48,12 +48,12 @@
   margin-left: -35px;
 }
 
-.menu__desert{
+.menu__dessert{
   width: 117px; 
   padding-left: 43px;
 }
 
-.menu__desert:before{
+.menu__dessert:before{
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/cake.svg);
   @extend %circle;
   margin-left: -35px;
@@ -67,6 +67,8 @@
 }
 
 .card{
+  @include flex($display:flex, $content:flex-start);
+  flex-direction: column;
   width: 22.78%;
   border-radius: 40px;
   border: 1px solid $color-second-text;

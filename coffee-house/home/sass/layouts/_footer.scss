@@ -50,7 +50,7 @@
   margin-top: 38px;
 }
 .dates__address{
-  margin-left: 8px;
+  margin-left: 5px;
   @extend %text-decor;
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
   color: $color-background-body;
