@@ -26,13 +26,24 @@
 }
 
 .footer__item{
+  display: flex;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   @extend %border-media;
   @extend %list-style;
+  transition-duration: 2s;
   &:not(:first-child){
     margin-left: 12px;
+  }
+  &:hover{
+    background-color: $color-background-body;
+    cursor: pointer;
+    transition-duration: 2s;
+  }
+  &:hover .footer__link svg{
+    color: $color-primary-text;
+    transition-duration: 2s;
   }
 }
 
@@ -48,6 +59,7 @@
 
 .footer__local{
   margin-top: 38px;
+  width: 70%;
 }
 .dates__address{
   margin-left: 5px;
@@ -60,6 +72,7 @@
   margin-top: 16px;
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
   color: $color-background-body;
+  width: 70%;
 }
 
 .footer__time{
@@ -77,7 +90,19 @@
   display: block;
 }
 
-.footer__img{
+
+.footer__link{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  color:$color-background-body;
+  transition-duration: 2s;
+}
+
+.footer__show:hover{
   display: block;
-  margin: 17px auto;
+  margin-top: 1px;
+  border-bottom: 2px solid $color-background-body;
+  transition-duration: 1s;
 }

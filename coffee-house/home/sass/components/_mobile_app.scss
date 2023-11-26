@@ -33,10 +33,21 @@
   border-radius: 100px;
   height: 64px;
   @include font($size:$size-second-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-small-text);
+  transition-duration: 2s;
+  &:hover{
+    background-color: $color-background-container;
+    color: $color-background-body;
+    cursor: pointer;
+    transition-duration: 2s;
+  }
 }
 
 .mobile_download__apple{
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
+  transition-duration: 2s;
+  &:hover{
+    background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app-hover.svg);
+  }
 }
 
 .mobile_download__google{
@@ -44,6 +55,9 @@
   margin-left: 18px;
   text-align: start;
   padding-left: 60px;
+  &:hover{
+    background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google-hover.svg);
+  }
 }
 
 .btn-mob__company{

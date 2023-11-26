@@ -32,5 +32,27 @@
   padding: 20px 78px;
   @extend %border;
   background-color: $color-background-body;
+  transition-duration: 1s;
 }
+
+.enjoy__btn:after{
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/coffee-cup.svg);
+  background-repeat:no-repeat;
+  background-position: center;
+  content: " ";
+  padding-left: 40px;
+  opacity: 0;
+  transition-duration: 1s;
+}
+.enjoy__btn:hover{
+  padding: 20px 58px;
+  transition-duration: 2s;
+}
+
+.enjoy__btn:hover:after{
+  opacity: 1;
+  transition-duration: 2s;
+}
+
+
 

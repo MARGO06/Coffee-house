@@ -118,6 +118,13 @@ h1 {
   margin-left: 4px;
 }
 
+.header__show:hover {
+  display: block;
+  margin-top: 1px;
+  border-bottom: 2px solid #403F3D;
+  transition-duration: 1s;
+}
+
 .footer {
   background-color: #665F55;
   border-radius: 40px;
@@ -151,12 +158,23 @@ h1 {
 }
 
 .footer__item {
+  display: flex;
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  transition-duration: 2s;
 }
 .footer__item:not(:first-child) {
   margin-left: 12px;
+}
+.footer__item:hover {
+  background-color: #E1D4C9;
+  cursor: pointer;
+  transition-duration: 2s;
+}
+.footer__item:hover .footer__link svg {
+  color: #403F3D;
+  transition-duration: 2s;
 }
 
 .footer__contact {
@@ -174,6 +192,7 @@ h1 {
 
 .footer__local {
   margin-top: 38px;
+  width: 70%;
 }
 
 .dates__address {
@@ -192,6 +211,7 @@ h1 {
   font-weight: 600;
   line-height: 2.4rem;
   color: #E1D4C9;
+  width: 70%;
 }
 
 .footer__time {
@@ -213,9 +233,20 @@ h1 {
   display: block;
 }
 
-.footer__img {
+.footer__link {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #E1D4C9;
+  transition-duration: 2s;
+}
+
+.footer__show:hover {
   display: block;
-  margin: 17px auto;
+  margin-top: 1px;
+  border-bottom: 2px solid #E1D4C9;
+  transition-duration: 1s;
 }
 
 .enjoy {
@@ -257,6 +288,27 @@ h1 {
   line-height: 2.4rem;
   padding: 20px 78px;
   background-color: #E1D4C9;
+  transition-duration: 1s;
+}
+
+.enjoy__btn:after {
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/coffee-cup.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  content: " ";
+  padding-left: 40px;
+  opacity: 0;
+  transition-duration: 1s;
+}
+
+.enjoy__btn:hover {
+  padding: 20px 58px;
+  transition-duration: 2s;
+}
+
+.enjoy__btn:hover:after {
+  opacity: 1;
+  transition-duration: 2s;
 }
 
 .favourites_coffee {
@@ -281,6 +333,13 @@ h1 {
   margin-left: 4px;
   margin-top: 290px;
   padding-top: 2px;
+  transition-duration: 1s;
+}
+.choose__right:hover {
+  background-color: #665F55;
+  cursor: pointer;
+  transition-duration: 1s;
+  color: #E1D4C9;
 }
 
 .choose__left {
@@ -288,6 +347,13 @@ h1 {
   margin-top: 290px;
   transform: rotate(180deg);
   padding-top: 5px;
+  transition-duration: 1s;
+}
+.choose__left:hover {
+  background-color: #665F55;
+  cursor: pointer;
+  transition-duration: 1s;
+  color: #E1D4C9;
 }
 
 .coffee {
@@ -337,6 +403,10 @@ h1 {
   border-radius: 100px;
 }
 
+.pagination__rectg--active {
+  background-color: #665F55;
+}
+
 .about {
   margin-top: 100px;
 }
@@ -371,6 +441,11 @@ h1 {
 
 .photos_img1 {
   transform: scale(1.1, 1.25);
+  transition-duration: 2s;
+}
+.photos_img1:hover {
+  transform: scale(1, 1);
+  transition-duration: 2s;
 }
 
 .photos_2 {
@@ -379,6 +454,11 @@ h1 {
 
 .photos_img2 {
   transform: scale(1.1, 1.7);
+  transition-duration: 2s;
+}
+.photos_img2:hover {
+  transform: scale(1, 1);
+  transition-duration: 2s;
 }
 
 .photos_4 {
@@ -387,6 +467,11 @@ h1 {
 
 .photos_img4 {
   transform: scale(1.1, 1.25);
+  transition-duration: 2s;
+}
+.photos_img4:hover {
+  transform: scale(1, 1);
+  transition-duration: 2s;
 }
 
 .photos_3 {
@@ -395,6 +480,11 @@ h1 {
 
 .photos_img3 {
   transform: scale(1.1, 1.7);
+  transition-duration: 2s;
+}
+.photos_img3:hover {
+  transform: scale(1, 1);
+  transition-duration: 2s;
 }
 
 .mobile_app {
@@ -442,10 +532,21 @@ h1 {
   font-style: normal;
   font-weight: 600;
   line-height: 1.4rem;
+  transition-duration: 2s;
+}
+.btn-mob:hover {
+  background-color: #665F55;
+  color: #E1D4C9;
+  cursor: pointer;
+  transition-duration: 2s;
 }
 
 .mobile_download__apple {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
+  transition-duration: 2s;
+}
+.mobile_download__apple:hover {
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app-hover.svg);
 }
 
 .mobile_download__google {
@@ -453,6 +554,9 @@ h1 {
   margin-left: 18px;
   text-align: start;
   padding-left: 60px;
+}
+.mobile_download__google:hover {
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google-hover.svg);
 }
 
 .btn-mob__company {

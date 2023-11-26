@@ -18,6 +18,13 @@
   margin-left: 4px;
   margin-top: 290px;
   padding-top: 2px;
+  transition-duration: 1s;
+  &:hover{
+    background-color: $color-background-container;
+    cursor: pointer;
+    transition-duration: 1s;
+    color: $color-background-body;
+  }
 }
 
 .choose__left{
@@ -26,6 +33,13 @@
   margin-top: 290px;
   transform: rotate(180deg);
   padding-top: 5px;
+  transition-duration: 1s;
+  &:hover{
+    background-color: $color-background-container;
+    cursor: pointer;
+    transition-duration: 1s;
+    color: $color-background-body;
+  }
 }
 
 .coffee{
@@ -65,4 +79,8 @@
   height: 4px;
   background-color: $color-primary-border;
   border-radius: 100px;
+}
+
+.pagination__rectg--active{
+  background-color: $color-background-container;
 }

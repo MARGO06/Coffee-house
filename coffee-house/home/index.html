@@ -18,26 +18,44 @@
       <nav class="header__navigation">
         <ul class="header__list">
           <li class="header__item">
-            <a href="#favorite_coffe_house" class="header__link">Favorite coffee</a>
+            <a href="#favorite_coffe_house" class="header__link">
+              <span class="header__show">
+              Favorite coffee
+              </span>
+            </a>
           </li>
           <li class="header__item">
-            <a href="#about_cafe" class="header__link">About</a>
+            <a href="#about_cafe" class="header__link">
+              <span class="header__show">
+              About
+              </span>
+            </a>
           </li>
           <li class="header__item">
-            <a href="#our_mobile_app" class="header__link">Mobile app</a>
+            <a href="#our_mobile_app" class="header__link">
+              <span class="header__show">
+              Mobile app
+              </span>
+            </a>
           </li>
           <li class="header__item">
-            <a href="#contact_us" class="header__link">Contact us</a>
+            <a href="#contact_us" class="header__link">
+              <span class="header__show">
+                Contact us
+              </span>
+              </a>
           </li>
         </ul>
       </nav>
       <div class="header__menu">
         <a class="header__text" href="https://rolling-scopes-school.github.io/margo06-JSFE2023Q4/coffee-house/menu/">
+          <span class="header__show">
             Menu
         <img 
           src="../source/coffee-cup.svg" 
           alt="a cup of coffee" 
           class="header__menu-img">
+        </span>
         </a>
       </div>
     </header>
@@ -53,9 +71,9 @@
         <h2 class="favourites_coffee__title">Choose your <span class="enjoy__word">favorite</span> coffee</h2>
         <div class="choose favourites_coffee__carusel">
           <button class="choose__right">
-            <img src="../source/arrow-left.svg" 
-            alt="icon-arrow" 
-            class="choose__img-arraw choose__img-arraw--list_right">
+            <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </button>
           <div class="coffee">
             <img src="../source/coffee-slider-1.png" 
@@ -66,13 +84,13 @@
             <p class="coffee__price">$5.50</p>
           </div>
           <button class="choose__left">
-            <img src="../source/arrow-left.svg" 
-            alt="icon-arrow" 
-            class="choose__img-arraw choose__img-arraw--list_left">
+            <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </button>
         </div>
         <div class="pagination">
-            <div class="pagination__rectg pagination__rectg--control"></div>
+            <div class="pagination__rectg pagination__rectg--active"></div>
             <div class="pagination__rectg pagination__rectg--control"></div>
             <div class="pagination__rectg pagination__rectg--control"></div>
         </div>
@@ -125,24 +143,26 @@
           <div class="footer__container">
             <ul class="footer__list">
               <li class="footer__item">
-                <a href="">
-                  <img src="../source/twitter.svg" 
-                       alt="icon_twitter" 
-                       class="footer__img">
+                <a href="#" class="footer__link">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="red">
+                    <path d="M23 3.01006C23 3.01006 20.9821 4.20217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 23 3.01006 23 3.01006Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </a>
               </li>
               <li class="footer__item">
-                <a href="">
-                  <img src="../source/instagram.svg" 
-                       alt="icon_instagram" 
-                       class="footer__img">
+                <a href="#" class="footer__link">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor"/>
+                    <path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </a>
               </li>
               <li class="footer__item">
-                <a href="">
-                  <img src="../source/facebook.svg" 
-                       alt="icon_facebook" 
-                       class="footer__img">
+                <a href="#" class="footer__link">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </a>
               </li>
             </ul>
@@ -151,20 +171,24 @@
         <div class="footer__contact">
           <h3 class="footer__text">Contact us</h3>
           <div class="dates footer__local">
-            <a href="https://goo.gl/maps/XxeFEiJBrxbCswCv9" class="dates__dislocation" target="_blank">
-              <img src="../source/pin-alt.svg" 
-                   alt="icon_address" 
-                   class="dates__img">
-            </a>
-            <a href="https://goo.gl/maps/XxeFEiJBrxbCswCv9" class="dates__address" target="=_blank">8558 Green Rd.,  LA</a>
+            <span class="footer__show">
+              <a href="https://goo.gl/maps/XxeFEiJBrxbCswCv9" class="dates__dislocation" target="_blank">
+                <img src="../source/pin-alt.svg" 
+                     alt="icon_address" 
+                     class="dates__img">
+              </a>
+              <a href="https://goo.gl/maps/XxeFEiJBrxbCswCv9" class="dates__address" target="=_blank">8558 Green Rd.,  LA</a>
+            </span>
           </div>
           <div class="dates footer__phone">
-            <a href="tel:+16035550123" class="dates__phone">
-              <img src="../source/phone.svg" 
-                   alt="icon_phone" 
-                   class="dates__img">
-            </a>
-            <a href="tel:+16035550123" class="dates__address">+1 (603) 555-0123</a>
+            <span class="footer__show">
+              <a href="tel:+16035550123" class="dates__phone">
+                <img src="../source/phone.svg" 
+                     alt="icon_phone" 
+                     class="dates__img">
+              </a>
+              <a href="tel:+16035550123" class="dates__address">+1 (603) 555-0123</a>
+            </span>
           </div>
           <div class="dates footer__time">
             <img src="../source/clock.svg" 
