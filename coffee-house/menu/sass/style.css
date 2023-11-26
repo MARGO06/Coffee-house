@@ -127,6 +127,14 @@ h1 {
   margin-left: 4px;
 }
 
+.header__show:hover {
+  display: block;
+  margin-top: 1px;
+  border-bottom: 2px solid #403F3D;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+
 .footer {
   background-color: #665F55;
   border-radius: 40px;
@@ -160,12 +168,22 @@ h1 {
 }
 
 .footer__item {
+  display: flex;
   width: 60px;
   height: 60px;
   border-radius: 50%;
 }
 .footer__item:not(:first-child) {
   margin-left: 12px;
+}
+.footer__item:hover {
+  background-color: #E1D4C9;
+  cursor: pointer;
+  transition-duration: 2s;
+}
+.footer__item:hover .footer__link svg {
+  color: #403F3D;
+  transition-duration: 2s;
 }
 
 .footer__contact {
@@ -183,6 +201,7 @@ h1 {
 
 .footer__local {
   margin-top: 38px;
+  width: 70%;
 }
 
 .dates__address {
@@ -201,6 +220,7 @@ h1 {
   font-weight: 600;
   line-height: 2.4rem;
   color: #E1D4C9;
+  width: 70%;
 }
 
 .footer__time {
@@ -230,6 +250,22 @@ h1 {
 .enjoy__word {
   font-style: italic;
   color: #B0907A;
+}
+
+.footer__link {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #E1D4C9;
+  transition-duration: 2s;
+}
+
+.footer__show:hover {
+  display: block;
+  margin-top: 1px;
+  border-bottom: 2px solid #E1D4C9;
+  transition-duration: 1s;
 }
 
 .menu {
@@ -262,6 +298,13 @@ h1 {
   line-height: 2.4rem;
   height: 48px;
   background-color: #E1D4C9;
+  transition-duration: 2s;
+}
+.btn:hover {
+  background-color: #665F55;
+  color: #E1D4C9;
+  transition-duration: 2s;
+  cursor: pointer;
 }
 
 .menu__coffee {
@@ -290,6 +333,17 @@ h1 {
 .menu__tea:before {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/tea.svg);
   margin-left: -35px;
+  transition-duration: 2s;
+}
+
+.menu__tea:hover:before {
+  background-color: #E1D4C9;
+  transition-duration: 2s;
+  cursor: pointer;
+}
+
+.menu__tea:hover label {
+  cursor: pointer;
 }
 
 .menu__dessert {
@@ -300,6 +354,16 @@ h1 {
 .menu__dessert:before {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/cake.svg);
   margin-left: -35px;
+  transition-duration: 2s;
+}
+
+.menu__desert:hover:before {
+  background-color: #E1D4C9;
+  transition-duration: 2s;
+}
+
+.menu__dessert:hover label {
+  cursor: pointer;
 }
 
 .cards {
@@ -321,6 +385,10 @@ h1 {
 .card:hover .card__photo .card__img {
   transform: scale(1);
   transition-duration: 2s;
+  cursor: pointer;
+}
+
+.card:hover {
   cursor: pointer;
 }
 

@@ -48,3 +48,10 @@
   margin-left: 4px;
 }
 
+.header__show:hover{
+  display: block;
+  margin-top: 1px;
+  border-bottom: 2px solid $color-primary-text;
+  transition-duration: 1s;
+  cursor: pointer;
+}
