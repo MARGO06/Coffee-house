@@ -1,0 +1,26 @@
+*{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+html{
+  font-size: 10px;
+  line-height: 16px;
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0, auto;
+  background-color: $color-background-body;
+  font-family: Inter, Verdana, sans-serif;
+}
+
+h1{
+  @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
+  color: $color-primary-text;
+  width: 58.82%;
+  text-align: center;
+  margin: 0 auto;
+}

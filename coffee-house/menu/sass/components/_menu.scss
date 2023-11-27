@@ -1,0 +1,163 @@
+.menu{
+  padding-bottom: 100px;
+}
+
+.enjoy_word{
+  font-style: italic;
+  color: $color-second-text;
+}
+
+.btns{
+  margin-top: 40px;
+  @include flex($display:flex, $content:space-between);
+  width: 26.54%;
+  align-items: center;
+  margin-left: 36.7%;
+}
+
+.btn{
+  display: inline-block;
+  @include flex($display:flex, $content:flex-start);
+  position: relative;
+  align-items: center;
+  @extend %button;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  height: 48px;
+  background-color: $color-background-body;
+  transition-duration: 2s;
+  &:hover{
+    background-color: $color-background-container;
+    color: $color-background-body;
+    transition-duration: 2s;
+    cursor: pointer;
+  }
+}
+
+.menu__coffee{
+  width: 117px; 
+  padding-left: 45px;
+  &--checked{
+   background-color: $color-background-container;
+   color: $color-background-body;
+  }
+}
+
+.menu__coffee:before{
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/coffee.svg);
+  @extend %circle;
+  margin-left: -37px;
+}
+
+.menu__coffee--checked:before{
+  background-color: $color-background-body;
+}
+
+.menu__tea{
+  width: 92px; 
+  padding-left: 43px;
+}
+
+.menu__tea:before{
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/tea.svg);
+  @extend %circle;
+  margin-left: -35px;
+  transition-duration: 2s;
+}
+
+.menu__tea:hover:before{
+  background-color: $color-background-body;
+  transition-duration: 2s;
+  cursor: pointer;
+}
+
+.menu__tea:hover label{
+  cursor: pointer;
+}
+
+.menu__dessert{
+  width: 117px; 
+  padding-left: 43px;
+}
+
+.menu__dessert:before{
+  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/cake.svg);
+  @extend %circle;
+  margin-left: -35px;
+  transition-duration: 2s;
+}
+
+.menu__desert:hover:before{
+  background-color: $color-background-body;
+  transition-duration: 2s;
+}
+
+.menu__dessert:hover label{
+  cursor: pointer;
+}
+
+.cards{
+  margin-top: 40px;
+  @include flex($display:flex, $content:flex-start);
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.card{
+  @include flex($display:flex, $content:flex-start);
+  flex-direction: column;
+  width: 22.78%;
+  border-radius: 40px;
+  border: 1px solid $color-primary-border;
+  &:hover .card__photo .card__img{
+    transform: scale(1.0);
+    transition-duration: 2s;
+    cursor: pointer;
+  }
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.card__photo{
+  @extend %block_photo;
+}
+
+.card__img{
+  @extend %block_img;
+  border-radius: 40px;
+  transform: scale(1.1);
+}
+
+.card__inform{
+  @include flex($display:flex, $content:space-between);
+  flex-direction: column;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  height: 196px;
+}
+
+.card__title{
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  color: $color-primary-text;
+}
+
+.card__description{
+  margin-top: 12px;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
+  color: $color-primary-text;
+}
+
+.card__price{
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  color: $color-primary-text;
+}
+
+
+.btn__input {
+	display: none;
+}
+
+
+
