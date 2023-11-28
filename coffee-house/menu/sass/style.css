@@ -357,7 +357,7 @@ h1 {
   transition-duration: 2s;
 }
 
-.menu__desert:hover:before {
+.menu__dessert:hover:before {
   background-color: #E1D4C9;
   transition-duration: 2s;
 }
