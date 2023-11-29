@@ -261,6 +261,11 @@ h1 {
     flex-direction: column;
   }
 }
+@media (max-width: 768px) {
+  .footer__inform {
+    padding-bottom: 103px;
+  }
+}
 
 .footer__social-media {
   width: 40%;
@@ -286,6 +291,12 @@ h1 {
   .footer__social-media {
     width: 70%;
     margin-left: 70px;
+  }
+}
+@media (max-width: 768px) {
+  .footer__social-media {
+    margin-left: 60px;
+    width: 82.7%;
   }
 }
 
@@ -342,6 +353,12 @@ h1 {
     margin-left: 70px;
   }
 }
+@media (max-width: 768px) {
+  .footer__contact {
+    margin-top: 69px;
+    margin-left: 60px;
+  }
+}
 
 .footer__text {
   margin-top: 32px;
@@ -375,6 +392,11 @@ h1 {
   color: #E1D4C9;
   width: 70%;
 }
+@media (max-width: 768px) {
+  .footer__phone {
+    margin-top: 19px;
+  }
+}
 
 .footer__time {
   margin-top: 16px;
@@ -385,6 +407,11 @@ h1 {
   font-weight: 600;
   line-height: 2.4rem;
   color: #E1D4C9;
+}
+@media (max-width: 768px) {
+  .footer__time {
+    margin-top: 19px;
+  }
 }
 
 .dates__time {
@@ -733,6 +760,11 @@ h1 {
     width: 86%;
   }
 }
+@media (max-width: 768px) {
+  .photos {
+    width: 100%;
+  }
+}
 
 .photos_column1 {
   display: flex;
@@ -744,6 +776,11 @@ h1 {
   }
 }
 @media (max-width: 1281px) {
+  .photos_column1 {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
   .photos_column1 {
     width: 100%;
   }
@@ -776,9 +813,19 @@ h1 {
   transform: scale(1, 1);
   transition-duration: 2s;
 }
+@media (max-width: 768px) {
+  .photos_img1 {
+    transform: scale(1.05, 1.23);
+  }
+}
 
 .photos_2 {
   height: 430px;
+}
+@media (max-width: 768px) {
+  .photos_2 {
+    display: none;
+  }
 }
 
 .photos_img2 {
@@ -802,9 +849,19 @@ h1 {
   transform: scale(1, 1);
   transition-duration: 2s;
 }
+@media (max-width: 768px) {
+  .photos_img4 {
+    transform: scale(1.05, 1.23);
+  }
+}
 
 .photos_3 {
   height: 430px;
+}
+@media (max-width: 768px) {
+  .photos_3 {
+    display: none;
+  }
 }
 
 .photos_img3 {
@@ -845,6 +902,11 @@ h1 {
     width: 82.1%;
   }
 }
+@media (max-width: 768px) {
+  .mobile_app {
+    width: 100%;
+  }
+}
 
 .mobile_download {
   width: 46.32%;
@@ -864,6 +926,11 @@ h1 {
   .mobile_download {
     width: 100%;
     margin-top: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .mobile_download {
+    width: 100%;
   }
 }
 
@@ -908,6 +975,11 @@ h1 {
   cursor: pointer;
   transition-duration: 2s;
 }
+@media (max-width: 768px) {
+  .btn-mob {
+    width: 29.2%;
+  }
+}
 
 .mobile_download__apple {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
@@ -944,5 +1016,12 @@ h1 {
   .mobile_app__img {
     width: 98%;
     margin-top: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .mobile_app__img {
+    margin-top: 100px;
+    padding: 0 29px;
+    width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

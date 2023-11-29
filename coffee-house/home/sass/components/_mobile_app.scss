@@ -21,6 +21,10 @@
   @include media-801 {
     width: 82.1%;
   }
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
 
 .mobile_download{
@@ -38,6 +42,10 @@
   @include media-1201 {
     width: 100%;
     margin-top: 0px;
+  }
+
+  @include media-tablet {
+    width: 100%;
   }
 }
 
@@ -71,6 +79,10 @@
     color: $color-background-body;
     cursor: pointer;
     transition-duration: 2s;
+  }
+
+  @include media-tablet {
+    width: 29.2%;
   }
 }
 
@@ -107,5 +119,11 @@
   @include media-1201 {
     width: 98%;
     margin-top:20px;
+  }
+
+  @include media-tablet {
+    margin-top: 100px;
+    padding: 0 29px;
+    width: 100%;
   }
 }

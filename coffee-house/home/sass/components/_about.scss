@@ -35,6 +35,10 @@
   @include media-801 {
     width: 86%;
   }
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
 .photos_column1{
   @extend %column;
@@ -45,6 +49,10 @@
   }
 
   @include media-1281 {
+    width: 100%;
+  }
+
+  @include media-tablet {
     width: 100%;
   }
 }
@@ -75,11 +83,18 @@
     transform: scale(1.0,1.0);
     transition-duration: 2s;
   }
+  @include media-tablet {
+    transform: scale(1.05,1.23);
+  }
 }
 
 .photos_2{
   @extend %block_photo;
   height: 430px;
+
+  @include media-tablet {
+    display: none;
+  }
 }
 
 .photos_img2{
@@ -105,11 +120,19 @@
     transform: scale(1.0,1.0);
     transition-duration: 2s;
   }
+
+  @include media-tablet {
+    transform: scale(1.05,1.23);
+  }
 }
  
 .photos_3{
   @extend %block_photo;
   height: 430px;
+
+  @include media-tablet {
+    display: none;
+  }
 }
 
 .photos_img3{
