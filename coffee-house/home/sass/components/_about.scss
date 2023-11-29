@@ -10,15 +10,44 @@
 .photos{
   @include flex($display:flex,$content:space-between);
   margin-top: 40px;
+
+  @include media-1281{
+    @include flex($display:flex,$content:flex-start);
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    gap: 40px;
+  }
+
+  @include media-1201 {
+    width: 60%;
+  }
 }
 .photos_column1{
   @extend %column;
   @include flex($display:flex,$content:flex-start);
+
+  @include media-1361{
+    width: 49.5%;
+  }
+
+  @include media-1281 {
+    width: 100%;
+  }
 }
 
 .photos_column2{
   @extend %column;
   @include flex($display:flex,$content:flex-start);
+  
+  @include media-1361 {
+    width: 49.5%;
+  }
+
+  @include media-1281 {
+    width: 100%;
+  }
 }
 
 .photos_1{

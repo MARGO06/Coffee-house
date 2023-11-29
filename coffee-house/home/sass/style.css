@@ -85,6 +85,11 @@ h1 {
     max-width: 1200px;
   }
 }
+@media (max-width: 1201px) {
+  .wrapper {
+    max-width: 1100px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -98,6 +103,11 @@ h1 {
 @media (max-width: 1361px) {
   .header__navigation {
     width: 85.52%;
+  }
+}
+@media (max-width: 1201px) {
+  .header__navigation {
+    width: 83.52%;
   }
 }
 
@@ -160,6 +170,11 @@ h1 {
 @media (max-width: 1281px) {
   .footer__social-media {
     width: 42%;
+  }
+}
+@media (max-width: 1201px) {
+  .footer__social-media {
+    width: 45%;
   }
 }
 
@@ -292,6 +307,11 @@ h1 {
     width: 42.89%;
   }
 }
+@media (max-width: 1201px) {
+  .enjoy__inform {
+    width: 47%;
+  }
+}
 
 .enjoy__word {
   font-style: italic;
@@ -389,6 +409,21 @@ h1 {
 .coffee {
   width: 35.3%;
 }
+@media (max-width: 1361px) {
+  .coffee {
+    width: 37.5%;
+  }
+}
+@media (max-width: 1281px) {
+  .coffee {
+    width: 40%;
+  }
+}
+@media (max-width: 1201px) {
+  .coffee {
+    width: 43.7%;
+  }
+}
 
 .coffee__call {
   margin-top: 16px;
@@ -454,15 +489,51 @@ h1 {
   justify-content: space-between;
   margin-top: 40px;
 }
+@media (max-width: 1281px) {
+  .photos {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    gap: 40px;
+  }
+}
+@media (max-width: 1201px) {
+  .photos {
+    width: 60%;
+  }
+}
 
 .photos_column1 {
   display: flex;
   justify-content: flex-start;
 }
+@media (max-width: 1361px) {
+  .photos_column1 {
+    width: 49.5%;
+  }
+}
+@media (max-width: 1281px) {
+  .photos_column1 {
+    width: 100%;
+  }
+}
 
 .photos_column2 {
   display: flex;
   justify-content: flex-start;
+}
+@media (max-width: 1361px) {
+  .photos_column2 {
+    width: 49.5%;
+  }
+}
+@media (max-width: 1281px) {
+  .photos_column2 {
+    width: 100%;
+  }
 }
 
 .photos_1 {
@@ -523,6 +594,14 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 1201px) {
+  .mobile_app {
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 57.5%;
+  }
+}
 
 .mobile_download {
   width: 46.32%;
@@ -536,6 +615,12 @@ h1 {
 @media (max-width: 1281px) {
   .mobile_download {
     width: 51%;
+  }
+}
+@media (max-width: 1201px) {
+  .mobile_download {
+    width: 100%;
+    margin-top: 0px;
   }
 }
 
@@ -610,5 +695,11 @@ h1 {
   .mobile_app__img {
     display: block;
     width: 49%;
+  }
+}
+@media (max-width: 1201px) {
+  .mobile_app__img {
+    width: 98%;
+    margin-top: 20px;
   }
 }/*# sourceMappingURL=style.css.map */

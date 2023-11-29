@@ -17,6 +17,10 @@
   @include media-1281{
     width: 42%;
   }
+
+  @include media-1201 {
+    width: 45%;
+  }
 }
 
 .footer__list{

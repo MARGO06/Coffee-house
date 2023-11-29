@@ -44,6 +44,18 @@
 
 .coffee{
   width: 35.3%;
+
+  @include media-1361 {
+    width: 37.5%;
+  }
+
+  @include media-1281 {
+    width: 40%;
+  }
+
+  @include media-1201 {
+    width: 43.7%;
+  }
 }
 .coffee__call{
   margin-top: 16px;
