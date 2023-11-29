@@ -60,6 +60,10 @@
   @include media-1001 {
     width: 53.4%;
   }
+
+  @include media-901 {
+    width: 60%;
+  }
 }
 .coffee__call{
   margin-top: 16px;
@@ -99,6 +103,10 @@
 
   @include media-1101 {
     margin-left: 42%;
+  }
+
+  @include media-901 {
+    margin-left: 41%;
   }
 }
 

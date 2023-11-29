@@ -27,6 +27,10 @@
   @include media-1001 {
     width: 73.4%;
   }
+
+  @include media-901 {
+    width: 82.4%;
+  }
 }
 .photos_column1{
   @extend %column;

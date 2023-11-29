@@ -100,6 +100,11 @@ h1 {
     max-width: 900px;
   }
 }
+@media (max-width: 901px) {
+  .wrapper {
+    max-width: 800px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -123,6 +128,11 @@ h1 {
 @media (max-width: 1001px) {
   .header__navigation {
     width: 80.52%;
+  }
+}
+@media (max-width: 901px) {
+  .header__navigation {
+    width: 78.52%;
   }
 }
 
@@ -198,6 +208,12 @@ h1 {
     margin-left: 50px;
   }
 }
+@media (max-width: 1001px) {
+  .footer__social-media {
+    width: 63%;
+    margin-left: 10px;
+  }
+}
 
 .footer__list {
   display: flex;
@@ -239,6 +255,11 @@ h1 {
 @media (max-width: 1001px) {
   .footer__contact {
     margin-left: 62px;
+  }
+}
+@media (max-width: 1001px) {
+  .footer__contact {
+    margin-left: 12px;
   }
 }
 
@@ -341,6 +362,11 @@ h1 {
 @media (max-width: 1001px) {
   .enjoy__inform {
     width: 59%;
+  }
+}
+@media (max-width: 901px) {
+  .enjoy__inform {
+    width: 66.2%;
   }
 }
 
@@ -460,6 +486,11 @@ h1 {
     width: 53.4%;
   }
 }
+@media (max-width: 901px) {
+  .coffee {
+    width: 60%;
+  }
+}
 
 .coffee__call {
   margin-top: 16px;
@@ -511,6 +542,11 @@ h1 {
     margin-left: 42%;
   }
 }
+@media (max-width: 901px) {
+  .pagination {
+    margin-left: 41%;
+  }
+}
 
 .pagination__rectg {
   width: 40px;
@@ -559,6 +595,11 @@ h1 {
 @media (max-width: 1001px) {
   .photos {
     width: 73.4%;
+  }
+}
+@media (max-width: 901px) {
+  .photos {
+    width: 82.4%;
   }
 }
 
@@ -661,6 +702,11 @@ h1 {
 @media (max-width: 1001px) {
   .mobile_app {
     width: 70%;
+  }
+}
+@media (max-width: 901px) {
+  .mobile_app {
+    width: 78.8%;
   }
 }
 
