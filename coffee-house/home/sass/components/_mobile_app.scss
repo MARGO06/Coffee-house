@@ -52,6 +52,10 @@
 .mobile_download__title{
   @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
   color: $color-primary-text;
+
+  @include media-mobile {
+    @include font($size:$size-burger-link, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-link);
+  }
 }
 
 .mobile_download__text{
@@ -96,6 +100,11 @@
   @include media-489 {
     width: 50%;
   }
+
+  @include media-mobile {
+    width: 58%;
+    margin-top: 0px;
+  }
 }
 
 .mobile_download__apple{
@@ -103,6 +112,10 @@
   transition-duration: 2s;
   &:hover{
     background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app-hover.svg);
+  }
+
+  @include media-mobile {
+    margin-top: 38px;
   }
 }
 
@@ -117,6 +130,10 @@
 
   @include media-489 {
     margin-left: 0;
+  }
+
+  @include media-mobile {
+    margin-top: 20px;
   }
 }
 
@@ -141,5 +158,10 @@
     margin-top: 100px;
     padding: 0 29px;
     width: 100%;
+  }
+
+  @include media-mobile {
+    margin-top: 40px;
+    padding: 0;
   }
 }

@@ -294,6 +294,13 @@ h1 {
     padding-bottom: 103px;
   }
 }
+@media (max-width: 380px) {
+  .footer__inform {
+    padding-top: 60px;
+    padding-bottom: 64px;
+    padding-left: 16px;
+  }
+}
 
 .footer__social-media {
   width: 40%;
@@ -344,6 +351,12 @@ h1 {
     width: 80%;
   }
 }
+@media (max-width: 380px) {
+  .footer__social-media {
+    margin-left: 0;
+    width: 100%;
+  }
+}
 
 .footer__list {
   display: flex;
@@ -357,6 +370,14 @@ h1 {
   font-weight: 600;
   line-height: 7.5rem;
   color: #E1D4C9;
+}
+@media (max-width: 380px) {
+  .footer__title {
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 4rem;
+  }
 }
 
 .footer__item {
@@ -409,6 +430,12 @@ h1 {
     margin-left: 10px;
   }
 }
+@media (max-width: 380px) {
+  .footer__contact {
+    margin-top: 40px;
+    margin-left: 0;
+  }
+}
 
 .footer__text {
   margin-top: 32px;
@@ -417,6 +444,11 @@ h1 {
   font-weight: 600;
   line-height: 3rem;
   color: #E1D4C9;
+}
+@media (max-width: 380px) {
+  .footer__text {
+    margin-top: 0;
+  }
 }
 
 .footer__local {
@@ -1119,6 +1151,14 @@ h1 {
   line-height: 7.5rem;
   color: #403F3D;
 }
+@media (max-width: 380px) {
+  .mobile_download__title {
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 4rem;
+  }
+}
 
 .mobile_download__text {
   margin-top: 40px;
@@ -1173,6 +1213,12 @@ h1 {
     width: 50%;
   }
 }
+@media (max-width: 380px) {
+  .btn-mob {
+    width: 58%;
+    margin-top: 0px;
+  }
+}
 
 .mobile_download__apple {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
@@ -1180,6 +1226,11 @@ h1 {
 }
 .mobile_download__apple:hover {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app-hover.svg);
+}
+@media (max-width: 380px) {
+  .mobile_download__apple {
+    margin-top: 38px;
+  }
 }
 
 .mobile_download__google {
@@ -1194,6 +1245,11 @@ h1 {
 @media (max-width: 489px) {
   .mobile_download__google {
     margin-left: 0;
+  }
+}
+@media (max-width: 380px) {
+  .mobile_download__google {
+    margin-top: 20px;
   }
 }
 
@@ -1221,5 +1277,11 @@ h1 {
     margin-top: 100px;
     padding: 0 29px;
     width: 100%;
+  }
+}
+@media (max-width: 380px) {
+  .mobile_app__img {
+    margin-top: 40px;
+    padding: 0;
   }
 }/*# sourceMappingURL=style.css.map */

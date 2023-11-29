@@ -15,7 +15,13 @@
 
   @include media-tablet {
     padding-bottom: 103px;
-}
+  }
+
+  @include media-mobile {
+    padding-top: 60px;
+    padding-bottom: 64px;
+    padding-left: 16px;
+  }
 
 }
 
@@ -60,6 +66,11 @@
     width:80%;
   }
 
+  @include media-mobile {
+    margin-left:0;
+    width:100%;
+  }
+
 }
 
 .footer__list{
@@ -70,6 +81,10 @@
 .footer__title{
   @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
   color: $color-background-body;
+
+  @include media-mobile {
+    @include font($size:$size-burger-link, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-link);
+  }
 }
 
 .footer__item{
@@ -118,12 +133,21 @@
   @include media-589 {
     margin-left: 10px;
   }
+
+  @include media-mobile {
+    margin-top: 40px;
+    margin-left: 0;
+  }
 }
 
 .footer__text{
   margin-top: 32px;
   @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
   color: $color-background-body;
+
+  @include media-mobile {
+    margin-top: 0;
+  }
 }
 
 .footer__local{
