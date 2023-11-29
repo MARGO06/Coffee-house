@@ -105,6 +105,11 @@ h1 {
     max-width: 800px;
   }
 }
+@media (max-width: 801px) {
+  .wrapper {
+    max-width: 767px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -133,6 +138,11 @@ h1 {
 @media (max-width: 901px) {
   .header__navigation {
     width: 78.52%;
+  }
+}
+@media (max-width: 801px) {
+  .header__navigation {
+    width: 77.52%;
   }
 }
 
@@ -187,6 +197,11 @@ h1 {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+@media (max-width: 801px) {
+  .footer__inform {
+    flex-direction: column;
+  }
+}
 
 .footer__social-media {
   width: 40%;
@@ -208,10 +223,10 @@ h1 {
     margin-left: 50px;
   }
 }
-@media (max-width: 1001px) {
+@media (max-width: 901px) {
   .footer__social-media {
-    width: 63%;
-    margin-left: 10px;
+    width: 70%;
+    margin-left: 70px;
   }
 }
 
@@ -257,9 +272,15 @@ h1 {
     margin-left: 62px;
   }
 }
-@media (max-width: 1001px) {
+@media (max-width: 901px) {
   .footer__contact {
     margin-left: 12px;
+  }
+}
+@media (max-width: 801px) {
+  .footer__contact {
+    margin-top: 20px;
+    margin-left: 70px;
   }
 }
 
@@ -367,6 +388,11 @@ h1 {
 @media (max-width: 901px) {
   .enjoy__inform {
     width: 66.2%;
+  }
+}
+@media (max-width: 801px) {
+  .enjoy__inform {
+    width: 69.2%;
   }
 }
 
@@ -491,6 +517,11 @@ h1 {
     width: 60%;
   }
 }
+@media (max-width: 801px) {
+  .coffee {
+    width: 62.5%;
+  }
+}
 
 .coffee__call {
   margin-top: 16px;
@@ -602,6 +633,11 @@ h1 {
     width: 82.4%;
   }
 }
+@media (max-width: 801px) {
+  .photos {
+    width: 86%;
+  }
+}
 
 .photos_column1 {
   display: flex;
@@ -707,6 +743,11 @@ h1 {
 @media (max-width: 901px) {
   .mobile_app {
     width: 78.8%;
+  }
+}
+@media (max-width: 801px) {
+  .mobile_app {
+    width: 82.1%;
   }
 }
 
