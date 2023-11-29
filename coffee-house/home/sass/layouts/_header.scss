@@ -13,6 +13,10 @@
   @include media-1201{
     width: 81.52%;
   }
+
+  @include media-1001{
+    width: 80.52%;
+  }
 }
 
 .header__list{

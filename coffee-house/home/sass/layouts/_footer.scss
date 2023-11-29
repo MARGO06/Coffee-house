@@ -21,6 +21,11 @@
   @include media-1201 {
     width: 49.5%;
   }
+
+  @include media-1001 {
+   width: 55%;
+   margin-left: 50px;
+  }
 }
 
 .footer__list{
@@ -57,6 +62,10 @@
 
 .footer__contact{
   margin-left: 87px;
+
+  @include media-1001 {
+    margin-left: 62px;
+  }
 }
 
 .footer__text{

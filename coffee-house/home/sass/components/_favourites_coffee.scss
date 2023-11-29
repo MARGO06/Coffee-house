@@ -56,6 +56,10 @@
   @include media-1201 {
     width: 47.9%;
   }
+
+  @include media-1001 {
+    width: 53.4%;
+  }
 }
 .coffee__call{
   margin-top: 16px;
@@ -84,6 +88,18 @@
   margin-left: 44.7%;
   align-items: center;
   width: 144px;
+
+  @include media-1361 {
+    margin-left: 44.1%;
+  }
+
+  @include media-1201 {
+    margin-left: 43%;
+  }
+
+  @include media-1101 {
+    margin-left: 42%;
+  }
 }
 
 .pagination__rectg{

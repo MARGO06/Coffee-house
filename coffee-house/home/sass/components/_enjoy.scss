@@ -22,6 +22,10 @@
   @include media-1201 {
     width: 52%;
   }
+
+  @include media-1001 {
+    width: 59%;
+  }
 }
 
 .enjoy__word{
