@@ -54,6 +54,12 @@
   @include media-689 {
     width: 90%;
   }
+
+  @include media-689 {
+    margin-left:10px;
+    width:80%;
+  }
+
 }
 
 .footer__list{
@@ -107,6 +113,10 @@
   @include media-tablet {
     margin-top: 69px;
     margin-left: 60px;
+  }
+
+  @include media-589 {
+    margin-left: 10px;
   }
 }
 

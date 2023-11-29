@@ -136,6 +136,10 @@
   @include media-689 {
     margin-left: 37.8%;
   }
+
+  @include media-689 {
+    margin-left: 35.8%;
+  }
 }
 
 .pagination__rectg{
@@ -147,4 +151,11 @@
 
 .pagination__rectg--active{
   background-color: $color-background-container;
+}
+
+.coffe__img{
+  @include media-589 {
+    display: block;
+    width: 100%;
+  }
 }

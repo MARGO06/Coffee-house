@@ -63,3 +63,9 @@
    @content;
   }
 }
+
+@mixin media-589 {
+  @media(max-width: $screen-width-589) {
+   @content;
+  }
+}
