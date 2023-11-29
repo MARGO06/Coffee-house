@@ -11,6 +11,10 @@
   @include media-1361{
     width: 48.2%;
   }
+
+  @include media-1281{
+    width: 51%;
+  }
 }
 
 .mobile_download__title{
@@ -67,4 +71,12 @@
 .btn-mob__company{
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
 
+}
+
+.mobile_app__img{
+  
+  @include media-1281 {
+    display: block;
+    width: 49%;
+  }
 }

@@ -15,3 +15,9 @@
    @content;
   }
 }
+
+@mixin media-1281{
+  @media(max-width: $screen-width-1281) {
+   @content;
+  }
+}

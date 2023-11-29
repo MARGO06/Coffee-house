@@ -80,6 +80,11 @@ h1 {
     max-width: 1280px;
   }
 }
+@media (max-width: 1281px) {
+  .wrapper {
+    max-width: 1200px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -151,6 +156,11 @@ h1 {
 .footer__social-media {
   width: 40%;
   margin-left: 100px;
+}
+@media (max-width: 1281px) {
+  .footer__social-media {
+    width: 42%;
+  }
 }
 
 .footer__list {
@@ -275,6 +285,11 @@ h1 {
 @media (max-width: 1361px) {
   .enjoy__inform {
     width: 40.78%;
+  }
+}
+@media (max-width: 1281px) {
+  .enjoy__inform {
+    width: 42.89%;
   }
 }
 
@@ -518,6 +533,11 @@ h1 {
     width: 48.2%;
   }
 }
+@media (max-width: 1281px) {
+  .mobile_download {
+    width: 51%;
+  }
+}
 
 .mobile_download__title {
   font-size: 6rem;
@@ -584,4 +604,11 @@ h1 {
   font-style: normal;
   font-weight: 600;
   line-height: 2.4rem;
+}
+
+@media (max-width: 1281px) {
+  .mobile_app__img {
+    display: block;
+    width: 49%;
+  }
 }/*# sourceMappingURL=style.css.map */

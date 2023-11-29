@@ -11,8 +11,12 @@
   width: 38.9%;
   margin-left: 100px;
 
-  @include media-1361{
+  @include media-1361 {
     width: 40.78%;
+  }
+
+  @include media-1281 {
+    width: 42.89%;
   }
 }
 
