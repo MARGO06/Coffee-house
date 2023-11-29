@@ -51,3 +51,9 @@
    @content;
   }
 }
+
+@mixin media-tablet {
+  @media(max-width: $screen-width-tablet) {
+   @content;
+  }
+}
