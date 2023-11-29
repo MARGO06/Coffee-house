@@ -39,6 +39,11 @@
     width: 77%;
     margin-left: 60px;
   }
+
+  @include media-689 {
+    width: 90%;
+    margin-left: 30px;
+  }
 }
 
 .enjoy__word{

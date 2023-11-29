@@ -80,6 +80,10 @@
   @include media-tablet {
     width: 70%;
   }
+
+  @include media-689 {
+    width: 82%;
+  }
 }
 .coffee__call{
   margin-top: 16px;
@@ -127,6 +131,10 @@
 
   @include media-tablet {
     margin-left: 39.8%;
+  }
+
+  @include media-689 {
+    margin-left: 37.8%;
   }
 }
 

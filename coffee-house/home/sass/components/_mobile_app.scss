@@ -84,6 +84,10 @@
   @include media-tablet {
     width: 29.2%;
   }
+
+  @include media-689 {
+    width: 35%;
+  }
 }
 
 .mobile_download__apple{

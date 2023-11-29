@@ -37,13 +37,22 @@
   }
 
   @include media-901 {
-    width: 70%;
-    margin-left: 70px;
+    width: 62%;
+    margin-left: 20px;
    }
+
+  @include media-801 {
+    width: 65%;
+    margin-left: 70px;
+  }
 
   @include media-tablet {
     margin-left: 60px;
     width: 82.7%;
+  }
+
+  @include media-689 {
+    width: 90%;
   }
 }
 

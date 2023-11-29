@@ -115,6 +115,11 @@ h1 {
     max-width: 688px;
   }
 }
+@media (max-width: 689px) {
+  .wrapper {
+    max-width: 588px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -289,7 +294,13 @@ h1 {
 }
 @media (max-width: 901px) {
   .footer__social-media {
-    width: 70%;
+    width: 62%;
+    margin-left: 20px;
+  }
+}
+@media (max-width: 801px) {
+  .footer__social-media {
+    width: 65%;
     margin-left: 70px;
   }
 }
@@ -297,6 +308,11 @@ h1 {
   .footer__social-media {
     margin-left: 60px;
     width: 82.7%;
+  }
+}
+@media (max-width: 689px) {
+  .footer__social-media {
+    width: 90%;
   }
 }
 
@@ -487,6 +503,12 @@ h1 {
     margin-left: 60px;
   }
 }
+@media (max-width: 689px) {
+  .enjoy__inform {
+    width: 90%;
+    margin-left: 30px;
+  }
+}
 
 .enjoy__word {
   font-style: italic;
@@ -639,6 +661,11 @@ h1 {
     width: 70%;
   }
 }
+@media (max-width: 689px) {
+  .coffee {
+    width: 82%;
+  }
+}
 
 .coffee__call {
   margin-top: 16px;
@@ -698,6 +725,11 @@ h1 {
 @media (max-width: 768px) {
   .pagination {
     margin-left: 39.8%;
+  }
+}
+@media (max-width: 689px) {
+  .pagination {
+    margin-left: 37.8%;
   }
 }
 
@@ -978,6 +1010,11 @@ h1 {
 @media (max-width: 768px) {
   .btn-mob {
     width: 29.2%;
+  }
+}
+@media (max-width: 689px) {
+  .btn-mob {
+    width: 35%;
   }
 }
 
