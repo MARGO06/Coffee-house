@@ -7,6 +7,10 @@
 .mobile_download{
   width: 46.32%;
   margin-top: 144px;
+
+  @include media-1361{
+    width: 48.2%;
+  }
 }
 
 .mobile_download__title{
