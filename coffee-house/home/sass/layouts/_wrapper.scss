@@ -45,4 +45,8 @@
   @include media-489 {
     max-width: 379px;
   }
+
+  @include media-mobile {
+    max-width: 348px;
+  }
 }

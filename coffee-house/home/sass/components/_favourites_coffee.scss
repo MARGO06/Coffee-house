@@ -6,6 +6,10 @@
   @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
   @extend %text-center;
   color: $color-primary-text;
+  
+  @include media-mobile {
+    @include font($size:$size-burger-link, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-link);
+  }
 }
 
 .choose{
@@ -37,6 +41,10 @@
   @include media-489 {
     margin-top: 170px;
   }
+
+  @include media-mobile {
+    display: none;
+  }
 }
 
 .choose__left{
@@ -63,6 +71,10 @@
 
   @include media-489 {
     margin-top: 170px;
+  }
+
+  @include media-mobile {
+    display: none;
   }
 }
 
@@ -100,12 +112,20 @@
   @include media-689 {
     width: 82%;
   }
+
+  @include media-mobile {
+    width: 100%;
+  }
 }
 .coffee__call{
   margin-top: 16px;
   @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
   @extend %text-center;
   color: $color-primary-text;
+
+  @include media-mobile {
+    margin-top: 20px;
+  }
 }
 
 .coffee__desription{
@@ -159,6 +179,10 @@
 
   @include media-489 {
     margin-left: 33.8%;
+  }
+
+  @include media-mobile{
+    margin-left: 29.3%;
   }
 }
 

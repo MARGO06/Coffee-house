@@ -49,6 +49,12 @@
     width: 99%;
     margin-left: 5px;
   }
+
+  @include media-mobile {
+    padding: 60px 0;
+    margin-left: 16px;
+    width: 92%;
+  }
 }
 
 .enjoy__word{
@@ -79,6 +85,11 @@
 
   @include media-489 {
     width: 50%;
+  }
+
+  @include media-mobile {
+    padding: 19px 62px;
+    width: 62.9%;
   }
 }
 

@@ -5,6 +5,10 @@
 .about__title{
   @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
   color: $color-primary-text;
+
+  @include media-mobile {
+    @include font($size:$size-burger-link, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-link);
+  }
 }
 
 .photos{
@@ -83,8 +87,13 @@
     transform: scale(1.0,1.0);
     transition-duration: 2s;
   }
+
   @include media-tablet {
     transform: scale(1.05,1.23);
+  }
+
+  @include media-mobile {
+    transform: scale(2.1,1.23);
   }
 }
 
@@ -123,6 +132,10 @@
 
   @include media-tablet {
     transform: scale(1.05,1.23);
+  }
+
+  @include media-mobile {
+    transform: scale(2.1,1.23);
   }
 }
  
