@@ -92,6 +92,10 @@
   @include media-589 {
     width: 40%;
   }
+
+  @include media-489 {
+    width: 50%;
+  }
 }
 
 .mobile_download__apple{
@@ -109,6 +113,10 @@
   padding-left: 60px;
   &:hover{
     background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google-hover.svg);
+  }
+
+  @include media-489 {
+    margin-left: 0;
   }
 }
 

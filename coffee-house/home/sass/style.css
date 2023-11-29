@@ -125,6 +125,11 @@ h1 {
     max-width: 488px;
   }
 }
+@media (max-width: 489px) {
+  .wrapper {
+    max-width: 379px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -564,6 +569,11 @@ h1 {
     padding: 20px 62px;
   }
 }
+@media (max-width: 489px) {
+  .enjoy__btn {
+    width: 50%;
+  }
+}
 
 .enjoy__btn:after {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/coffee-cup.svg);
@@ -625,6 +635,16 @@ h1 {
     margin-left: 0px;
   }
 }
+@media (max-width: 589px) {
+  .choose__right {
+    margin-top: 230px;
+  }
+}
+@media (max-width: 489px) {
+  .choose__right {
+    margin-top: 170px;
+  }
+}
 
 .choose__left {
   margin-right: 4px;
@@ -642,6 +662,16 @@ h1 {
 @media (max-width: 768px) {
   .choose__left {
     margin-right: 0px;
+  }
+}
+@media (max-width: 589px) {
+  .choose__left {
+    margin-top: 230px;
+  }
+}
+@media (max-width: 489px) {
+  .choose__left {
+    margin-top: 170px;
   }
 }
 
@@ -757,6 +787,11 @@ h1 {
 @media (max-width: 689px) {
   .pagination {
     margin-left: 35.8%;
+  }
+}
+@media (max-width: 489px) {
+  .pagination {
+    margin-left: 33.8%;
   }
 }
 
@@ -1056,6 +1091,11 @@ h1 {
     width: 40%;
   }
 }
+@media (max-width: 489px) {
+  .btn-mob {
+    width: 50%;
+  }
+}
 
 .mobile_download__apple {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
@@ -1073,6 +1113,11 @@ h1 {
 }
 .mobile_download__google:hover {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google-hover.svg);
+}
+@media (max-width: 489px) {
+  .mobile_download__google {
+    margin-left: 0;
+  }
 }
 
 .btn-mob__company {

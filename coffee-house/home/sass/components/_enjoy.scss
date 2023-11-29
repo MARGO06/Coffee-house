@@ -76,6 +76,10 @@
   @include media-tablet {
     padding: 20px 62px;
   }
+
+  @include media-489 {
+    width: 50%;
+  }
 }
 
 .enjoy__btn:after{
