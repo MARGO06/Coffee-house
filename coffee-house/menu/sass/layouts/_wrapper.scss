@@ -21,4 +21,8 @@
   @include media-1001 {
     max-width: 900px;
   }
+
+  @include media-901 {
+    max-width: 800px;
+  }
 }

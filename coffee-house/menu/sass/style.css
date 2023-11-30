@@ -97,6 +97,11 @@ h1 {
     max-width: 900px;
   }
 }
+@media (max-width: 901px) {
+  .wrapper {
+    max-width: 800px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -120,6 +125,11 @@ h1 {
 @media (max-width: 1001px) {
   .header__navigation {
     width: 80.52%;
+  }
+}
+@media (max-width: 901px) {
+  .header__navigation {
+    width: 78.52%;
   }
 }
 
@@ -208,6 +218,12 @@ h1 {
     margin-left: 50px;
   }
 }
+@media (max-width: 901px) {
+  .footer__social-media {
+    width: 62%;
+    margin-left: 20px;
+  }
+}
 
 .footer__list {
   display: flex;
@@ -244,6 +260,11 @@ h1 {
 
 .footer__contact {
   margin-left: 87px;
+}
+@media (max-width: 901px) {
+  .footer__contact {
+    margin-left: 12px;
+  }
 }
 
 .footer__text {
@@ -361,6 +382,12 @@ h1 {
 @media (max-width: 1001px) {
   .btns {
     width: 40%;
+  }
+}
+@media (max-width: 901px) {
+  .btns {
+    width: 45%;
+    margin-left: 30.7%;
   }
 }
 
@@ -484,6 +511,11 @@ h1 {
 @media (max-width: 1001px) {
   .card {
     width: 34%;
+  }
+}
+@media (max-width: 901px) {
+  .card {
+    width: 38%;
   }
 }
 

@@ -31,6 +31,11 @@
   @include media-1001 {
     width: 40%;
   }
+
+  @include media-901 {
+    width: 45%;
+    margin-left: 30.7%;
+  }
 }
 
 .btn{
@@ -146,6 +151,10 @@
 
   @include media-1001 {
     width: 34%;
+  }
+
+  @include media-901 {
+    width: 38%;
   }
 }
 

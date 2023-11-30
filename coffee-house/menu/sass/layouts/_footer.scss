@@ -26,6 +26,11 @@
     width: 55%;
     margin-left: 50px;
   }
+
+  @include media-901 {
+    width: 62%;
+    margin-left: 20px;
+  }
 }
 
 .footer__list{
@@ -61,6 +66,10 @@
 
 .footer__contact{
   margin-left: 87px;
+
+  @include media-901 {
+    margin-left:12px;
+  }
 }
 
 .footer__text{
