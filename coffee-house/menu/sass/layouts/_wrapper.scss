@@ -13,4 +13,8 @@
   @include media-1201 {
     max-width: 1100px;
   }
+
+  @include media-1101 {
+    max-width: 1000px;
+  }
 }

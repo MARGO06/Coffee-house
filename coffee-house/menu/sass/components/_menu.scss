@@ -23,6 +23,10 @@
     width: 32.8%;
     margin-left: 32.7%;
   }
+
+  @include media-1101 {
+    width: 36%;
+  }
 }
 
 .btn{
