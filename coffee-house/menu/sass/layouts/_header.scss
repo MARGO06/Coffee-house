@@ -5,6 +5,10 @@
 
 .header__navigation{
   width: 87.4%;
+
+  @include media-1361{
+    width: 85.52%;
+  }
 }
 
 .header__list{

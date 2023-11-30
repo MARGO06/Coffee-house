@@ -100,6 +100,10 @@
   @include flex($display:flex, $content:flex-start);
   flex-wrap: wrap;
   gap: 40px;
+
+  @include media-1361 {
+    @include flex($display:flex, $content:center);
+  }
 }
 
 .card{

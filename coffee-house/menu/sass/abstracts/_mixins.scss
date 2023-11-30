@@ -9,3 +9,9 @@
   display:$display;
   justify-content: $content;
 }
+
+@mixin media-1361{
+  @media(max-width: $screen-width-1361) {
+   @content;
+  }
+}
