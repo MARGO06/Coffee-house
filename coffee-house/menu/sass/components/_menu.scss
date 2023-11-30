@@ -49,6 +49,11 @@
   @include media-689 {
     width: 59.1%;
   }
+
+  @include media-589 {
+    width: 69.1%;
+    margin-left: 15.7%;
+  }
 }
 
 .btn{
