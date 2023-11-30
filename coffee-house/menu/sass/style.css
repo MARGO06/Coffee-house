@@ -77,6 +77,11 @@ h1 {
     max-width: 1280px;
   }
 }
+@media (max-width: 1281px) {
+  .wrapper {
+    max-width: 1200px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -161,6 +166,11 @@ h1 {
 .footer__social-media {
   width: 40%;
   margin-left: 100px;
+}
+@media (max-width: 1281px) {
+  .footer__social-media {
+    width: 42%;
+  }
 }
 
 .footer__list {
