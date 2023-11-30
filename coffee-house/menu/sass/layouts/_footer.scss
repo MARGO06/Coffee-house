@@ -8,6 +8,10 @@
   @include flex($display:flex,$content:flex-start);
   padding-top: 100px;
   padding-bottom: 100px;
+
+  @include media-801 {
+    flex-direction: column;
+  }
 }
 
 .footer__social-media{
@@ -30,6 +34,11 @@
   @include media-901 {
     width: 62%;
     margin-left: 20px;
+  }
+
+  @include media-801 {
+    width: 65%;
+    margin-left: 70px;
   }
 }
 
@@ -69,6 +78,11 @@
 
   @include media-901 {
     margin-left:12px;
+  }
+
+  @include media-801 {
+    margin-top: 20px;
+    margin-left:70px;
   }
 }
 
