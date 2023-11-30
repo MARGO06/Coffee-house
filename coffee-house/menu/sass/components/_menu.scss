@@ -27,6 +27,10 @@
   @include media-1101 {
     width: 36%;
   }
+
+  @include media-1001 {
+    width: 40%;
+  }
 }
 
 .btn{
@@ -135,8 +139,13 @@
   @include media-1281{
     width: 24%;
   }
+
   @include media-1201 {
     width: 28%;
+  }
+
+  @include media-1001 {
+    width: 34%;
   }
 }
 

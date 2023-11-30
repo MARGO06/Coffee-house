@@ -92,6 +92,11 @@ h1 {
     max-width: 1000px;
   }
 }
+@media (max-width: 1001px) {
+  .wrapper {
+    max-width: 900px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -110,6 +115,11 @@ h1 {
 @media (max-width: 1201px) {
   .header__navigation {
     width: 81.52%;
+  }
+}
+@media (max-width: 1001px) {
+  .header__navigation {
+    width: 80.52%;
   }
 }
 
@@ -190,6 +200,12 @@ h1 {
 @media (max-width: 1201px) {
   .footer__social-media {
     width: 49.5%;
+  }
+}
+@media (max-width: 1001px) {
+  .footer__social-media {
+    width: 55%;
+    margin-left: 50px;
   }
 }
 
@@ -342,6 +358,11 @@ h1 {
     width: 36%;
   }
 }
+@media (max-width: 1001px) {
+  .btns {
+    width: 40%;
+  }
+}
 
 .btn {
   display: inline-block;
@@ -458,6 +479,11 @@ h1 {
 @media (max-width: 1201px) {
   .card {
     width: 28%;
+  }
+}
+@media (max-width: 1001px) {
+  .card {
+    width: 34%;
   }
 }
 

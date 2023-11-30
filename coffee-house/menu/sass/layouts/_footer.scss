@@ -21,6 +21,11 @@
   @include media-1201 {
     width: 49.5%;
   }
+
+  @include media-1001 {
+    width: 55%;
+    margin-left: 50px;
+  }
 }
 
 .footer__list{
