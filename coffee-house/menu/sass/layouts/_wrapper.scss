@@ -46,4 +46,7 @@
     max-width: 379px;
   }
 
+  @include media-mobile {
+    max-width: 348px;
+  }
 }

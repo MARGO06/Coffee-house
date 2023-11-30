@@ -27,4 +27,9 @@ h1{
   @include media-tablet {
     width: 100%;
   }
+
+  @include media-mobile {
+    @include font($size:$size-burger-link, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-link);
+  }
+
 }

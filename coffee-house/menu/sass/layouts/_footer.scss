@@ -28,6 +28,10 @@
     padding-left: 5px;
     padding-right: 5px;
   }
+
+  @include media-mobile {
+    padding: 60px 16px;
+  }
 }
 
 .footer__social-media{
@@ -71,6 +75,10 @@
 .footer__title{
   @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
   color: $color-background-body;
+
+  @include media-mobile {
+    @include font($size:$size-burger-link, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-link);
+  }
 }
 
 .footer__item{
@@ -109,6 +117,10 @@
   @include media-tablet {
     margin-top: 100px;
     margin-left: 0;
+  }
+
+  @include media-mobile {
+    margin-top: 40px;
   }
 }
 

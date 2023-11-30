@@ -59,6 +59,11 @@
     width: 89.1%;
     margin-left: 6%;
   }
+
+  @include media-mobile {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 .btn{
@@ -123,6 +128,10 @@
 .menu__dessert{
   width: 117px; 
   padding-left: 43px;
+
+  @include media-mobile {
+    width: 125px;
+  }
 }
 
 .menu__dessert:before{
@@ -153,6 +162,10 @@
 
   @include media-tablet {
     margin-top: 37px;
+  }
+
+  @include media-mobile{
+    margin-top: 35px;
   }
 }
 
@@ -201,6 +214,10 @@
 
   @include media-489 {
     width: 82%;
+  }
+
+  @include media-mobile {
+    width: 89.6%;
   }
 }
 

@@ -72,6 +72,14 @@ h1 {
     width: 100%;
   }
 }
+@media (max-width: 380px) {
+  h1 {
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 4rem;
+  }
+}
 
 .wrapper {
   max-width: 1360px;
@@ -130,6 +138,11 @@ h1 {
 @media (max-width: 489px) {
   .wrapper {
     max-width: 379px;
+  }
+}
+@media (max-width: 380px) {
+  .wrapper {
+    max-width: 348px;
   }
 }
 
@@ -310,6 +323,11 @@ h1 {
     padding-right: 5px;
   }
 }
+@media (max-width: 380px) {
+  .footer__inform {
+    padding: 60px 16px;
+  }
+}
 
 .footer__social-media {
   width: 40%;
@@ -363,6 +381,14 @@ h1 {
   line-height: 7.5rem;
   color: #E1D4C9;
 }
+@media (max-width: 380px) {
+  .footer__title {
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 4rem;
+  }
+}
 
 .footer__item {
   display: flex;
@@ -401,6 +427,11 @@ h1 {
   .footer__contact {
     margin-top: 100px;
     margin-left: 0;
+  }
+}
+@media (max-width: 380px) {
+  .footer__contact {
+    margin-top: 40px;
   }
 }
 
@@ -565,6 +596,12 @@ h1 {
     margin-left: 6%;
   }
 }
+@media (max-width: 380px) {
+  .btns {
+    width: 100%;
+    margin-left: 0;
+  }
+}
 
 .btn {
   display: inline-block;
@@ -630,6 +667,11 @@ h1 {
   width: 117px;
   padding-left: 43px;
 }
+@media (max-width: 380px) {
+  .menu__dessert {
+    width: 125px;
+  }
+}
 
 .menu__dessert:before {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/cake.svg);
@@ -662,6 +704,11 @@ h1 {
 @media (max-width: 768px) {
   .cards {
     margin-top: 37px;
+  }
+}
+@media (max-width: 380px) {
+  .cards {
+    margin-top: 35px;
   }
 }
 
@@ -719,6 +766,11 @@ h1 {
 @media (max-width: 489px) {
   .card {
     width: 82%;
+  }
+}
+@media (max-width: 380px) {
+  .card {
+    width: 89.6%;
   }
 }
 
