@@ -82,6 +82,11 @@ h1 {
     max-width: 1200px;
   }
 }
+@media (max-width: 1201px) {
+  .wrapper {
+    max-width: 1100px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -95,6 +100,11 @@ h1 {
 @media (max-width: 1361px) {
   .header__navigation {
     width: 85.52%;
+  }
+}
+@media (max-width: 1201px) {
+  .header__navigation {
+    width: 81.52%;
   }
 }
 
@@ -170,6 +180,11 @@ h1 {
 @media (max-width: 1281px) {
   .footer__social-media {
     width: 42%;
+  }
+}
+@media (max-width: 1201px) {
+  .footer__social-media {
+    width: 49.5%;
   }
 }
 
@@ -305,6 +320,18 @@ h1 {
   align-items: center;
   margin-left: 36.7%;
 }
+@media (max-width: 1281px) {
+  .btns {
+    width: 30%;
+    margin-left: 34.7%;
+  }
+}
+@media (max-width: 1201px) {
+  .btns {
+    width: 32.8%;
+    margin-left: 32.7%;
+  }
+}
 
 .btn {
   display: inline-block;
@@ -412,6 +439,16 @@ h1 {
   transform: scale(1);
   transition-duration: 2s;
   cursor: pointer;
+}
+@media (max-width: 1281px) {
+  .card {
+    width: 24%;
+  }
+}
+@media (max-width: 1201px) {
+  .card {
+    width: 28%;
+  }
 }
 
 .card:hover {
