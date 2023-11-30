@@ -117,6 +117,11 @@ h1 {
     max-width: 688px;
   }
 }
+@media (max-width: 689px) {
+  .wrapper {
+    max-width: 588px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -281,6 +286,12 @@ h1 {
     padding-left: 60px;
     padding-right: 60px;
     padding-bottom: 105px;
+  }
+}
+@media (max-width: 689px) {
+  .footer__inform {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
@@ -519,6 +530,11 @@ h1 {
   .btns {
     width: 52.1%;
     margin-left: 23.7%;
+  }
+}
+@media (max-width: 689px) {
+  .btns {
+    width: 59.1%;
   }
 }
 

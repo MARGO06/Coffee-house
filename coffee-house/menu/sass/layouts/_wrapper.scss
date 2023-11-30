@@ -33,4 +33,8 @@
   @include media-tablet {
     max-width: 688px;
   }
+
+  @include media-689 {
+    max-width: 588px;
+  }
 }

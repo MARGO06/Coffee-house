@@ -18,6 +18,11 @@
     padding-right: 60px;
     padding-bottom: 105px;
   }
+
+  @include media-689 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .footer__social-media{
