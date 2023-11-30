@@ -54,6 +54,11 @@
     width: 69.1%;
     margin-left: 15.7%;
   }
+
+  @include media-489 {
+    width: 89.1%;
+    margin-left: 6%;
+  }
 }
 
 .btn{
@@ -188,6 +193,14 @@
     &:nth-child(n+5) {
       display: none;
     }
+  }
+  
+  @include media-589 {
+    width: 64%;
+  }
+
+  @include media-489 {
+    width: 82%;
   }
 }
 

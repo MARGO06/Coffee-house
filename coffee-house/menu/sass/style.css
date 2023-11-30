@@ -127,6 +127,11 @@ h1 {
     max-width: 488px;
   }
 }
+@media (max-width: 489px) {
+  .wrapper {
+    max-width: 379px;
+  }
+}
 
 .header {
   padding: 20px 0;
@@ -554,6 +559,12 @@ h1 {
     margin-left: 15.7%;
   }
 }
+@media (max-width: 489px) {
+  .btns {
+    width: 89.1%;
+    margin-left: 6%;
+  }
+}
 
 .btn {
   display: inline-block;
@@ -698,6 +709,16 @@ h1 {
   }
   .card:nth-child(n+5) {
     display: none;
+  }
+}
+@media (max-width: 589px) {
+  .card {
+    width: 64%;
+  }
+}
+@media (max-width: 489px) {
+  .card {
+    width: 82%;
   }
 }
 
