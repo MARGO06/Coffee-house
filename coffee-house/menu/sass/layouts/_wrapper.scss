@@ -29,4 +29,8 @@
   @include media-801 {
     max-width: 767px;
   }
+
+  @include media-tablet {
+    max-width: 688px;
+  }
 }

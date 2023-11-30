@@ -40,6 +40,11 @@
   @include media-801 {
     width: 47%;
   }
+
+  @include media-tablet {
+    width: 52.1%;
+    margin-left: 23.7%;
+  }
 }
 
 .btn{
@@ -131,6 +136,10 @@
   @include media-1361 {
     @include flex($display:flex, $content:center);
   }
+
+  @include media-tablet {
+    margin-top: 37px;
+  }
 }
 
 .card{
@@ -163,6 +172,13 @@
 
   @include media-801 {
     width: 40.2%;
+  }
+
+  @include media-tablet {
+    width: 45.27%;
+    &:nth-child(n+5) {
+      display: none;
+    }
   }
 }
 
@@ -211,4 +227,22 @@
 }
 
 
+.menu__btn {
+  display: none;
+  
+  @include media-tablet {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid $color-background-container;
+    margin-top: 37px;
+    margin-left: auto;
+    margin-right: auto;
 
+    & svg {
+      display: flex;
+      margin: 18px;
+    }
+  }
+}

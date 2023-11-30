@@ -12,6 +12,12 @@
   @include media-801 {
     flex-direction: column;
   }
+
+  @include media-tablet {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 105px;
+  }
 }
 
 .footer__social-media{
@@ -39,6 +45,11 @@
   @include media-801 {
     width: 65%;
     margin-left: 70px;
+  }
+
+  @include media-tablet {
+    width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -84,12 +95,21 @@
     margin-top: 20px;
     margin-left:70px;
   }
+
+  @include media-tablet {
+    margin-top: 100px;
+    margin-left: 0;
+  }
 }
 
 .footer__text{
   margin-top: 32px;
   @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
   color: $color-background-body;
+
+  @include media-tablet {
+    margin-top: 0;
+  }
 }
 
 .footer__local{
@@ -120,6 +140,9 @@
 
 .dates__time{
   margin-left: 8px;
+  @include media-tablet {
+    margin-top: 4px;
+  }
 }
 
 .dates__clock{

@@ -23,4 +23,8 @@ h1{
   width: 58.82%;
   text-align: center;
   margin: 0 auto;
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
