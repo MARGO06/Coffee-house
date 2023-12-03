@@ -38,6 +38,13 @@
   border: 1px solid #E1D4C9;
 }
 
+.menu__dessert:hover, .menu__tea:hover {
+  background-color: #665F55;
+  color: #E1D4C9;
+  transition-duration: 2s;
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
   padding: 0px;
@@ -243,6 +250,11 @@ h1 {
   transition-duration: 1s;
   cursor: pointer;
 }
+@media (hover: none) {
+  .header__show:hover {
+    border-bottom: none;
+  }
+}
 
 .header__icon {
   display: none;
@@ -404,9 +416,19 @@ h1 {
   cursor: pointer;
   transition-duration: 2s;
 }
+@media (hover: none) {
+  .footer__item:hover {
+    background-color: #665F55;
+  }
+}
 .footer__item:hover .footer__link svg {
   color: #403F3D;
   transition-duration: 2s;
+}
+@media (hover: none) {
+  .footer__item:hover .footer__link svg {
+    color: #E1D4C9;
+  }
 }
 
 .footer__contact {
@@ -522,6 +544,11 @@ h1 {
   border-bottom: 2px solid #E1D4C9;
   transition-duration: 1s;
 }
+@media (hover: none) {
+  .footer__show:hover {
+    border-bottom: none;
+  }
+}
 
 .menu {
   padding-bottom: 100px;
@@ -617,12 +644,6 @@ h1 {
   background-color: #E1D4C9;
   transition-duration: 2s;
 }
-.btn:hover {
-  background-color: #665F55;
-  color: #E1D4C9;
-  transition-duration: 2s;
-  cursor: pointer;
-}
 
 .menu__coffee {
   width: 117px;
@@ -646,6 +667,12 @@ h1 {
   width: 92px;
   padding-left: 43px;
 }
+@media (hover: none) {
+  .menu__tea:hover {
+    background-color: #E1D4C9;
+    color: #403F3D;
+  }
+}
 
 .menu__tea:before {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/tea.svg);
@@ -658,6 +685,11 @@ h1 {
   transition-duration: 2s;
   cursor: pointer;
 }
+@media (hover: none) {
+  .menu__tea:hover:before {
+    background-color: #C1B6AD;
+  }
+}
 
 .menu__tea:hover label {
   cursor: pointer;
@@ -666,6 +698,12 @@ h1 {
 .menu__dessert {
   width: 117px;
   padding-left: 43px;
+}
+@media (hover: none) {
+  .menu__dessert:hover {
+    background-color: #E1D4C9;
+    color: #403F3D;
+  }
 }
 @media (max-width: 380px) {
   .menu__dessert {
@@ -682,6 +720,11 @@ h1 {
 .menu__dessert:hover:before {
   background-color: #E1D4C9;
   transition-duration: 2s;
+}
+@media (hover: none) {
+  .menu__dessert:hover:before {
+    background-color: #C1B6AD;
+  }
 }
 
 .menu__dessert:hover label {
@@ -724,6 +767,11 @@ h1 {
   transform: scale(1);
   transition-duration: 2s;
   cursor: pointer;
+}
+@media (hover: none) {
+  .card:hover .card__photo .card__img {
+    transform: scale(1.1);
+  }
 }
 @media (max-width: 1281px) {
   .card {

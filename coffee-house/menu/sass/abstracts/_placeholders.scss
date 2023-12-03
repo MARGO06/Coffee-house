@@ -37,3 +37,16 @@
 %border-media{
   border: 1px solid $color-background-body;
 }
+
+%hover-btn {
+  background-color: $color-background-container;
+  color: $color-background-body;
+  transition-duration: 2s;
+  cursor: pointer;
+}
+
+%no-hover-btn {
+  cursor: auto;
+  background-color: $color-background-body;
+  color: $color-primary-text;
+}

@@ -69,6 +69,11 @@
   margin-top: 1px;
   border-bottom: 2px solid $color-primary-text;
   transition-duration: 1s;
+  cursor: pointer;
+
+  @media (hover:none) {
+    border-bottom: none;
+  }
 }
 
 .header__icon {

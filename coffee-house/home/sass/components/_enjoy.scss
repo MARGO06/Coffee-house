@@ -109,11 +109,19 @@
 .enjoy__btn:hover{
   padding: 20px 58px;
   transition-duration: 2s;
+
+  @media (hover:none) {
+    padding: 20px 78px;
+  }
 }
 
 .enjoy__btn:hover:after{
   opacity: 1;
   transition-duration: 2s;
+
+  @media (hover:none) {
+    opacity:0;
+  }
 }
 
 

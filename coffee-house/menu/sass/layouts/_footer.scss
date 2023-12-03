@@ -95,10 +95,18 @@
     background-color: $color-background-body;
     cursor: pointer;
     transition-duration: 2s;
+
+    @media (hover:none) {
+      background-color: $color-background-container;
+    }
   }
   &:hover .footer__link svg{
     color: $color-primary-text;
     transition-duration: 2s;
+
+    @media (hover:none) {
+      color:$color-background-body;
+    }
   }
 }
 
@@ -195,4 +203,8 @@
   margin-top: 1px;
   border-bottom: 2px solid $color-background-body;
   transition-duration: 1s;
+
+  @media (hover:none) {
+    border-bottom: none;
+  }
 }

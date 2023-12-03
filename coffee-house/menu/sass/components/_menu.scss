@@ -76,12 +76,6 @@
   height: 48px;
   background-color: $color-background-body;
   transition-duration: 2s;
-  &:hover{
-    background-color: $color-background-container;
-    color: $color-background-body;
-    transition-duration: 2s;
-    cursor: pointer;
-  }
 }
 
 .menu__coffee{
@@ -106,6 +100,16 @@
 .menu__tea{
   width: 92px; 
   padding-left: 43px;
+
+  &:hover{
+    
+    @extend %hover-btn;
+
+    @media (hover:none) {
+      background-color: $color-background-body;
+      color: $color-primary-text;
+    }
+  }
 }
 
 .menu__tea:before{
@@ -119,6 +123,10 @@
   background-color: $color-background-body;
   transition-duration: 2s;
   cursor: pointer;
+
+  @media (hover:none) {
+    background-color: $color-primary-border;
+  }
 }
 
 .menu__tea:hover label{
@@ -128,6 +136,15 @@
 .menu__dessert{
   width: 117px; 
   padding-left: 43px;
+
+  &:hover{
+    @extend %hover-btn;
+
+    @media (hover:none) {
+      background-color: $color-background-body;
+      color: $color-primary-text;
+    }
+  }
 
   @include media-mobile {
     width: 125px;
@@ -144,6 +161,10 @@
 .menu__dessert:hover:before{
   background-color: $color-background-body;
   transition-duration: 2s;
+
+  @media (hover:none) {
+    background-color: $color-primary-border;
+  }
 }
 
 .menu__dessert:hover label{
@@ -179,6 +200,10 @@
     transform: scale(1.0);
     transition-duration: 2s;
     cursor: pointer;
+
+    @media (hover:none) {
+      transform: scale(1.1);
+    }
   }
   
   @include media-1281{

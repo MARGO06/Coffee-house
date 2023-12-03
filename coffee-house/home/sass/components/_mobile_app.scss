@@ -83,6 +83,11 @@
     color: $color-background-body;
     cursor: pointer;
     transition-duration: 2s;
+
+    @media (hover:none) {
+      background-color: $color-background-body;
+      color: $color-primary-text;
+    }
   }
 
   @include media-tablet {
@@ -112,6 +117,10 @@
   transition-duration: 2s;
   &:hover{
     background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app-hover.svg);
+
+    @media (hover:none) {
+      background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
+    }
   }
 
   @include media-mobile {
@@ -126,6 +135,10 @@
   padding-left: 60px;
   &:hover{
     background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google-hover.svg);
+
+    @media (hover:none) {
+      background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google.svg);
+    }
   }
 
   @include media-489 {
