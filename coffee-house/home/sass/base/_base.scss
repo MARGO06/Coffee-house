@@ -20,4 +20,8 @@ body{
 h1{
   @include font($size:$size-h1, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h1);
   color: $color-background-body;
+
+  @include media-mobile {
+    @include font($size:$size-mobile-h1, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-mobile-h1);
+  }
 }

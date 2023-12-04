@@ -5,20 +5,73 @@
 .about__title{
   @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
   color: $color-primary-text;
+
+  @include media-mobile {
+    @include font($size:$size-burger-link, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-link);
+  }
 }
 
 .photos{
   @include flex($display:flex,$content:space-between);
   margin-top: 40px;
+
+  @include media-1281{
+    @include flex($display:flex,$content:flex-start);
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    gap: 40px;
+  }
+
+  @include media-1201 {
+    width: 66%;
+  }
+
+  @include media-1001 {
+    width: 73.4%;
+  }
+
+  @include media-901 {
+    width: 82.4%;
+  }
+
+  @include media-801 {
+    width: 86%;
+  }
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
 .photos_column1{
   @extend %column;
   @include flex($display:flex,$content:flex-start);
+
+  @include media-1361{
+    width: 49.5%;
+  }
+
+  @include media-1281 {
+    width: 100%;
+  }
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
 
 .photos_column2{
   @extend %column;
   @include flex($display:flex,$content:flex-start);
+  
+  @include media-1361 {
+    width: 49.5%;
+  }
+
+  @include media-1281 {
+    width: 100%;
+  }
 }
 
 .photos_1{
@@ -33,12 +86,29 @@
   &:hover{
     transform: scale(1.0,1.0);
     transition-duration: 2s;
+    cursor: pointer;
+
+    @media(hover:none) {
+      transform: scale(1.1,1.25);
+    }
+  }
+
+  @include media-tablet {
+    transform: scale(1.05,1.23);
+  }
+
+  @include media-mobile {
+    transform: scale(2.1,1.23);
   }
 }
 
 .photos_2{
   @extend %block_photo;
   height: 430px;
+
+  @include media-tablet {
+    display: none;
+  }
 }
 
 .photos_img2{
@@ -48,6 +118,11 @@
   &:hover{
     transform: scale(1.0,1.0);
     transition-duration: 2s;
+    cursor: pointer;
+
+    @media(hover:none) {
+      transform: scale(1.1,1.7);
+    }
   }
 }
 
@@ -63,12 +138,29 @@
   &:hover{
     transform: scale(1.0,1.0);
     transition-duration: 2s;
+    cursor: pointer;
+    
+    @media(hover:none) {
+      transform: scale(1.1,1.25);
+    }
+  }
+
+  @include media-tablet {
+    transform: scale(1.05,1.23);
+  }
+
+  @include media-mobile {
+    transform: scale(2.1,1.23);
   }
 }
  
 .photos_3{
   @extend %block_photo;
   height: 430px;
+
+  @include media-tablet {
+    display: none;
+  }
 }
 
 .photos_img3{
@@ -78,5 +170,10 @@
   &:hover{
     transform: scale(1.0,1.0);
     transition-duration: 2s;
+    cursor: pointer;
+
+    @media(hover:none) {
+      transform: scale(1.1,1.7);
+    }
   }
 }

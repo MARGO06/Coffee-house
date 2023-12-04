@@ -13,6 +13,57 @@
   width: 26.54%;
   align-items: center;
   margin-left: 36.7%;
+
+  @include media-1281 {
+    width: 30%;
+    margin-left: 34.7%;
+  }
+
+  @include media-1201 {
+    width: 32.8%;
+    margin-left: 32.7%;
+  }
+
+  @include media-1101 {
+    width: 36%;
+  }
+
+  @include media-1001 {
+    width: 40%;
+  }
+
+  @include media-901 {
+    width: 45%;
+    margin-left: 30.7%;
+  }
+
+  @include media-801 {
+    width: 47%;
+  }
+
+  @include media-tablet {
+    width: 52.1%;
+    margin-left: 23.7%;
+  }
+
+  @include media-689 {
+    width: 59.1%;
+  }
+
+  @include media-589 {
+    width: 69.1%;
+    margin-left: 15.7%;
+  }
+
+  @include media-489 {
+    width: 89.1%;
+    margin-left: 6%;
+  }
+
+  @include media-mobile {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 .btn{
@@ -25,12 +76,6 @@
   height: 48px;
   background-color: $color-background-body;
   transition-duration: 2s;
-  &:hover{
-    background-color: $color-background-container;
-    color: $color-background-body;
-    transition-duration: 2s;
-    cursor: pointer;
-  }
 }
 
 .menu__coffee{
@@ -55,6 +100,16 @@
 .menu__tea{
   width: 92px; 
   padding-left: 43px;
+
+  &:hover{
+    
+    @extend %hover-btn;
+
+    @media (hover:none) {
+      background-color: $color-background-body;
+      color: $color-primary-text;
+    }
+  }
 }
 
 .menu__tea:before{
@@ -68,6 +123,10 @@
   background-color: $color-background-body;
   transition-duration: 2s;
   cursor: pointer;
+
+  @media (hover:none) {
+    background-color: $color-primary-border;
+  }
 }
 
 .menu__tea:hover label{
@@ -77,6 +136,19 @@
 .menu__dessert{
   width: 117px; 
   padding-left: 43px;
+
+  &:hover{
+    @extend %hover-btn;
+
+    @media (hover:none) {
+      background-color: $color-background-body;
+      color: $color-primary-text;
+    }
+  }
+
+  @include media-mobile {
+    width: 125px;
+  }
 }
 
 .menu__dessert:before{
@@ -89,6 +161,10 @@
 .menu__dessert:hover:before{
   background-color: $color-background-body;
   transition-duration: 2s;
+
+  @media (hover:none) {
+    background-color: $color-primary-border;
+  }
 }
 
 .menu__dessert:hover label{
@@ -100,6 +176,18 @@
   @include flex($display:flex, $content:flex-start);
   flex-wrap: wrap;
   gap: 40px;
+
+  @include media-1361 {
+    @include flex($display:flex, $content:center);
+  }
+
+  @include media-tablet {
+    margin-top: 37px;
+  }
+
+  @include media-mobile{
+    margin-top: 35px;
+  }
 }
 
 .card{
@@ -112,6 +200,49 @@
     transform: scale(1.0);
     transition-duration: 2s;
     cursor: pointer;
+
+    @media (hover:none) {
+      transform: scale(1.1);
+    }
+  }
+  
+  @include media-1281{
+    width: 24%;
+  }
+
+  @include media-1201 {
+    width: 28%;
+  }
+
+  @include media-1001 {
+    width: 34%;
+  }
+
+  @include media-901 {
+    width: 38%;
+  }
+
+  @include media-801 {
+    width: 40.2%;
+  }
+
+  @include media-tablet {
+    width: 45.27%;
+    &:nth-child(n+5) {
+      display: none;
+    }
+  }
+  
+  @include media-589 {
+    width: 64%;
+  }
+
+  @include media-489 {
+    width: 82%;
+  }
+
+  @include media-mobile {
+    width: 89.6%;
   }
 }
 
@@ -160,4 +291,22 @@
 }
 
 
+.menu__btn {
+  display: none;
+  
+  @include media-tablet {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid $color-background-container;
+    margin-top: 37px;
+    margin-left: auto;
+    margin-right: auto;
 
+    & svg {
+      display: flex;
+      margin: 18px;
+    }
+  }
+}
