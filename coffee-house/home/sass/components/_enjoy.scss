@@ -10,6 +10,51 @@
   padding: 100px 0;
   width: 38.9%;
   margin-left: 100px;
+
+  @include media-1361 {
+    width: 40.78%;
+  }
+
+  @include media-1281 {
+    width: 42.89%;
+  }
+
+  @include media-1201 {
+    width: 52%;
+  }
+
+  @include media-1001 {
+    width: 59%;
+  }
+
+  @include media-901 {
+    width: 66.2%;
+  }
+
+  @include media-801 {
+    width: 69.2%;
+  }
+
+  @include media-tablet {
+    width: 77%;
+    margin-left: 60px;
+  }
+
+  @include media-689 {
+    width: 90%;
+    margin-left: 30px;
+  }
+
+  @include media-589 {
+    width: 99%;
+    margin-left: 5px;
+  }
+
+  @include media-mobile {
+    padding: 60px 0;
+    margin-left: 16px;
+    width: 92%;
+  }
 }
 
 .enjoy__word{
@@ -33,6 +78,19 @@
   @extend %border;
   background-color: $color-background-body;
   transition-duration: 1s;
+
+  @include media-tablet {
+    padding: 20px 62px;
+  }
+
+  @include media-489 {
+    width: 50%;
+  }
+
+  @include media-mobile {
+    padding: 19px 62px;
+    width: 62.9%;
+  }
 }
 
 .enjoy__btn:after{
@@ -43,15 +101,27 @@
   padding-left: 40px;
   opacity: 0;
   transition-duration: 1s;
+
+  @include media-tablet {
+    opacity: 1;
+  }
 }
 .enjoy__btn:hover{
   padding: 20px 58px;
   transition-duration: 2s;
+
+  @media (hover:none) {
+    padding: 20px 78px;
+  }
 }
 
 .enjoy__btn:hover:after{
   opacity: 1;
   transition-duration: 2s;
+
+  @media (hover:none) {
+    opacity:0;
+  }
 }
 
 

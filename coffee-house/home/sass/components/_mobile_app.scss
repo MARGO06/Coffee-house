@@ -2,16 +2,60 @@
   padding-top: 100px;
   padding-bottom: 100px;
   @include flex($display:flex,$content:space-between);
+
+  @include media-1201 {
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 63%;
+  }
+
+  @include media-1001 {
+    width: 70%;
+  }
+
+  @include media-901 {
+    width: 78.8%;
+  }
+
+  @include media-801 {
+    width: 82.1%;
+  }
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
 
 .mobile_download{
   width: 46.32%;
   margin-top: 144px;
+
+  @include media-1361 {
+    width: 48.2%;
+  }
+
+  @include media-1281 {
+    width: 51%;
+  }
+
+  @include media-1201 {
+    width: 100%;
+    margin-top: 0px;
+  }
+
+  @include media-tablet {
+    width: 100%;
+  }
 }
 
 .mobile_download__title{
   @include font($size:$size-h2, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h);
   color: $color-primary-text;
+
+  @include media-mobile {
+    @include font($size:$size-burger-link, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-link);
+  }
 }
 
 .mobile_download__text{
@@ -39,6 +83,32 @@
     color: $color-background-body;
     cursor: pointer;
     transition-duration: 2s;
+
+    @media (hover:none) {
+      background-color: $color-background-body;
+      color: $color-primary-text;
+    }
+  }
+
+  @include media-tablet {
+    width: 29.2%;
+  }
+
+  @include media-689 {
+    width: 35%;
+  }
+
+  @include media-589 {
+    width: 40%;
+  }
+
+  @include media-489 {
+    width: 50%;
+  }
+
+  @include media-mobile {
+    width: 58%;
+    margin-top: 0px;
   }
 }
 
@@ -47,6 +117,14 @@
   transition-duration: 2s;
   &:hover{
     background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app-hover.svg);
+
+    @media (hover:none) {
+      background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
+    }
+  }
+
+  @include media-mobile {
+    margin-top: 38px;
   }
 }
 
@@ -57,10 +135,46 @@
   padding-left: 60px;
   &:hover{
     background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google-hover.svg);
+
+    @media (hover:none) {
+      background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google.svg);
+    }
+  }
+
+  @include media-489 {
+    margin-left: 0;
+  }
+
+  @include media-mobile {
+    margin-top: 20px;
   }
 }
 
 .btn-mob__company{
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
 
+}
+
+.mobile_app__img{
+
+  @include media-1281 {
+    display: block;
+    width: 49%;
+  }
+
+  @include media-1201 {
+    width: 98%;
+    margin-top:20px;
+  }
+
+  @include media-tablet {
+    margin-top: 100px;
+    padding: 0 29px;
+    width: 100%;
+  }
+
+  @include media-mobile {
+    margin-top: 40px;
+    padding: 0;
+  }
 }
