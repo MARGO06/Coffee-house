@@ -3,6 +3,7 @@
 const headerLogo = document.querySelector('.header__logo');
 const headerIcon = document.querySelector('.header__icon');
 const headerNavigation = document.querySelector('.header__navigation');
+const headerItems = document.querySelectorAll('.header__item');
 
 
 function showNavigation () {
@@ -18,3 +19,19 @@ function showNavigation () {
 }
 
 showNavigation()
+
+function closeNavigation () {
+   headerItems.forEach(headerItem => {
+     headerItem.addEventListener('click',(e) => {
+      if(headerIcon.classList.contains('active')) {
+        document.body.classList.remove('lock');
+        headerLogo.classList.remove('active');
+        headerIcon.classList.remove('active');
+        headerNavigation.classList.remove ('active');
+        console.log('nice3')
+      }
+     })
+   })
+}
+
+closeNavigation ()
