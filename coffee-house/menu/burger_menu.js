@@ -17,8 +17,6 @@ function showNavigation () {
   }
 }
 
-showNavigation()
-
 function closeNavigation () {
    headerItems.forEach(headerItem => {
      headerItem.addEventListener('click',(e) => {
@@ -33,8 +31,6 @@ function closeNavigation () {
    })
 }
 
-closeNavigation ()
-
 function smoothScroll () {
   headerLinks.forEach(headerLink => {
     headerLink.addEventListener('click',(e) =>{
@@ -47,6 +43,5 @@ function smoothScroll () {
 })
 }
 
-smoothScroll()
 
-export{showNavigation, closeNavigation, smoothScroll}
+export{showNavigation, closeNavigation,smoothScroll}
