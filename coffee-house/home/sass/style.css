@@ -729,7 +729,6 @@ h1 {
 }
 @media (hover: none) {
   .choose__right:hover {
-    cursor: auto;
     background-color: #E1D4C9;
     color: #403F3D;
   }
@@ -770,7 +769,6 @@ h1 {
 }
 @media (hover: none) {
   .choose__left:hover {
-    cursor: auto;
     background-color: #E1D4C9;
     color: #403F3D;
   }
@@ -1054,14 +1052,11 @@ h1 {
   transform: scale(1.1, 1.25);
   transition-duration: 2s;
 }
-.photos_img1:hover {
-  transform: scale(1, 1);
-  transition-duration: 2s;
-  cursor: pointer;
-}
-@media (hover: none) {
+@media (hover: hover) {
   .photos_img1:hover {
-    transform: scale(1.1, 1.25);
+    transform: scale(1, 1);
+    transition-duration: 2s;
+    cursor: pointer;
   }
 }
 @media (max-width: 768px) {
@@ -1107,14 +1102,11 @@ h1 {
   transform: scale(1.1, 1.25);
   transition-duration: 2s;
 }
-.photos_img4:hover {
-  transform: scale(1, 1);
-  transition-duration: 2s;
-  cursor: pointer;
-}
-@media (hover: none) {
+@media (hover: hover) {
   .photos_img4:hover {
-    transform: scale(1.1, 1.25);
+    transform: scale(1, 1);
+    transition-duration: 2s;
+    cursor: pointer;
   }
 }
 @media (max-width: 768px) {
