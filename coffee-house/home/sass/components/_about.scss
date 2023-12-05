@@ -84,12 +84,10 @@
   transform: scale(1.1,1.25);
   transition-duration: 2s;
   &:hover{
-    transform: scale(1.0,1.0);
-    transition-duration: 2s;
-    cursor: pointer;
-
-    @media(hover:none) {
-      transform: scale(1.1,1.25);
+    @media(hover:hover) {
+      transform: scale(1.0,1.0);
+      transition-duration: 2s;
+      cursor: pointer;
     }
   }
 
@@ -100,6 +98,7 @@
   @include media-mobile {
     transform: scale(2.1,1.23);
   }
+
 }
 
 .photos_2{
@@ -136,13 +135,12 @@
   transform: scale(1.1,1.25);
   transition-duration: 2s;
   &:hover{
-    transform: scale(1.0,1.0);
-    transition-duration: 2s;
-    cursor: pointer;
-    
-    @media(hover:none) {
-      transform: scale(1.1,1.25);
+    @media (hover:hover) {
+      transform: scale(1.0,1.0);
+      transition-duration: 2s;
+      cursor: pointer;
     }
+
   }
 
   @include media-tablet {
