@@ -1,5 +1,3 @@
-//burger-menu
-
 const headerLogo = document.querySelector('.header__logo');
 const headerIcon = document.querySelector('.header__icon');
 const headerNavigation = document.querySelector('.header__navigation');
@@ -50,3 +48,5 @@ function smoothScroll () {
 }
 
 smoothScroll()
+
+export{showNavigation, closeNavigation, smoothScroll}
