@@ -50,3 +50,24 @@ function smoothScroll () {
 }
 
 smoothScroll()
+
+//create slider
+
+const coffeeSliders = document.querySelectorAll('.coffee');
+const buttonRight = document.querySelector('.choose__right');
+const buttonLeft = document.querySelector('.choose__left');
+
+let currentSlide = 0;
+
+coffeeSliders.forEach((slide, index) => slide.style.transform = `translateX(${100*index}%)`);
+
+//next slider
+function clickButtonRight () {
+  buttonLeft.addEventListener('click',(e) => {
+    currentSlide += 1;
+    coffeeSliders.forEach((slide, index) => slide.style.transform = `translateX(${100*(index-currentSlide)}%)`);
+    console.log('hello')
+  })
+}
+
+clickButtonRight();

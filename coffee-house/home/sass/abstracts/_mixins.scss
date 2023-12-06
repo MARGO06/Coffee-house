@@ -10,6 +10,12 @@
   justify-content: $content;
 }
 
+@mixin media-1440{
+  @media(max-width: $screen-width-1440) {
+   @content;
+  }
+}
+
 @mixin media-1361{
   @media(max-width: $screen-width-1361) {
    @content;

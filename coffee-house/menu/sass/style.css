@@ -357,6 +357,7 @@ h1 {
 }
 
 .header__text {
+  display: inline-block;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -365,7 +366,6 @@ h1 {
   margin-top: 14px;
 }
 .header__text span {
-  display: block;
   margin-top: 1px;
   border-bottom: 3px solid #403F3D;
 }

@@ -957,62 +957,75 @@ h1 {
   }
 }
 
-.coffee {
-  width: 35.3%;
+.coffee-cards {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 89.5vh;
+}
+@media (max-width: 1440px) {
+  .coffee-cards {
+    height: 75.5vh;
+  }
 }
 @media (max-width: 1361px) {
-  .coffee {
-    width: 37.5%;
+  .coffee-cards {
+    width: 100%;
   }
 }
 @media (max-width: 1281px) {
-  .coffee {
-    width: 40%;
-  }
-}
-@media (max-width: 1201px) {
-  .coffee {
-    width: 47.9%;
+  .coffee-cards {
+    height: 77vh;
   }
 }
 @media (max-width: 1001px) {
-  .coffee {
-    width: 53.4%;
+  .coffee-cards {
+    height: 80vh;
   }
 }
 @media (max-width: 901px) {
-  .coffee {
+  .coffee-cards {
     width: 60%;
   }
 }
 @media (max-width: 801px) {
-  .coffee {
+  .coffee-cards {
     width: 62.5%;
   }
 }
 @media (max-width: 768px) {
-  .coffee {
+  .coffee-cards {
     width: 70%;
   }
 }
 @media (max-width: 689px) {
-  .coffee {
+  .coffee-cards {
     width: 82%;
   }
 }
 @media (max-width: 380px) {
-  .coffee {
+  .coffee-cards {
     width: 100%;
   }
 }
 
+.coffee {
+  position: absolute;
+  height: inherit;
+  width: 100%;
+}
+
 .coffee__call {
+  width: 55.7%;
   margin-top: 16px;
   font-size: 2.4rem;
   font-style: normal;
   font-weight: 600;
   line-height: 3rem;
   color: #403F3D;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (max-width: 380px) {
   .coffee__call {
@@ -1027,15 +1040,21 @@ h1 {
   font-weight: 400;
   line-height: 2.4rem;
   color: #403F3D;
+  width: 38.6%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .coffee__price {
+  width: 55.7%;
   margin-top: 16px;
   font-size: 2.4rem;
   font-style: normal;
   font-weight: 600;
   line-height: 3rem;
   color: #403F3D;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pagination {
@@ -1103,8 +1122,26 @@ h1 {
   background-color: #665F55;
 }
 
+.coffe__img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media (max-width: 589px) {
   .coffe__img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.coffee__img {
+  width: 39%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 589px) {
+  .coffee__img {
     display: block;
     width: 100%;
   }

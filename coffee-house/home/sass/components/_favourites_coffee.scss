@@ -88,23 +88,27 @@
   }
 }
 
-.coffee{
-  width: 35.3%;
+.coffee-cards{
+  width:100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 89.5vh;
+
+  @include media-1440 {
+    height: 75.5vh;
+  }
 
   @include media-1361 {
-    width: 37.5%;
+    width: 100%;
   }
 
   @include media-1281 {
-    width: 40%;
-  }
-
-  @include media-1201 {
-    width: 47.9%;
+    height: 77vh;
   }
 
   @include media-1001 {
-    width: 53.4%;
+    height: 80vh;
   }
 
   @include media-901 {
@@ -127,11 +131,21 @@
     width: 100%;
   }
 }
+
+.coffee{
+  position: absolute;
+  height: inherit;
+  width: 100%;
+}
+ 
 .coffee__call{
+  width: 55.7%;
   margin-top: 16px;
   @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
   @extend %text-center;
   color: $color-primary-text;
+  margin-left: auto;
+  margin-right: auto;
 
   @include media-mobile {
     margin-top: 20px;
@@ -143,13 +157,19 @@
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
   @extend %text-center;
   color: $color-primary-text;
+  width: 38.6%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .coffee__price{
+  width: 55.7%;
   margin-top: 16px;
   @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
   @extend %text-center;
   color: $color-primary-text;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pagination{
@@ -208,6 +228,21 @@
 }
 
 .coffe__img{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @include media-589 {
+    display: block;
+    width: 100%;
+  }
+}
+
+.coffee__img {
+  width: 39%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   @include media-589 {
     display: block;
     width: 100%;
