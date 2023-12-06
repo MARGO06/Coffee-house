@@ -58,16 +58,46 @@ const buttonRight = document.querySelector('.choose__right');
 const buttonLeft = document.querySelector('.choose__left');
 
 let currentSlide = 0;
+const slideLength = coffeeSliders.length-1;
 
 coffeeSliders.forEach((slide, index) => slide.style.transform = `translateX(${100*index}%)`);
+
+function changeSliders () {
+  coffeeSliders.forEach((slide, index) => slide.style.transform = 
+                    `translateX(${100*(index-currentSlide)}%)`);
+}
 
 //next slider
 function clickButtonRight () {
   buttonLeft.addEventListener('click',(e) => {
-    currentSlide += 1;
-    coffeeSliders.forEach((slide, index) => slide.style.transform = `translateX(${100*(index-currentSlide)}%)`);
+
+    if(currentSlide === slideLength) {
+      currentSlide = 0;
+    } else {
+      currentSlide += 1;
+    }
+
+    changeSliders(currentSlide);
     console.log('hello')
   })
 }
 
 clickButtonRight();
+
+//previous slider 
+
+function clickButtonLeft () {
+  buttonRight.addEventListener('click',(e) => {
+
+    if(currentSlide === 0) {
+      currentSlide = slideLength;
+    } else {
+      currentSlide -= 1;
+    }
+
+    changeSliders(currentSlide);
+    console.log('hello')
+  })
+}
+
+clickButtonLeft();
