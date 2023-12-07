@@ -1118,10 +1118,20 @@ h1 {
   border-radius: 100px;
 }
 
-.pagination__rectg--active {
-  background-color: #665F55;
+.pagination__rectg.active {
+  background: red;
+  animation: progress 5s linear forwards;
 }
 
+@keyframes progress {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .coffe__img {
   display: block;
   margin-left: auto;

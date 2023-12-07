@@ -56,8 +56,11 @@ smoothScroll()
 const coffeeSliders = document.querySelectorAll('.coffee');
 const buttonRight = document.querySelector('.choose__right');
 const buttonLeft = document.querySelector('.choose__left');
+const progressBars = document.querySelectorAll('.pagination__rectg');
 
 let currentSlide = 0;
+let currentBar = 0;
+let autoProgress = true;
 const slideLength = coffeeSliders.length-1;
 
 coffeeSliders.forEach((slide, index) => slide.style.transform = `translateX(${100*index}%)`);
@@ -67,18 +70,29 @@ function changeSliders () {
                     `translateX(${100*(index-currentSlide)}%)`);
 }
 
+// progress bar
+function showProgressBar() {
+  progressBars.forEach ((progressBar,index)=>{
+    if(currentSlide === index) {
+    currentBar = index;
+    progressBar.classList.add ('active');
+    } 
+    else {progressBar.classList.remove ('active');
+    }
+  })
+}
+
 //next slider
 function clickButtonRight () {
   buttonLeft.addEventListener('click',(e) => {
-
     if(currentSlide === slideLength) {
       currentSlide = 0;
     } else {
       currentSlide += 1;
     }
-
-    changeSliders(currentSlide);
-    console.log('hello')
+      stopAutoProgress ();
+      showProgressBar(currentBar);
+      changeSliders(currentSlide);
   })
 }
 
@@ -94,10 +108,38 @@ function clickButtonLeft () {
     } else {
       currentSlide -= 1;
     }
-
+    stopAutoProgress ();
+    showProgressBar(currentBar);
     changeSliders(currentSlide);
-    console.log('hello')
   })
 }
 
 clickButtonLeft();
+
+// auto change slides
+
+const showFirstProgressBar = setTimeout(showProgressBar(0),0);
+
+function autoSlider () {
+
+  if(currentSlide === slideLength) {
+    currentSlide = 0;
+  } else {
+    currentSlide += 1;
+  }
+
+  changeSliders(currentSlide);
+  showProgressBar(currentBar);
+
+}
+
+let autoChangeSlides = setInterval(autoSlider,5000);
+
+function stopAutoProgress () {
+  clearInterval(autoChangeSlides);
+  autoChangeSlides = setInterval(autoSlider,5000)
+}
+
+
+
+

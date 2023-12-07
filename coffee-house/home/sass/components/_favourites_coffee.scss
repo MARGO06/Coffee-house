@@ -223,8 +223,20 @@
   border-radius: 100px;
 }
 
-.pagination__rectg--active{
-  background-color: $color-background-container;
+.pagination__rectg.active{
+  background: red;
+  animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+  0%{
+    width: 0;
+    opacity:0;
+  }
+
+  100%{
+    opacity: 1;
+  }
 }
 
 .coffe__img{
