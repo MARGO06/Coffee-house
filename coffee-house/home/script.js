@@ -85,11 +85,15 @@ function showProgressBar() {
 //next slider
 function clickButtonRight () {
   buttonLeft.addEventListener('click',(e) => {
+    e.preventDefault();
     if(currentSlide === slideLength) {
       currentSlide = 0;
     } else {
       currentSlide += 1;
     }
+     coffeeSliders.forEach(coffeeSlider => {
+       coffeeSlider.classList.add('active')
+      })
       stopAutoProgress ();
       showProgressBar(currentBar);
       changeSliders(currentSlide);
@@ -108,6 +112,9 @@ function clickButtonLeft () {
     } else {
       currentSlide -= 1;
     }
+    coffeeSliders.forEach(coffeeSlider => {
+      coffeeSlider.classList.add('active')
+     })
     stopAutoProgress ();
     showProgressBar(currentBar);
     changeSliders(currentSlide);
@@ -127,7 +134,9 @@ function autoSlider () {
   } else {
     currentSlide += 1;
   }
-
+  coffeeSliders.forEach(coffeeSlider => {
+    coffeeSlider.classList.add('active')
+   })
   changeSliders(currentSlide);
   showProgressBar(currentBar);
 
@@ -140,6 +149,65 @@ function stopAutoProgress () {
   autoChangeSlides = setInterval(autoSlider,5000)
 }
 
+//change slides for mobile
+let x1 ;
+let x2 ;
+
+function touchStartMobile(){
+  coffeeSliders.forEach(coffeeSlider => {
+     coffeeSlider.addEventListener("touchstart", (e)  => {
+      e.preventDefault();
+      x1 = e.touches[0].clientX;
+     },
+     false)
+  })
+}
+
+touchStartMobile()
+
+function touchMoveMobile () {
+  coffeeSliders.forEach(coffeeSlider => {
+    coffeeSlider.addEventListener('touchmove',(e) => {
+       e.preventDefault();
+       x2 = e.touches[0].clientX;
+    },false)
+  })
+}
+
+touchMoveMobile ()
+
+function touchEndMobile(){
+  coffeeSliders.forEach(coffeeSlider => {
+     coffeeSlider.addEventListener("touchend", (e)  => {
+     e.preventDefault();
+     
+     if(currentSlide === 0 && x2>x1) {
+      currentSlide = slideLength;
+     }
+     else if(currentSlide === slideLength && x2<x1) {
+      currentSlide = 0;
+     }
+     else if((currentSlide === slideLength && x2<x1) || (x2>x1)) {
+        currentSlide -= 1;
+     } else if(x2<x1){
+        currentSlide += 1;
+     } 
+     
+    coffeeSliders.forEach(coffeeSlider => {
+    coffeeSlider.classList.add('active')
+   })
+  stopAutoProgress ();
+  changeSliders(currentSlide);
+  showProgressBar(currentBar);
+  console.log(e)
+
+   console.log(x2)
+     },
+     false)
+  })
+
+}
+ touchEndMobile()
 
 
 
