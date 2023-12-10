@@ -1,5 +1,8 @@
 .favourites_coffee{
   padding-top: 100px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .favourites_coffee__title{
@@ -88,47 +91,76 @@
   }
 }
 
-.coffee-cards{
-  width:100%;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  height: 89.5vh;
-
-  @include media-1440 {
-    height: 75.5vh;
-  }
-
-  @include media-1361 {
-    width: 100%;
-  }
-
-  @include media-1281 {
-    height: 77vh;
-  }
-
-  @include media-1001 {
-    height: 80vh;
-  }
-
-  @include media-901 {
-    width: 60%;
-  }
-
-  @include media-801 {
-    width: 62.5%;
-  }
+.choose__carusel {
+  width:98%;
 
   @include media-tablet {
-    width: 70%;
-  }
-
-  @include media-689 {
-    width: 82%;
+    width: 90%;
   }
 
   @include media-mobile {
     width: 100%;
+  }
+}
+
+.coffee-cards{
+  width:38.7%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 89.5vh;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media-1440 {
+    height: 90.5vh;
+  }
+
+  @include media-1361 {
+    width:42.7%;
+    height: 95.5vh;
+  }
+
+  @include media-1281 {
+    height: 97.5vh;
+  }
+
+  @include media-1101 {
+    width: 53%;
+    height: 99.5vh;
+  }
+
+  @include media-1001 {
+    width: 57%;
+  }
+
+  @include media-901 {
+    width: 65%;
+  }
+
+  @include media-801 {
+    width: 70.5%;
+  }
+
+  @include media-tablet {
+    width: 82%;
+  }
+
+  @include media-689 {
+    width: 95%;
+  }
+
+  @include media-589 {
+    height: 85.5vh;
+  }
+  
+  @include media-489 {
+    height: 77.5vh;
+  }
+
+  @include media-mobile {
+    width: 100%;
+    height: 82.9vh;
   }
 }
 
@@ -147,13 +179,15 @@
 }
 
 .coffee__call{
-  width: 55.7%;
+  width: 100%;
   margin-top: 16px;
   @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
   @extend %text-center;
   color: $color-primary-text;
-  margin-left: auto;
-  margin-right: auto;
+  
+  @include media-tablet {
+    margin-top: 20px;
+  }
 
   @include media-mobile {
     margin-top: 20px;
@@ -165,19 +199,15 @@
   @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
   @extend %text-center;
   color: $color-primary-text;
-  width: 38.6%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
 
 .coffee__price{
-  width: 55.7%;
+  width: 100%;
   margin-top: 16px;
   @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
   @extend %text-center;
   color: $color-primary-text;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .pagination{
@@ -205,6 +235,7 @@
 
   @include media-tablet {
     margin-left: 39.8%;
+    margin-top: 43px;
   }
 
   @include media-689 {
@@ -229,10 +260,17 @@
   height: 4px;
   background-color: $color-primary-border;
   border-radius: 100px;
+  position: relative;
 }
-
-.pagination__rectg.active{
-  background: red;
+.paginaton__color {
+  display: block;
+  width: 100%;
+  height: inherit;
+  position: absolute;
+ 
+}
+.paginaton__color.active{
+  background-color: $color-background-container;
   animation: progress 5s linear forwards;
 }
 
@@ -243,7 +281,7 @@
 @keyframes progress {
   0%{
     width: 0;
-    opacity:0;
+    opacity:1;
   }
 
   100%{
@@ -263,10 +301,8 @@
 }
 
 .coffee__img {
-  width: 39%;
+  width: 100%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   @include media-589 {
     display: block;
     width: 100%;

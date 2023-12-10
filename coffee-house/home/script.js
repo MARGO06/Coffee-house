@@ -56,7 +56,7 @@ smoothScroll()
 const coffeeSliders = document.querySelectorAll('.coffee');
 const buttonRight = document.querySelector('.choose__right');
 const buttonLeft = document.querySelector('.choose__left');
-const progressBars = document.querySelectorAll('.pagination__rectg');
+const progressBars = document.querySelectorAll('.paginaton__color');
 
 let currentSlide = 0;
 let currentBar = 0;
