@@ -142,6 +142,10 @@
   transition: all 1.2s ease-in-out;
 }
 
+.coffee.pause {
+  transition: none;
+}
+
 .coffee__call{
   width: 55.7%;
   margin-top: 16px;
@@ -230,6 +234,10 @@
 .pagination__rectg.active{
   background: red;
   animation: progress 5s linear forwards;
+}
+
+.pagination__rectg.pause {
+  animation-play-state: paused;
 }
 
 @keyframes progress {

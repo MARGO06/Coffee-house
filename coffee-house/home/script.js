@@ -106,7 +106,7 @@ clickButtonRight();
 
 function clickButtonLeft () {
   buttonRight.addEventListener('click',(e) => {
-
+    e.preventDefault();
     if(currentSlide === 0) {
       currentSlide = slideLength;
     } else {
@@ -139,7 +139,8 @@ function autoSlider () {
    })
   changeSliders(currentSlide);
   showProgressBar(currentBar);
-
+  mouseOverOnCoffee();
+  mouseOutOnCoffee();
 }
 
 let autoChangeSlides = setInterval(autoSlider,5000);
@@ -209,5 +210,35 @@ function touchEndMobile(){
 }
  touchEndMobile()
 
+// add stop auto change slider (mouse event)
 
+function mouseOverOnCoffee (){
+  coffeeSliders.forEach(coffeeSlider=>{
+    coffeeSlider.addEventListener('mouseover',(e)=>{
+      (e).preventDefault;
+        coffeeSlider.classList.add('pause');
+        progressBars.forEach(progressBar=>{
+          progressBar.classList.add('pause');
+        })
+      console.log('ggg')
+    })
+   })
+}
+
+mouseOverOnCoffee()
+
+function mouseOutOnCoffee (){
+  coffeeSliders.forEach(coffeeSlider=>{
+    coffeeSlider.addEventListener('mouseout',(e)=>{
+      (e).preventDefault;
+        coffeeSlider.classList.remove('pause');
+        progressBars.forEach(progressBar=>{
+          progressBar.classList.remove('pause');
+        })
+      console.log('ggg')
+    })
+   })
+}
+
+mouseOutOnCoffee()
 
