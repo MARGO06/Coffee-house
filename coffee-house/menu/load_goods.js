@@ -5,7 +5,10 @@ const cardImgs = document.querySelectorAll('.card__img');
 const cardTitles = document.querySelectorAll('.card__title');
 const cardDescriptions = document.querySelectorAll('.card__description');
 const cardPrices = document.querySelectorAll('.card__price');
-const valueButtons = document.querySelectorAll('input');
+const butDesert = document.querySelector('.menu__dessert');
+const butCoffee = document.querySelector('.menu__coffee')
+const butTea = document.querySelector('.menu__tea');
+
 
 const coffees = [];
 const teas = [];
@@ -26,52 +29,38 @@ function fillArrays(){
         desserts.push(date)
     }
   }
-console.log(coffees)
-console.log(teas)
-console.log(desserts)
-console.log(cardTitles)
- 
-
 }
 
 function changeElementTea() {
     
   cardTitles.forEach((cardTitle,index) =>{
-    console.log(cardTitle)
       teas.forEach((tea,i) => {
         if(index === i) {
           cardTitle.textContent = `${tea.name}`;
-          console.log(cardTitles) 
         }
     })
   })
   
-  cardImgs.forEach((cardImg,index) =>{
-    console.log(cardImg)
+  cardImgs.forEach((cardImg,index) => {
       teas.forEach((tea,i) => {
         if(index === i) {
           cardImg.src = `${tea.img}`;
-          console.log(cardImg) 
         }
     })
   })
 
-  cardDescriptions.forEach((cardDescription,index) =>{
-    console.log(cardDescription)
+  cardDescriptions.forEach((cardDescription,index) => {
       teas.forEach((tea,i) => {
         if(index === i) {
           cardDescription.textContent = `${tea.description}`;
-          console.log(cardDescription) 
         }
     })
   })
 
   cardPrices.forEach((cardPrice,index) =>{
-    console.log(cardPrice)
       teas.forEach((tea,i) => {
         if(index === i) {
           cardPrice.textContent = `${tea.price}`;
-          console.log(cardPrice) 
         }
     })
   })  
@@ -149,13 +138,40 @@ function changeElementCoffees() {
   })  
 }
 
+//click buttons
 
-
-function clickButton () {
-  for(let valueButton of valueButtons) {
-    if(valueButton.value === 'Tea'){
-        console.log(valueButton)
-    }
-  }
+function clickButtonTea () {
+  butTea.addEventListener('click',(e)=>{
+    e.preventDefault();
+    butTea.classList.add('active');
+    changeElementTea();
+    butCoffee.classList.remove('active');
+    butDesert.classList.remove('active');
+  })
 }
-export{fillArrays, clickButton,changeElementDessert}
+
+function clickButtonDesert () {
+    butDesert.addEventListener('click',(e)=>{
+      e.preventDefault();
+      butDesert.classList.add('active');
+      changeElementDessert();
+      butCoffee.classList.remove('active');
+      butTea.classList.remove('active');
+    })
+  }
+
+function clickButtonCoffee () {
+    butCoffee.addEventListener('click',(e)=>{
+      e.preventDefault();
+      butCoffee.classList.add('active');
+      changeElementCoffees();
+      butTea.classList.remove('active');
+      butDesert.classList.remove('active');
+    })
+  }
+
+
+
+            
+
+export{fillArrays, clickButtonTea,clickButtonDesert,clickButtonCoffee}
