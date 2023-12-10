@@ -1,6 +1,7 @@
 const dates = [
     {
       "name": "Irish coffee",
+      "img":"../source/coffee-1.png",
       "description": "Fragrant black coffee with Jameson Irish whiskey and whipped milk",
       "price": "7.00",
       "category": "coffee",
@@ -36,6 +37,7 @@ const dates = [
   
     {
       "name": "Kahlua coffee",
+      "img":"../source/coffee-2.png",
       "description": "Classic coffee with milk and Kahlua liqueur under a cap of frothed milk",
       "price": "7.00",
       "category": "coffee",
@@ -71,6 +73,7 @@ const dates = [
   
     {
       "name": "Honey raf",
+      "img":"../source/coffee-3.png",
       "description": "Espresso with frothed milk, cream and aromatic honey",
       "price": "5.50",
       "category": "coffee",
@@ -106,6 +109,7 @@ const dates = [
   
     {
       "name": "Ice cappuccino",
+      "img":"../source/coffee-4.png",
       "description": "Cappuccino with soft thick foam in summer version with ice",
       "price": "5.00",
       "category": "coffee",
@@ -141,6 +145,7 @@ const dates = [
   
     {
       "name": "Espresso",
+      "img":"../source/coffee-5.png",
       "description": "Classic black coffee",
       "price": "4.50",
       "category": "coffee",
@@ -176,6 +181,7 @@ const dates = [
   
     {
       "name": "Latte",
+      "img":"../source/coffee-6.png",
       "description": "Espresso coffee with the addition of steamed milk and dense milk foam",
       "price": "5.50",
       "category": "coffee",
@@ -211,6 +217,7 @@ const dates = [
   
     {
       "name": "Latte macchiato",
+      "img":"../source/coffee-7.png",
       "description": "Espresso with frothed milk and chocolate",
       "price": "5.50",
       "category": "coffee",
@@ -246,6 +253,7 @@ const dates = [
   
     {
       "name": "Coffee with cognac",
+      "img":"../source/coffee-8.png",
       "description": "Fragrant black coffee with cognac and whipped cream",
       "price": "6.50",
       "category": "coffee",
@@ -281,7 +289,7 @@ const dates = [
   
     {
       "name": "Moroccan",
-      "img":"./source/tea-1.png",
+      "img":"../source/tea-1.png",
       "description": "Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint",
       "price": "4.50",
       "category": "tea",
@@ -317,7 +325,7 @@ const dates = [
   
     {
       "name": "Ginger",
-      "img":"./source/tea-2.png",
+      "img":"../source/tea-2.png",
       "description": "Original black tea with fresh ginger, lemon and honey",
       "price": "5.00",
       "category": "tea",
@@ -353,7 +361,7 @@ const dates = [
   
     {
       "name": "Cranberry",
-      "img":"./source/tea-3.png",
+      "img":"../source/tea-3.png",
       "description": "Invigorating black tea with cranberry and honey",
       "price": "5.00",
       "category": "tea",
@@ -389,7 +397,7 @@ const dates = [
   
     {
       "name": "Sea buckthorn",
-      "img":"./source/tea-4.png",
+      "img":"../source/tea-4.png",
       "description": "Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon",
       "price": "5.50",
       "category": "tea",
@@ -425,7 +433,7 @@ const dates = [
   
     {
       "name": "Marble cheesecake",
-      "img":"./source/dessert-1.png",
+      "img":"../source/dessert-1.png",
       "description": "Philadelphia cheese with lemon zest on a light sponge cake and red currant jam",
       "price": "3.50",
       "category": "dessert",
@@ -461,7 +469,7 @@ const dates = [
   
     {
       "name": "Red velvet",
-      "img":"./source/dessert-2.png",
+      "img":"../source/dessert-2.png",
       "description": "Layer cake with cream cheese frosting",
       "price": "4.00",
       "category": "dessert",
@@ -497,7 +505,7 @@ const dates = [
   
     {
       "name": "Cheesecakes",
-      "img":"./source/dessert-3.png",
+      "img":"../source/dessert-3.png",
       "description": "Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar",
       "price": "4.50",
       "category": "dessert",
@@ -533,7 +541,7 @@ const dates = [
   
     {
       "name": "Creme brulee",
-      "img":"./source/dessert-4.png",
+      "img":"../source/dessert-4.png",
       "description": "Delicate creamy dessert in a caramel basket with wild berries",
       "price": "4.00",
       "category": "dessert",
@@ -569,7 +577,7 @@ const dates = [
   
     {
       "name": "Pancakes",
-      "img":"./source/dessert-5.png",
+      "img":"../source/dessert-5.png",
       "description": "Tender pancakes with strawberry jam and fresh strawberries",
       "price": "4.50",
       "category": "dessert",
@@ -605,7 +613,7 @@ const dates = [
   
     {
       "name": "Honey cake",
-      "img":"./source/dessert-6.png",
+      "img":"../source/dessert-6.png",
       "description": "Classic honey cake with delicate custard",
       "price": "4.50",
       "category": "dessert",
@@ -641,7 +649,7 @@ const dates = [
   
     {
       "name": "Chocolate cake",
-      "img":"./source/dessert-7.png",
+      "img":"../source/dessert-7.png",
       "description": "Cake with hot chocolate filling and nuts with dried apricots",
       "price": "5.50",
       "category": "dessert",
@@ -677,7 +685,7 @@ const dates = [
   
     {
       "name": "Black forest",
-      "img":"./source/dessert-8.png",
+      "img":"../source/dessert-8.png",
       "description": "A combination of thin sponge cake with cherry jam and light chocolate mousse",
       "price": "6.50",
       "category": "dessert",

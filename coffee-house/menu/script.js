@@ -1,8 +1,10 @@
 import {showNavigation, closeNavigation,smoothScroll} from "./burger_menu.js";
-import{fff} from "./load_goods.js";
+import{fillArrays, clickButton,changeElementDessert} from "./load_goods.js";
 showNavigation();
 closeNavigation();
 smoothScroll();
-fff();
+fillArrays();
+clickButton();
+changeElementDessert();
 
 
