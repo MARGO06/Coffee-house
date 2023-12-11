@@ -43,33 +43,34 @@
               <a href="#contact_us" class="header__link">Contact us</a>
             </span>
           </li>
+          <li class="header__item header__item--menu">
+            <a class="header__text" href="https://rolling-scopes-school.github.io/margo06-JSFE2023Q4/coffee-house/menu/">
+              <span class="header__show">
+                Menu
+            <img 
+              src="../source/coffee-cup.svg" 
+              alt="a cup of coffee" 
+              class="header__menu-img">
+            </span>
+            </a>
+          </li>
         </ul>
       </nav>
-      <div class="header__menu">
-        <p class="header__text">
-            <span>Menu
-        <img 
-          src="../source/coffee-cup.svg" 
-          alt="a cup of coffee" 
-          class="header__menu-img">
-          </span>
-        </p>
-      </div>
     </header>
     <main>
       <section class="menu">
         <h1 class="menu__title">Behind each of our cups hides an <span class="enjoy_word">amazing surprise</span></h1>
         <div class="btns">
           <div class="btn menu__coffee menu__coffee--checked">
-            <input id="radio-1" type="radio" name="radio" value="Coffee" class="btn__input">
+            <input id="radio-1" type="radio" name="product" value="Coffee" class="btn__input" checked>
             <label for="radio-1">Coffee</label>
           </div>
           <div class="btn menu__tea menu__coffe--show">
-            <input id="radio-2" type="radio" name="radio" value="Tea" class="btn__input">
+            <input id="radio-2" type="radio" name="product" value="Tea" class="btn__input">
             <label for="radio-2">Tea</label>
           </div>
           <div class="btn menu__dessert menu__coffe--show">
-            <input id="radio-3" type="radio" name="radio" value="Desert" class="btn__input">
+            <input id="radio-3" type="radio" name="product" value="Desert" class="btn__input">
             <label for="radio-3">Dessert</label>
           </div>
         </div>
@@ -187,6 +188,40 @@
             </div>
           </div>
         </div>
+        <div class="modal">
+          <img src="../source/coffee-8.png" 
+               alt="product" 
+               class="modal__img">
+          <div class="modal__info">
+            <p class="modal__title"></p>
+            <p class="modal__description"></p>
+            <div class="offers">
+              <p class="offers__title">Size</p>
+              <div class="offers__buttons">
+                <button class="offers-btn offers__small small offers__small--checked"></button>
+                <button class="offers-btn offers__medium "></button>
+                <button class="offers-btn offers__large "></button>
+              </div>
+            </div>
+            <div class="offers">
+              <p class="offers__title">Additives</p>
+              <div class="offers__buttons">
+                <button class="product offers__one offers__choice--checked"></button>
+                <button class="product offers__two "></button>
+                <button class="product offers__three "></button>
+              </div>
+            </div>
+            <div class="modal__total">
+              <p class="modal__total-title">Total:</p>
+              <p class="modal__total-price"></p>
+            </div>
+            <div class="modal__sale">
+              <img src="../source/info-empty.png" alt="icon" class="modal__sale-icon">
+              <p class="modal__sale-info">The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</p>
+            </div>
+            <button class="modal__close">Close</button>
+          </div>
+        </div>
         <div class="menu__btn">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M21.8883 13.5C21.1645 18.3113 17.013 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C16.1006 2 19.6248 4.46819 21.1679 8" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
@@ -259,5 +294,6 @@
       </div>
     </footer>
   </div>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
