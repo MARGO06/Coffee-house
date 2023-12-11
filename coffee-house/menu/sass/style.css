@@ -909,6 +909,12 @@ h1 {
   flex-wrap: wrap;
   gap: 40px;
 }
+.cards.hidden .card:nth-child(n+5) {
+  display: none;
+}
+.cards.open .card:nth-child(n+5) {
+  display: block;
+}
 @media (max-width: 1361px) {
   .cards {
     display: flex;
@@ -918,6 +924,9 @@ h1 {
 @media (max-width: 768px) {
   .cards {
     margin-top: 37px;
+  }
+  .cards.hidden .card:nth-child(n+5) {
+    display: none;
   }
 }
 @media (max-width: 380px) {
@@ -1054,6 +1063,9 @@ h1 {
     margin-top: 37px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .menu__btn.hidden {
+    display: none;
   }
   .menu__btn svg {
     display: flex;

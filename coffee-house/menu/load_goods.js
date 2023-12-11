@@ -8,6 +8,9 @@ const cardPrices = document.querySelectorAll('.card__price');
 const butDesert = document.querySelector('.menu__dessert');
 const butCoffee = document.querySelector('.menu__coffee')
 const butTea = document.querySelector('.menu__tea');
+const cards = document.querySelector('.cards');
+const card = document.querySelectorAll('.card');
+const menuBtn = document.querySelector('.menu__btn')
 
 
 const coffees = [];
@@ -138,6 +141,34 @@ function changeElementCoffees() {
   })  
 }
 
+//hidden cards
+
+function hiddenCards(){
+  if(coffees.length < card.length || teas.length < card.length || desserts.length < card.length) {
+    cards.classList.add('hidden');
+    menuBtn.classList.add('hidden');
+  }
+}
+
+function openHiddenCards (){
+  cards.classList.remove('hidden');
+  menuBtn.classList.remove('hidden');
+}
+
+//open cards on media 
+
+function openCardsMedia () {
+   menuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    menuBtn.classList.add('hidden');
+    cards.classList.add('open');
+   })
+}
+
+function hiddenCardsMedia () {
+  cards.classList.remove('open');
+}
+
 //click buttons
 
 function clickButtonTea () {
@@ -145,6 +176,7 @@ function clickButtonTea () {
     e.preventDefault();
     butTea.classList.add('active');
     changeElementTea();
+    hiddenCards();
     butCoffee.classList.remove('active');
     butDesert.classList.remove('active');
   })
@@ -155,6 +187,8 @@ function clickButtonDesert () {
       e.preventDefault();
       butDesert.classList.add('active');
       changeElementDessert();
+      openHiddenCards ();
+      hiddenCardsMedia ();
       butCoffee.classList.remove('active');
       butTea.classList.remove('active');
     })
@@ -165,13 +199,11 @@ function clickButtonCoffee () {
       e.preventDefault();
       butCoffee.classList.add('active');
       changeElementCoffees();
+      openHiddenCards ();
+      hiddenCardsMedia ();
       butTea.classList.remove('active');
       butDesert.classList.remove('active');
     })
   }
 
-
-
-            
-
-export{fillArrays, clickButtonTea,clickButtonDesert,clickButtonCoffee}
+export{fillArrays, clickButtonTea,clickButtonDesert,clickButtonCoffee,openCardsMedia}
