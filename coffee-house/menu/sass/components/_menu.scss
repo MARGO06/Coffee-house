@@ -77,16 +77,38 @@
   background-color: $color-background-body;
   transition-duration: 2s;
 
+  &.active {
+    background-color: $color-background-container;
+    color: $color-background-body;
+  }
+
+  &.active:before {
+    background-color: $color-background-body;
+  }
+
 }
-
-
 
 .menu__coffee{
   width: 117px; 
   padding-left: 45px;
+
+  &.hidden:hover{
+    @extend %hover-btn;
+    @media(hover:none){
+      background-color: $color-background-body;
+      color: $color-primary-text;
+    }
+  }
+
   &--checked{
    background-color: $color-background-container;
    color: $color-background-body;
+
+   &.hidden {
+    background-color: $color-background-body;
+    color: $color-primary-text;
+   }
+   
   }
 }
 
@@ -96,8 +118,22 @@
   margin-left: -37px;
 }
 
+.menu__coffee.hidden:hover:before{
+  background-color: $color-background-body;
+  transition-duration: 2s;
+  cursor: pointer;
+
+  @media (hover:none) {
+    background-color: $color-primary-border;
+  }
+}
+
 .menu__coffee--checked:before{
   background-color: $color-background-body;
+}
+
+.menu__coffee--checked.hidden:before {
+  background-color: $color-primary-border;
 }
 
 .menu__tea{
@@ -194,6 +230,7 @@
 
   @include media-tablet {
     margin-top: 37px;
+
     &.hidden .card:nth-child(n+5) {
       display: none;
     }

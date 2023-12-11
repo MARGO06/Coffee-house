@@ -38,7 +38,7 @@
   border: 1px solid #E1D4C9;
 }
 
-.menu__dessert:hover, .menu__tea:hover {
+.menu__dessert:hover, .menu__tea:hover, .menu__coffee.hidden:hover {
   background-color: #665F55;
   color: #E1D4C9;
   transition-duration: 2s;
@@ -815,14 +815,31 @@ h1 {
   background-color: #E1D4C9;
   transition-duration: 2s;
 }
+.btn.active {
+  background-color: #665F55;
+  color: #E1D4C9;
+}
+.btn.active:before {
+  background-color: #E1D4C9;
+}
 
 .menu__coffee {
   width: 117px;
   padding-left: 45px;
 }
+@media (hover: none) {
+  .menu__coffee.hidden:hover {
+    background-color: #E1D4C9;
+    color: #403F3D;
+  }
+}
 .menu__coffee--checked {
   background-color: #665F55;
   color: #E1D4C9;
+}
+.menu__coffee--checked.hidden {
+  background-color: #E1D4C9;
+  color: #403F3D;
 }
 
 .menu__coffee:before {
@@ -830,8 +847,23 @@ h1 {
   margin-left: -37px;
 }
 
+.menu__coffee.hidden:hover:before {
+  background-color: #E1D4C9;
+  transition-duration: 2s;
+  cursor: pointer;
+}
+@media (hover: none) {
+  .menu__coffee.hidden:hover:before {
+    background-color: #C1B6AD;
+  }
+}
+
 .menu__coffee--checked:before {
   background-color: #E1D4C9;
+}
+
+.menu__coffee--checked.hidden:before {
+  background-color: #C1B6AD;
 }
 
 .menu__tea {

@@ -10,7 +10,8 @@ const butCoffee = document.querySelector('.menu__coffee')
 const butTea = document.querySelector('.menu__tea');
 const cards = document.querySelector('.cards');
 const card = document.querySelectorAll('.card');
-const menuBtn = document.querySelector('.menu__btn')
+const menuBtn = document.querySelector('.menu__btn');
+const coffeeChecked = document.querySelector('.menu__coffee--checked')
 
 
 const coffees = [];
@@ -177,6 +178,7 @@ function clickButtonTea () {
     butTea.classList.add('active');
     changeElementTea();
     hiddenCards();
+    coffeeChecked.classList.add('hidden');
     butCoffee.classList.remove('active');
     butDesert.classList.remove('active');
   })
@@ -189,6 +191,7 @@ function clickButtonDesert () {
       changeElementDessert();
       openHiddenCards ();
       hiddenCardsMedia ();
+      coffeeChecked.classList.add('hidden');
       butCoffee.classList.remove('active');
       butTea.classList.remove('active');
     })
@@ -201,6 +204,7 @@ function clickButtonCoffee () {
       changeElementCoffees();
       openHiddenCards ();
       hiddenCardsMedia ();
+      coffeeChecked.classList.remove('hidden');
       butTea.classList.remove('active');
       butDesert.classList.remove('active');
     })
