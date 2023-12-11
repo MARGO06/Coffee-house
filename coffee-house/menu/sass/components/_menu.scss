@@ -366,3 +366,187 @@
     }
   }
 }
+
+.modal{
+  @include flex($display:flex, $content:flex-start);
+  padding: 16px;
+  width: 800px;
+  height: 504px;
+  background-color: $color-background-body;
+  border-radius: 40px;
+}
+
+.modal__info{
+  margin-left: 20px;
+}
+.modal__img {
+  width: 310px;
+  height: 310px;
+  border-radius: 40px;
+}
+
+.modal__title {
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  color: $color-primary-text;
+}
+
+.modal__description {
+  margin-top: 12px;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
+  color: $color-primary-text;
+}
+
+.offers{
+  margin-top: 20px;
+}
+
+.offers__title {
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
+  color: $color-primary-text;
+}
+
+.offers__buttons {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.offers-btn {
+  width: 115px;
+  padding: 8px 16px 8px 35px;
+  border-radius: 100px;
+  border: 1px solid $color-background-container;
+  background-color: $color-background-body;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  color: $color-primary-text;
+  &::before {
+  content: " ";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $color-primary-border;
+  margin-left: -35px;
+  margin-top: -3px;
+  }
+}
+
+.offers__small::after{
+  content: "S";
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  position:absolute;
+  margin-left: -76px;
+}
+
+.offers__medium::after{
+  content: "M";
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  position:absolute;
+  margin-left: -76px;
+}
+
+.offers__large::after{
+  content: "L";
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  position:absolute;
+  margin-left: -76px;
+}
+
+.product {
+  position: relative;
+  border-radius: 100px;
+  border: 1px solid $color-background-container;
+  background-color: $color-background-body;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  color: $color-primary-text;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $color-primary-border;
+    margin-left: -35px;
+    margin-top: -3px;
+    }
+}
+
+.offers__one{
+  width: 108px;
+  padding: 8px 16px 8px 41px;
+}
+
+.offers__three{
+  width: 108px;
+  padding: 8px 16px 8px 41px;
+}
+
+.offers__two{
+  width: 140px;
+  padding: 8px 16px 8px 35px;
+}
+
+.offers__one::after{
+  content: "1";
+  margin-left: -70px;
+  position: absolute;
+}
+
+.offers__two::after{
+  content: "2";
+  margin-left: -103px;
+  position: absolute;
+}
+
+.offers__three::after{
+  content: "3";
+  margin-left: -70px;
+  position: absolute;
+}
+
+.modal__total {
+  margin-top: 20px;
+  @include flex($display:flex, $content:space-between);
+}
+
+.modal__total-title {
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  color: $color-primary-text;
+}
+.modal__total-price {
+  @include font($size:$size-h3, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h3);
+  color: $color-primary-text;
+}
+
+.modal__sale {
+  margin-top: 20px;
+  @include flex($display:flex, $content:flex-start);
+  border-top: 2px solid $color-primary-border;
+  padding: 12px 0;
+}
+
+.modal__sale-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.modal__sale-info {
+  margin-left: 8px;
+}
+
+.modal__close{
+  margin-top: 20px;
+  width: 100%;
+  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  color: $color-primary-text;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: $color-background-body;
+  border-radius: 100px;
+  border: 1px solid $color-background-container;
+}

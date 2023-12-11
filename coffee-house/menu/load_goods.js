@@ -210,4 +210,4 @@ function clickButtonCoffee () {
     })
   }
 
-export{fillArrays, clickButtonTea,clickButtonDesert,clickButtonCoffee,openCardsMedia}
+export{fillArrays, clickButtonTea,clickButtonDesert,clickButtonCoffee,openCardsMedia,coffees,teas,desserts}
