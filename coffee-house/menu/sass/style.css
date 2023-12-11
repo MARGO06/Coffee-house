@@ -1105,6 +1105,9 @@ h1 {
   }
 }
 
+/*.modal.hidden {
+  display: none;
+}*/
 .modal {
   display: flex;
   justify-content: flex-start;
