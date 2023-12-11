@@ -1,6 +1,6 @@
 import {showNavigation, closeNavigation,smoothScroll} from "./burger_menu.js";
 import{fillArrays, clickButtonTea,clickButtonDesert,clickButtonCoffee,openCardsMedia} from "./load_goods.js";
-import {openModalCoffee,showModalCoffee} from "./modal.js";
+import {showModalCoffee} from "./modal.js";
 showNavigation();
 closeNavigation();
 smoothScroll();
@@ -9,7 +9,6 @@ clickButtonTea();
 clickButtonDesert ();
 clickButtonCoffee();
 openCardsMedia();
-openModalCoffee();
 showModalCoffee();
 
 
