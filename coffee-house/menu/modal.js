@@ -133,7 +133,7 @@ function showModalDessert(){
 
 //show modal windows
 
-function openModalCoffee () {
+/*function openModalCoffee () {
     cards.forEach((card,index) => {
       card.addEventListener('click',(e) => {
         coffees.forEach((coffee,i) => {
@@ -146,6 +146,6 @@ function openModalCoffee () {
         })
     })
 })
-}
+}*/
 
-export {openModalCoffee, showModalCoffee}
+export { showModalCoffee}
