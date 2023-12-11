@@ -1,16 +1,24 @@
 .enjoy{
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/img-hero.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  position: relative;
+  overflow: hidden;
   border-radius: 40px;
 }
 
+.enjoy__video {
+  border-radius: 40px;
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+
+  @include media-1101{
+    height: 100%;
+  }
+}
 .enjoy__inform{
   padding: 100px 0;
   width: 38.9%;
   margin-left: 100px;
-
+  position: relative;
   @include media-1361 {
     width: 40.78%;
   }
