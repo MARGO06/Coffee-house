@@ -366,9 +366,9 @@
     }
   }
 }
-/*.modal.hidden {
+.modal.hidden {
   display: none;
-}*/
+}
 .modal{
   @include flex($display:flex, $content:flex-start);
   padding: 16px;
