@@ -568,4 +568,8 @@
   background-color: $color-background-body;
   border-radius: 100px;
   border: 1px solid $color-background-container;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

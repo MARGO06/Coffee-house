@@ -20,6 +20,8 @@ const modalWindow = document.querySelector('.modal');
 const butDesert = document.querySelector('.menu__dessert');
 const butTea = document.querySelector('.menu__tea');
 const backModal = document.querySelector('.background-modal');
+const butClose = document.querySelector('.modal__close')
+
 
 //create modal windows
 
@@ -153,5 +155,25 @@ function openModalDessert () {
 })
 }
 
+//close modal window
 
-export {showModalCoffee,openModalDessert,openModalTea,openModalCoffee}
+function hiddenModalWindow (){
+  modalWindow.classList.add('hidden');
+  backModal.classList.add('hidden');
+  document.body.classList.remove('lock');
+}
+
+function clickButtonClose (){
+  butClose.addEventListener('click', (e) => {
+    hiddenModalWindow ()
+  })
+}
+
+function clickBackModal (){
+  backModal.addEventListener('click', (e) => {
+    hiddenModalWindow ()
+  })
+}
+
+
+export {showModalCoffee,openModalDessert,openModalTea,openModalCoffee,clickButtonClose,clickBackModal}
