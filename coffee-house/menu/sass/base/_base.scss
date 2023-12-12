@@ -16,6 +16,10 @@ body{
   background-color: $color-background-body;
   font-family: Inter, Verdana, sans-serif;
 
+  &.lock {
+    overflow: hidden;
+  }
+
   @include media-tablet {
     &.lock {
       overflow: hidden;

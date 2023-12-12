@@ -100,7 +100,7 @@
     }
   }
 
-  &--checked{
+  &.checked{
    background-color: $color-background-container;
    color: $color-background-body;
 
@@ -128,11 +128,11 @@
   }
 }
 
-.menu__coffee--checked:before{
+.menu__coffee.checked:before{
   background-color: $color-background-body;
 }
 
-.menu__coffee--checked.hidden:before {
+.menu__coffee.checked.hidden:before {
   background-color: $color-primary-border;
 }
 
@@ -369,6 +369,19 @@
 .modal.hidden {
   display: none;
 }
+.background-modal.hidden {
+  display: none;
+}
+
+.background-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(64, 63, 61, 0.80);
+}
+
 .modal{
   @include flex($display:flex, $content:flex-start);
   padding: 16px;
@@ -376,8 +389,12 @@
   height: 504px;
   background-color: $color-background-body;
   border-radius: 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
-
 .modal__info{
   margin-left: 20px;
 }
