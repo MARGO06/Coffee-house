@@ -63,6 +63,9 @@ body {
   background-color: #E1D4C9;
   font-family: Inter, Verdana, sans-serif;
 }
+body.lock {
+  overflow: hidden;
+}
 @media (max-width: 768px) {
   body.lock {
     overflow: hidden;
@@ -833,11 +836,11 @@ h1 {
     color: #403F3D;
   }
 }
-.menu__coffee--checked {
+.menu__coffee.checked {
   background-color: #665F55;
   color: #E1D4C9;
 }
-.menu__coffee--checked.hidden {
+.menu__coffee.checked.hidden {
   background-color: #E1D4C9;
   color: #403F3D;
 }
@@ -858,11 +861,11 @@ h1 {
   }
 }
 
-.menu__coffee--checked:before {
+.menu__coffee.checked:before {
   background-color: #E1D4C9;
 }
 
-.menu__coffee--checked.hidden:before {
+.menu__coffee.checked.hidden:before {
   background-color: #C1B6AD;
 }
 
@@ -1109,6 +1112,19 @@ h1 {
   display: none;
 }
 
+.background-modal.hidden {
+  display: none;
+}
+
+.background-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(64, 63, 61, 0.8);
+}
+
 .modal {
   display: flex;
   justify-content: flex-start;
@@ -1117,6 +1133,11 @@ h1 {
   height: 504px;
   background-color: #E1D4C9;
   border-radius: 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 .modal__info {

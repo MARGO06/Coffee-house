@@ -1,9 +1,12 @@
 import {dates} from "./json.js";
-import {coffees,teas,desserts} from "./load_goods.js";
+import {coffees,teas,desserts,clickButtonTea,clickButtonDesert,clickButtonCoffee} from "./load_goods.js";
 dates;
 coffees;
 teas;
 desserts;
+clickButtonCoffee();
+clickButtonDesert();
+clickButtonTea();
 
 const modalImg = document.querySelector('.modal__img');
 const modalTitle = document.querySelector('.modal__title');
@@ -14,8 +17,9 @@ const modalPrice = document.querySelector('.modal__total-price');
 const cards = document.querySelectorAll('.card');
 const butCoffee = document.querySelector('.menu__coffee');
 const modalWindow = document.querySelector('.modal');
-const cardImgs = document.querySelectorAll('.card__img');
-const cardTitles = document.querySelectorAll('.card__title');
+const butDesert = document.querySelector('.menu__dessert');
+const butTea = document.querySelector('.menu__tea');
+const backModal = document.querySelector('.background-modal');
 
 //create modal windows
 
@@ -31,28 +35,8 @@ function showGeneralContent () {
     })
   })
 }
-function showModalCoffee(){
-    coffees.forEach((coffee,index)=>{
-        cards.forEach(i => {
-            if(index === i){
-                modalImg.textContent = `${coffee.img}`   
-            }
-          })
-    })
 
-        coffees.forEach((coffee,i) => {
-         
-            modalTitle.textContent = `${i.name}`;
-            console.log(coffee.description, coffee.name, coffees)
-          
-      })
-   
- 
-  coffees.forEach((coffee,i)=>{
-    modalDescription.textContent = `${coffee.description}`
-    //console.log(coffee.description, coffee.name, coffees)
-  })
-  showGeneralContent ();
+function showModalCoffee(){
   products.forEach((product,index) =>{
     coffees.forEach(coffee=>{
       let additives = Object.values(coffee.additives);
@@ -63,22 +47,9 @@ function showModalCoffee(){
     })
   })
   })
-  coffees.forEach(coffee => {
-    modalPrice.textContent = `${coffee.price}`
-  })
 }
 
 function showModalTea(){
-  teas.forEach(tea=>{
-    modalImg.textContent = `${tea.img}`
-    console.log(tea.img)
-  })
-  teas.forEach(tea=>{
-    modalTitle.textContent = `${tea.name}`
-  })
-   teas.forEach(tea=>{
-    modalDescription.textContent = `${tea.description}`
-  })
    showGeneralContent ();
     products.forEach((product,index) =>{
       teas.forEach(tea=>{
@@ -90,21 +61,9 @@ function showModalTea(){
       })
     })
     })
-    teas.forEach(tea => {
-      modalPrice.textContent = `${tea.price}`
-  })
 }
 
 function showModalDessert(){
-    desserts.forEach(dessert=>{
-      modalImg.textContent = `${dessert.img}`
-    })
-    desserts.forEach(dessert=>{
-      modalTitle.textContent = `${dessert.name}`
-    })
-    desserts.forEach(dessert=>{
-      modalDescription.textContent = `${dessert.description}`
-    })
     modalChoiceSizes.forEach((modalSize,index) =>{
       desserts.forEach(dessert=>{
         let sizes = Object.values(dessert.sizes);
@@ -125,27 +84,74 @@ function showModalDessert(){
       })
     })
     })
-    desserts.forEach(dessert => {
-      modalPrice.textContent = `${dessert.price}`
-    })
-    console.log(teas)
   }
 
 //show modal windows
 
-/*function openModalCoffee () {
+function openModalCoffee () {
     cards.forEach((card,index) => {
       card.addEventListener('click',(e) => {
         coffees.forEach((coffee,i) => {
-            if(index === i){
-                showModalCoffee();
+            if(index === i && (butCoffee.classList.contains('active') || butCoffee.classList.contains('checked'))){
+                modalImg.src = `${coffee.img}`
+                modalTitle.textContent = `${coffee.name}`
+                modalDescription.textContent = `${coffee.description}`
+                modalPrice.textContent = `${coffee.price}`;
                 showGeneralContent ();
+                showModalCoffee();
                 modalWindow.classList.remove('hidden');
+                backModal.classList.remove('hidden');
+                document.body.classList.add('lock');
                 console.log(index)
             }
         })
     })
 })
-}*/
+}
 
-export { showModalCoffee}
+
+function openModalTea () {
+  cards.forEach((card,index) => {
+    card.addEventListener('click',(e) => {
+      teas.forEach((tea,i) => {
+          if(index === i && butTea.classList.contains('active')){
+              modalImg.src = `${tea.img}`
+              modalTitle.textContent = `${tea.name}`
+              modalDescription.textContent = `${tea.description}`;
+              modalPrice.textContent = `${tea.price}`
+              showGeneralContent ();
+              showModalTea();
+              modalWindow.classList.remove('hidden');
+              backModal.classList.remove('hidden');
+              document.body.classList.add('lock');
+              console.log(index)
+          }
+      })
+  })
+})
+}
+
+
+function openModalDessert () {
+  cards.forEach((card,index) => {
+    card.addEventListener('click',(e) => {
+      desserts.forEach((dessert,i) => {
+          if(index === i && butDesert.classList.contains('active')){
+              modalImg.src = `${dessert.img}`
+              modalTitle.textContent = `${dessert.name}`
+              modalDescription.textContent = `${dessert.description}`
+              modalPrice.textContent = `${dessert.price}`
+              showGeneralContent ();
+              showModalDessert();
+              modalWindow.classList.remove('hidden');
+              backModal.classList.remove('hidden');
+              document.body.classList.add('lock');
+              console.log(index)
+          }
+      })
+  })
+})
+}
+
+
+export {showModalCoffee,openModalDessert,openModalTea,openModalCoffee}
