@@ -11,7 +11,7 @@ const butTea = document.querySelector('.menu__tea');
 const cards = document.querySelector('.cards');
 const card = document.querySelectorAll('.card');
 const menuBtn = document.querySelector('.menu__btn');
-const coffeeChecked = document.querySelector('.menu__coffee--checked')
+const coffeeChecked = document.querySelector('.menu__coffee')
 
 
 const coffees = [];
