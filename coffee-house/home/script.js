@@ -31,6 +31,7 @@ function closeNavigation () {
         headerLogo.classList.remove('active');
         headerIcon.classList.remove('active');
         headerNavigation.classList.remove ('active');
+        enjoySection.classList.remove('hidden');
         console.log('nice3')
       }
      })
