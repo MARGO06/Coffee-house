@@ -5,11 +5,13 @@ const headerIcon = document.querySelector('.header__icon');
 const headerNavigation = document.querySelector('.header__navigation');
 const headerItems = document.querySelectorAll('.header__item');
 const headerLinks = document.querySelectorAll('.header__link');
+const enjoySection= document.querySelector('.enjoy');
 
 
 function showNavigation () {
   if(headerLogo && headerIcon) {
     headerIcon.addEventListener('click',(e)=>{
+        enjoySection.classList.toggle('hidden');
         document.body.classList.toggle('lock');
         headerLogo.classList.toggle('active');
         headerIcon.classList.toggle('active');
@@ -29,6 +31,7 @@ function closeNavigation () {
         headerLogo.classList.remove('active');
         headerIcon.classList.remove('active');
         headerNavigation.classList.remove ('active');
+        enjoySection.classList.remove('hidden');
         console.log('nice3')
       }
      })
