@@ -36,4 +36,75 @@ callGame.className = "illustration__text";
 callGame.innerHTML = "HANGMAN GAME";
 illustration.append(callGame);
 
+//create quiz
+const quiz = document.createElement("div");
+quiz.className = "quiz";
+wrapper.append(quiz);
+
+const answer = document.createElement("p");
+answer.className = "quiz__answer";
+quiz.append(answer);
+
+const question = document.createElement("p");
+question.className = "quiz__question";
+quiz.append(question);
+
+const score = document.createElement("div");
+score.className = "score";
+quiz.append(score);
+
+const scoreText = document.createElement("p");
+scoreText.className = "quiz_text";
+score.append(scoreText);
+
+const scoreNumbers = document.createElement("p");
+scoreNumbers.className = "quiz_numbers";
+scoreNumbers.innerHTML = "0/6";
+score.append(scoreNumbers);
+
+// create keyboard
+
+const keyboard = document.createElement("div");
+keyboard.className = "quiz__keyboard";
+quiz.append(keyboard);
+
+const letters = {
+  KeyA: "A",
+  KeyB: "B",
+  KeyC: "C",
+  KeyD: "D",
+  KeyE: "E",
+  KeyF: "F",
+  KeyG: "G",
+  KeyH: "H",
+  KeyI: "I",
+  KeyJ: "J",
+  KeyK: "K",
+  KeyL: "L",
+  KeyM: "M",
+  KeyN: "N",
+  KeyO: "O",
+  KeyP: "P",
+  KeyQ: "Q",
+  KeyR: "R",
+  KeyS: "S",
+  KeyT: "T",
+  KeyU: "U",
+  KeyV: "V",
+  KeyW: "W",
+  KeyX: "X",
+  KeyY: "Y",
+  KeyZ: "Z",
+};
+
+function addLetters() {
+  for (const [key, value] of Object.entries(letters)) {
+    const element = document.createElement("div");
+    element.className = `key ${key}`;
+    element.innerHTML = `${value}`;
+    keyboard.append(element);
+  }
+}
+addLetters();
+
 export { wrapper };
