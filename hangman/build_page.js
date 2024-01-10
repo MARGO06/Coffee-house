@@ -44,7 +44,7 @@ const quiz = document.createElement("div");
 quiz.className = "quiz";
 wrapper.append(quiz);
 
-const answer = document.createElement("p");
+const answer = document.createElement("div");
 answer.className = "quiz__answer";
 quiz.append(answer);
 
@@ -117,7 +117,18 @@ addLetters();
 
 // add answer and question
 let randomNumber;
-let emptyAnswer;
+const emptyAnswer = [];
+
+function addAnswer() {
+  let newAnswer = emptyAnswer.flat();
+  for (let i = 0; i < newAnswer.length; i++) {
+    const partAnswer = document.createElement("div");
+    partAnswer.className = `quiz__one-letter ${i}`;
+    partAnswer.innerHTML = "";
+    answer.append(partAnswer);
+    console.log(newAnswer);
+  }
+}
 
 function randomNumbers(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
@@ -132,10 +143,9 @@ function chooseQuestion() {
       question.innerHTML = `${dates[i].question}`;
       console.log(dates[i].question);
       let character = dates[i].answer.length;
-      emptyAnswer = new Array(character).fill("_").join(" ");
-      answer.innerHTML = `${emptyAnswer}`;
+      emptyAnswer.push(new Array(character).fill("_"));
+      addAnswer();
       console.log(character);
-      console.log(emptyAnswer);
     }
   }
 }

@@ -8,7 +8,8 @@
 .illustration__part2,
 .score,
 .quiz__keyboard,
-.quiz__row {
+.quiz__row,
+.quiz__answer {
   display: flex;
 }
 .wrapper {
@@ -84,6 +85,14 @@
 
 .quiz__answer {
   margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 20px;
+  align-items: center;
+}
+
+.quiz__one-letter {
+  width: 50px;
 }
 
 .quiz__question,
@@ -92,7 +101,7 @@
 }
 
 .quiz__question {
-  margin-top: 50px;
+  margin: 50px auto;
   font-size: 24px;
   font-weight: 400;
   width: 90%;
@@ -111,7 +120,8 @@
 }
 
 .quiz__keyboard,
-.key {
+.key,
+.quiz__one-letter {
   border: 1px solid rgba(32, 31, 31, 0.954);
 }
 
