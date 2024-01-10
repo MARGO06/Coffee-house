@@ -15,26 +15,26 @@ part1.className = "part illustration__part1";
 illustration.append(part1);
 
 const part2 = document.createElement("div");
-part2.className = "part illustration__part2";
+part2.className = "illustration__part2";
 illustration.append(part2);
 
 const insidePart1 = document.createElement("div");
-insidePart1.className = "part illustration__part2.1";
+insidePart1.className = "part illustration__part21";
 part2.append(insidePart1);
 
 const insidePart2 = document.createElement("div");
-insidePart2.className = "part illustration__part2.2";
+insidePart2.className = "part illustration__part22";
 part2.append(insidePart2);
 
 const insidePart3 = document.createElement("div");
-insidePart3.className = "part illustration__part2.3";
+insidePart3.className = "part illustration__part23";
 part2.append(insidePart3);
 
 const part3 = document.createElement("div");
 part3.className = "part illustration__part3";
 illustration.append(part3);
 
-const callGame = document.createElement("p");
+const callGame = document.createElement("h1");
 callGame.className = "illustration__text";
 callGame.innerHTML = "HANGMAN GAME";
 illustration.append(callGame);
