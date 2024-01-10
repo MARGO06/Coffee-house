@@ -58,7 +58,7 @@ quiz.append(score);
 
 const scoreText = document.createElement("p");
 scoreText.className = "quiz_text";
-scoreText.innerHTML = "Incorrect guesses";
+scoreText.innerHTML = "Incorrect guesses:";
 score.append(scoreText);
 
 const scoreNumbers = document.createElement("p");
@@ -71,6 +71,10 @@ score.append(scoreNumbers);
 const keyboard = document.createElement("div");
 keyboard.className = "quiz__keyboard";
 quiz.append(keyboard);
+
+const row = document.createElement("div");
+row.className = "quiz__row";
+keyboard.append(row);
 
 const letters = {
   KeyA: "A",
@@ -106,7 +110,7 @@ function addLetters() {
     const element = document.createElement("div");
     element.className = `key ${key}`;
     element.innerHTML = `${value}`;
-    keyboard.append(element);
+    row.append(element);
   }
 }
 addLetters();
