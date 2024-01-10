@@ -152,4 +152,4 @@ function chooseQuestion() {
 
 chooseQuestion();
 console.log(dates);
-export { wrapper };
+export { wrapper, row };
