@@ -1,3 +1,6 @@
+import { dates } from "./json.js";
+dates;
+
 const wrapper = document.createElement("div");
 wrapper.className = "wrapper";
 document.body.append(wrapper);
@@ -55,6 +58,7 @@ quiz.append(score);
 
 const scoreText = document.createElement("p");
 scoreText.className = "quiz_text";
+scoreText.innerHTML = "Incorrect guesses";
 score.append(scoreText);
 
 const scoreNumbers = document.createElement("p");
@@ -107,4 +111,31 @@ function addLetters() {
 }
 addLetters();
 
+// add answer and question
+let randomNumber;
+let emptyAnswer;
+
+function randomNumbers(min, max) {
+  let rand = min + Math.random() * (max + 1 - min);
+  randomNumber = Math.floor(rand);
+  console.log(randomNumber);
+}
+randomNumbers(0, 10);
+
+function chooseQuestion() {
+  for (let i = 0; i < dates.length; i++) {
+    if (i === randomNumber) {
+      question.innerHTML = `${dates[i].question}`;
+      console.log(dates[i].question);
+      let character = dates[i].answer.length;
+      emptyAnswer = new Array(character).fill("_").join(" ");
+      answer.innerHTML = `${emptyAnswer}`;
+      console.log(character);
+      console.log(emptyAnswer);
+    }
+  }
+}
+
+chooseQuestion();
+console.log(dates);
 export { wrapper };
