@@ -1,17 +1,27 @@
-import { wrapper, row } from "./build_page.js";
+import { wrapper, randomNumber } from "./build_page.js";
+import { dates } from "./json.js";
 wrapper;
-row;
+randomNumber;
+dates;
 
 const keys = document.querySelectorAll(".key");
+const quizAnswer = document.querySelectorAll(".quiz__one-letter");
+const quizCount = document.querySelector(".quiz_numbers");
+
+let answerLetters = dates[randomNumber].answer.split("");
+let letter;
+let index;
+
 // physical keyboard
 function putButton() {
   document.addEventListener("keydown", (e) => {
     for (let i = 0; i < keys.length; i++) {
       if (keys[i].getAttribute("class").includes(e.code)) {
         keys[i].classList.add("active");
+        letter = e.code.slice(-1);
       }
+      showLetter();
     }
-    console.log(e.code);
   });
 }
 
@@ -32,7 +42,8 @@ function putMouse() {
   keys.forEach((key) => {
     key.addEventListener("mousedown", (e) => {
       key.classList.add("active");
-      console.log(e);
+      letter = key.innerHTML;
+      showLetter();
     });
   });
 }
@@ -47,4 +58,22 @@ function upMouse() {
   });
 }
 
+function showLetter() {
+  for (let j = 0; j < answerLetters.length; j++) {
+    if (letter === answerLetters[j]) {
+      index = j;
+      for (let k = 0; k < quizAnswer.length; k++) {
+        if (k === index) {
+          quizAnswer[k].innerHTML = `${answerLetters[j]}`;
+          quizAnswer[k].classList.add("active");
+          console.log(k);
+        }
+      }
+    }
+  }
+}
+
+//quizCount.forEach((item) => console.log(item));
+console.log(quizCount);
+console.log(answerLetters);
 export { putButton, upButton, putMouse, upMouse };

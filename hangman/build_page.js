@@ -1,4 +1,5 @@
 import { dates } from "./json.js";
+
 dates;
 
 const wrapper = document.createElement("div");
@@ -152,4 +153,4 @@ function chooseQuestion() {
 
 chooseQuestion();
 console.log(dates);
-export { wrapper, row };
+export { wrapper, row, randomNumber };
