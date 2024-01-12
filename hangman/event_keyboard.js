@@ -8,6 +8,7 @@ import {
   partSixth,
 } from "./build_page.js";
 import { dates } from "./json.js";
+import { showModalWindow } from "./modal.js";
 
 const keys = document.querySelectorAll(".key");
 const quizAnswer = document.querySelectorAll(".quiz__one-letter");
@@ -116,7 +117,10 @@ function showParts() {
   }
   if (numbers[0].innerHTML === "6") {
     partSixth.style.visibility = "visible";
+    setTimeout(() => {
+      showModalWindow();
+    }, 3000);
   }
 }
 
-export { putButton, upButton, putMouse, upMouse, numbers };
+export { putButton, upButton, putMouse, upMouse, numbers, countChange };
