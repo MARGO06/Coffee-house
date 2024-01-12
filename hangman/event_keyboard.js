@@ -1,12 +1,17 @@
-import { wrapper, randomNumber } from "./build_page.js";
+import {
+  wrapper,
+  randomNumber,
+  partFirst,
+  partSecond,
+  partFourth,
+  partThird,
+  partFifth,
+  partSixth,
+} from "./build_page.js";
 import { dates } from "./json.js";
-wrapper;
-randomNumber;
-dates;
 
 const keys = document.querySelectorAll(".key");
 const quizAnswer = document.querySelectorAll(".quiz__one-letter");
-const quizCount = document.querySelector(".quiz_numbers");
 const numbers = document.querySelectorAll(".number");
 
 let answerLetters = dates[randomNumber].answer.split("");
@@ -62,7 +67,7 @@ function upMouse() {
     });
   });
 }
-
+//add showLetters
 function showLetter() {
   for (let j = 0; j < answerLetters.length; j++) {
     if (letter === answerLetters[j]) {
@@ -76,7 +81,7 @@ function showLetter() {
     }
   }
 }
-
+//add count
 function countChange() {
   if (
     !answerLetters.includes(letter) &&
@@ -90,11 +95,29 @@ function countChange() {
   }
   numbers[0].innerHTML = `${first}`;
   numbers[2].innerHTML = `${second}`;
+  showParts();
 }
 
-//quizCount.forEach((item) => console.log(item));
-console.log(second);
-console.log(first);
-console.log(numbers);
-console.log(answerLetters);
+function showParts() {
+  if (numbers[0].innerHTML === "1") {
+    partFirst.style.visibility = "visible";
+    console.log("ggg");
+  }
+  if (numbers[0].innerHTML === "2") {
+    partSecond.style.visibility = "visible";
+  }
+  if (numbers[0].innerHTML === "3") {
+    partThird.style.visibility = "visible";
+  }
+  if (numbers[0].innerHTML === "4") {
+    partFourth.style.visibility = "visible";
+  }
+  if (numbers[0].innerHTML === "5") {
+    partFifth.style.visibility = "visible";
+  }
+  if (numbers[0].innerHTML === "6") {
+    partSixth.style.visibility = "visible";
+  }
+}
+
 export { putButton, upButton, putMouse, upMouse };

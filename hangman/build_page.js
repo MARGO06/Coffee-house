@@ -1,7 +1,5 @@
 import { dates } from "./json.js";
 
-dates;
-
 const countNumbers = ["0", "/", "6"];
 
 const wrapper = document.createElement("div");
@@ -32,6 +30,34 @@ part2.append(insidePart2);
 const insidePart3 = document.createElement("div");
 insidePart3.className = "part illustration__part23";
 part2.append(insidePart3);
+
+const insidePart4 = document.createElement("div");
+insidePart4.className = "part illustration__body";
+part2.append(insidePart4);
+
+const partFirst = document.createElement("div");
+partFirst.className = "part illustration__body1";
+insidePart4.append(partFirst);
+
+const partSecond = document.createElement("div");
+partSecond.className = "part illustration__body2";
+insidePart4.append(partSecond);
+
+const partThird = document.createElement("div");
+partThird.className = "part illustration__body3";
+insidePart4.append(partThird);
+
+const partFourth = document.createElement("div");
+partFourth.className = "part illustration__body4";
+insidePart4.append(partFourth);
+
+const partFifth = document.createElement("div");
+partFifth.className = "part illustration__body5";
+insidePart4.append(partFifth);
+
+const partSixth = document.createElement("div");
+partSixth.className = "part illustration__body6";
+insidePart4.append(partSixth);
 
 const part3 = document.createElement("div");
 part3.className = "part illustration__part3";
@@ -164,4 +190,15 @@ function chooseQuestion() {
 
 chooseQuestion();
 console.log(dates);
-export { wrapper, row, randomNumber };
+export {
+  wrapper,
+  row,
+  randomNumber,
+  insidePart4,
+  partFirst,
+  partSecond,
+  partThird,
+  partFourth,
+  partFifth,
+  partSixth,
+};
