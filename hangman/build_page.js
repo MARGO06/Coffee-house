@@ -2,6 +2,8 @@ import { dates } from "./json.js";
 
 dates;
 
+const countNumbers = ["0", "/", "6"];
+
 const wrapper = document.createElement("div");
 wrapper.className = "wrapper";
 document.body.append(wrapper);
@@ -63,9 +65,18 @@ scoreText.innerHTML = "Incorrect guesses:";
 score.append(scoreText);
 
 const scoreNumbers = document.createElement("p");
-scoreNumbers.className = "quiz_numbers";
-scoreNumbers.innerHTML = "0/6";
+scoreNumbers.className = "quiz__numbers";
 score.append(scoreNumbers);
+
+function createCount() {
+  countNumbers.forEach((countNumber, index) => {
+    const number = document.createElement("div");
+    number.className = `number quiz__numbers${index}`;
+    number.innerHTML = `${countNumber}`;
+    scoreNumbers.append(number);
+  });
+}
+createCount();
 
 // create keyboard
 
@@ -108,7 +119,7 @@ const letters = {
 
 function addLetters() {
   for (const [key, value] of Object.entries(letters)) {
-    const element = document.createElement("div");
+    const element = document.createElement("button");
     element.className = `key ${key}`;
     element.innerHTML = `${value}`;
     row.append(element);
