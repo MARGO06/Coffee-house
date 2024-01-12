@@ -10,7 +10,8 @@
 .quiz__keyboard,
 .quiz__row,
 .quiz__answer,
-.quiz__numbers {
+.quiz__numbers,
+.modal {
   display: flex;
 }
 .wrapper {
@@ -75,7 +76,11 @@
 .illustration__text,
 .quiz__question,
 .score,
-.quiz__one-letter.active {
+.quiz__one-letter.active,
+.modal__text,
+.modal__result,
+.modal__answer,
+.modal__button {
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
 }
@@ -232,4 +237,47 @@
   left: -10px;
   width: 70px;
   transform: rotate(45deg);
+}
+
+.modal__background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(64, 63, 61, 0.9);
+}
+
+.modal {
+  width: 800px;
+  height: 500px;
+  background-color: rgba(241, 236, 232);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  flex-direction: column;
+}
+
+.modal__text {
+  padding-top: 70px;
+}
+.modal__text,
+.modal__result,
+.modal__answer {
+  font-size: 24px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal__button {
+  background-color: rgba(104, 218, 187, 0.648);
+  width: 35%;
+  height: 44px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
 }

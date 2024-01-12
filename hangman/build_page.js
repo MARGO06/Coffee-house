@@ -187,8 +187,38 @@ function chooseQuestion() {
     }
   }
 }
-
 chooseQuestion();
+
+//create modal window
+
+const modal = document.createElement("div");
+modal.classList = "modal hidden";
+wrapper.append(modal);
+
+const modalText = document.createElement("p");
+modalText.classList = "modal__text";
+modalText.innerHTML = "";
+modal.append(modalText);
+
+const modalResult = document.createElement("p");
+modalResult.classList = "modal__result";
+modalResult.innerHTML = "";
+modal.append(modalResult);
+
+const modalAnswer = document.createElement("p");
+modalAnswer.classList = "modal__answer";
+modalAnswer.innerHTML = "";
+modal.append(modalAnswer);
+
+const modalButton = document.createElement("button");
+modalButton.classList = "modal__button";
+modalButton.innerHTML = "Play again";
+modal.append(modalButton);
+
+const modalBackground = document.createElement("div");
+modalBackground.classList = "modal__background hidden";
+wrapper.append(modalBackground);
+
 console.log(dates);
 export {
   wrapper,
@@ -201,4 +231,7 @@ export {
   partFourth,
   partFifth,
   partSixth,
+  modalText,
+  modalResult,
+  modalAnswer,
 };

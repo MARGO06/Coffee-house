@@ -1,5 +1,4 @@
 import {
-  wrapper,
   randomNumber,
   partFirst,
   partSecond,
@@ -97,7 +96,7 @@ function countChange() {
   numbers[2].innerHTML = `${second}`;
   showParts();
 }
-
+//show parts
 function showParts() {
   if (numbers[0].innerHTML === "1") {
     partFirst.style.visibility = "visible";
@@ -120,4 +119,4 @@ function showParts() {
   }
 }
 
-export { putButton, upButton, putMouse, upMouse };
+export { putButton, upButton, putMouse, upMouse, numbers };
