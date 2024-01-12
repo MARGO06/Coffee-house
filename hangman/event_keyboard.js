@@ -25,7 +25,7 @@ function putButton() {
       }
       showLetter();
     }
-    // countChange();
+    countChange();
   });
 }
 
@@ -48,7 +48,7 @@ function putMouse() {
       key.classList.add("active");
       letter = key.innerHTML;
       showLetter();
-      //countChange();
+      countChange();
     });
   });
 }
@@ -77,14 +77,20 @@ function showLetter() {
   }
 }
 
-/*function countChange() {
-  if (!answerLetters.includes(letter)) {
+function countChange() {
+  if (
+    !answerLetters.includes(letter) &&
+    first <= 5 &&
+    first >= 0 &&
+    second < 7 &&
+    second >= 1
+  ) {
     first++;
     second--;
   }
   numbers[0].innerHTML = `${first}`;
   numbers[2].innerHTML = `${second}`;
-}*/
+}
 
 //quizCount.forEach((item) => console.log(item));
 console.log(second);
