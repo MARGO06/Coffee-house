@@ -19,7 +19,7 @@ let letter;
 let index;
 let first = 0;
 let second = 6;
-
+let qqq = [];
 // physical keyboard
 function putButton() {
   document.addEventListener("keydown", (e) => {
@@ -28,8 +28,8 @@ function putButton() {
         keys[i].classList.add("active");
         letter = e.code.slice(-1);
       }
-      showLetter();
     }
+    showLetter();
     countChange();
   });
 }
@@ -76,6 +76,12 @@ function showLetter() {
         if (k === index) {
           quizAnswer[k].innerHTML = `${answerLetters[j]}`;
           quizAnswer[k].classList.add("active");
+          qqq.push(answerLetters[j]);
+          if (qqq.length === answerLetters.length) {
+            setTimeout(() => {
+              showModalWindow();
+            }, 2000);
+          }
         }
       }
     }
@@ -119,7 +125,7 @@ function showParts() {
     partSixth.style.visibility = "visible";
     setTimeout(() => {
       showModalWindow();
-    }, 3000);
+    }, 2000);
   }
 }
 
