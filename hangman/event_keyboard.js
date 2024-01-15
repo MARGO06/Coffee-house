@@ -13,6 +13,7 @@ import { showModalWindow } from "./modal.js";
 const keys = document.querySelectorAll(".key");
 const quizAnswer = document.querySelectorAll(".quiz__one-letter");
 const numbers = document.querySelectorAll(".number");
+const numb = document.querySelector(".quiz__answer");
 
 let answerLetters = dates[randomNumber].answer.split("");
 let letter;
@@ -78,9 +79,11 @@ function showLetter() {
           quizAnswer[k].classList.add("active");
           qqq.push(answerLetters[j]);
           if (qqq.length === answerLetters.length) {
-            setTimeout(() => {
-              showModalWindow();
-            }, 2000);
+            //console.log(qqq);
+            //setTimeout(() => {
+            showModalWindow();
+            qqq.splice(0, qqq.length);
+            //}, 1000);
           }
         }
       }
@@ -99,7 +102,7 @@ function countChange() {
     first++;
     second--;
   }
-  numbers[0].innerHTML = `${first}`;
+  numbers[0].textContent = `${first}`;
   numbers[2].innerHTML = `${second}`;
   showParts();
 }
@@ -107,7 +110,7 @@ function countChange() {
 function showParts() {
   if (numbers[0].innerHTML === "1") {
     partFirst.style.visibility = "visible";
-    console.log("ggg");
+    //console.log("ggg");
   }
   if (numbers[0].innerHTML === "2") {
     partSecond.style.visibility = "visible";
@@ -125,8 +128,21 @@ function showParts() {
     partSixth.style.visibility = "visible";
     setTimeout(() => {
       showModalWindow();
-    }, 2000);
+    }, 1000);
   }
 }
 
-export { putButton, upButton, putMouse, upMouse, numbers, countChange };
+export {
+  putButton,
+  upButton,
+  putMouse,
+  upMouse,
+  numbers,
+  countChange,
+  showLetter,
+  answerLetters,
+  letter,
+  first,
+  second,
+  qqq,
+};

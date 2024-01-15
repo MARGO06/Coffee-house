@@ -155,23 +155,22 @@ addLetters();
 
 // add answer and question
 let randomNumber;
-const emptyAnswer = [];
+let emptyAnswer;
 
 function addAnswer() {
-  let newAnswer = emptyAnswer.flat();
+  let newAnswer = emptyAnswer.split("");
   for (let i = 0; i < newAnswer.length; i++) {
     const partAnswer = document.createElement("div");
     partAnswer.className = `quiz__one-letter ${i}`;
     partAnswer.innerHTML = "";
     answer.append(partAnswer);
-    console.log(newAnswer);
   }
 }
 
 function randomNumbers(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   randomNumber = Math.floor(rand);
-  console.log(randomNumber);
+  //console.log(randomNumber);
 }
 randomNumbers(0, 10);
 
@@ -181,11 +180,10 @@ function chooseQuestion() {
       question.innerHTML = `${dates[i].question}`;
       console.log(dates[i].question);
       let character = dates[i].answer.length;
-      emptyAnswer.push(new Array(character).fill("_"));
-      addAnswer();
-      console.log(character);
+      emptyAnswer = new Array(character).fill("_").join("");
     }
   }
+  addAnswer();
 }
 chooseQuestion();
 
@@ -219,7 +217,6 @@ const modalBackground = document.createElement("div");
 modalBackground.classList = "modal__background hidden";
 wrapper.append(modalBackground);
 
-console.log(dates);
 export {
   wrapper,
   row,
@@ -231,7 +228,15 @@ export {
   partFourth,
   partFifth,
   partSixth,
+  part2,
   modalText,
   modalResult,
   modalAnswer,
+  addAnswer,
+  chooseQuestion,
+  randomNumbers,
+  question,
+  answer,
+  createCount,
+  addLetters,
 };
