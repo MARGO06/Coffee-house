@@ -114,6 +114,8 @@
 
 .quiz__one-letter {
   width: 50px;
+  height: 30px;
+  border-bottom: 1px solid rgba(32, 31, 31, 0.954);
 }
 
 .quiz__question,
@@ -147,8 +149,7 @@
 }
 
 .quiz__keyboard,
-.key,
-.quiz__one-letter {
+.key {
   border: 1px solid rgba(32, 31, 31, 0.954);
 }
 
