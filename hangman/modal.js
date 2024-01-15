@@ -10,11 +10,9 @@ import {
   partFourth,
   partFifth,
   partSixth,
-  createCount,
   chooseQuestion,
   randomNumbers,
 } from "./build_page.js";
-import { qqq } from "./event_keyboard.js";
 import { dates } from "./json.js";
 
 const backgroundModal = document.querySelector(".modal__background");
@@ -57,13 +55,6 @@ function showModalWindow() {
   console.log("jjj");
 }
 
-function showNewModalWindow() {
-  backgroundModal.classList.add("active");
-  modalWindow.classList.add("active");
-  viewModal();
-  console.log("hhh");
-}
-
 function playAgain() {
   modalButton.addEventListener("click", (e) => {
     backgroundModal.classList.remove("active");
@@ -73,11 +64,10 @@ function playAgain() {
     randomNumbers(0, 10);
     updateKeyboards();
     deleteAnswer();
-    //createCount();
     createIllustrationBody();
     chooseQuestion();
     getNewAnswer();
-    //putNewButton();
+    putNewButton();
   });
 }
 
@@ -92,9 +82,6 @@ function deleteCount() {
     numbers[0].innerHTML = "0";
     numbers[2].innerHTML = "6";
   }
-  //for (let i = numbers.length - 1; i >= 0; i--) {
-  //numbers[i].remove();
-  //}
 }
 
 function deleteAnswer() {
@@ -148,7 +135,7 @@ function getNewAnswer() {
   }
 }
 
-/*function countNewChange() {
+function countNewChange() {
   if (
     !newAnswer.includes(newLetter) &&
     newFirst <= 5 &&
@@ -175,6 +162,7 @@ function putNewButton() {
     }
     showNewLetter();
     countNewChange();
+    console.log(e);
   });
 }
 
@@ -188,12 +176,11 @@ function showNewLetter() {
           quizNewAnswer[k].innerHTML = `${newAnswer[j]}`;
           quizNewAnswer[k].classList.add("active");
           kkk.push(newAnswer[j]);
-          console.log(qqq);
           if (kkk.length === newAnswer.length) {
             console.log(kkk);
             setTimeout(() => {
-              showNewModalWindow();
-            }, 2000);
+              showModalWindow();
+            }, 1000);
           }
         }
       }
@@ -224,6 +211,6 @@ function showNewParts() {
       showModalWindow();
     }, 2000);
   }
-}*/
+}
 
 export { showModalWindow, playAgain };

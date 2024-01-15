@@ -13,7 +13,6 @@ import { showModalWindow } from "./modal.js";
 const keys = document.querySelectorAll(".key");
 const quizAnswer = document.querySelectorAll(".quiz__one-letter");
 const numbers = document.querySelectorAll(".number");
-const numb = document.querySelector(".quiz__answer");
 
 let answerLetters = dates[randomNumber].answer.split("");
 let letter;
@@ -79,11 +78,9 @@ function showLetter() {
           quizAnswer[k].classList.add("active");
           qqq.push(answerLetters[j]);
           if (qqq.length === answerLetters.length) {
-            //console.log(qqq);
-            //setTimeout(() => {
-            showModalWindow();
-            qqq.splice(0, qqq.length);
-            //}, 1000);
+            setTimeout(() => {
+              showModalWindow();
+            }, 1000);
           }
         }
       }
@@ -144,5 +141,4 @@ export {
   letter,
   first,
   second,
-  qqq,
 };

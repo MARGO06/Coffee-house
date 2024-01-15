@@ -179,6 +179,7 @@ function chooseQuestion() {
     if (i === randomNumber) {
       question.innerHTML = `${dates[i].question}`;
       console.log(dates[i].question);
+      console.log(dates[i].answer);
       let character = dates[i].answer.length;
       emptyAnswer = new Array(character).fill("_").join("");
     }

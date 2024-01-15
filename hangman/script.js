@@ -5,13 +5,12 @@ import {
   putMouse,
   upMouse,
   showLetter,
-  answerLetters,
 } from "./event_keyboard.js";
 import { playAgain } from "./modal.js";
 wrapper;
-playAgain();
 putButton();
 upButton();
 putMouse();
 upMouse();
+playAgain();
 showLetter();
