@@ -14,6 +14,7 @@
 .modal {
   display: flex;
 }
+
 .wrapper {
   margin: 0 auto;
   max-width: 1360px;
@@ -47,29 +48,38 @@
   position: absolute;
 }
 
-.illustration__part21 {
-  width: 500px;
+.illustration__part21,
+.illustration__part23,
+.illustration__body2 {
   transform: rotate(90deg);
+}
+
+.illustration__part22,
+.illustration__body3,
+.illustration__body5 {
+  transform: rotate(125deg);
+}
+
+.illustration__part21 {
+  width: 86%;
   top: 220px;
   left: -220px;
 }
 
 .illustration__part22 {
-  width: 90px;
-  transform: rotate(125deg);
+  width: 15%;
   top: 30px;
   left: 12px;
 }
 
 .illustration__part23 {
-  width: 100px;
-  transform: rotate(90deg);
+  width: 18%;
   top: 41px;
   left: 325px;
 }
 
 .illustration__part3 {
-  margin-top: 470px;
+  margin-top: 460px;
   width: 80.5%;
 }
 
@@ -90,10 +100,14 @@
   font-weight: 600;
 }
 
-.quiz__answer {
-  margin-top: 120px;
+.quiz__answer,
+.modal__button {
   margin-left: auto;
   margin-right: auto;
+}
+
+.quiz__answer {
+  margin-top: 120px;
   gap: 20px;
   align-items: center;
 }
@@ -107,27 +121,31 @@
   text-align: center;
 }
 
-.quiz__question {
-  margin: 50px auto;
+.quiz__question,
+.score {
   font-size: 24px;
   font-weight: 400;
+}
+
+.quiz__question {
+  margin: 50px auto;
   width: 90%;
 }
 
 .score {
   margin: 30px auto;
-  font-size: 24px;
-  font-weight: 400;
   width: 50%;
 }
 
-.quiz__numbers {
+.quiz__numbers,
+.key {
   margin-left: 10px;
 }
 
 .number {
   color: red;
 }
+
 .quiz__keyboard,
 .key,
 .quiz__one-letter {
@@ -150,11 +168,14 @@
   padding-bottom: 8px;
 }
 
+.key,
+.modal__button {
+  background-color: rgba(104, 218, 187, 0.648);
+}
+
 .key {
   width: 9%;
   height: 56px;
-  margin-left: 10px;
-  background-color: rgba(104, 218, 187, 0.648);
   border-radius: 5px;
   margin-top: 10px;
 }
@@ -177,9 +198,6 @@
   position: relative;
   left: 372px;
   top: 90px;
-  background-color: brown;
-  height: 2px;
-  width: 2px;
 }
 
 .illustration__body1,
@@ -188,11 +206,11 @@
 .illustration__body4,
 .illustration__body5,
 .illustration__body6 {
+  position: absolute;
   visibility: hidden;
 }
 
 .illustration__body1 {
-  position: absolute;
   border-radius: 50%;
   top: 5px;
   left: -22px;
@@ -201,48 +219,47 @@
 }
 
 .illustration__body2 {
-  position: absolute;
   top: 110px;
   left: -57px;
   width: 120px;
-  transform: rotate(90deg);
 }
 
 .illustration__body3 {
-  position: absolute;
   top: 104px;
   left: -44px;
   width: 60px;
-  transform: rotate(125deg);
+}
+
+.illustration__body4,
+.illustration__body6 {
+  transform: rotate(45deg);
 }
 
 .illustration__body4 {
-  position: absolute;
   top: 100px;
   left: -10px;
   width: 60px;
-  transform: rotate(45deg);
 }
 
 .illustration__body5 {
-  position: absolute;
   top: 188px;
   left: -50px;
   width: 70px;
-  transform: rotate(125deg);
 }
 
 .illustration__body6 {
-  position: absolute;
   top: 186px;
   left: -10px;
   width: 70px;
-  transform: rotate(45deg);
+}
+
+.modal__background,
+.modal {
+  display: none;
+  position: fixed;
 }
 
 .modal__background {
-  display: none;
-  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
@@ -251,11 +268,9 @@
 }
 
 .modal {
-  display: none;
   width: 800px;
   height: 500px;
   background-color: rgba(241, 236, 232);
-  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -275,17 +290,14 @@
 }
 
 .modal__button {
-  display: block;
-  background-color: rgba(104, 218, 187, 0.648);
   width: 35%;
   height: 44px;
   margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 24px;
 }
 
 .modal__background.active,
+.modal__button,
 .modal.active {
   display: block;
 }
