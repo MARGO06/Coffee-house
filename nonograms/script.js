@@ -1,3 +1,6 @@
-import { wrapper } from "./build_nonogram.js";
+import { wrapper, leftDates, topDate, datesField } from "./build_nonogram.js";
 
 wrapper;
+leftDates;
+topDate;
+datesField;

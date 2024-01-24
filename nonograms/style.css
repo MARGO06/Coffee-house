@@ -26,36 +26,76 @@
   padding-bottom: 150px;
 }
 
+.nonogram__top-dates,
+.nonogram__field-dates,
+.nonogram__top,
+.cell-left:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
 .nonogram {
   flex-direction: column;
-  width: 600px;
+  width: 608px;
   border: 1px solid black;
 }
 
 .nonogram__top-dates {
-  height: 100px;
-  border-bottom: 1px solid black;
-}
-
-.nonogram__dates-full {
-  border-bottom: 1px solid black;
+  height: 167px;
 }
 
 .nonogram__dates-empty {
-  width: 100px;
+  width: 167px;
   background-color: gray;
 }
 
 .nonogram__bottom-dates {
-  height: 500px;
+  height: 450px;
+}
+
+.nonogram__dates-left,
+.nonogram__left,
+.cell-top:not(:last-child),
+.nonogram__field-dates {
+  border-right: 1px solid black;
+}
+
+.nonogram__top-container,
+.nonogram__left-container,
+.nonogram__dates-full,
+.nonogram__dates-left,
+.nonogram__field {
+  display: grid;
+}
+
+.nonogram__field,
+.nonogram__dates-full {
+  grid-template-columns: repeat(5, 1fr);
+}
+.nonogram__dates-full {
+  width: 450px;
 }
 
 .nonogram__dates-left {
-  border-right: 1px solid black;
-  width: 100px;
+  grid-template-rows: repeat(5, 1fr);
+  width: 167px;
+}
+.nonogram__field {
+  width: 450px;
+  height: 450px;
+  border: 2px solid black;
 }
 
-.nonogram__field {
-  width: 500px;
-  height: 500px;
+.nonogram__left-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.nonogram__left,
+.nonogram__top {
+  text-align: center;
+  padding-top: 40%;
+  font-size: 24px;
+}
+
+.nonogram__top-container {
+  grid-template-rows: repeat(2, 1fr);
 }
