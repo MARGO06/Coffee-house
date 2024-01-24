@@ -99,3 +99,7 @@
 .nonogram__top-container {
   grid-template-rows: repeat(2, 1fr);
 }
+
+.nonogram__field-dates.active {
+  background-color: black;
+}
