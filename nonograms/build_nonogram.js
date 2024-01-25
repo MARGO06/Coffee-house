@@ -59,6 +59,20 @@ nonogramSeconds.classList = "nonogram__seconds";
 nonogramSeconds.textContent = "00";
 nonogramTime.append(nonogramSeconds);
 
+const nonogramSoundContainer = document.createElement("div");
+nonogramSoundContainer.classList = "nonogram__sound-container";
+nonogramTime.before(nonogramSoundContainer);
+
+const nonogramSound = document.createElement("img");
+nonogramSound.classList = "nonogram__sound";
+nonogramSound.src = "./asserts/img/icons8.png";
+nonogramSound.alt = "sound";
+nonogramSoundContainer.append(nonogramSound);
+
+const nonogramSoundOff = document.createElement("div");
+nonogramSoundOff.classList = "nonogram__sound-off";
+nonogramSoundContainer.append(nonogramSoundOff);
+
 //create dates
 const nonogram1 = [
   ["", "4"],

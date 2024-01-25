@@ -3,6 +3,7 @@ import {
   paintCellField,
   clickRightMouse,
   resetGame,
+  clickNonogramSound,
 } from "./event_nonogram.js";
 wrapper;
 leftDates;
@@ -12,3 +13,4 @@ paintCellField();
 //showCongratulations();
 clickRightMouse();
 resetGame();
+clickNonogramSound();

@@ -3,13 +3,20 @@ const cellField = document.querySelectorAll(".nonogram__field-dates");
 const resetButton = document.querySelector(".nonogram__button-reset");
 const nonogramMinute = document.querySelector(".nonogram__minutes");
 const nonogramSecond = document.querySelector(".nonogram__seconds");
+const nonogramSound = document.querySelector(".nonogram__sound-container");
 let autoChangeTime;
+const time = [];
+const audio = new Audio();
 
 function paintCellField() {
   cellsField.addEventListener("click", (e) => {
     e.preventDefault;
     e.target.classList.toggle("active");
-    autoChangeTime = setInterval(changeTime, 1000);
+    if (time.length === 0) {
+      time.push("start");
+      autoChangeTime = setInterval(changeTime, 1000);
+    }
+    addSound();
   });
 }
 
@@ -19,8 +26,12 @@ function clickRightMouse() {
     e.preventDefault;
     if (e.button === 2) {
       e.target.classList.toggle("change");
-      autoChangeTime = setInterval(changeTime, 1000);
+      if (time.length === 0) {
+        time.push("start");
+        autoChangeTime = setInterval(changeTime, 1000);
+      }
       deleteContextMenu();
+      addSound();
     }
   });
 }
@@ -72,9 +83,26 @@ function changeTime() {
   }
 }
 
+//sound click
+
+function addSound() {
+  audio.src = "./asserts/sounds/zvuk11.mp3";
+  audio.play();
+}
+
+function clickNonogramSound() {
+  nonogramSound.addEventListener("click", (e) => {
+    nonogramSound.classList.toggle("inactive");
+    audio.muted = true;
+    if (!nonogramSound.classList.contains("inactive")) {
+      audio.muted = false;
+    }
+  });
+}
+
 //correct answer
 const correctAnswer1 = [
   0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1,
 ];
 
-export { paintCellField, clickRightMouse, resetGame };
+export { paintCellField, clickRightMouse, resetGame, clickNonogramSound };
