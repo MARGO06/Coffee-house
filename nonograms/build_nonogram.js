@@ -35,6 +35,11 @@ const field = document.createElement("div");
 field.classList = "nonogram__field";
 bottomDates.append(field);
 
+const buttonReset = document.createElement("button");
+buttonReset.classList = "nonogram__button-reset";
+buttonReset.textContent = "Reset game";
+nonograms.append(buttonReset);
+
 //create dates
 const nonogram1 = [
   ["", "4"],
