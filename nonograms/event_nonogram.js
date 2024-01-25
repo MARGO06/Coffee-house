@@ -4,9 +4,11 @@ const resetButton = document.querySelector(".nonogram__button-reset");
 const nonogramMinute = document.querySelector(".nonogram__minutes");
 const nonogramSecond = document.querySelector(".nonogram__seconds");
 const nonogramSound = document.querySelector(".nonogram__sound-container");
+const buttonSave = document.querySelector(".nonogram__button-save");
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
+const arrayLocal = [];
 
 function paintCellField() {
   cellsField.addEventListener("click", (e) => {
@@ -16,6 +18,7 @@ function paintCellField() {
       time.push("start");
       autoChangeTime = setInterval(changeTime, 1000);
     }
+    saveLastPlay();
     addSound();
   });
 }
@@ -32,6 +35,7 @@ function clickRightMouse() {
       }
       deleteContextMenu();
       addSound();
+      saveLastPlay();
     }
   });
 }
@@ -100,6 +104,39 @@ function clickNonogramSound() {
   });
 }
 
+function saveLastPlay() {
+  for (let i = 0; i < cellField.length; i++) {
+    if (cellField[i].classList.contains("active")) {
+      arrayLocal.push(`${i} : active`);
+    }
+    if (cellField[i].classList.contains("change")) {
+      arrayLocal.push(`${i} : change`);
+    }
+    if (!cellField[i].classList.contains("active")) {
+      arrayLocal.splice(i, 1);
+    }
+    if (!cellField[i].classList.contains("change")) {
+      arrayLocal.splice(i, 1);
+    }
+  }
+
+  /*for (let j = 0; j < arrayLocal.length; j++) {
+    let partArray = arrayLocal[j].split(" ");
+    localStorage.setItem(`${partArray[0]}`, `${partArray[2]}`);
+  }*/
+  console.log(arrayLocal);
+}
+
+function savePlay() {
+  buttonSave.addEventListener("click", (e) => {
+    e.preventDefault();
+    for (let j = 0; j < arrayLocal.length; j++) {
+      let partArray = arrayLocal[j].split(" ");
+      localStorage.setItem(`${partArray[0]}`, `${partArray[2]}`);
+    }
+  });
+}
+savePlay();
 //correct answer
 const correctAnswer1 = [
   0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1,

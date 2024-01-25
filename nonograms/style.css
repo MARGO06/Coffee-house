@@ -132,13 +132,21 @@
   right: -16px;
   transform: rotate(135deg);
 }
-
-.nonogram__button-reset {
-  display: block;
+.nonogram__button-contain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
-  width: 15%;
+}
+
+.nonogram__button-continue,
+.nonogram__button-save,
+.nonogram__button-reset {
+  display: block;
+  width: 20%;
   height: 40px;
   background-color: rgba(239, 25, 196, 0.685);
   font-size: 16px;

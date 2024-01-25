@@ -35,10 +35,14 @@ const field = document.createElement("div");
 field.classList = "nonogram__field";
 bottomDates.append(field);
 
+const buttonContain = document.createElement("div");
+buttonContain.classList = "nonogram__button-contain";
+nonograms.append(buttonContain);
+
 const buttonReset = document.createElement("button");
 buttonReset.classList = "nonogram__button-reset";
 buttonReset.textContent = "Reset game";
-nonograms.append(buttonReset);
+buttonContain.append(buttonReset);
 
 const nonogramTime = document.createElement("div");
 nonogramTime.classList = "nonogram__time";
@@ -72,6 +76,16 @@ nonogramSoundContainer.append(nonogramSound);
 const nonogramSoundOff = document.createElement("div");
 nonogramSoundOff.classList = "nonogram__sound-off";
 nonogramSoundContainer.append(nonogramSoundOff);
+
+const buttonSave = document.createElement("button");
+buttonSave.classList = "nonogram__button-save";
+buttonSave.textContent = "Save game";
+buttonContain.append(buttonSave);
+
+const buttonContinue = document.createElement("button");
+buttonContinue.classList = "nonogram__button-continue";
+buttonContinue.textContent = "Continue game";
+buttonContain.append(buttonContinue);
 
 //create dates
 const nonogram1 = [
