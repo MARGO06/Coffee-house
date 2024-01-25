@@ -40,6 +40,25 @@ buttonReset.classList = "nonogram__button-reset";
 buttonReset.textContent = "Reset game";
 nonograms.append(buttonReset);
 
+const nonogramTime = document.createElement("div");
+nonogramTime.classList = "nonogram__time";
+nonogram.before(nonogramTime);
+
+const nonogramMinute = document.createElement("span");
+nonogramMinute.classList = "nonogram__minutes";
+nonogramMinute.textContent = "00";
+nonogramTime.append(nonogramMinute);
+
+const nonogramColon = document.createElement("span");
+nonogramColon.classList = "nonogram__colon";
+nonogramColon.textContent = ":";
+nonogramTime.append(nonogramColon);
+
+const nonogramSeconds = document.createElement("span");
+nonogramSeconds.classList = "nonogram__seconds";
+nonogramSeconds.textContent = "00";
+nonogramTime.append(nonogramSeconds);
+
 //create dates
 const nonogram1 = [
   ["", "4"],

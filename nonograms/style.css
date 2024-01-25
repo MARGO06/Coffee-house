@@ -143,3 +143,14 @@
   background-color: rgba(239, 25, 196, 0.685);
   font-size: 16px;
 }
+
+.nonogram__time {
+  margin-left: 376px;
+  margin-bottom: 10px;
+}
+
+.nonogram__minutes,
+.nonogram__seconds,
+.nonogram__colon {
+  font-size: 24px;
+}
