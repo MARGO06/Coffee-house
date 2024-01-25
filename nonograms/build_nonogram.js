@@ -41,7 +41,7 @@ const nonogram1 = [
   ["2", "1"],
   ["", "4"],
   ["1", "1"],
-  ["2", "1"],
+  ["1", "1"],
 ];
 
 class LeftDates {
@@ -72,7 +72,7 @@ const nonogramLeft1 = new LeftDates(nonogram1);
 const leftDates = nonogramLeft1.fillLeftPart();
 
 const nonogramT1 = [
-  ["1", "1"],
+  ["", "1"],
   ["3", "1"],
   ["1", "2"],
   ["1", "1"],
@@ -108,7 +108,7 @@ const topDate = nonogramTop1.fillTopPart();
 
 //create field
 
-const fieldArray = new Array(25).fill("");
+const fieldArray = new Array(25).fill(" ");
 
 class FieldDates {
   constructor(dates) {
@@ -122,8 +122,13 @@ class FieldDates {
     for (let i = 0; i < this.array.length; i++) {
       const fieldDates = document.createElement("div");
       fieldDates.className = "nonogram__field-dates";
-      fieldDates.textContent = `${this.array[i]}`;
       field.append(fieldDates);
+      const wrongDates = document.createElement("div");
+      wrongDates.classList = "line nonogram__incorrect";
+      fieldDates.append(wrongDates);
+      const wrongDates2 = document.createElement("div");
+      wrongDates2.classList = "line nonogram__incorrect2";
+      fieldDates.append(wrongDates2);
     }
   }
 }
