@@ -5,6 +5,7 @@ import {
   resetGame,
   clickNonogramSound,
   savePlay,
+  continueGame,
 } from "./event_nonogram.js";
 wrapper;
 leftDates;
@@ -16,3 +17,4 @@ clickRightMouse();
 resetGame();
 clickNonogramSound();
 savePlay();
+continueGame();

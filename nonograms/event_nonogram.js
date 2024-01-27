@@ -5,6 +5,7 @@ const nonogramMinute = document.querySelector(".nonogram__minutes");
 const nonogramSecond = document.querySelector(".nonogram__seconds");
 const nonogramSound = document.querySelector(".nonogram__sound-container");
 const buttonSave = document.querySelector(".nonogram__button-save");
+const buttonContinue = document.querySelector(".nonogram__button-continue");
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
@@ -114,9 +115,9 @@ function saveDataPlay() {
   for (let i = 0; i < cellField.length; i++) {
     for (let j = 0; j < arrayLocal.length; j++) {
       if (cellField[i].classList.contains("active") && j === i) {
-        arrayLocal.splice(j, 1, `${i} : active`);
+        arrayLocal.splice(j, 1, `${i}:active`);
       } else if (cellField[i].classList.contains("change") && j === i) {
-        arrayLocal.splice(j, 1, `${i} : change`);
+        arrayLocal.splice(j, 1, `${i}:change`);
       } else if (
         (!cellField[i].classList.contains("change") ||
           !cellField[i].classList.contains("active")) &&
@@ -134,10 +135,57 @@ function savePlay() {
     e.preventDefault();
     localStorage.setItem("last game", `${arrayLocal}`);
     clearField();
-    /*for (let j = 0; j < arrayLocal.length; j++) {
-      //let partArray = arrayLocal[j].split(" ");
-      localStorage.setItem("last game", `${arrayLocal}`);
-    }*/
+    localStorage.setItem("time", `${minute} ${second}`);
+  });
+}
+
+//get data
+
+function getDataPlay() {
+  let dataArray;
+  for (let i = 0; i < localStorage.length; i++) {
+    let localData = localStorage.getItem("last game").split(",");
+    dataArray = localData.filter((item) => item !== "");
+  }
+  for (let j = 0; j < dataArray.length; j++) {
+    const data = dataArray[j].split(":");
+    for (let k = 0; k < cellField.length; k++) {
+      if (k == data[0] && data[1] === "active") {
+        cellField[k].classList.add("active");
+      }
+      if (k == data[0] && data[1] === "change") {
+        cellField[k].classList.add("change");
+      }
+    }
+    console.log(data);
+  }
+}
+
+function getTime() {
+  for (let i = 0; i < localStorage.length; i++) {
+    let localData = localStorage.getItem("time").split(" ");
+    console.log(localData);
+    second = localData[1];
+    minute = localData[0];
+    if (localData[0].length === 2 || localData[1].length === 2) {
+      nonogramMinute.textContent = minute;
+      nonogramSecond.textContent = second;
+    }
+    if (localData[0].length === 1) {
+      nonogramMinute.textContent = "0" + minute;
+    }
+    if (localData[1].length === 1) {
+      nonogramSecond.textContent = "0" + second;
+    }
+  }
+}
+
+function continueGame() {
+  buttonContinue.addEventListener("click", (e) => {
+    e.preventDefault();
+    getDataPlay();
+    getTime();
+    console.log("fr");
   });
 }
 
@@ -152,4 +200,5 @@ export {
   resetGame,
   clickNonogramSound,
   savePlay,
+  continueGame,
 };
