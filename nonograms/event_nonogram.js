@@ -6,6 +6,11 @@ const nonogramSecond = document.querySelector(".nonogram__seconds");
 const nonogramSound = document.querySelector(".nonogram__sound-container");
 const buttonSave = document.querySelector(".nonogram__button-save");
 const buttonContinue = document.querySelector(".nonogram__button-continue");
+const textModal = document.querySelector(".modal__text");
+const resultModal = document.querySelector(".modal__result");
+const backgroundModal = document.querySelector(".modal__background");
+const modalWindow = document.querySelector(".modal");
+const buttonWindow = document.querySelector(".modal__button");
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
@@ -230,10 +235,42 @@ class Answer {
       }
     }
     if (!this.answer.includes(1)) {
-      console.log("hello");
+      showCongratulations();
     }
   }
 }
+
+function viewModalWindow() {
+  textModal.textContent = "Congratulation 🎉🎉🎉";
+  if (String(minute).length === 1) {
+    resultModal.textContent = `Great! You have solved the nonogram in 0${minute} : ${second} seconds!`;
+  }
+  if (String(second).length === 1) {
+    resultModal.textContent = `Great! You have solved the nonogram in ${minute} : 0${second} seconds!`;
+  }
+  if (String(minute).length === 1 && String(second).length === 1) {
+    resultModal.textContent = `Great! You have solved the nonogram in 0${minute} : 0${second} seconds!`;
+  }
+  if (String(minute).length === 2 && String(second).length === 2) {
+    resultModal.textContent = `Great! You have solved the nonogram in ${minute} : ${second} seconds!`;
+  }
+}
+
+function showCongratulations() {
+  viewModalWindow();
+  backgroundModal.classList.add("active");
+  modalWindow.classList.add("active");
+}
+
+function closeCongratulations() {
+  buttonWindow.addEventListener("click", (e) => {
+    e.preventDefault();
+    clearField();
+    backgroundModal.classList.remove("active");
+    modalWindow.classList.remove("active");
+  });
+}
+closeCongratulations();
 
 const answer1 = new Answer(cellField, correctAnswer1);
 //const dataAnswer = answer1.addAnswer();
@@ -245,4 +282,5 @@ export {
   clickNonogramSound,
   savePlay,
   continueGame,
+  closeCongratulations,
 };

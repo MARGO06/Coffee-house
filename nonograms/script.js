@@ -6,6 +6,7 @@ import {
   clickNonogramSound,
   savePlay,
   continueGame,
+  closeCongratulations,
 } from "./event_nonogram.js";
 wrapper;
 leftDates;
@@ -18,3 +19,4 @@ resetGame();
 clickNonogramSound();
 savePlay();
 continueGame();
+closeCongratulations();

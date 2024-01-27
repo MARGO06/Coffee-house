@@ -87,6 +87,31 @@ buttonContinue.classList = "nonogram__button-continue";
 buttonContinue.textContent = "Continue game";
 buttonContain.append(buttonContinue);
 
+//create modal window
+
+const modal = document.createElement("div");
+modal.classList = "modal hidden";
+wrapper.append(modal);
+
+const modalText = document.createElement("p");
+modalText.classList = "modal__text";
+modalText.textContent = "";
+modal.append(modalText);
+
+const modalResult = document.createElement("p");
+modalResult.classList = "modal__result";
+modalResult.textContent = "";
+modal.append(modalResult);
+
+const modalButton = document.createElement("button");
+modalButton.classList = "modal__button";
+modalButton.textContent = "OK";
+modal.append(modalButton);
+
+const modalBackground = document.createElement("div");
+modalBackground.classList = "modal__background hidden";
+wrapper.append(modalBackground);
+
 //create dates
 const nonogram1 = [
   ["", "4"],
