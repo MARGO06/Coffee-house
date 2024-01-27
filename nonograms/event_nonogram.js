@@ -19,6 +19,8 @@ function paintCellField() {
       time.push("start");
       autoChangeTime = setInterval(changeTime, 1000);
     }
+    //guessRightAnswer();
+    answer1.addAnswer();
     saveDataPlay();
     addSound();
   });
@@ -193,6 +195,48 @@ function continueGame() {
 const correctAnswer1 = [
   0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1,
 ];
+
+/*function guessRightAnswer() {
+  for (let i = 0; i < cellField.length; i++) {
+    for (let j = 0; j < correctAnswer1.length; j++) {
+      if (
+        cellField[i].classList.contains("active") &&
+        correctAnswer1[j] === 1
+      ) {
+        correctAnswer1.splice(i, 1, 2);
+      }
+    }
+  }
+  if (!correctAnswer1.includes(1)) {
+    console.log("hello");
+  }
+}
+*/
+class Answer {
+  constructor(cells, data) {
+    this.cell = cells;
+    this.answer = data;
+    for (let j = 0; j < data.length; j++) {
+      this.answer[j] = data[j];
+    }
+  }
+
+  addAnswer() {
+    for (let i = 0; i < this.cell.length; i++) {
+      for (let j = 0; j < this.answer.length; j++) {
+        if (this.cell[i].classList.contains("active") && this.answer[j] === 1) {
+          this.answer.splice(i, 1, 2);
+        }
+      }
+    }
+    if (!this.answer.includes(1)) {
+      console.log("hello");
+    }
+  }
+}
+
+const answer1 = new Answer(cellField, correctAnswer1);
+//const dataAnswer = answer1.addAnswer();
 
 export {
   paintCellField,
