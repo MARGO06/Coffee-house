@@ -11,6 +11,7 @@ const resultModal = document.querySelector(".modal__result");
 const backgroundModal = document.querySelector(".modal__background");
 const modalWindow = document.querySelector(".modal");
 const buttonWindow = document.querySelector(".modal__button");
+const buttonSolution = document.querySelector(".nonogram__button-solution");
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
@@ -239,6 +240,8 @@ class Answer {
     }
   }
 }
+const answer1 = new Answer(cellField, correctAnswer1);
+//const dataAnswer = answer1.addAnswer();
 
 function viewModalWindow() {
   textModal.textContent = "Congratulation 🎉🎉🎉";
@@ -272,8 +275,18 @@ function closeCongratulations() {
 }
 closeCongratulations();
 
-const answer1 = new Answer(cellField, correctAnswer1);
-//const dataAnswer = answer1.addAnswer();
+function showRightAnswer() {
+  buttonSolution.addEventListener("click", (e) => {
+    e.preventDefault();
+    for (let i = 0; i < correctAnswer1.length; i++) {
+      for (let j = 0; j < cellField.length; j++) {
+        if (i === j && correctAnswer1[i] === 1) {
+          cellField[j].classList.add("active");
+        }
+      }
+    }
+  });
+}
 
 export {
   paintCellField,
@@ -283,4 +296,5 @@ export {
   savePlay,
   continueGame,
   closeCongratulations,
+  showRightAnswer,
 };

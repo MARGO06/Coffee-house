@@ -142,6 +142,7 @@
   margin-right: auto;
 }
 
+.nonogram__button-solution,
 .nonogram__button-continue,
 .nonogram__button-save,
 .nonogram__button-reset {

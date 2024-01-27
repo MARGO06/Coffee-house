@@ -87,6 +87,11 @@ buttonContinue.classList = "nonogram__button-continue";
 buttonContinue.textContent = "Continue game";
 buttonContain.append(buttonContinue);
 
+const buttonSolution = document.createElement("button");
+buttonSolution.classList = "nonogram__button-solution";
+buttonSolution.textContent = "Solution";
+buttonContain.append(buttonSolution);
+
 //create modal window
 
 const modal = document.createElement("div");

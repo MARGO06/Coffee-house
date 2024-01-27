@@ -7,6 +7,7 @@ import {
   savePlay,
   continueGame,
   closeCongratulations,
+  showRightAnswer,
 } from "./event_nonogram.js";
 wrapper;
 leftDates;
@@ -20,3 +21,4 @@ clickNonogramSound();
 savePlay();
 continueGame();
 closeCongratulations();
+showRightAnswer();
