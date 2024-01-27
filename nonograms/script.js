@@ -4,6 +4,7 @@ import {
   clickRightMouse,
   resetGame,
   clickNonogramSound,
+  savePlay,
 } from "./event_nonogram.js";
 wrapper;
 leftDates;
@@ -14,3 +15,4 @@ paintCellField();
 clickRightMouse();
 resetGame();
 clickNonogramSound();
+savePlay();

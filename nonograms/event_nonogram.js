@@ -8,7 +8,7 @@ const buttonSave = document.querySelector(".nonogram__button-save");
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
-const arrayLocal = [];
+const arrayLocal = new Array(25);
 
 function paintCellField() {
   cellsField.addEventListener("click", (e) => {
@@ -18,7 +18,7 @@ function paintCellField() {
       time.push("start");
       autoChangeTime = setInterval(changeTime, 1000);
     }
-    saveLastPlay();
+    saveDataPlay();
     addSound();
   });
 }
@@ -35,7 +35,7 @@ function clickRightMouse() {
       }
       deleteContextMenu();
       addSound();
-      saveLastPlay();
+      saveDataPlay();
     }
   });
 }
@@ -48,22 +48,28 @@ function deleteContextMenu() {
   });
 }
 
+//clear field
+
+function clearField() {
+  cellField.forEach((item) => {
+    if (
+      item.classList.contains("active") ||
+      item.classList.contains("change")
+    ) {
+      item.classList.remove("active");
+      item.classList.remove("change");
+    }
+  });
+  clearInterval(autoChangeTime);
+  nonogramMinute.textContent = "00";
+  nonogramSecond.textContent = "00";
+}
+
 //add reset game
 function resetGame() {
   resetButton.addEventListener("click", (e) => {
     e.preventDefault();
-    cellField.forEach((item) => {
-      if (
-        item.classList.contains("active") ||
-        item.classList.contains("change")
-      ) {
-        item.classList.remove("active");
-        item.classList.remove("change");
-      }
-    });
-    clearInterval(autoChangeTime);
-    nonogramMinute.textContent = "00";
-    nonogramSecond.textContent = "00";
+    clearField();
   });
 }
 //add timer
@@ -104,42 +110,46 @@ function clickNonogramSound() {
   });
 }
 
-function saveLastPlay() {
+function saveDataPlay() {
   for (let i = 0; i < cellField.length; i++) {
-    if (cellField[i].classList.contains("active")) {
-      arrayLocal.push(`${i} : active`);
-    }
-    if (cellField[i].classList.contains("change")) {
-      arrayLocal.push(`${i} : change`);
-    }
-    if (!cellField[i].classList.contains("active")) {
-      arrayLocal.splice(i, 1);
-    }
-    if (!cellField[i].classList.contains("change")) {
-      arrayLocal.splice(i, 1);
+    for (let j = 0; j < arrayLocal.length; j++) {
+      if (cellField[i].classList.contains("active") && j === i) {
+        arrayLocal.splice(j, 1, `${i} : active`);
+      } else if (cellField[i].classList.contains("change") && j === i) {
+        arrayLocal.splice(j, 1, `${i} : change`);
+      } else if (
+        (!cellField[i].classList.contains("change") ||
+          !cellField[i].classList.contains("active")) &&
+        j === i
+      ) {
+        arrayLocal.splice(j, 1, "");
+      }
     }
   }
-
-  /*for (let j = 0; j < arrayLocal.length; j++) {
-    let partArray = arrayLocal[j].split(" ");
-    localStorage.setItem(`${partArray[0]}`, `${partArray[2]}`);
-  }*/
   console.log(arrayLocal);
 }
 
 function savePlay() {
   buttonSave.addEventListener("click", (e) => {
     e.preventDefault();
-    for (let j = 0; j < arrayLocal.length; j++) {
-      let partArray = arrayLocal[j].split(" ");
-      localStorage.setItem(`${partArray[0]}`, `${partArray[2]}`);
-    }
+    localStorage.setItem("last game", `${arrayLocal}`);
+    clearField();
+    /*for (let j = 0; j < arrayLocal.length; j++) {
+      //let partArray = arrayLocal[j].split(" ");
+      localStorage.setItem("last game", `${arrayLocal}`);
+    }*/
   });
 }
-savePlay();
+
 //correct answer
 const correctAnswer1 = [
   0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1,
 ];
 
-export { paintCellField, clickRightMouse, resetGame, clickNonogramSound };
+export {
+  paintCellField,
+  clickRightMouse,
+  resetGame,
+  clickNonogramSound,
+  savePlay,
+};
