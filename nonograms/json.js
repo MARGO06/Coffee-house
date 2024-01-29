@@ -22,6 +22,7 @@ const datesLevel1 = [
       [0, 0, 1, 0, 1],
       [0, 1, 0, 0, 1],
     ],
+    img: "../asserts/Level1.0.png",
   },
 
   {
@@ -41,6 +42,7 @@ const datesLevel1 = [
       [0, 1, 1, 1, 0],
       [1, 1, 0, 1, 0],
     ],
+    img: "../asserts/Level1.1.png",
   },
 
   {
@@ -60,6 +62,7 @@ const datesLevel1 = [
       [0, 1, 1, 1, 0],
       [0, 0, 1, 0, 0],
     ],
+    img: "../asserts/Level1.2.png",
   },
   {
     name: "Picture 4",
@@ -78,6 +81,7 @@ const datesLevel1 = [
       [1, 0, 1, 0, 0],
       [1, 0, 1, 0, 0],
     ],
+    img: "../asserts/Level1.3.png",
   },
   {
     name: "Picture 5",
@@ -102,6 +106,7 @@ const datesLevel1 = [
       [0, 1, 0, 1, 0],
       [1, 1, 1, 1, 1],
     ],
+    img: "../asserts/Level1.4.png",
   },
 ];
 

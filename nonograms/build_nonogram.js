@@ -1,6 +1,42 @@
+import { datesLevel1, datesLevel2, datesLevel3 } from "./json.js";
+
 const wrapper = document.createElement("div");
 wrapper.classList = "wrapper";
 document.body.append(wrapper);
+
+//add header
+const header = document.createElement("div");
+header.classList = "header";
+wrapper.append(header);
+
+const nameGames = document.createElement("p");
+nameGames.classList = "header__name-game";
+nameGames.textContent = "Nonogram games";
+header.append(nameGames);
+
+const containerButton = document.createElement("div");
+containerButton.classList = "header__container";
+header.append(containerButton);
+
+const level1 = document.createElement("button");
+level1.classList = "btn header__level1 active";
+level1.textContent = "Level 1";
+containerButton.append(level1);
+
+const level2 = document.createElement("button");
+level2.classList = "btn header__level2";
+level2.textContent = "Level 2";
+containerButton.append(level2);
+
+const level3 = document.createElement("button");
+level3.classList = "btn header__level3";
+level3.textContent = "Level 3";
+containerButton.append(level3);
+
+const random = document.createElement("button");
+random.classList = "btn header__random";
+random.textContent = "Random game";
+containerButton.append(random);
 
 const nonograms = document.createElement("div");
 nonograms.classList = "nonograms";
@@ -63,9 +99,10 @@ nonogramSeconds.classList = "nonogram__seconds";
 nonogramSeconds.textContent = "00";
 nonogramTime.append(nonogramSeconds);
 
+//add sound
 const nonogramSoundContainer = document.createElement("div");
 nonogramSoundContainer.classList = "nonogram__sound-container";
-nonogramTime.before(nonogramSoundContainer);
+header.append(nonogramSoundContainer);
 
 const nonogramSound = document.createElement("img");
 nonogramSound.classList = "nonogram__sound";
@@ -117,7 +154,7 @@ const modalBackground = document.createElement("div");
 modalBackground.classList = "modal__background hidden";
 wrapper.append(modalBackground);
 //add another page
-const whole = document.createElement("div");
+/*const whole = document.createElement("div");
 whole.classList = "div-container";
 wrapper.append(whole);
 
@@ -144,7 +181,7 @@ whole.append(div4);
 const div5 = document.createElement("div");
 div5.classList = "div-click";
 div5.textContent = "4";
-whole.append(div5);
+whole.append(div5);*/
 
 //create dates
 
