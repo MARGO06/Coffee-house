@@ -1,157 +1,181 @@
 import { datesLevel1, datesLevel2, datesLevel3 } from "./json.js";
 
 const wrapper = document.createElement("div");
-wrapper.classList = "wrapper";
+wrapper.className = "wrapper";
 document.body.append(wrapper);
 
 //add header
-const header = document.createElement("div");
-header.classList = "header";
+const header = document.createElement("header");
+header.className = "header";
 wrapper.append(header);
 
 const nameGames = document.createElement("p");
-nameGames.classList = "header__name-game";
+nameGames.className = "header__name-game";
 nameGames.textContent = "Nonogram games";
 header.append(nameGames);
 
 const containerButton = document.createElement("div");
-containerButton.classList = "header__container";
+containerButton.className = "header__container";
 header.append(containerButton);
 
 const level1 = document.createElement("button");
-level1.classList = "btn header__level1 active";
+level1.className = "btn header__level1 active";
 level1.textContent = "Level 1";
 containerButton.append(level1);
 
 const level2 = document.createElement("button");
-level2.classList = "btn header__level2";
+level2.className = "btn header__level2";
 level2.textContent = "Level 2";
 containerButton.append(level2);
 
 const level3 = document.createElement("button");
-level3.classList = "btn header__level3";
+level3.className = "btn header__level3";
 level3.textContent = "Level 3";
 containerButton.append(level3);
 
 const random = document.createElement("button");
-random.classList = "btn header__random";
+random.className = "btn header__random";
 random.textContent = "Random game";
 containerButton.append(random);
 
+//images
+
+const containerDiv = document.createElement("main");
+containerDiv.className = "pictures";
+wrapper.append(containerDiv);
+
+function addPictures() {
+  for (let i = 0; i < datesLevel1.length; i++) {
+    const imageDiv = document.createElement("div");
+    imageDiv.className = "pictures__container";
+    containerDiv.append(imageDiv);
+    const namePicture = document.createElement("p");
+    namePicture.className = "pictures__name";
+    namePicture.textContent = `${datesLevel1[i].name}`;
+    imageDiv.append(namePicture);
+    const imagePicture = document.createElement("img");
+    imagePicture.className = "pictures__img";
+    imagePicture.src = `${datesLevel1[i].img}`;
+    imagePicture.alt = "nonogram";
+    imageDiv.append(imagePicture);
+  }
+}
+addPictures();
+
 const nonograms = document.createElement("div");
-nonograms.classList = "nonograms";
+nonograms.className = "nonograms";
 wrapper.append(nonograms);
 
 //create first nonogramm;
 const nonogram = document.createElement("div");
-nonogram.classList = "nonogram";
+nonogram.className = "nonogram";
 nonograms.append(nonogram);
 
 const topDates = document.createElement("div");
-topDates.classList = "nonogram__top-dates";
+topDates.className = "nonogram__top-dates";
 nonogram.append(topDates);
 
 const topDatesEmpty = document.createElement("div");
-topDatesEmpty.classList = "nonogram__dates-empty";
+topDatesEmpty.className = "nonogram__dates-empty";
 topDates.append(topDatesEmpty);
 
 const topDatesFull = document.createElement("div");
-topDatesFull.classList = "nonogram__dates-full";
+topDatesFull.className = "nonogram__dates-full";
 topDates.append(topDatesFull);
 
 const bottomDates = document.createElement("div");
-bottomDates.classList = "nonogram__bottom-dates";
+bottomDates.className = "nonogram__bottom-dates";
 nonogram.append(bottomDates);
 
 const buttonDatesLeft = document.createElement("div");
-buttonDatesLeft.classList = "nonogram__dates-left";
+buttonDatesLeft.className = "nonogram__dates-left";
 bottomDates.append(buttonDatesLeft);
 
 const field = document.createElement("div");
-field.classList = "nonogram__field";
+field.className = "nonogram__field";
 bottomDates.append(field);
 
 const buttonContain = document.createElement("div");
-buttonContain.classList = "nonogram__button-contain";
+buttonContain.className = "nonogram__button-contain";
 nonograms.append(buttonContain);
 
 const buttonReset = document.createElement("button");
-buttonReset.classList = "nonogram__button-reset";
+buttonReset.className = "nonogram__button-reset";
 buttonReset.textContent = "Reset game";
 buttonContain.append(buttonReset);
 
 const nonogramTime = document.createElement("div");
-nonogramTime.classList = "nonogram__time";
+nonogramTime.className = "nonogram__time";
 nonogram.before(nonogramTime);
 
 const nonogramMinute = document.createElement("span");
-nonogramMinute.classList = "nonogram__minutes";
+nonogramMinute.className = "nonogram__minutes";
 nonogramMinute.textContent = "00";
 nonogramTime.append(nonogramMinute);
 
 const nonogramColon = document.createElement("span");
-nonogramColon.classList = "nonogram__colon";
+nonogramColon.className = "nonogram__colon";
 nonogramColon.textContent = ":";
 nonogramTime.append(nonogramColon);
 
 const nonogramSeconds = document.createElement("span");
-nonogramSeconds.classList = "nonogram__seconds";
+nonogramSeconds.className = "nonogram__seconds";
 nonogramSeconds.textContent = "00";
 nonogramTime.append(nonogramSeconds);
 
 //add sound
 const nonogramSoundContainer = document.createElement("div");
-nonogramSoundContainer.classList = "nonogram__sound-container";
+nonogramSoundContainer.className = "nonogram__sound-container";
 header.append(nonogramSoundContainer);
 
 const nonogramSound = document.createElement("img");
-nonogramSound.classList = "nonogram__sound";
+nonogramSound.className = "nonogram__sound";
 nonogramSound.src = "./asserts/img/icons8.png";
 nonogramSound.alt = "sound";
 nonogramSoundContainer.append(nonogramSound);
 
 const nonogramSoundOff = document.createElement("div");
-nonogramSoundOff.classList = "nonogram__sound-off";
+nonogramSoundOff.className = "nonogram__sound-off";
 nonogramSoundContainer.append(nonogramSoundOff);
 
 const buttonSave = document.createElement("button");
-buttonSave.classList = "nonogram__button-save";
+buttonSave.className = "nonogram__button-save";
 buttonSave.textContent = "Save game";
 buttonContain.append(buttonSave);
 
 const buttonContinue = document.createElement("button");
-buttonContinue.classList = "nonogram__button-continue";
+buttonContinue.className = "nonogram__button-continue";
 buttonContinue.textContent = "Continue game";
 buttonContain.append(buttonContinue);
 
 const buttonSolution = document.createElement("button");
-buttonSolution.classList = "nonogram__button-solution";
+buttonSolution.className = "nonogram__button-solution";
 buttonSolution.textContent = "Solution";
 buttonContain.append(buttonSolution);
 
 //create modal window
 
 const modal = document.createElement("div");
-modal.classList = "modal hidden";
+modal.className = "modal hidden";
 wrapper.append(modal);
 
 const modalText = document.createElement("p");
-modalText.classList = "modal__text";
+modalText.className = "modal__text";
 modalText.textContent = "";
 modal.append(modalText);
 
 const modalResult = document.createElement("p");
-modalResult.classList = "modal__result";
+modalResult.className = "modal__result";
 modalResult.textContent = "";
 modal.append(modalResult);
 
 const modalButton = document.createElement("button");
-modalButton.classList = "modal__button";
+modalButton.className = "modal__button";
 modalButton.textContent = "OK";
 modal.append(modalButton);
 
 const modalBackground = document.createElement("div");
-modalBackground.classList = "modal__background hidden";
+modalBackground.className = "modal__background hidden";
 wrapper.append(modalBackground);
 //add another page
 /*const whole = document.createElement("div");
@@ -262,10 +286,10 @@ class FieldDates {
       fieldDates.className = "nonogram__field-dates";
       field.append(fieldDates);
       const wrongDates = document.createElement("div");
-      wrongDates.classList = "line nonogram__incorrect";
+      wrongDates.className = "line nonogram__incorrect";
       fieldDates.append(wrongDates);
       const wrongDates2 = document.createElement("div");
-      wrongDates2.classList = "line nonogram__incorrect2";
+      wrongDates2.className = "line nonogram__incorrect2";
       fieldDates.append(wrongDates2);
     }
   }

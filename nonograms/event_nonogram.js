@@ -2,8 +2,8 @@ import { datesLevel1, datesLevel2, datesLevel3 } from "./json.js";
 import { TopDates, LeftDates, FieldDates } from "./build_nonogram.js";
 
 const nonograms = document.querySelector(".nonograms");
-const images = document.querySelectorAll(".div-click");
-const containerDiv = document.querySelector(".div-container");
+const images = document.querySelectorAll(".pictures__container");
+const containerDiv = document.querySelector(".pictures");
 const cellsField = document.querySelector(".nonogram__field");
 const cellField = document.querySelectorAll(".nonogram__field-dates");
 const resetButton = document.querySelector(".nonogram__button-reset");
@@ -263,12 +263,17 @@ function closeCongratulations() {
 }
 closeCongratulations();
 
+let pictureIndex;
+
 function showRightAnswer() {
   buttonSolution.addEventListener("click", (e) => {
     e.preventDefault();
     let answer;
+
     for (let i = 0; i < datesLevel1.length; i++) {
-      answer = datesLevel1[i].answer.flat();
+      if (pictureIndex === i) {
+        answer = datesLevel1[i].answer.flat();
+      }
     }
     for (let k = 0; k < answer.length; k++) {
       for (let j = 0; j < cellField.length; j++) {
@@ -285,6 +290,7 @@ function choseNonogram() {
   images.forEach((imag, index) => {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
+      pictureIndex = index;
       for (let i = 0; i < datesLevel1.length; i++) {
         if (index === i) {
           const nonogramTop = new TopDates(datesLevel1[i].top);
