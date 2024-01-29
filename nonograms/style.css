@@ -18,7 +18,6 @@
 
 .wrapper {
   max-width: 1360px;
-  background-color: aquamarine;
 }
 
 .nonograms {
@@ -94,10 +93,6 @@
   text-align: center;
   padding-top: 40%;
   font-size: 24px;
-}
-
-.nonogram__top-container {
-  grid-template-rows: repeat(2, 1fr);
 }
 
 .nonogram__field-dates {
@@ -238,4 +233,26 @@
 .modal__button,
 .modal.active {
   display: block;
+}
+
+.nonograms {
+  display: none;
+}
+
+.nonograms.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-click {
+  margin: 50px;
+  height: 20px;
+}
+
+.div-click.hidden {
+  display: none;
+}
+
+.div-container.hidden {
+  display: none;
 }

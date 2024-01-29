@@ -116,15 +116,37 @@ modal.append(modalButton);
 const modalBackground = document.createElement("div");
 modalBackground.classList = "modal__background hidden";
 wrapper.append(modalBackground);
+//add another page
+const whole = document.createElement("div");
+whole.classList = "div-container";
+wrapper.append(whole);
+
+const div1 = document.createElement("div");
+div1.classList = "div-click";
+div1.textContent = "0";
+whole.append(div1);
+
+const div2 = document.createElement("div");
+div2.classList = "div-click";
+div2.textContent = "1";
+whole.append(div2);
+
+const div3 = document.createElement("div");
+div3.classList = "div-click";
+div3.textContent = "2";
+whole.append(div3);
+
+const div4 = document.createElement("div");
+div4.classList = "div-click";
+div4.textContent = "3";
+whole.append(div4);
+
+const div5 = document.createElement("div");
+div5.classList = "div-click";
+div5.textContent = "4";
+whole.append(div5);
 
 //create dates
-const nonogram1 = [
-  ["", "4"],
-  ["2", "1"],
-  ["", "4"],
-  ["1", "1"],
-  ["1", "1"],
-];
 
 class LeftDates {
   constructor(dates) {
@@ -143,23 +165,15 @@ class LeftDates {
         const leftDate = document.createElement("p");
         leftDate.className = "nonogram__left";
         leftDate.textContent = `${this.array[i][j]}`;
+        if (this.array[i][j] !== "") {
+          leftDate.style.backgroundColor = "rgb(194, 188, 188)";
+        }
         containerLeftDates.append(leftDate);
       }
       console.log(this.array[i]);
     }
   }
 }
-
-const nonogramLeft1 = new LeftDates(nonogram1);
-const leftDates = nonogramLeft1.fillLeftPart();
-
-const nonogramT1 = [
-  ["", "1"],
-  ["3", "1"],
-  ["1", "2"],
-  ["1", "1"],
-  ["", "5"],
-];
 
 class TopDates {
   constructor(dates) {
@@ -173,20 +187,25 @@ class TopDates {
     for (let i = 0; i < this.array.length; i++) {
       const containerTopDates = document.createElement("div");
       containerTopDates.className = "cell-top nonogram__top-container";
+      containerTopDates.style.gridTemplateRows = `repeat(${this.array[i].length},1fr)`;
+      if (this.array[i].length === 1) {
+        topDates.style.height = "92px";
+      }
+      console.log(this.array[i].length);
       topDatesFull.append(containerTopDates);
       for (let j = 0; j < this.array[i].length; j++) {
         const topDate = document.createElement("p");
         topDate.className = "nonogram__top";
         topDate.textContent = `${this.array[i][j]}`;
+        if (this.array[i][j] !== "") {
+          topDate.style.backgroundColor = "rgb(194, 188, 188)";
+        }
         containerTopDates.append(topDate);
       }
       console.log(this.array[i]);
     }
   }
 }
-
-const nonogramTop1 = new TopDates(nonogramT1);
-const topDate = nonogramTop1.fillTopPart();
 
 //create field
 
@@ -218,4 +237,4 @@ class FieldDates {
 const nonogramField = new FieldDates(fieldArray);
 const datesField = nonogramField.fillField();
 
-export { wrapper, leftDates, topDate, datesField };
+export { wrapper, LeftDates, datesField, TopDates, FieldDates };

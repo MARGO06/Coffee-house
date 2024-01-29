@@ -1,3 +1,9 @@
+import { datesLevel1, datesLevel2, datesLevel3 } from "./json.js";
+import { TopDates, LeftDates, FieldDates } from "./build_nonogram.js";
+
+const nonograms = document.querySelector(".nonograms");
+const images = document.querySelectorAll(".div-click");
+const containerDiv = document.querySelector(".div-container");
 const cellsField = document.querySelector(".nonogram__field");
 const cellField = document.querySelectorAll(".nonogram__field-dates");
 const resetButton = document.querySelector(".nonogram__button-reset");
@@ -25,8 +31,7 @@ function paintCellField() {
       time.push("start");
       autoChangeTime = setInterval(changeTime, 1000);
     }
-    //guessRightAnswer();
-    answer1.addAnswer();
+    showAnswer();
     saveDataPlay();
     addSound();
   });
@@ -135,7 +140,6 @@ function saveDataPlay() {
       }
     }
   }
-  console.log(arrayLocal);
 }
 
 function savePlay() {
@@ -165,7 +169,6 @@ function getDataPlay() {
         cellField[k].classList.add("change");
       }
     }
-    console.log(data);
   }
 }
 
@@ -197,27 +200,6 @@ function continueGame() {
   });
 }
 
-//correct answer
-const correctAnswer1 = [
-  0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1,
-];
-
-/*function guessRightAnswer() {
-  for (let i = 0; i < cellField.length; i++) {
-    for (let j = 0; j < correctAnswer1.length; j++) {
-      if (
-        cellField[i].classList.contains("active") &&
-        correctAnswer1[j] === 1
-      ) {
-        correctAnswer1.splice(i, 1, 2);
-      }
-    }
-  }
-  if (!correctAnswer1.includes(1)) {
-    console.log("hello");
-  }
-}
-*/
 class Answer {
   constructor(cells, data) {
     this.cell = cells;
@@ -240,8 +222,14 @@ class Answer {
     }
   }
 }
-const answer1 = new Answer(cellField, correctAnswer1);
-//const dataAnswer = answer1.addAnswer();
+
+function showAnswer() {
+  for (let i = 0; i < datesLevel1.length; i++) {
+    const correctAnswer = datesLevel1[i].answer.flat();
+    const answer1 = new Answer(cellField, correctAnswer);
+    answer1.addAnswer();
+  }
+}
 
 function viewModalWindow() {
   textModal.textContent = "Congratulation 🎉🎉🎉";
@@ -278,13 +266,36 @@ closeCongratulations();
 function showRightAnswer() {
   buttonSolution.addEventListener("click", (e) => {
     e.preventDefault();
-    for (let i = 0; i < correctAnswer1.length; i++) {
+    let answer;
+    for (let i = 0; i < datesLevel1.length; i++) {
+      answer = datesLevel1[i].answer.flat();
+    }
+    for (let k = 0; k < answer.length; k++) {
       for (let j = 0; j < cellField.length; j++) {
-        if (i === j && correctAnswer1[i] === 1) {
+        if (k === j && answer[k] === 1) {
           cellField[j].classList.add("active");
+          console.log(answer);
         }
       }
     }
+  });
+}
+
+function choseNonogram() {
+  images.forEach((imag, index) => {
+    imag.addEventListener("click", (e) => {
+      e.preventDefault();
+      for (let i = 0; i < datesLevel1.length; i++) {
+        if (index === i) {
+          const nonogramTop = new TopDates(datesLevel1[i].top);
+          nonogramTop.fillTopPart();
+          const nonogramLeft = new LeftDates(datesLevel1[i].left);
+          nonogramLeft.fillLeftPart();
+          nonograms.classList.add("active");
+          containerDiv.classList.add("hidden");
+        }
+      }
+    });
   });
 }
 
@@ -297,4 +308,5 @@ export {
   continueGame,
   closeCongratulations,
   showRightAnswer,
+  choseNonogram,
 };
