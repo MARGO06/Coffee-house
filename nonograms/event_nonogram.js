@@ -3,6 +3,7 @@ import { TopDates, LeftDates, FieldDates } from "./build_nonogram.js";
 
 const nonograms = document.querySelector(".nonograms");
 const images = document.querySelectorAll(".pictures__container");
+const pictures = document.querySelectorAll(".pictures__img");
 const containerDiv = document.querySelector(".pictures");
 const cellsField = document.querySelector(".nonogram__field");
 const cellField = document.querySelectorAll(".nonogram__field-dates");
@@ -18,6 +19,9 @@ const backgroundModal = document.querySelector(".modal__background");
 const modalWindow = document.querySelector(".modal");
 const buttonWindow = document.querySelector(".modal__button");
 const buttonSolution = document.querySelector(".nonogram__button-solution");
+const buttonLevel1 = document.querySelector(".header__level1");
+const buttonLevel2 = document.querySelector(".header__level2");
+const buttonLevel3 = document.querySelector(".header__level3");
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
@@ -319,6 +323,77 @@ function choseNonogram2() {
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
         }
+      }
+    });
+  });
+}
+
+//active button
+
+function activeButtonsLevel2() {
+  buttonLevel2.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (
+      buttonLevel1.classList.contains("active") ||
+      buttonLevel3.classList.contains("active")
+    ) {
+      buttonLevel2.classList.add("active");
+      buttonLevel1.classList.remove("active");
+      buttonLevel3.classList.remove("active");
+    }
+    changePictures();
+  });
+}
+activeButtonsLevel2();
+
+function activeButtonsLevel3() {
+  buttonLevel3.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (
+      buttonLevel1.classList.contains("active") ||
+      buttonLevel2.classList.contains("active")
+    ) {
+      buttonLevel3.classList.add("active");
+      buttonLevel2.classList.remove("active");
+      buttonLevel1.classList.remove("active");
+    }
+  });
+}
+activeButtonsLevel3();
+
+function activeButtonsLevel1() {
+  buttonLevel1.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (
+      buttonLevel3.classList.contains("active") ||
+      buttonLevel2.classList.contains("active")
+    ) {
+      buttonLevel2.classList.remove("active");
+      buttonLevel1.classList.add("active");
+      buttonLevel3.classList.remove("active");
+    }
+    changePictures1();
+  });
+}
+activeButtonsLevel1();
+
+//change images for different level;
+
+function changePictures() {
+  pictures.forEach((imag, index) => {
+    datesLevel2.forEach((_, i) => {
+      if (index === i) {
+        imag.src = `${datesLevel2[i].img}`;
+      }
+    });
+  });
+}
+
+function changePictures1() {
+  pictures.forEach((imag, index) => {
+    datesLevel1.forEach((_, i) => {
+      if (index === i) {
+        imag.src = `${datesLevel1[i].img}`;
       }
     });
   });
