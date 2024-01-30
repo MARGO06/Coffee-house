@@ -367,6 +367,7 @@ const datesLevel3 = [
       [0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0],
       [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
     ],
+    img: "./asserts/img/Level3.0.png",
   },
   {
     name: "Picture 2",
@@ -421,6 +422,7 @@ const datesLevel3 = [
       [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
       [0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1],
     ],
+    img: "./asserts/img/Level3.1.png",
   },
   {
     name: "Picture 3",
@@ -475,6 +477,7 @@ const datesLevel3 = [
       [0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0],
       [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
     ],
+    img: "./asserts/img/Level3.2.png",
   },
   {
     name: "Picture 4",
@@ -529,6 +532,7 @@ const datesLevel3 = [
       [0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
       [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
     ],
+    img: "./asserts/img/Level3.3.png",
   },
   {
     name: "Picture 5",
@@ -583,6 +587,7 @@ const datesLevel3 = [
       [0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0],
       [0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ],
+    img: "./asserts/img/Level3.4.png",
   },
 ];
 export { datesLevel1, datesLevel2, datesLevel3 };

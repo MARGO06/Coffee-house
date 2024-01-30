@@ -376,6 +376,7 @@ function activeButtonsLevel3() {
       buttonLevel2.classList.remove("active");
       buttonLevel1.classList.remove("active");
     }
+    changePictures3();
   });
 }
 activeButtonsLevel3();
@@ -413,6 +414,16 @@ function changePictures1() {
     datesLevel1.forEach((_, i) => {
       if (index === i) {
         imag.src = `${datesLevel1[i].img}`;
+      }
+    });
+  });
+}
+
+function changePictures3() {
+  pictures.forEach((imag, index) => {
+    datesLevel3.forEach((_, i) => {
+      if (index === i) {
+        imag.src = `${datesLevel3[i].img}`;
       }
     });
   });
