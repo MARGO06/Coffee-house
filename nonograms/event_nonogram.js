@@ -286,7 +286,7 @@ function showRightAnswer() {
   });
 }
 
-function choseNonogram() {
+/*function choseNonogram() {
   images.forEach((imag, index) => {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
@@ -296,6 +296,25 @@ function choseNonogram() {
           const nonogramTop = new TopDates(datesLevel1[i].top);
           nonogramTop.fillTopPart();
           const nonogramLeft = new LeftDates(datesLevel1[i].left);
+          nonogramLeft.fillLeftPart();
+          nonograms.classList.add("active");
+          containerDiv.classList.add("hidden");
+        }
+      }
+    });
+  });
+}*/
+
+function choseNonogram2() {
+  images.forEach((imag, index) => {
+    imag.addEventListener("click", (e) => {
+      e.preventDefault();
+      //pictureIndex = index;
+      for (let i = 0; i < datesLevel2.length; i++) {
+        if (index === i) {
+          const nonogramTop = new TopDates(datesLevel2[i].top);
+          nonogramTop.fillTopPart();
+          const nonogramLeft = new LeftDates(datesLevel2[i].left);
           nonogramLeft.fillLeftPart();
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
@@ -314,5 +333,6 @@ export {
   continueGame,
   closeCongratulations,
   showRightAnswer,
-  choseNonogram,
+  //choseNonogram,
+  choseNonogram2,
 };

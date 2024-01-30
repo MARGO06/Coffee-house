@@ -19,7 +19,7 @@
 
 .wrapper {
   max-width: 1360px;
-  background-color: rgba(140, 220, 193, 0.479);
+  /*background-color: rgba(140, 220, 193, 0.479);*/
 }
 
 .nonograms {
@@ -34,9 +34,9 @@
   border-bottom: 1px solid black;
 }
 
-.nonogram__top-dates:not(:last-child) {
+/*.nonogram__top-dates:not(:last-child) {
   border-right: 1px solid black;
-}
+}*/
 
 .nonogram {
   flex-direction: column;
@@ -44,24 +44,50 @@
   border: 1px solid black;
 }
 
-.nonogram__top-dates {
+/*.nonogram__top-dates {
   height: 167px;
-}
+}*/
 
 .nonogram__dates-empty {
   width: 167px;
   background-color: gray;
 }
 
-.nonogram__bottom-dates {
+/*.nonogram__bottom-dates {
   height: 450px;
-}
+}*/
 
 .nonogram__dates-left,
 .nonogram__left,
 .cell-top:not(:last-child),
 .nonogram__field-dates {
   border-right: 1px solid black;
+}
+
+.nonogram__field-dates:nth-child(5n + 5),
+.nonogram__top-container:nth-child(5n + 5) {
+  border-right: 3px solid black;
+}
+
+.nonogram__field-dates:nth-child(n + 41) {
+  border-bottom: 3px solid black;
+}
+
+.nonogram__field-dates:nth-child(n + 51) {
+  border-bottom: 1px solid black;
+}
+
+.nonogram__field-dates:nth-child(n + 91) {
+  border-bottom: 3px solid black;
+}
+.nonogram__dates-left,
+.nonogram__dates-full {
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+}
+
+.nonogram__left-container:nth-child(5n + 5) {
+  border-bottom: 3px solid black;
 }
 
 .nonogram__top-container,
@@ -72,22 +98,21 @@
   display: grid;
 }
 
-.nonogram__field,
-.nonogram__dates-full {
+/*.nonogram__field {
   grid-template-columns: repeat(5, 1fr);
-}
+}*/
 .nonogram__dates-full {
   width: 450px;
 }
 
 .nonogram__dates-left {
-  grid-template-rows: repeat(5, 1fr);
   width: 167px;
 }
 .nonogram__field {
   width: 450px;
-  height: 450px;
-  border: 2px solid black;
+  /*height: 450px;*/
+  border-left: 2px solid black;
+  border-top: 2px solid black;
 }
 
 .nonogram__left-container {

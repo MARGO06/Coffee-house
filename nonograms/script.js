@@ -8,7 +8,8 @@ import {
   continueGame,
   closeCongratulations,
   showRightAnswer,
-  choseNonogram,
+  //choseNonogram,
+  choseNonogram2,
 } from "./event_nonogram.js";
 wrapper;
 paintCellField();
@@ -19,4 +20,5 @@ savePlay();
 continueGame();
 closeCongratulations();
 showRightAnswer();
-choseNonogram();
+//choseNonogram();
+choseNonogram2();
