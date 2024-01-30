@@ -309,7 +309,7 @@ function showRightAnswer() {
   });
 }*/
 
-function choseNonogram2() {
+/*function choseNonogram2() {
   images.forEach((imag, index) => {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
@@ -319,6 +319,25 @@ function choseNonogram2() {
           const nonogramTop = new TopDates(datesLevel2[i].top);
           nonogramTop.fillTopPart();
           const nonogramLeft = new LeftDates(datesLevel2[i].left);
+          nonogramLeft.fillLeftPart();
+          nonograms.classList.add("active");
+          containerDiv.classList.add("hidden");
+        }
+      }
+    });
+  });
+}*/
+
+function choseNonogram3() {
+  images.forEach((imag, index) => {
+    imag.addEventListener("click", (e) => {
+      e.preventDefault();
+      //pictureIndex = index;
+      for (let i = 0; i < datesLevel3.length; i++) {
+        if (index === i) {
+          const nonogramTop = new TopDates(datesLevel3[i].top);
+          nonogramTop.fillTopPart();
+          const nonogramLeft = new LeftDates(datesLevel3[i].left);
           nonogramLeft.fillLeftPart();
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
@@ -409,5 +428,6 @@ export {
   closeCongratulations,
   showRightAnswer,
   //choseNonogram,
-  choseNonogram2,
+  //choseNonogram2,
+  choseNonogram3,
 };

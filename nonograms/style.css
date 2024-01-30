@@ -68,10 +68,10 @@
 .nonogram__top-container:nth-child(5n + 5) {
   border-right: 3px solid black;
 }
-
-.nonogram__field-dates:nth-child(n + 41) {
+/*ten*/
+/*.nonogram__field-dates:nth-child(n + 41) {
   border-bottom: 3px solid black;
-}
+}*/
 
 .nonogram__field-dates:nth-child(n + 51) {
   border-bottom: 1px solid black;
@@ -88,6 +88,21 @@
 
 .nonogram__left-container:nth-child(5n + 5) {
   border-bottom: 3px solid black;
+}
+/*15*/
+.nonogram__field-dates:nth-child(n + 61) {
+  border-bottom: 3px solid black;
+}
+.nonogram__field-dates:nth-child(n + 76) {
+  border-bottom: 1px solid black;
+}
+
+.nonogram__field-dates:nth-child(n + 136) {
+  border-bottom: 3px solid black;
+}
+
+.nonogram__field-dates:nth-child(n + 151) {
+  border-bottom: 1px solid black;
 }
 
 .nonogram__top-container,
@@ -113,6 +128,7 @@
   /*height: 450px;*/
   border-left: 2px solid black;
   border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .nonogram__left-container {

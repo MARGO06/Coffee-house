@@ -89,9 +89,10 @@ function addColumns() {
   }
   if (datesLevel2) {
     topDatesFull.style.gridTemplateColumns = "repeat(10, 1fr)";
-  } /*else if (datesLevel3.top) {
+  }
+  if (datesLevel3) {
     topDatesFull.style.gridTemplateColumns = "repeat(15, 1fr)";
-  }*/
+  }
 }
 addColumns();
 
@@ -109,9 +110,10 @@ function addRows() {
   }
   if (datesLevel2) {
     buttonDatesLeft.style.gridTemplateRows = "repeat(10, 1fr)";
-  } /*else if (datesLevel3.top) {
+  }
+  if (datesLevel3.top) {
     topDatesFull.style.gridTemplateColumns = "repeat(15, 1fr)";
-  }*/
+  }
 }
 addRows();
 
@@ -125,9 +127,11 @@ function addFieldColomns() {
   }
   if (datesLevel2) {
     field.style.gridTemplateColumns = "repeat(10, 1fr)";
-  } /*else if (datesLevel3.top) {
-    topDatesFull.style.gridTemplateColumns = "repeat(15, 1fr)";
-  }*/
+  }
+  if (datesLevel3) {
+    field.style.gridTemplateColumns = "repeat(15, 1fr)";
+    field.style.gridTemplateRows = "repeat(15, 1fr)";
+  }
 }
 addFieldColomns();
 
@@ -308,7 +312,8 @@ class TopDates {
 //create field
 
 //const fieldArray = new Array(25).fill(" ");
-const fieldArray2 = new Array(100).fill("");
+//const fieldArray2 = new Array(100).fill("");
+const fieldArray3 = new Array(225).fill(" ");
 
 class FieldDates {
   constructor(dates) {
@@ -335,7 +340,9 @@ class FieldDates {
 
 //const nonogramField = new FieldDates(fieldArray);
 //const datesField = nonogramField.fillField();
-const nonogramField = new FieldDates(fieldArray2);
+//const nonogramField = new FieldDates(fieldArray2);
+//const datesField = nonogramField.fillField();
+const nonogramField = new FieldDates(fieldArray3);
 const datesField = nonogramField.fillField();
 
 export { wrapper, LeftDates, datesField, TopDates, FieldDates };
