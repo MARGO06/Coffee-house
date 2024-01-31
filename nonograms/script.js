@@ -1,4 +1,5 @@
 import { wrapper } from "./build_nonogram.js";
+
 import {
   paintCellField,
   clickRightMouse,
@@ -8,11 +9,11 @@ import {
   continueGame,
   closeCongratulations,
   showRightAnswer,
-  //choseNonogram,
-  //choseNonogram2,
+  choseNonogram2,
   choseNonogram3,
 } from "./event_nonogram.js";
 wrapper;
+
 paintCellField();
 clickRightMouse();
 resetGame();
@@ -21,6 +22,5 @@ savePlay();
 continueGame();
 closeCongratulations();
 showRightAnswer();
-//choseNonogram();
-//choseNonogram2();
+choseNonogram2();
 choseNonogram3();

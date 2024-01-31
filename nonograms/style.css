@@ -57,6 +57,12 @@
   height: 450px;
 }*/
 
+.nonogram__level1,
+.nonogram__level2,
+.nomogram__level3 {
+  display: none;
+}
+
 .nonogram__dates-left,
 .nonogram__left,
 .cell-top:not(:last-child),
@@ -163,10 +169,30 @@
   background-color: black;
 }
 
-.nonogram__incorrect {
+/*.nonogram__incorrect {
   top: 46px;
   left: -20px;
   transform: rotate(45deg);
+}*/
+
+.f-level2 {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.f-level3 {
+  grid-template-columns: repeat(15, 1fr);
+}
+
+.nonogram__level1,
+.nonogram__level2,
+.nonogram__level3 {
+  display: none;
+}
+
+.nonogram__level1.active,
+.nonogram__level2.active,
+.nonogram__level3.active {
+  display: flex;
 }
 
 .nonogram__incorrect2 {

@@ -1,5 +1,13 @@
 import { datesLevel1, datesLevel2, datesLevel3 } from "./json.js";
-import { TopDates, LeftDates, FieldDates } from "./build_nonogram.js";
+import {
+  TopDates,
+  LeftDates,
+  FieldDates,
+  LeftDates2,
+  TopDates2,
+  TopDates3,
+  LeftDates3,
+} from "./build_nonogram.js";
 
 const nonograms = document.querySelector(".nonograms");
 const images = document.querySelectorAll(".pictures__container");
@@ -22,6 +30,12 @@ const buttonSolution = document.querySelector(".nonogram__button-solution");
 const buttonLevel1 = document.querySelector(".header__level1");
 const buttonLevel2 = document.querySelector(".header__level2");
 const buttonLevel3 = document.querySelector(".header__level3");
+const datesLeft = document.querySelector(".nonogram__dates-left");
+const datesTop = document.querySelector(".nonogram__dates-full");
+const nonogramLevel1 = document.querySelector(".nonogram__level1");
+const nonogramLevel2 = document.querySelector(".nonogram__level2");
+const nonogramLevel3 = document.querySelector(".nonogram__level3");
+
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
@@ -44,7 +58,7 @@ function paintCellField() {
 //add right click
 function clickRightMouse() {
   cellsField.addEventListener("mousedown", (e) => {
-    e.preventDefault;
+    e.preventDefault();
     if (e.button === 2) {
       e.target.classList.toggle("change");
       if (time.length === 0) {
@@ -59,10 +73,8 @@ function clickRightMouse() {
 }
 
 function deleteContextMenu() {
-  cellField.forEach((item) => {
-    item.addEventListener("contextmenu", (e) => {
-      e.preventDefault();
-    });
+  cellsField.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
   });
 }
 
@@ -76,6 +88,7 @@ function clearField() {
     ) {
       item.classList.remove("active");
       item.classList.remove("change");
+      console.log("fgsb");
     }
   });
   clearInterval(autoChangeTime);
@@ -290,43 +303,59 @@ function showRightAnswer() {
   });
 }
 
-/*function choseNonogram() {
+//click button => click picture => show nonogram
+
+function choseNonogram() {
   images.forEach((imag, index) => {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
-      pictureIndex = index;
+      //pictureIndex = index;
       for (let i = 0; i < datesLevel1.length; i++) {
-        if (index === i) {
+        if (index === i && buttonLevel1.classList.contains("active")) {
           const nonogramTop = new TopDates(datesLevel1[i].top);
           nonogramTop.fillTopPart();
           const nonogramLeft = new LeftDates(datesLevel1[i].left);
           nonogramLeft.fillLeftPart();
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
+          nonogramLevel1.classList.add("active");
+          cellsField.style.gridTemplateColumns = "repeat(5, 1fr)";
+          datesLeft.style.gridTemplateRows = "repeat(5, 1fr)";
+          datesTop.style.gridTemplateColumns = "repeat(5, 1fr)";
+          console.log("hst");
         }
       }
     });
   });
-}*/
+}
+choseNonogram();
 
-/*function choseNonogram2() {
+function choseNonogram2() {
   images.forEach((imag, index) => {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
       //pictureIndex = index;
       for (let i = 0; i < datesLevel2.length; i++) {
-        if (index === i) {
-          const nonogramTop = new TopDates(datesLevel2[i].top);
+        if (index === i && buttonLevel2.classList.contains("active")) {
+          const nonogramTop = new TopDates2(datesLevel2[i].top);
           nonogramTop.fillTopPart();
-          const nonogramLeft = new LeftDates(datesLevel2[i].left);
+          const nonogramLeft = new LeftDates2(datesLevel2[i].left);
           nonogramLeft.fillLeftPart();
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
+          nonogramLevel2.classList.add("active");
+          addStyles2();
         }
       }
     });
   });
-}*/
+}
+
+function addStyles2() {
+  cellsField.style.gridTemplateColumns = "repeat(10, 1fr)";
+  datesLeft.style.gridTemplateRows = "repeat(10, 1fr)";
+  datesTop.style.gridTemplateColumns = "repeat(10, 1fr)";
+}
 
 function choseNonogram3() {
   images.forEach((imag, index) => {
@@ -334,17 +363,25 @@ function choseNonogram3() {
       e.preventDefault();
       //pictureIndex = index;
       for (let i = 0; i < datesLevel3.length; i++) {
-        if (index === i) {
-          const nonogramTop = new TopDates(datesLevel3[i].top);
+        if (index === i && buttonLevel3.classList.contains("active")) {
+          const nonogramTop = new TopDates3(datesLevel3[i].top);
           nonogramTop.fillTopPart();
-          const nonogramLeft = new LeftDates(datesLevel3[i].left);
+          const nonogramLeft = new LeftDates3(datesLevel3[i].left);
           nonogramLeft.fillLeftPart();
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
+          nonogramLevel3.classList.add("active");
+          addStyles3();
         }
       }
     });
   });
+}
+
+function addStyles3() {
+  cellsField.style.gridTemplateColumns = "repeat(15, 1fr)";
+  datesLeft.style.gridTemplateRows = "repeat(15, 1fr)";
+  datesTop.style.gridTemplateColumns = "repeat(15, 1fr)";
 }
 
 //active button
@@ -438,7 +475,6 @@ export {
   continueGame,
   closeCongratulations,
   showRightAnswer,
-  //choseNonogram,
-  //choseNonogram2,
+  choseNonogram2,
   choseNonogram3,
 };
