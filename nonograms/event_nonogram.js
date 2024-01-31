@@ -14,6 +14,7 @@ const images = document.querySelectorAll(".pictures__container");
 const pictures = document.querySelectorAll(".pictures__img");
 const containerDiv = document.querySelector(".pictures");
 const cellsField = document.querySelector(".nonogram__field");
+const cellsField2 = document.querySelectorAll(".field-level2");
 const cellField = document.querySelectorAll(".nonogram__field-dates");
 const resetButton = document.querySelector(".nonogram__button-reset");
 const nonogramMinute = document.querySelector(".nonogram__minutes");
@@ -41,6 +42,7 @@ const time = [];
 const audio = new Audio();
 const audioWinner = new Audio();
 const arrayLocal = new Array(25);
+const arrayLocal2 = new Array(100);
 
 function paintCellField() {
   cellsField.addEventListener("click", (e) => {
@@ -53,6 +55,24 @@ function paintCellField() {
     showAnswer();
     saveDataPlay();
     addSound();
+  });
+}
+
+function paintCellField2() {
+  console.log(cellsField2);
+  cellsField2.forEach((cell, index) => {
+    cell.addEventListener("click", (e) => {
+      console.log("vgf");
+      e.preventDefault();
+      cell.classList.toggle("active");
+      if (time.length === 0) {
+        time.push("start");
+        autoChangeTime = setInterval(changeTime, 1000);
+      }
+      showAnswer2();
+      saveDataPlay2();
+      addSound();
+    });
   });
 }
 
@@ -73,9 +93,36 @@ function clickRightMouse() {
   });
 }
 
+function clickRightMouse2() {
+  cellsField2.forEach((cell, index) => {
+    cell.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      if (e.button === 2) {
+        cell.classList.toggle("change");
+        console.log("bgf");
+        if (time.length === 0) {
+          time.push("start");
+          autoChangeTime = setInterval(changeTime, 1000);
+        }
+        deleteContextMenu2();
+        saveDataPlay2();
+        addSound();
+      }
+    });
+  });
+}
+
 function deleteContextMenu() {
   cellsField.addEventListener("contextmenu", (e) => {
     e.preventDefault();
+  });
+}
+
+function deleteContextMenu2() {
+  cellsField2.forEach((cell, index) => {
+    cell.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
   });
 }
 
@@ -176,24 +223,79 @@ function savePlay() {
   });
 }
 
+function saveDataPlay2() {
+  for (let i = 0; i < cellsField2.length; i++) {
+    for (let j = 0; j < arrayLocal2.length; j++) {
+      if (cellsField2[i].classList.contains("active") && j === i) {
+        arrayLocal2.splice(j, 1, `${i}:active`);
+      } else if (cellsField2[i].classList.contains("change") && j === i) {
+        arrayLocal2.splice(j, 1, `${i}:change`);
+      } else if (
+        (!cellsField2[i].classList.contains("change") ||
+          !cellsField2[i].classList.contains("active")) &&
+        j === i
+      ) {
+        arrayLocal2.splice(j, 1, "");
+      }
+    }
+  }
+  console.log(arrayLocal2);
+}
+
+function savePlay2() {
+  buttonSave.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.setItem("last game2", `${arrayLocal2}`);
+    clearField();
+    localStorage.setItem("time2", `${minute} ${second}`);
+  });
+}
+
 //get data
 
 function getDataPlay() {
-  let dataArray;
-  for (let i = 0; i < localStorage.length; i++) {
-    let localData = localStorage.getItem("last game").split(",");
-    dataArray = localData.filter((item) => item !== "");
-  }
-  for (let j = 0; j < dataArray.length; j++) {
-    const data = dataArray[j].split(":");
-    for (let k = 0; k < cellField.length; k++) {
-      if (k == data[0] && data[1] === "active") {
-        cellField[k].classList.add("active");
-      }
-      if (k == data[0] && data[1] === "change") {
-        cellField[k].classList.add("change");
+  if (buttonLevel1.classList.contains("active")) {
+    let dataArray;
+    for (let i = 0; i < localStorage.length; i++) {
+      let localData = localStorage.getItem("last game").split(",");
+      dataArray = localData.filter((item) => item !== "");
+      console.log(localData);
+    }
+    for (let j = 0; j < dataArray.length; j++) {
+      const data = dataArray[j].split(":");
+      for (let k = 0; k < cellField.length; k++) {
+        if (k == data[0] && data[1] === "active") {
+          cellField[k].classList.add("active");
+        }
+        if (k == data[0] && data[1] === "change") {
+          cellField[k].classList.add("change");
+        }
       }
     }
+  }
+
+  if (buttonLevel2.classList.contains("active")) {
+    let dataArray2;
+    for (let i = 0; i < localStorage.length; i++) {
+      let localData = localStorage.getItem("last game2").split(",");
+      console.log(localData);
+      dataArray2 = localData.filter((item) => item !== "");
+      console.log(dataArray2);
+    }
+    console.log(localStorage.getItem("last game2"));
+    console.log(dataArray2);
+    for (let j = 0; j < dataArray2.length; j++) {
+      const data = dataArray2[j].split(":");
+      for (let k = 0; k < cellsField2.length; k++) {
+        if (k == data[0] && data[1] === "active") {
+          cellsField2[k].classList.add("active");
+        }
+        if (k == data[0] && data[1] === "change") {
+          cellsField2[k].classList.add("change");
+        }
+      }
+    }
+    console.log("fgt");
   }
 }
 
@@ -221,6 +323,7 @@ function continueGame() {
     e.preventDefault();
     getDataPlay();
     getTime();
+    localStorage.clear();
     autoChangeTime = setInterval(changeTime, 1000);
     console.log("fr");
   });
@@ -254,6 +357,14 @@ function showAnswer() {
     const correctAnswer = datesLevel1[i].answer.flat();
     const answer1 = new Answer(cellField, correctAnswer);
     answer1.addAnswer();
+  }
+}
+
+function showAnswer2() {
+  for (let i = 0; i < datesLevel2.length; i++) {
+    const correctAnswer = datesLevel2[i].answer.flat();
+    const answer2 = new Answer(cellsField2, correctAnswer);
+    answer2.addAnswer();
   }
 }
 
@@ -291,27 +402,53 @@ function closeCongratulations() {
 closeCongratulations();
 
 let pictureIndex;
+let pictureIndex2;
 
 function showRightAnswer() {
   buttonSolution.addEventListener("click", (e) => {
     e.preventDefault();
-    let rightAnswer;
-    for (let i = 0; i < datesLevel1.length; i++) {
-      if (pictureIndex === i) {
-        rightAnswer = datesLevel1[i].answer.flat();
-        console.log(rightAnswer);
-      }
-    }
-    for (let k = 0; k < rightAnswer.length; k++) {
-      for (let j = 0; j < cellField.length; j++) {
-        if (k === j && rightAnswer[k] === 1) {
-          cellField[j].classList.add("active");
+    if (buttonLevel1.classList.contains("active")) {
+      let rightAnswer;
+      for (let i = 0; i < datesLevel1.length; i++) {
+        if (pictureIndex === i) {
+          rightAnswer = datesLevel1[i].answer.flat();
           console.log(rightAnswer);
         }
-        if (k === j && rightAnswer[k] !== 1) {
-          cellField[j].classList.remove("active");
-          cellField[j].classList.remove("change");
-          console.log(rightAnswer);
+      }
+      for (let k = 0; k < rightAnswer.length; k++) {
+        for (let j = 0; j < cellField.length; j++) {
+          if (k === j && rightAnswer[k] === 1) {
+            cellField[j].classList.add("active");
+            console.log(rightAnswer);
+          }
+          if (k === j && rightAnswer[k] !== 1) {
+            cellField[j].classList.remove("active");
+            cellField[j].classList.remove("change");
+            console.log(rightAnswer);
+          }
+        }
+      }
+    }
+
+    if (buttonLevel2.classList.contains("active")) {
+      let rightAnswer2;
+      for (let i = 0; i < datesLevel2.length; i++) {
+        if (pictureIndex2 === i) {
+          rightAnswer2 = datesLevel2[i].answer.flat();
+          console.log(rightAnswer2);
+        }
+      }
+      for (let k = 0; k < rightAnswer2.length; k++) {
+        for (let j = 0; j < cellsField2.length; j++) {
+          if (k === j && rightAnswer2[k] === 1) {
+            cellsField2[j].classList.add("active");
+            console.log(rightAnswer2);
+          }
+          if (k === j && rightAnswer2[k] !== 1) {
+            cellsField2[j].classList.remove("active");
+            cellsField2[j].classList.remove("change");
+            console.log(rightAnswer2);
+          }
         }
       }
     }
@@ -349,7 +486,7 @@ function choseNonogram2() {
   images.forEach((imag, index) => {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
-      //pictureIndex = index;
+      pictureIndex2 = index;
       for (let i = 0; i < datesLevel2.length; i++) {
         if (index === i && buttonLevel2.classList.contains("active")) {
           const nonogramTop = new TopDates2(datesLevel2[i].top);
@@ -413,6 +550,10 @@ function activeButtonsLevel2() {
       buttonLevel3.classList.remove("active");
     }
     changePictures();
+    console.log("rrr");
+    paintCellField2();
+    clickRightMouse2();
+    savePlay2();
   });
 }
 activeButtonsLevel2();

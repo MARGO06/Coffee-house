@@ -464,13 +464,13 @@ class FieldDates2 {
   fillField() {
     for (let i = 0; i < this.array.length; i++) {
       const fieldDates2 = document.createElement("div");
-      fieldDates2.className = "nonogram__field-dates level2";
+      fieldDates2.className = "nonogram__field-dates field-level2";
       field2.append(fieldDates2);
       const wrongDatesL2 = document.createElement("div");
-      wrongDatesL2.className = "line nonogram__incorrect level2";
+      wrongDatesL2.className = "line nonogram__incorrect-level2";
       fieldDates2.append(wrongDatesL2);
       const wrongDatesL22 = document.createElement("div");
-      wrongDatesL22.className = "line nonogram__incorrect2 level2";
+      wrongDatesL22.className = "line nonogram__incorrect2-level2";
       fieldDates2.append(wrongDatesL22);
     }
   }

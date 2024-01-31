@@ -1,7 +1,7 @@
 import { wrapper } from "./build_nonogram.js";
 
 import {
-  paintCellField,
+  //clickLeftCell,
   clickRightMouse,
   resetGame,
   clickNonogramSound,
@@ -11,9 +11,9 @@ import {
   showRightAnswer,
   choseNonogram2,
   choseNonogram3,
+  paintCellField,
 } from "./event_nonogram.js";
 wrapper;
-
 paintCellField();
 clickRightMouse();
 resetGame();
