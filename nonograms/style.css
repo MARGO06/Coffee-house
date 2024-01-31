@@ -169,11 +169,11 @@
   background-color: black;
 }
 
-/*.nonogram__incorrect {
-  top: 46px;
+.nonogram__incorrect {
+  top: 33px;
   left: -20px;
-  transform: rotate(45deg);
-}*/
+  transform: rotate(36deg);
+}
 
 .f-level2 {
   grid-template-columns: repeat(10, 1fr);
@@ -196,9 +196,9 @@
 }
 
 .nonogram__incorrect2 {
-  top: 48px;
+  top: 35px;
   right: -16px;
-  transform: rotate(135deg);
+  transform: rotate(145deg);
 }
 .nonogram__button-contain {
   display: flex;

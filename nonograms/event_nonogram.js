@@ -39,6 +39,7 @@ const nonogramLevel3 = document.querySelector(".nonogram__level3");
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
+const audioWinner = new Audio();
 const arrayLocal = new Array(25);
 
 function paintCellField() {
@@ -131,12 +132,19 @@ function addSound() {
   audio.play();
 }
 
+function addSoundWinner() {
+  audioWinner.src = "./asserts/sounds/zvuk-pobedy-323.mp3";
+  audioWinner.play();
+}
+
 function clickNonogramSound() {
   nonogramSound.addEventListener("click", (e) => {
     nonogramSound.classList.toggle("inactive");
     audio.muted = true;
+    audioWinner.muted = true;
     if (!nonogramSound.classList.contains("inactive")) {
       audio.muted = false;
+      audioWinner.muted = false;
     }
   });
 }
@@ -213,6 +221,7 @@ function continueGame() {
     e.preventDefault();
     getDataPlay();
     getTime();
+    autoChangeTime = setInterval(changeTime, 1000);
     console.log("fr");
   });
 }
@@ -266,6 +275,7 @@ function viewModalWindow() {
 
 function showCongratulations() {
   viewModalWindow();
+  addSoundWinner();
   backgroundModal.classList.add("active");
   modalWindow.classList.add("active");
 }
@@ -285,18 +295,23 @@ let pictureIndex;
 function showRightAnswer() {
   buttonSolution.addEventListener("click", (e) => {
     e.preventDefault();
-    let answer;
-
+    let rightAnswer;
     for (let i = 0; i < datesLevel1.length; i++) {
       if (pictureIndex === i) {
-        answer = datesLevel1[i].answer.flat();
+        rightAnswer = datesLevel1[i].answer.flat();
+        console.log(rightAnswer);
       }
     }
-    for (let k = 0; k < answer.length; k++) {
+    for (let k = 0; k < rightAnswer.length; k++) {
       for (let j = 0; j < cellField.length; j++) {
-        if (k === j && answer[k] === 1) {
+        if (k === j && rightAnswer[k] === 1) {
           cellField[j].classList.add("active");
-          console.log(answer);
+          console.log(rightAnswer);
+        }
+        if (k === j && rightAnswer[k] !== 1) {
+          cellField[j].classList.remove("active");
+          cellField[j].classList.remove("change");
+          console.log(rightAnswer);
         }
       }
     }
@@ -309,7 +324,7 @@ function choseNonogram() {
   images.forEach((imag, index) => {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
-      //pictureIndex = index;
+      pictureIndex = index;
       for (let i = 0; i < datesLevel1.length; i++) {
         if (index === i && buttonLevel1.classList.contains("active")) {
           const nonogramTop = new TopDates(datesLevel1[i].top);
