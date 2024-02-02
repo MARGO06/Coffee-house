@@ -92,6 +92,19 @@
   border-top: 2px solid black;
 }
 
+.nonogram__dates-full {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.nonogram__top-container1 {
+  display: grid;
+}
+
+.field1 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .nonogram__left-container:nth-child(5n + 5) {
   border-bottom: 3px solid black;
 }
@@ -210,6 +223,9 @@
 .f-level3 {
   grid-template-columns: repeat(15, 1fr);
 }
+/*.nonogram__top-container1 {
+  grid-template-columns: repeat(5, 1fr);
+}*/
 
 .nonogram__level1,
 .nonogram__level2,

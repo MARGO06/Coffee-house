@@ -208,15 +208,12 @@ class Level1 {
     bottomDates.append(buttonDatesLeft);
 
     const field = document.createElement("div");
-    field.className = "nonogram__field";
+    field.className = "nonogram__field field1";
     bottomDates.append(field);
     for (let i = 0; i < this.array.length; i++) {
       const containerTopDates = document.createElement("div");
-      containerTopDates.className = "cell-top nonogram__top-container";
+      containerTopDates.className = "cell-top nonogram__top-container1";
       containerTopDates.style.gridTemplateRows = `repeat(${this.array[i].length},1fr)`;
-      if (this.array[i].length === 1) {
-        topDates.style.height = "92px";
-      }
       console.log(this.array[i].length);
       topDatesFull.append(containerTopDates);
       for (let j = 0; j < this.array[i].length; j++) {
@@ -248,7 +245,7 @@ class Level1 {
     }
     for (let i = 0; i < this.array3.length; i++) {
       const fieldDates = document.createElement("div");
-      fieldDates.className = "nonogram__field-dates";
+      fieldDates.className = "nonogram__field-dates field__1";
       field.append(fieldDates);
       const wrongDates = document.createElement("div");
       wrongDates.className = "line nonogram__incorrect";
@@ -315,9 +312,6 @@ class Level2 {
       const containerTopDates2 = document.createElement("div");
       containerTopDates2.className = "cell-top nonogram__top-container level2";
       containerTopDates2.style.gridTemplateRows = `repeat(${this.array[i].length},1fr)`;
-      /*if (this.array[i].length === 1) {
-        topDates.style.height = "92px";
-      }*/
       console.log(this.array[i].length);
       topDatesFull2.append(containerTopDates2);
       for (let j = 0; j < this.array[i].length; j++) {
@@ -424,10 +418,6 @@ class Level3 {
       const containerTopDates3 = document.createElement("div");
       containerTopDates3.className = "cell-top nonogram__top-container level2";
       containerTopDates3.style.gridTemplateRows = `repeat(${this.array[i].length},1fr)`;
-      if (this.array[i].length === 1) {
-        topDates.style.height = "92px";
-      }
-      console.log(this.array[i].length);
       topDatesFull3.append(containerTopDates3);
       for (let j = 0; j < this.array[i].length; j++) {
         const topDate3 = document.createElement("p");

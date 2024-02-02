@@ -5,10 +5,10 @@ const nonograms = document.querySelector(".nonograms");
 const images = document.querySelectorAll(".pictures__container");
 const pictures = document.querySelectorAll(".pictures__img");
 const containerDiv = document.querySelector(".pictures");
-const cellsField = document.querySelector(".nonogram__field");
+const cellsField = document.querySelectorAll(".nonogram__field");
 const cellsField2 = document.querySelectorAll(".field-level2");
 const cellsField3 = document.querySelectorAll(".field-level3");
-const cellField = document.querySelectorAll(".nonogram__field-dates");
+const cellField = document.querySelectorAll(".field__1");
 const resetButton = document.querySelector(".nonogram__button-reset");
 const nonogramMinute = document.querySelector(".nonogram__minutes");
 const nonogramSecond = document.querySelector(".nonogram__seconds");
@@ -26,35 +26,42 @@ const buttonLevel2 = document.querySelector(".header__level2");
 const buttonLevel3 = document.querySelector(".header__level3");
 const datesLeft = document.querySelector(".nonogram__dates-left");
 const datesTop = document.querySelector(".nonogram__dates-full");
-const nonogramLevel1 = document.querySelector(".nonogram__level1");
+const nonogramLevel1 = document.querySelectorAll(".nonogram__level1");
 const nonogramLevel2 = document.querySelector(".nonogram__level2");
 const nonogramLevel3 = document.querySelector(".nonogram__level3");
 const buttonRandom = document.querySelector(".header__random");
 const cellsLeft = document.querySelectorAll(".cell-left");
 const cellsTop = document.querySelector(".nonogram__dates-full");
-const cellTop = document.querySelector(".cell-top");
-
+//nonograms
+const nonogramContainer1 = document.querySelector(".nonograms__container1");
+//console.log(cellField);
 let autoChangeTime;
 const time = [];
 const audio = new Audio();
 const audioWinner = new Audio();
-const arrayLocal = new Array(25);
+const arrayLocal = new Array(125);
 const arrayLocal2 = new Array(100);
 const arrayLocal3 = new Array(225);
+let pictureIndex;
+let pictureIndex2;
+let pictureIndex3;
 
 function paintCellField() {
-  cellsField.addEventListener("click", (e) => {
-    e.preventDefault;
-    e.target.classList.toggle("active");
-    if (time.length === 0) {
-      time.push("start");
-      autoChangeTime = setInterval(changeTime, 1000);
-    }
-    showAnswer();
-    saveDataPlay();
-    addSound();
+  cellsField.forEach((cellField, index) => {
+    cellField.addEventListener("click", (e) => {
+      e.preventDefault;
+      e.target.classList.toggle("active");
+      if (time.length === 0) {
+        time.push("start");
+        autoChangeTime = setInterval(changeTime, 1000);
+      }
+      showAnswer();
+      saveDataPlay();
+      addSound();
+    });
   });
 }
+paintCellField();
 
 function paintCellField2() {
   console.log(cellsField2);
@@ -93,18 +100,20 @@ function paintCellField3() {
 }
 //add right click
 function clickRightMouse() {
-  cellsField.addEventListener("mousedown", (e) => {
-    e.preventDefault();
-    if (e.button === 2) {
-      e.target.classList.toggle("change");
-      if (time.length === 0) {
-        time.push("start");
-        autoChangeTime = setInterval(changeTime, 1000);
+  cellsField.forEach((cellField, index) => {
+    cellField.addEventListener("mousedown", (e) => {
+      e.preventDefault;
+      if (e.button === 2) {
+        e.target.classList.toggle("change");
+        if (time.length === 0) {
+          time.push("start");
+          autoChangeTime = setInterval(changeTime, 1000);
+        }
+        deleteContextMenu();
+        addSound();
+        saveDataPlay();
       }
-      deleteContextMenu();
-      addSound();
-      saveDataPlay();
-    }
+    });
   });
 }
 
@@ -147,8 +156,10 @@ function clickRightMouse3() {
 }
 
 function deleteContextMenu() {
-  cellsField.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
+  cellsField.forEach((cellField, index) => {
+    cellField.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
   });
 }
 
@@ -239,20 +250,27 @@ function clickNonogramSound() {
 }
 
 function saveDataPlay() {
-  for (let i = 0; i < cellField.length; i++) {
-    for (let j = 0; j < arrayLocal.length; j++) {
-      if (cellField[i].classList.contains("active") && j === i) {
-        arrayLocal.splice(j, 1, `${i}:active`);
-      } else if (cellField[i].classList.contains("change") && j === i) {
-        arrayLocal.splice(j, 1, `${i}:change`);
-      } else if (
-        (!cellField[i].classList.contains("change") ||
-          !cellField[i].classList.contains("active")) &&
-        j === i
-      ) {
-        arrayLocal.splice(j, 1, "");
+  for (let i = 0; i < nonogramLevel1.length; i++) {
+    if (nonogramLevel1[i].classList.contains("active")) {
+      for (let j = 0; j < cellField.length; j++) {
+        for (let k = 0; k < arrayLocal.length; k++) {
+          if (cellField[j].classList.contains("active") && j === k) {
+            arrayLocal.splice(k, 1, `${j}:active`);
+            //console.log(arrayLocal);
+          } else if (cellField[j].classList.contains("change") && j === k) {
+            arrayLocal.splice(k, 1, `${j}:change`);
+            console.log(arrayLocal);
+          } else if (
+            (!cellField[j].classList.contains("change") ||
+              !cellField[j].classList.contains("active")) &&
+            j === k
+          ) {
+            arrayLocal.splice(k, 1, "");
+          }
+        }
       }
     }
+    console.log(cellField[nonogramLevel1], i);
   }
 }
 
@@ -425,6 +443,7 @@ function continueGame() {
 class Answer {
   constructor(cells, data) {
     this.cell = cells;
+    console.log(this.cell);
     this.answer = data;
     for (let j = 0; j < data.length; j++) {
       this.answer[j] = data[j];
@@ -436,6 +455,7 @@ class Answer {
       for (let j = 0; j < this.answer.length; j++) {
         if (this.cell[i].classList.contains("active") && this.answer[j] === 1) {
           this.answer.splice(i, 1, 2);
+          console.log(this.answer);
         }
       }
     }
@@ -444,13 +464,49 @@ class Answer {
     }
   }
 }
+const rightAnswer = [];
 
 function showAnswer() {
+  const allAnswers = new Array(125);
+  const correctAns = [];
   for (let i = 0; i < datesLevel1.length; i++) {
-    const correctAnswer = datesLevel1[i].answer.flat();
-    const answer1 = new Answer(cellField, correctAnswer);
-    answer1.addAnswer();
+    if (pictureIndex === i && pictureIndex === 0) {
+      correctAns.push(datesLevel1[i].answer.flat());
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 1) {
+      const emptyArray = new Array(25).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel1[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 2) {
+      const emptyArray = new Array(50).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel1[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 3) {
+      const emptyArray = new Array(75).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel1[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 4) {
+      const emptyArray = new Array(100).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel1[i].answer.flat()));
+      console.log(correctAns);
+    }
   }
+  const correctAnswer = correctAns.flat(2);
+  for (let j = 0; j < allAnswers.length; j++) {
+    for (let k = 0; k < correctAnswer.length; k++) {
+      if (k === j) {
+        allAnswers.splice(j, 1, correctAnswer[k]);
+      }
+    }
+  }
+  const answer1 = new Answer(cellField, allAnswers);
+  answer1.addAnswer();
+  console.log(allAnswers);
+  console.log(correctAnswer);
 }
 
 function showAnswer2() {
@@ -502,28 +558,25 @@ function closeCongratulations() {
 }
 closeCongratulations();
 
-let pictureIndex;
-let pictureIndex2;
-let pictureIndex3;
+//const rightAnswer = [];
+function allRightAnswer() {
+  for (let i = 0; i < datesLevel1.length; i++) {
+    rightAnswer.push(datesLevel1[i].answer.flat());
+  }
+}
+allRightAnswer();
 
 function showRightAnswer() {
   buttonSolution.addEventListener("click", (e) => {
     e.preventDefault();
     if (buttonLevel1.classList.contains("active")) {
-      let rightAnswer;
-      for (let i = 0; i < datesLevel1.length; i++) {
-        if (pictureIndex === i) {
-          rightAnswer = datesLevel1[i].answer.flat();
-          console.log(rightAnswer);
-        }
-      }
-      for (let k = 0; k < rightAnswer.length; k++) {
+      const allRightAnswers = rightAnswer.flat();
+      for (let k = 0; k < allRightAnswers.length; k++) {
         for (let j = 0; j < cellField.length; j++) {
-          if (k === j && rightAnswer[k] === 1) {
+          if (k === j && allRightAnswers[k] === 1) {
             cellField[j].classList.add("active");
-            console.log(rightAnswer);
           }
-          if (k === j && rightAnswer[k] !== 1) {
+          if (k === j && allRightAnswers[k] !== 1) {
             cellField[j].classList.remove("active");
             cellField[j].classList.remove("change");
             console.log(rightAnswer);
@@ -586,19 +639,12 @@ function choseNonogram() {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
       pictureIndex = index;
-      for (let i = 0; i < datesLevel1.length; i++) {
+      console.log("frt");
+      for (let i = 0; i < nonogramLevel1.length; i++) {
         if (index === i && buttonLevel1.classList.contains("active")) {
-          const nonogramTop = new TopDates(datesLevel1[i].top);
-          nonogramTop.fillTopPart();
-          const nonogramLeft = new LeftDates(datesLevel1[i].left);
-          nonogramLeft.fillLeftPart();
+          nonogramLevel1[i].classList.add("active");
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
-          nonogramLevel1.classList.add("active");
-          cellsField.style.gridTemplateColumns = "repeat(5, 1fr)";
-          datesLeft.style.gridTemplateRows = "repeat(5, 1fr)";
-          datesTop.style.gridTemplateColumns = "repeat(5, 1fr)";
-          console.log("hst");
         }
       }
     });
@@ -854,7 +900,6 @@ buttonRandom.addEventListener("click", (e) => {
 
 randomGame();
 export {
-  paintCellField,
   clickRightMouse,
   resetGame,
   clickNonogramSound,
