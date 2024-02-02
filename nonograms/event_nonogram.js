@@ -27,7 +27,7 @@ const buttonLevel3 = document.querySelector(".header__level3");
 const datesLeft = document.querySelector(".nonogram__dates-left");
 const datesTop = document.querySelector(".nonogram__dates-full");
 const nonogramLevel1 = document.querySelectorAll(".nonogram__level1");
-const nonogramLevel2 = document.querySelector(".nonogram__level2");
+const nonogramLevel2 = document.querySelectorAll(".nonogram__level2");
 const nonogramLevel3 = document.querySelector(".nonogram__level3");
 const buttonRandom = document.querySelector(".header__random");
 const cellsLeft = document.querySelectorAll(".cell-left");
@@ -40,11 +40,12 @@ const time = [];
 const audio = new Audio();
 const audioWinner = new Audio();
 const arrayLocal = new Array(125);
-const arrayLocal2 = new Array(100);
+const arrayLocal2 = new Array(1000);
 const arrayLocal3 = new Array(225);
 let pictureIndex;
 let pictureIndex2;
 let pictureIndex3;
+const rightAnswer2 = [];
 
 function paintCellField() {
   cellsField.forEach((cellField, index) => {
@@ -56,30 +57,14 @@ function paintCellField() {
         autoChangeTime = setInterval(changeTime, 1000);
       }
       showAnswer();
-      saveDataPlay();
-      addSound();
-    });
-  });
-}
-paintCellField();
-
-function paintCellField2() {
-  console.log(cellsField2);
-  cellsField2.forEach((cell, index) => {
-    cell.addEventListener("click", (e) => {
-      console.log("vgf");
-      e.preventDefault();
-      cell.classList.toggle("active");
-      if (time.length === 0) {
-        time.push("start");
-        autoChangeTime = setInterval(changeTime, 1000);
-      }
       showAnswer2();
+      saveDataPlay();
       saveDataPlay2();
       addSound();
     });
   });
 }
+paintCellField();
 
 function paintCellField3() {
   console.log(cellsField2);
@@ -112,25 +97,7 @@ function clickRightMouse() {
         deleteContextMenu();
         addSound();
         saveDataPlay();
-      }
-    });
-  });
-}
-
-function clickRightMouse2() {
-  cellsField2.forEach((cell, index) => {
-    cell.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      if (e.button === 2) {
-        cell.classList.toggle("change");
-        console.log("bgf");
-        if (time.length === 0) {
-          time.push("start");
-          autoChangeTime = setInterval(changeTime, 1000);
-        }
-        deleteContextMenu2();
         saveDataPlay2();
-        addSound();
       }
     });
   });
@@ -163,14 +130,6 @@ function deleteContextMenu() {
   });
 }
 
-function deleteContextMenu2() {
-  cellsField2.forEach((cell, index) => {
-    cell.addEventListener("contextmenu", (e) => {
-      e.preventDefault();
-    });
-  });
-}
-
 function deleteContextMenu3() {
   cellsField3.forEach((cell, index) => {
     cell.addEventListener("contextmenu", (e) => {
@@ -193,8 +152,22 @@ function clearField() {
     }
   });
   clearInterval(autoChangeTime);
+  clearField2();
   nonogramMinute.textContent = "00";
   nonogramSecond.textContent = "00";
+}
+
+function clearField2() {
+  cellsField2.forEach((item) => {
+    if (
+      item.classList.contains("active") ||
+      item.classList.contains("change")
+    ) {
+      item.classList.remove("active");
+      item.classList.remove("change");
+      console.log("ggg");
+    }
+  });
 }
 
 //add reset game
@@ -204,6 +177,7 @@ function resetGame() {
     clearField();
   });
 }
+
 //add timer
 let minute = 0;
 let second = 0;
@@ -284,22 +258,26 @@ function savePlay() {
 }
 
 function saveDataPlay2() {
-  for (let i = 0; i < cellsField2.length; i++) {
-    for (let j = 0; j < arrayLocal2.length; j++) {
-      if (cellsField2[i].classList.contains("active") && j === i) {
-        arrayLocal2.splice(j, 1, `${i}:active`);
-      } else if (cellsField2[i].classList.contains("change") && j === i) {
-        arrayLocal2.splice(j, 1, `${i}:change`);
-      } else if (
-        (!cellsField2[i].classList.contains("change") ||
-          !cellsField2[i].classList.contains("active")) &&
-        j === i
-      ) {
-        arrayLocal2.splice(j, 1, "");
+  for (let i = 0; i < nonogramLevel2.length; i++) {
+    if (nonogramLevel2[i].classList.contains("active")) {
+      for (let i = 0; i < cellsField2.length; i++) {
+        for (let j = 0; j < arrayLocal2.length; j++) {
+          if (cellsField2[i].classList.contains("active") && j === i) {
+            arrayLocal2.splice(j, 1, `${i}:active`);
+          } else if (cellsField2[i].classList.contains("change") && j === i) {
+            arrayLocal2.splice(j, 1, `${i}:change`);
+          } else if (
+            (!cellsField2[i].classList.contains("change") ||
+              !cellsField2[i].classList.contains("active")) &&
+            j === i
+          ) {
+            arrayLocal2.splice(j, 1, "");
+          }
+        }
       }
     }
+    console.log(arrayLocal2);
   }
-  console.log(arrayLocal2);
 }
 
 function savePlay2() {
@@ -510,11 +488,46 @@ function showAnswer() {
 }
 
 function showAnswer2() {
-  for (let i = 0; i < datesLevel2.length; i++) {
-    const correctAnswer = datesLevel2[i].answer.flat();
-    const answer2 = new Answer(cellsField2, correctAnswer);
-    answer2.addAnswer();
+  const allAnswers = new Array(1000);
+  const correctAns = [];
+  for (let i = 0; i < datesLevel1.length; i++) {
+    if (pictureIndex === i && pictureIndex === 0) {
+      correctAns.push(datesLevel1[i].answer.flat());
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 1) {
+      const emptyArray = new Array(100).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel2[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 2) {
+      const emptyArray = new Array(200).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel2[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 3) {
+      const emptyArray = new Array(300).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel2[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 4) {
+      const emptyArray = new Array(400).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel2[i].answer.flat()));
+      console.log(correctAns);
+    }
   }
+  const correctAnswer = correctAns.flat(2);
+  for (let j = 0; j < allAnswers.length; j++) {
+    for (let k = 0; k < correctAnswer.length; k++) {
+      if (k === j) {
+        allAnswers.splice(j, 1, correctAnswer[k]);
+      }
+    }
+  }
+  const answer1 = new Answer(cellsField2, allAnswers);
+  answer1.addAnswer();
+  console.log(allAnswers);
+  console.log(correctAnswer);
 }
 
 function showAnswer3() {
@@ -566,6 +579,13 @@ function allRightAnswer() {
 }
 allRightAnswer();
 
+function allRightAnswer2() {
+  for (let i = 0; i < datesLevel2.length; i++) {
+    rightAnswer2.push(datesLevel2[i].answer.flat());
+  }
+}
+allRightAnswer2();
+
 function showRightAnswer() {
   buttonSolution.addEventListener("click", (e) => {
     e.preventDefault();
@@ -586,20 +606,14 @@ function showRightAnswer() {
     }
 
     if (buttonLevel2.classList.contains("active")) {
-      let rightAnswer2;
-      for (let i = 0; i < datesLevel2.length; i++) {
-        if (pictureIndex2 === i) {
-          rightAnswer2 = datesLevel2[i].answer.flat();
-          console.log(rightAnswer2);
-        }
-      }
-      for (let k = 0; k < rightAnswer2.length; k++) {
+      const allRightAnswers = rightAnswer2.flat();
+      for (let k = 0; k < allRightAnswers.length; k++) {
         for (let j = 0; j < cellsField2.length; j++) {
-          if (k === j && rightAnswer2[k] === 1) {
+          if (k === j && allRightAnswers[k] === 1) {
             cellsField2[j].classList.add("active");
-            console.log(rightAnswer2);
+            console.log(allRightAnswers);
           }
-          if (k === j && rightAnswer2[k] !== 1) {
+          if (k === j && allRightAnswers[k] !== 1) {
             cellsField2[j].classList.remove("active");
             cellsField2[j].classList.remove("change");
             console.log(rightAnswer2);
@@ -659,25 +673,15 @@ function choseNonogram2() {
       pictureIndex2 = index;
       for (let i = 0; i < datesLevel2.length; i++) {
         if (index === i && buttonLevel2.classList.contains("active")) {
-          const nonogramTop = new TopDates2(datesLevel2[i].top);
-          nonogramTop.fillTopPart();
-          const nonogramLeft = new LeftDates2(datesLevel2[i].left);
-          nonogramLeft.fillLeftPart();
+          nonogramLevel2[i].classList.add("active");
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
-          nonogramLevel2.classList.add("active");
-          addStyles2();
         }
       }
     });
   });
 }
-
-function addStyles2() {
-  cellsField.style.gridTemplateColumns = "repeat(10, 1fr)";
-  datesLeft.style.gridTemplateRows = "repeat(10, 1fr)";
-  datesTop.style.gridTemplateColumns = "repeat(10, 1fr)";
-}
+choseNonogram2();
 
 function choseNonogram3() {
   images.forEach((imag, index) => {
@@ -721,8 +725,7 @@ function activeButtonsLevel2() {
     }
     changePictures();
     console.log("rrr");
-    paintCellField2();
-    clickRightMouse2();
+
     savePlay2();
   });
 }
@@ -907,6 +910,5 @@ export {
   continueGame,
   closeCongratulations,
   showRightAnswer,
-  choseNonogram2,
   choseNonogram3,
 };

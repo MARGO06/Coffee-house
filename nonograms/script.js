@@ -9,7 +9,6 @@ import {
   continueGame,
   closeCongratulations,
   showRightAnswer,
-  choseNonogram2,
   choseNonogram3,
 } from "./event_nonogram.js";
 wrapper;
@@ -21,5 +20,4 @@ savePlay();
 continueGame();
 closeCongratulations();
 showRightAnswer();
-choseNonogram2();
 choseNonogram3();

@@ -323,24 +323,24 @@ class Level2 {
         }
         containerTopDates2.append(topDate2);
       }
+    }
 
-      for (let i = 0; i < this.array2.length; i++) {
-        const containerLeftDates2 = document.createElement("div");
-        containerLeftDates2.className =
-          "cell-left nonogram__left-container level2";
-        containerLeftDates2.style.gridTemplateColumns = `repeat(${this.array2[i].length},1fr)`;
-        buttonDatesLeft2.append(containerLeftDates2);
-        for (let j = 0; j < this.array2[i].length; j++) {
-          const leftDate2 = document.createElement("p");
-          leftDate2.className = "nonogram__left";
-          leftDate2.textContent = `${this.array2[i][j]}`;
-          if (this.array2[i][j] !== "") {
-            leftDate2.style.backgroundColor = "rgb(194, 188, 188)";
-          }
-          containerLeftDates2.append(leftDate2);
+    for (let i = 0; i < this.array2.length; i++) {
+      const containerLeftDates2 = document.createElement("div");
+      containerLeftDates2.className =
+        "cell-left nonogram__left-container level2";
+      containerLeftDates2.style.gridTemplateColumns = `repeat(${this.array2[i].length},1fr)`;
+      buttonDatesLeft2.append(containerLeftDates2);
+      for (let j = 0; j < this.array2[i].length; j++) {
+        const leftDate2 = document.createElement("p");
+        leftDate2.className = "nonogram__left";
+        leftDate2.textContent = `${this.array2[i][j]}`;
+        if (this.array2[i][j] !== "") {
+          leftDate2.style.backgroundColor = "rgb(194, 188, 188)";
         }
-        console.log(this.array2[i]);
+        containerLeftDates2.append(leftDate2);
       }
+      console.log(this.array2[i]);
 
       for (let i = 0; i < this.array.length; i++) {
         const fieldDates2 = document.createElement("div");
@@ -354,11 +354,11 @@ class Level2 {
         fieldDates2.append(wrongDatesL22);
       }
 
-      console.log(this.array[i]);
       console.log(this.array.length);
     }
   }
 }
+
 const fieldArray2 = new Array(100).fill("");
 
 for (let i = 0; i < datesLevel2.length; i++) {
