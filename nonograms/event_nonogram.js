@@ -1,13 +1,5 @@
 import { datesLevel1, datesLevel2, datesLevel3 } from "./json.js";
-import {
-  TopDates,
-  LeftDates,
-  FieldDates,
-  LeftDates2,
-  TopDates2,
-  TopDates3,
-  LeftDates3,
-} from "./build_nonogram.js";
+import { Level1, Level2, Level3 } from "./build_nonogram.js";
 
 const nonograms = document.querySelector(".nonograms");
 const images = document.querySelectorAll(".pictures__container");
@@ -37,6 +29,10 @@ const datesTop = document.querySelector(".nonogram__dates-full");
 const nonogramLevel1 = document.querySelector(".nonogram__level1");
 const nonogramLevel2 = document.querySelector(".nonogram__level2");
 const nonogramLevel3 = document.querySelector(".nonogram__level3");
+const buttonRandom = document.querySelector(".header__random");
+const cellsLeft = document.querySelectorAll(".cell-left");
+const cellsTop = document.querySelector(".nonogram__dates-full");
+const cellTop = document.querySelector(".cell-top");
 
 let autoChangeTime;
 const time = [];
@@ -753,6 +749,110 @@ function changePictures3() {
   });
 }
 
+//create random game
+
+function randomNum(min, max) {
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+  //console.log(randomNumber);
+}
+
+function getRandomImg() {
+  let pictureIndex;
+  const containerTop = [];
+  const containerLeft = [];
+  let randomNumberFirst = randomNum(0, 2);
+  let randomNumberSecond = randomNum(0, 4);
+  const levels = [datesLevel1, datesLevel2, datesLevel3];
+  let randomLevel;
+  let randomPicture;
+  levels.forEach((level, index) => {
+    if (randomNumberFirst === index) {
+      randomLevel = level;
+    }
+  });
+  if (randomNumberFirst === 0) {
+    buttonLevel1.classList.add("active");
+    buttonLevel2.classList.remove("active");
+    buttonLevel3.classList.remove("active");
+  }
+  if (randomNumberFirst === 1) {
+    buttonLevel2.classList.add("active");
+    buttonLevel1.classList.remove("active");
+    buttonLevel3.classList.remove("active");
+  }
+  if (randomNumberFirst === 2) {
+    buttonLevel3.classList.add("active");
+    buttonLevel1.classList.remove("active");
+    buttonLevel2.classList.remove("active");
+  }
+  randomLevel.forEach((random, index) => {
+    if (randomNumberSecond === index) {
+      randomPicture = random;
+    } else if (randomNumberSecond === index) {
+      randomPicture = random;
+    }
+  });
+  let nonogramTop;
+
+  if (buttonLevel1.classList.contains("active")) {
+    /*if (cellsTop.children.length > 5) {
+      console.log(cellsTop.children.length);
+      nonogramTop.removeElement();
+      //containerTop.splice(5, 5);
+    }*/
+
+    pictureIndex = randomNumberSecond;
+
+    nonogramTop = new TopDates(datesLevel1[pictureIndex].top);
+    //nonogramTop.removeElement();
+    nonogramTop.fillTopPart();
+    //nonogramTop.removeElement();
+    console.log(nonogramTop);
+    const nonogramLeft = new LeftDates(datesLevel1[pictureIndex].left);
+    nonogramLeft.fillLeftPart();
+    nonograms.classList.add("active");
+    containerDiv.classList.add("hidden");
+    nonogramLevel1.classList.add("active");
+    cellsField.style.gridTemplateColumns = "repeat(5, 1fr)";
+    datesLeft.style.gridTemplateRows = "repeat(5, 1fr)";
+    datesTop.style.gridTemplateColumns = "repeat(5, 1fr)";
+    containerTop.push(cellsTop.children);
+    console.log(cellsTop);
+  }
+  if (cellsTop.children.length > 5) {
+    console.log(cellsTop.children.length);
+    console.log(nonogramTop);
+    nonogramTop.removeElement();
+    //containerTop.splice(5, 5);
+  }
+
+  /*if (buttonLevel2.classList.contains("active")) {
+    const nonogramTop = new TopDates2(datesLevel2[randomNumberSecond].top);
+    nonogramTop.fillTopPart();
+    const nonogramLeft = new LeftDates2(datesLevel2[randomNumberSecond].left);
+    nonogramLeft.fillLeftPart();
+    nonograms.classList.add("active");
+    containerDiv.classList.add("hidden");
+    nonogramLevel2.classList.add("active");
+    nonogramLevel1.classList.remove("active");
+    addStyles2();
+  }*/
+
+  console.log(pictureIndex);
+  showRightAnswer();
+  console.log(randomLevel);
+  console.log(randomPicture);
+  console.log(containerTop);
+  console.log(containerLeft);
+}
+
+function randomGame() {}
+buttonRandom.addEventListener("click", (e) => {
+  getRandomImg();
+});
+
+randomGame();
 export {
   paintCellField,
   clickRightMouse,

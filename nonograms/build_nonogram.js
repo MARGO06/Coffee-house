@@ -62,97 +62,22 @@ function addPictures() {
   }
 }
 addPictures();
-
+//nonogram containers
 const nonograms = document.createElement("div");
 nonograms.className = "nonograms";
 wrapper.append(nonograms);
 
-//create first nonogramm;
-const nonogram = document.createElement("div");
-nonogram.className = "nonogram nonogram__level1";
-nonograms.append(nonogram);
+const nonograms1 = document.createElement("div");
+nonograms1.className = "nonograms__container1";
+nonograms.append(nonograms1);
 
-const topDates = document.createElement("div");
-topDates.className = "nonogram__top-dates";
-nonogram.append(topDates);
+const nonograms2 = document.createElement("div");
+nonograms2.className = "nonograms__container2";
+nonograms.append(nonograms2);
 
-const topDatesEmpty = document.createElement("div");
-topDatesEmpty.className = "nonogram__dates-empty";
-topDates.append(topDatesEmpty);
-
-const topDatesFull = document.createElement("div");
-topDatesFull.className = "nonogram__dates-full";
-topDates.append(topDatesFull);
-
-const bottomDates = document.createElement("div");
-bottomDates.className = "nonogram__bottom-dates";
-nonogram.append(bottomDates);
-
-const buttonDatesLeft = document.createElement("div");
-buttonDatesLeft.className = "nonogram__dates-left";
-bottomDates.append(buttonDatesLeft);
-
-const field = document.createElement("div");
-field.className = "nonogram__field";
-bottomDates.append(field);
-
-//create second nonogramm
-const nonogram2 = document.createElement("div");
-nonogram2.className = "nonogram nonogram__level2";
-nonograms.append(nonogram2);
-
-const topDates2 = document.createElement("div");
-topDates2.className = "nonogram__top-dates level2";
-nonogram2.append(topDates2);
-
-const topDatesEmpty2 = document.createElement("div");
-topDatesEmpty2.className = "nonogram__dates-empty level2";
-topDates2.append(topDatesEmpty2);
-
-const topDatesFull2 = document.createElement("div");
-topDatesFull2.className = "nonogram__dates-full f-level2";
-topDates2.append(topDatesFull2);
-
-const bottomDates2 = document.createElement("div");
-bottomDates2.className = "nonogram__bottom-dates level2";
-nonogram2.append(bottomDates2);
-
-const buttonDatesLeft2 = document.createElement("div");
-buttonDatesLeft2.className = "nonogram__dates-left level2";
-bottomDates2.append(buttonDatesLeft2);
-
-const field2 = document.createElement("div");
-field2.className = "nonogram__field f-level2";
-bottomDates2.append(field2);
-
-//create third nonogramm
-const nonogram3 = document.createElement("div");
-nonogram3.className = "nonogram nonogram__level3";
-nonograms.append(nonogram3);
-
-const topDates3 = document.createElement("div");
-topDates3.className = "nonogram__top-dates level3";
-nonogram3.append(topDates3);
-
-const topDatesEmpty3 = document.createElement("div");
-topDatesEmpty3.className = "nonogram__dates-empty level3";
-topDates3.append(topDatesEmpty3);
-
-const topDatesFull3 = document.createElement("div");
-topDatesFull3.className = "nonogram__dates-full f-level3";
-topDates3.append(topDatesFull3);
-
-const bottomDates3 = document.createElement("div");
-bottomDates3.className = "nonogram__bottom-dates level3";
-nonogram3.append(bottomDates3);
-
-const buttonDatesLeft3 = document.createElement("div");
-buttonDatesLeft3.className = "nonogram__dates-left level2";
-bottomDates3.append(buttonDatesLeft3);
-
-const field3 = document.createElement("div");
-field3.className = "nonogram__field f-level3";
-bottomDates3.append(field3);
+const nonograms3 = document.createElement("div");
+nonograms3.className = "nonograms__container3";
+nonograms.append(nonograms3);
 
 //create button reset
 const buttonContain = document.createElement("div");
@@ -167,7 +92,7 @@ buttonContain.append(buttonReset);
 //create time
 const nonogramTime = document.createElement("div");
 nonogramTime.className = "nonogram__time";
-nonogram.before(nonogramTime);
+nonograms1.before(nonogramTime);
 
 const nonogramMinute = document.createElement("span");
 nonogramMinute.className = "nonogram__minutes";
@@ -240,103 +165,51 @@ const modalBackground = document.createElement("div");
 modalBackground.className = "modal__background hidden";
 wrapper.append(modalBackground);
 
-//create dates
-
-class LeftDates {
-  constructor(dates) {
+//create level1
+class Level1 {
+  constructor(dates, left, field) {
     this.array = dates;
     for (let i = 0; i < dates.length; i++) {
       this.array[i] = dates[i];
     }
-  }
-
-  fillLeftPart() {
-    for (let i = 0; i < this.array.length; i++) {
-      const containerLeftDates = document.createElement("div");
-      containerLeftDates.className = "cell-left nonogram__left-container";
-      containerLeftDates.style.gridTemplateColumns = `repeat(${this.array[i].length},1fr)`;
-      buttonDatesLeft.append(containerLeftDates);
-      for (let j = 0; j < this.array[i].length; j++) {
-        const leftDate = document.createElement("p");
-        leftDate.className = "nonogram__left";
-        leftDate.textContent = `${this.array[i][j]}`;
-        if (this.array[i][j] !== "") {
-          leftDate.style.backgroundColor = "rgb(194, 188, 188)";
-        }
-        containerLeftDates.append(leftDate);
-      }
-      console.log(this.array[i]);
+    this.array2 = left;
+    for (let i = 0; i < left.length; i++) {
+      this.array2[i] = left[i];
     }
-  }
-}
-
-class LeftDates2 {
-  constructor(dates) {
-    this.array = dates;
-    for (let i = 0; i < dates.length; i++) {
-      this.array[i] = dates[i];
+    this.array3 = field;
+    for (let i = 0; i < field.length; i++) {
+      this.array3[i] = field[i];
     }
   }
 
-  fillLeftPart() {
-    for (let i = 0; i < this.array.length; i++) {
-      const containerLeftDates2 = document.createElement("div");
-      containerLeftDates2.className =
-        "cell-left nonogram__left-container level2";
-      containerLeftDates2.style.gridTemplateColumns = `repeat(${this.array[i].length},1fr)`;
-      buttonDatesLeft2.append(containerLeftDates2);
-      for (let j = 0; j < this.array[i].length; j++) {
-        const leftDate2 = document.createElement("p");
-        leftDate2.className = "nonogram__left";
-        leftDate2.textContent = `${this.array[i][j]}`;
-        if (this.array[i][j] !== "") {
-          leftDate2.style.backgroundColor = "rgb(194, 188, 188)";
-        }
-        containerLeftDates2.append(leftDate2);
-      }
-      console.log(this.array[i]);
-    }
-  }
-}
+  fillLevel1() {
+    const nonogram = document.createElement("div");
+    nonogram.className = "nonogram nonogram__level1";
+    nonograms1.append(nonogram);
 
-class LeftDates3 {
-  constructor(dates) {
-    this.array = dates;
-    for (let i = 0; i < dates.length; i++) {
-      this.array[i] = dates[i];
-    }
-  }
+    const topDates = document.createElement("div");
+    topDates.className = "nonogram__top-dates";
+    nonogram.append(topDates);
 
-  fillLeftPart() {
-    for (let i = 0; i < this.array.length; i++) {
-      const containerLeftDates3 = document.createElement("div");
-      containerLeftDates3.className =
-        "cell-left nonogram__left-container level3";
-      containerLeftDates3.style.gridTemplateColumns = `repeat(${this.array[i].length},1fr)`;
-      buttonDatesLeft3.append(containerLeftDates3);
-      for (let j = 0; j < this.array[i].length; j++) {
-        const leftDate3 = document.createElement("p");
-        leftDate3.className = "nonogram__left";
-        leftDate3.textContent = `${this.array[i][j]}`;
-        if (this.array[i][j] !== "") {
-          leftDate3.style.backgroundColor = "rgb(194, 188, 188)";
-        }
-        containerLeftDates3.append(leftDate3);
-      }
-      console.log(this.array[i]);
-    }
-  }
-}
+    const topDatesEmpty = document.createElement("div");
+    topDatesEmpty.className = "nonogram__dates-empty";
+    topDates.append(topDatesEmpty);
 
-class TopDates {
-  constructor(dates) {
-    this.array = dates;
-    for (let i = 0; i < dates.length; i++) {
-      this.array[i] = dates[i];
-    }
-  }
+    const topDatesFull = document.createElement("div");
+    topDatesFull.className = "nonogram__dates-full";
+    topDates.append(topDatesFull);
 
-  fillTopPart() {
+    const bottomDates = document.createElement("div");
+    bottomDates.className = "nonogram__bottom-dates";
+    nonogram.append(bottomDates);
+
+    const buttonDatesLeft = document.createElement("div");
+    buttonDatesLeft.className = "nonogram__dates-left";
+    bottomDates.append(buttonDatesLeft);
+
+    const field = document.createElement("div");
+    field.className = "nonogram__field";
+    bottomDates.append(field);
     for (let i = 0; i < this.array.length; i++) {
       const containerTopDates = document.createElement("div");
       containerTopDates.className = "cell-top nonogram__top-container";
@@ -357,25 +230,94 @@ class TopDates {
       }
       console.log(this.array[i]);
     }
+    for (let i = 0; i < this.array2.length; i++) {
+      const containerLeftDates = document.createElement("div");
+      containerLeftDates.className = "cell-left nonogram__left-container";
+      containerLeftDates.style.gridTemplateColumns = `repeat(${this.array2[i].length},1fr)`;
+      buttonDatesLeft.append(containerLeftDates);
+      for (let j = 0; j < this.array2[i].length; j++) {
+        const leftDate = document.createElement("p");
+        leftDate.className = "nonogram__left";
+        leftDate.textContent = `${this.array2[i][j]}`;
+        if (this.array2[i][j] !== "") {
+          leftDate.style.backgroundColor = "rgb(194, 188, 188)";
+        }
+        containerLeftDates.append(leftDate);
+      }
+      console.log(this.array2[i]);
+    }
+    for (let i = 0; i < this.array3.length; i++) {
+      const fieldDates = document.createElement("div");
+      fieldDates.className = "nonogram__field-dates";
+      field.append(fieldDates);
+      const wrongDates = document.createElement("div");
+      wrongDates.className = "line nonogram__incorrect";
+      fieldDates.append(wrongDates);
+      const wrongDates2 = document.createElement("div");
+      wrongDates2.className = "line nonogram__incorrect2";
+      fieldDates.append(wrongDates2);
+    }
   }
 }
 
-class TopDates2 {
-  constructor(dates) {
+const fieldArray1 = new Array(25).fill("");
+
+for (let i = 0; i < datesLevel1.length; i++) {
+  const nonogramTop = new Level1(
+    datesLevel1[i].top,
+    datesLevel1[i].left,
+    fieldArray1
+  );
+  nonogramTop.fillLevel1();
+}
+
+//create level 2
+class Level2 {
+  constructor(dates, left, field) {
     this.array = dates;
     for (let i = 0; i < dates.length; i++) {
       this.array[i] = dates[i];
     }
+    this.array2 = left;
+    for (let i = 0; i < left.length; i++) {
+      this.array2[i] = left[i];
+    }
+    this.array3 = field;
+    for (let i = 0; i < field.length; i++) {
+      this.array3[i] = field[i];
+    }
   }
 
-  fillTopPart() {
+  fillLevel2() {
+    const nonogram2 = document.createElement("div");
+    nonogram2.className = "nonogram nonogram__level2";
+    nonograms2.append(nonogram2);
+    const topDates2 = document.createElement("div");
+    topDates2.className = "nonogram__top-dates level2";
+    nonogram2.append(topDates2);
+    const topDatesEmpty2 = document.createElement("div");
+    topDatesEmpty2.className = "nonogram__dates-empty level2";
+    topDates2.append(topDatesEmpty2);
+    const topDatesFull2 = document.createElement("div");
+    topDatesFull2.className = "nonogram__dates-full f-level2";
+    topDates2.append(topDatesFull2);
+    const bottomDates2 = document.createElement("div");
+    bottomDates2.className = "nonogram__bottom-dates level2";
+    nonogram2.append(bottomDates2);
+    const buttonDatesLeft2 = document.createElement("div");
+    buttonDatesLeft2.className = "nonogram__dates-left level2";
+    bottomDates2.append(buttonDatesLeft2);
+    const field2 = document.createElement("div");
+    field2.className = "nonogram__field f-level2";
+    bottomDates2.append(field2);
+
     for (let i = 0; i < this.array.length; i++) {
       const containerTopDates2 = document.createElement("div");
       containerTopDates2.className = "cell-top nonogram__top-container level2";
       containerTopDates2.style.gridTemplateRows = `repeat(${this.array[i].length},1fr)`;
-      if (this.array[i].length === 1) {
+      /*if (this.array[i].length === 1) {
         topDates.style.height = "92px";
-      }
+      }*/
       console.log(this.array[i].length);
       topDatesFull2.append(containerTopDates2);
       for (let j = 0; j < this.array[i].length; j++) {
@@ -387,20 +329,97 @@ class TopDates2 {
         }
         containerTopDates2.append(topDate2);
       }
+
+      for (let i = 0; i < this.array2.length; i++) {
+        const containerLeftDates2 = document.createElement("div");
+        containerLeftDates2.className =
+          "cell-left nonogram__left-container level2";
+        containerLeftDates2.style.gridTemplateColumns = `repeat(${this.array2[i].length},1fr)`;
+        buttonDatesLeft2.append(containerLeftDates2);
+        for (let j = 0; j < this.array2[i].length; j++) {
+          const leftDate2 = document.createElement("p");
+          leftDate2.className = "nonogram__left";
+          leftDate2.textContent = `${this.array2[i][j]}`;
+          if (this.array2[i][j] !== "") {
+            leftDate2.style.backgroundColor = "rgb(194, 188, 188)";
+          }
+          containerLeftDates2.append(leftDate2);
+        }
+        console.log(this.array2[i]);
+      }
+
+      for (let i = 0; i < this.array.length; i++) {
+        const fieldDates2 = document.createElement("div");
+        fieldDates2.className = "nonogram__field-dates field-level2";
+        field2.append(fieldDates2);
+        const wrongDatesL2 = document.createElement("div");
+        wrongDatesL2.className = "line nonogram__incorrect-level2";
+        fieldDates2.append(wrongDatesL2);
+        const wrongDatesL22 = document.createElement("div");
+        wrongDatesL22.className = "line nonogram__incorrect2-level2";
+        fieldDates2.append(wrongDatesL22);
+      }
+
       console.log(this.array[i]);
+      console.log(this.array.length);
     }
   }
 }
+const fieldArray2 = new Array(100).fill("");
 
-class TopDates3 {
-  constructor(dates) {
+for (let i = 0; i < datesLevel2.length; i++) {
+  const nonogramTop = new Level2(
+    datesLevel2[i].top,
+    datesLevel2[i].left,
+    fieldArray2
+  );
+  nonogramTop.fillLevel2();
+}
+
+class Level3 {
+  constructor(dates, left, field) {
     this.array = dates;
     for (let i = 0; i < dates.length; i++) {
       this.array[i] = dates[i];
     }
+    this.array2 = left;
+    for (let i = 0; i < left.length; i++) {
+      this.array2[i] = left[i];
+    }
+    this.array3 = field;
+    for (let i = 0; i < field.length; i++) {
+      this.array3[i] = field[i];
+    }
   }
 
-  fillTopPart() {
+  fillLevel3() {
+    const nonogram3 = document.createElement("div");
+    nonogram3.className = "nonogram nonogram__level3";
+    nonograms3.append(nonogram3);
+
+    const topDates3 = document.createElement("div");
+    topDates3.className = "nonogram__top-dates level3";
+    nonogram3.append(topDates3);
+
+    const topDatesEmpty3 = document.createElement("div");
+    topDatesEmpty3.className = "nonogram__dates-empty level3";
+    topDates3.append(topDatesEmpty3);
+
+    const topDatesFull3 = document.createElement("div");
+    topDatesFull3.className = "nonogram__dates-full f-level3";
+    topDates3.append(topDatesFull3);
+
+    const bottomDates3 = document.createElement("div");
+    bottomDates3.className = "nonogram__bottom-dates level3";
+    nonogram3.append(bottomDates3);
+
+    const buttonDatesLeft3 = document.createElement("div");
+    buttonDatesLeft3.className = "nonogram__dates-left level2";
+    bottomDates3.append(buttonDatesLeft3);
+
+    const field3 = document.createElement("div");
+    field3.className = "nonogram__field f-level3";
+    bottomDates3.append(field3);
     for (let i = 0; i < this.array.length; i++) {
       const containerTopDates3 = document.createElement("div");
       containerTopDates3.className = "cell-top nonogram__top-container level2";
@@ -421,70 +440,23 @@ class TopDates3 {
       }
       console.log(this.array[i]);
     }
-  }
-}
-
-//create field
-
-const fieldArray = new Array(25).fill(" ");
-const fieldArray2 = new Array(100).fill("");
-const fieldArray3 = new Array(225).fill(" ");
-
-class FieldDates {
-  constructor(dates) {
-    this.array = dates;
-    for (let i = 0; i < dates.length; i++) {
-      this.array[i] = dates[i];
+    for (let i = 0; i < this.array3.length; i++) {
+      const containerLeftDates3 = document.createElement("div");
+      containerLeftDates3.className =
+        "cell-left nonogram__left-container level3";
+      containerLeftDates3.style.gridTemplateColumns = `repeat(${this.array3[i].length},1fr)`;
+      buttonDatesLeft3.append(containerLeftDates3);
+      for (let j = 0; j < this.array3[i].length; j++) {
+        const leftDate3 = document.createElement("p");
+        leftDate3.className = "nonogram__left";
+        leftDate3.textContent = `${this.array3[i][j]}`;
+        if (this.array3[i][j] !== "") {
+          leftDate3.style.backgroundColor = "rgb(194, 188, 188)";
+        }
+        containerLeftDates3.append(leftDate3);
+      }
+      console.log(this.array3[i]);
     }
-  }
-
-  fillField() {
-    for (let i = 0; i < this.array.length; i++) {
-      const fieldDates = document.createElement("div");
-      fieldDates.className = "nonogram__field-dates";
-      field.append(fieldDates);
-      const wrongDates = document.createElement("div");
-      wrongDates.className = "line nonogram__incorrect";
-      fieldDates.append(wrongDates);
-      const wrongDates2 = document.createElement("div");
-      wrongDates2.className = "line nonogram__incorrect2";
-      fieldDates.append(wrongDates2);
-    }
-  }
-}
-
-class FieldDates2 {
-  constructor(dates) {
-    this.array = dates;
-    for (let i = 0; i < dates.length; i++) {
-      this.array[i] = dates[i];
-    }
-  }
-
-  fillField() {
-    for (let i = 0; i < this.array.length; i++) {
-      const fieldDates2 = document.createElement("div");
-      fieldDates2.className = "nonogram__field-dates field-level2";
-      field2.append(fieldDates2);
-      const wrongDatesL2 = document.createElement("div");
-      wrongDatesL2.className = "line nonogram__incorrect-level2";
-      fieldDates2.append(wrongDatesL2);
-      const wrongDatesL22 = document.createElement("div");
-      wrongDatesL22.className = "line nonogram__incorrect2-level2";
-      fieldDates2.append(wrongDatesL22);
-    }
-  }
-}
-
-class FieldDates3 {
-  constructor(dates) {
-    this.array = dates;
-    for (let i = 0; i < dates.length; i++) {
-      this.array[i] = dates[i];
-    }
-  }
-
-  fillField() {
     for (let i = 0; i < this.array.length; i++) {
       const fieldDates3 = document.createElement("div");
       fieldDates3.className = "nonogram__field-dates field-level3";
@@ -498,20 +470,16 @@ class FieldDates3 {
     }
   }
 }
-const nonogramField = new FieldDates(fieldArray);
-nonogramField.fillField();
-const nonogramField2 = new FieldDates2(fieldArray2);
-nonogramField2.fillField();
-const nonogramField3 = new FieldDates3(fieldArray3);
-nonogramField3.fillField();
 
-export {
-  wrapper,
-  LeftDates,
-  TopDates,
-  FieldDates,
-  LeftDates2,
-  TopDates2,
-  LeftDates3,
-  TopDates3,
-};
+const fieldArray3 = new Array(100).fill("");
+
+for (let i = 0; i < datesLevel3.length; i++) {
+  const nonogramTop = new Level3(
+    datesLevel3[i].top,
+    datesLevel3[i].left,
+    fieldArray3
+  );
+  nonogramTop.fillLevel3();
+}
+
+export { wrapper, Level1, Level2, Level3 };
