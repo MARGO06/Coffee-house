@@ -28,7 +28,7 @@ const datesLeft = document.querySelector(".nonogram__dates-left");
 const datesTop = document.querySelector(".nonogram__dates-full");
 const nonogramLevel1 = document.querySelectorAll(".nonogram__level1");
 const nonogramLevel2 = document.querySelectorAll(".nonogram__level2");
-const nonogramLevel3 = document.querySelector(".nonogram__level3");
+const nonogramLevel3 = document.querySelectorAll(".nonogram__level3");
 const buttonRandom = document.querySelector(".header__random");
 const cellsLeft = document.querySelectorAll(".cell-left");
 const cellsTop = document.querySelector(".nonogram__dates-full");
@@ -41,11 +41,12 @@ const audio = new Audio();
 const audioWinner = new Audio();
 const arrayLocal = new Array(125);
 const arrayLocal2 = new Array(1000);
-const arrayLocal3 = new Array(225);
+const arrayLocal3 = new Array(1125);
 let pictureIndex;
 let pictureIndex2;
 let pictureIndex3;
 const rightAnswer2 = [];
+const rightAnswer3 = [];
 
 function paintCellField() {
   cellsField.forEach((cellField, index) => {
@@ -58,31 +59,16 @@ function paintCellField() {
       }
       showAnswer();
       showAnswer2();
+      showAnswer3();
       saveDataPlay();
       saveDataPlay2();
+      saveDataPlay3();
       addSound();
     });
   });
 }
 paintCellField();
 
-function paintCellField3() {
-  console.log(cellsField2);
-  cellsField3.forEach((cell, index) => {
-    cell.addEventListener("click", (e) => {
-      console.log("vgf");
-      e.preventDefault();
-      cell.classList.toggle("active");
-      if (time.length === 0) {
-        time.push("start");
-        autoChangeTime = setInterval(changeTime, 1000);
-      }
-      showAnswer3();
-      saveDataPlay3();
-      addSound();
-    });
-  });
-}
 //add right click
 function clickRightMouse() {
   cellsField.forEach((cellField, index) => {
@@ -98,25 +84,7 @@ function clickRightMouse() {
         addSound();
         saveDataPlay();
         saveDataPlay2();
-      }
-    });
-  });
-}
-
-function clickRightMouse3() {
-  cellsField3.forEach((cell, index) => {
-    cell.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      if (e.button === 2) {
-        cell.classList.toggle("change");
-        console.log("bgf");
-        if (time.length === 0) {
-          time.push("start");
-          autoChangeTime = setInterval(changeTime, 1000);
-        }
-        deleteContextMenu3();
         saveDataPlay3();
-        addSound();
       }
     });
   });
@@ -125,14 +93,6 @@ function clickRightMouse3() {
 function deleteContextMenu() {
   cellsField.forEach((cellField, index) => {
     cellField.addEventListener("contextmenu", (e) => {
-      e.preventDefault();
-    });
-  });
-}
-
-function deleteContextMenu3() {
-  cellsField3.forEach((cell, index) => {
-    cell.addEventListener("contextmenu", (e) => {
       e.preventDefault();
     });
   });
@@ -153,12 +113,26 @@ function clearField() {
   });
   clearInterval(autoChangeTime);
   clearField2();
+  clearField3();
   nonogramMinute.textContent = "00";
   nonogramSecond.textContent = "00";
 }
 
 function clearField2() {
   cellsField2.forEach((item) => {
+    if (
+      item.classList.contains("active") ||
+      item.classList.contains("change")
+    ) {
+      item.classList.remove("active");
+      item.classList.remove("change");
+      console.log("ggg");
+    }
+  });
+}
+
+function clearField3() {
+  cellsField3.forEach((item) => {
     if (
       item.classList.contains("active") ||
       item.classList.contains("change")
@@ -290,18 +264,22 @@ function savePlay2() {
 }
 
 function saveDataPlay3() {
-  for (let i = 0; i < cellsField3.length; i++) {
-    for (let j = 0; j < arrayLocal3.length; j++) {
-      if (cellsField3[i].classList.contains("active") && j === i) {
-        arrayLocal3.splice(j, 1, `${i}:active`);
-      } else if (cellsField3[i].classList.contains("change") && j === i) {
-        arrayLocal3.splice(j, 1, `${i}:change`);
-      } else if (
-        (!cellsField3[i].classList.contains("change") ||
-          !cellsField3[i].classList.contains("active")) &&
-        j === i
-      ) {
-        arrayLocal3.splice(j, 1, "");
+  for (let i = 0; i < nonogramLevel3.length; i++) {
+    if (nonogramLevel3[i].classList.contains("active")) {
+      for (let i = 0; i < cellsField3.length; i++) {
+        for (let j = 0; j < arrayLocal3.length; j++) {
+          if (cellsField3[i].classList.contains("active") && j === i) {
+            arrayLocal3.splice(j, 1, `${i}:active`);
+          } else if (cellsField3[i].classList.contains("change") && j === i) {
+            arrayLocal3.splice(j, 1, `${i}:change`);
+          } else if (
+            (!cellsField3[i].classList.contains("change") ||
+              !cellsField3[i].classList.contains("active")) &&
+            j === i
+          ) {
+            arrayLocal3.splice(j, 1, "");
+          }
+        }
       }
     }
   }
@@ -492,7 +470,7 @@ function showAnswer2() {
   const correctAns = [];
   for (let i = 0; i < datesLevel1.length; i++) {
     if (pictureIndex === i && pictureIndex === 0) {
-      correctAns.push(datesLevel1[i].answer.flat());
+      correctAns.push(datesLevel2[i].answer.flat());
       console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 1) {
@@ -531,11 +509,46 @@ function showAnswer2() {
 }
 
 function showAnswer3() {
-  for (let i = 0; i < datesLevel2.length; i++) {
-    const correctAnswer = datesLevel3[i].answer.flat();
-    const answer3 = new Answer(cellsField3, correctAnswer);
-    answer3.addAnswer();
+  const allAnswers = new Array(1125);
+  const correctAns = [];
+  for (let i = 0; i < datesLevel1.length; i++) {
+    if (pictureIndex === i && pictureIndex === 0) {
+      correctAns.push(datesLevel3[i].answer.flat());
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 1) {
+      const emptyArray = new Array(225).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel3[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 2) {
+      const emptyArray = new Array(450).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel3[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 3) {
+      const emptyArray = new Array(675).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel3[i].answer.flat()));
+      console.log(correctAns);
+    }
+    if (pictureIndex === i && pictureIndex === 4) {
+      const emptyArray = new Array(900).fill("0");
+      correctAns.push(emptyArray.concat(datesLevel3[i].answer.flat()));
+      console.log(correctAns);
+    }
   }
+  const correctAnswer = correctAns.flat(2);
+  for (let j = 0; j < allAnswers.length; j++) {
+    for (let k = 0; k < correctAnswer.length; k++) {
+      if (k === j) {
+        allAnswers.splice(j, 1, correctAnswer[k]);
+      }
+    }
+  }
+  const answer1 = new Answer(cellsField3, allAnswers);
+  answer1.addAnswer();
+  console.log(allAnswers);
+  console.log(correctAnswer);
 }
 
 function viewModalWindow() {
@@ -586,6 +599,13 @@ function allRightAnswer2() {
 }
 allRightAnswer2();
 
+function allRightAnswer3() {
+  for (let i = 0; i < datesLevel3.length; i++) {
+    rightAnswer3.push(datesLevel3[i].answer.flat());
+  }
+}
+allRightAnswer3();
+
 function showRightAnswer() {
   buttonSolution.addEventListener("click", (e) => {
     e.preventDefault();
@@ -622,20 +642,14 @@ function showRightAnswer() {
       }
     }
     if (buttonLevel3.classList.contains("active")) {
-      let rightAnswer3;
-      for (let i = 0; i < datesLevel3.length; i++) {
-        if (pictureIndex3 === i) {
-          rightAnswer3 = datesLevel3[i].answer.flat();
-          console.log(rightAnswer3);
-        }
-      }
-      for (let k = 0; k < rightAnswer3.length; k++) {
+      const allRightAnswers = rightAnswer3.flat();
+      for (let k = 0; k < allRightAnswers.length; k++) {
         for (let j = 0; j < cellsField3.length; j++) {
-          if (k === j && rightAnswer3[k] === 1) {
+          if (k === j && allRightAnswers[k] === 1) {
             cellsField3[j].classList.add("active");
             console.log(rightAnswer3);
           }
-          if (k === j && rightAnswer3[k] !== 1) {
+          if (k === j && allRightAnswers[k] !== 1) {
             cellsField3[j].classList.remove("active");
             cellsField3[j].classList.remove("change");
             console.log(rightAnswer3);
@@ -671,7 +685,7 @@ function choseNonogram2() {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
       pictureIndex2 = index;
-      for (let i = 0; i < datesLevel2.length; i++) {
+      for (let i = 0; i < nonogramLevel2.length; i++) {
         if (index === i && buttonLevel2.classList.contains("active")) {
           nonogramLevel2[i].classList.add("active");
           nonograms.classList.add("active");
@@ -688,26 +702,15 @@ function choseNonogram3() {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
       pictureIndex3 = index;
-      for (let i = 0; i < datesLevel3.length; i++) {
+      for (let i = 0; i < nonogramLevel3.length; i++) {
         if (index === i && buttonLevel3.classList.contains("active")) {
-          const nonogramTop = new TopDates3(datesLevel3[i].top);
-          nonogramTop.fillTopPart();
-          const nonogramLeft = new LeftDates3(datesLevel3[i].left);
-          nonogramLeft.fillLeftPart();
+          nonogramLevel3[i].classList.add("active");
           nonograms.classList.add("active");
           containerDiv.classList.add("hidden");
-          nonogramLevel3.classList.add("active");
-          addStyles3();
         }
       }
     });
   });
-}
-
-function addStyles3() {
-  cellsField.style.gridTemplateColumns = "repeat(15, 1fr)";
-  datesLeft.style.gridTemplateRows = "repeat(15, 1fr)";
-  datesTop.style.gridTemplateColumns = "repeat(15, 1fr)";
 }
 
 //active button
@@ -725,7 +728,6 @@ function activeButtonsLevel2() {
     }
     changePictures();
     console.log("rrr");
-
     savePlay2();
   });
 }
@@ -743,8 +745,6 @@ function activeButtonsLevel3() {
       buttonLevel1.classList.remove("active");
     }
     savePlay3();
-    paintCellField3();
-    clickRightMouse3();
     changePictures3();
   });
 }
