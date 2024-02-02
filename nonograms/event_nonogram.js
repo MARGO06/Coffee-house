@@ -67,7 +67,6 @@ function paintCellField() {
     });
   });
 }
-paintCellField();
 
 //add right click
 function clickRightMouse() {
@@ -799,22 +798,18 @@ function changePictures3() {
 }
 
 //create random game
+let randomNumberSecond;
 
 function randomNum(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
-  //console.log(randomNumber);
 }
 
 function getRandomImg() {
-  let pictureIndex;
-  const containerTop = [];
-  const containerLeft = [];
   let randomNumberFirst = randomNum(0, 2);
-  let randomNumberSecond = randomNum(0, 4);
+  randomNumberSecond = randomNum(0, 4);
   const levels = [datesLevel1, datesLevel2, datesLevel3];
   let randomLevel;
-  let randomPicture;
   levels.forEach((level, index) => {
     if (randomNumberFirst === index) {
       randomLevel = level;
@@ -835,65 +830,73 @@ function getRandomImg() {
     buttonLevel1.classList.remove("active");
     buttonLevel2.classList.remove("active");
   }
-  randomLevel.forEach((random, index) => {
-    if (randomNumberSecond === index) {
-      randomPicture = random;
-    } else if (randomNumberSecond === index) {
-      randomPicture = random;
-    }
-  });
-  let nonogramTop;
-
-  if (buttonLevel1.classList.contains("active")) {
-    /*if (cellsTop.children.length > 5) {
-      console.log(cellsTop.children.length);
-      nonogramTop.removeElement();
-      //containerTop.splice(5, 5);
-    }*/
-
-    pictureIndex = randomNumberSecond;
-
-    nonogramTop = new TopDates(datesLevel1[pictureIndex].top);
-    //nonogramTop.removeElement();
-    nonogramTop.fillTopPart();
-    //nonogramTop.removeElement();
-    console.log(nonogramTop);
-    const nonogramLeft = new LeftDates(datesLevel1[pictureIndex].left);
-    nonogramLeft.fillLeftPart();
-    nonograms.classList.add("active");
-    containerDiv.classList.add("hidden");
-    nonogramLevel1.classList.add("active");
-    cellsField.style.gridTemplateColumns = "repeat(5, 1fr)";
-    datesLeft.style.gridTemplateRows = "repeat(5, 1fr)";
-    datesTop.style.gridTemplateColumns = "repeat(5, 1fr)";
-    containerTop.push(cellsTop.children);
-    console.log(cellsTop);
-  }
-  if (cellsTop.children.length > 5) {
-    console.log(cellsTop.children.length);
-    console.log(nonogramTop);
-    nonogramTop.removeElement();
-    //containerTop.splice(5, 5);
-  }
-
-  /*if (buttonLevel2.classList.contains("active")) {
-    const nonogramTop = new TopDates2(datesLevel2[randomNumberSecond].top);
-    nonogramTop.fillTopPart();
-    const nonogramLeft = new LeftDates2(datesLevel2[randomNumberSecond].left);
-    nonogramLeft.fillLeftPart();
-    nonograms.classList.add("active");
-    containerDiv.classList.add("hidden");
-    nonogramLevel2.classList.add("active");
-    nonogramLevel1.classList.remove("active");
-    addStyles2();
-  }*/
-
-  console.log(pictureIndex);
+  activeNonogram1();
+  activeNonogram2();
+  activeNonogram3();
   showRightAnswer();
-  console.log(randomLevel);
-  console.log(randomPicture);
-  console.log(containerTop);
-  console.log(containerLeft);
+}
+
+function activeNonogram1() {
+  if (buttonLevel1.classList.contains("active")) {
+    nonogramLevel1.forEach((nonogram, index) => {
+      if (randomNumberSecond === index) {
+        nonogram.classList.add("active");
+        pictureIndex = randomNumberSecond;
+      } else {
+        nonogram.classList.remove("active");
+      }
+    });
+    nonogramLevel2.forEach((nonogram, index) => {
+      nonogram.classList.remove("active");
+    });
+    nonogramLevel3.forEach((nonogram, index) => {
+      nonogram.classList.remove("active");
+    });
+    nonograms.classList.add("active");
+    containerDiv.classList.add("hidden");
+  }
+}
+
+function activeNonogram2() {
+  if (buttonLevel2.classList.contains("active")) {
+    nonogramLevel2.forEach((nonogram, index) => {
+      if (randomNumberSecond === index) {
+        nonogram.classList.add("active");
+        pictureIndex = randomNumberSecond;
+      } else {
+        nonogram.classList.remove("active");
+      }
+    });
+    nonogramLevel1.forEach((nonogram, index) => {
+      nonogram.classList.remove("active");
+    });
+    nonogramLevel3.forEach((nonogram, index) => {
+      nonogram.classList.remove("active");
+    });
+    nonograms.classList.add("active");
+    containerDiv.classList.add("hidden");
+  }
+}
+
+function activeNonogram3() {
+  if (buttonLevel3.classList.contains("active")) {
+    nonogramLevel3.forEach((nonogram, index) => {
+      if (randomNumberSecond === index) {
+        nonogram.classList.add("active");
+        pictureIndex = randomNumberSecond;
+      } else {
+        nonogram.classList.remove("active");
+      }
+    });
+    nonogramLevel2.forEach((nonogram, index) => {
+      nonogram.classList.remove("active");
+    });
+    nonogramLevel1.forEach((nonogram, index) => {
+      nonogram.classList.remove("active");
+    });
+    nonograms.classList.add("active");
+    containerDiv.classList.add("hidden");
+  }
 }
 
 function randomGame() {}
@@ -903,6 +906,7 @@ buttonRandom.addEventListener("click", (e) => {
 
 randomGame();
 export {
+  paintCellField,
   clickRightMouse,
   resetGame,
   clickNonogramSound,

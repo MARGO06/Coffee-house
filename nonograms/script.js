@@ -10,9 +10,10 @@ import {
   closeCongratulations,
   showRightAnswer,
   choseNonogram3,
+  paintCellField,
 } from "./event_nonogram.js";
 wrapper;
-
+paintCellField();
 clickRightMouse();
 resetGame();
 clickNonogramSound();
