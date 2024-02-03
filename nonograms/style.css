@@ -261,6 +261,7 @@
   border-bottom: 1px solid black;
 }
 
+.nonogram__button-result,
 .nonogram__button-solution,
 .nonogram__button-continue,
 .nonogram__button-save,
@@ -426,6 +427,30 @@
 
 .pictures__name {
   font-size: 20px;
+}
+
+/*show results*/
+
+.nonogram__results {
+  display: flex;
+  gap: 30px;
+  width: 18%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nonogram__button-result {
+  margin: 20px auto;
+  width: 10%;
+}
+
+.nonogram__results-time,
+.nonogram__results-level,
+.nonogram__results-picture {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /*adaptive1*/

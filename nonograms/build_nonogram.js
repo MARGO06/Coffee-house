@@ -140,6 +140,53 @@ buttonSolution.className = "nonogram__button-solution";
 buttonSolution.textContent = "Solution";
 buttonContain.append(buttonSolution);
 
+//create show results
+const buttonResults = document.createElement("button");
+buttonResults.className = "nonogram__button-result";
+buttonResults.textContent = "Show result";
+nonograms.append(buttonResults);
+
+const containerResults = document.createElement("div");
+containerResults.className = "nonogram__container-results";
+nonograms.append(containerResults);
+
+const boxResults = document.createElement("div");
+boxResults.className = "nonogram__results";
+containerResults.append(boxResults);
+
+const timeResults = document.createElement("div");
+timeResults.className = "nonogram__results-time";
+timeResults.textContent = "Time";
+boxResults.append(timeResults);
+
+for (let i = 0; i < 5; i++) {
+  const successTime = document.createElement("div");
+  successTime.className = "nonogram__success-time";
+  timeResults.append(successTime);
+}
+
+const levelResults = document.createElement("div");
+levelResults.className = "nonogram__results-level";
+levelResults.textContent = "Level";
+boxResults.append(levelResults);
+
+for (let i = 0; i < 5; i++) {
+  const successLevel = document.createElement("div");
+  successLevel.className = "nonogram__success-level";
+  levelResults.append(successLevel);
+}
+
+const namePictureResults = document.createElement("div");
+namePictureResults.className = "nonogram__results-picture";
+namePictureResults.textContent = "Name";
+boxResults.append(namePictureResults);
+
+for (let i = 0; i < 5; i++) {
+  const successPicture = document.createElement("div");
+  successPicture.className = "nonogram__success-picture";
+  namePictureResults.append(successPicture);
+}
+
 //create modal window
 
 const modal = document.createElement("div");
