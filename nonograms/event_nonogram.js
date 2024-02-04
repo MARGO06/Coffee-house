@@ -24,8 +24,6 @@ const buttonSolution = document.querySelector(".nonogram__button-solution");
 const buttonLevel1 = document.querySelector(".header__level1");
 const buttonLevel2 = document.querySelector(".header__level2");
 const buttonLevel3 = document.querySelector(".header__level3");
-const datesLeft = document.querySelector(".nonogram__dates-left");
-const datesTop = document.querySelector(".nonogram__dates-full");
 const nonogramLevel1 = document.querySelectorAll(".nonogram__level1");
 const nonogramLevel2 = document.querySelectorAll(".nonogram__level2");
 const nonogramLevel3 = document.querySelectorAll(".nonogram__level3");
@@ -33,6 +31,8 @@ const buttonRandom = document.querySelector(".header__random");
 const timeGame = document.querySelectorAll(".nonogram__success-time");
 const levelGame = document.querySelectorAll(".nonogram__success-level");
 const pictureGame = document.querySelectorAll(".nonogram__success-picture");
+const buttonShowResults = document.querySelector(".nonogram__button-result");
+const nonogramResults = document.querySelector(".nonogram__container-results");
 //nonograms
 const nonogramContainer1 = document.querySelector(".nonograms__container1");
 //console.log(cellField);
@@ -1119,6 +1119,13 @@ function getResultTime() {
   });
 }
 getResultTime();
+
+function showResults() {
+  buttonShowResults.addEventListener("click", (e) => {
+    nonogramResults.classList.add("active");
+  });
+}
+showResults();
 
 export {
   paintCellField,
