@@ -10,6 +10,11 @@
   margin: 0 auto;
 }
 
+.wrapper.change {
+  background-color: rgb(52, 3, 3);
+  color: rgb(229, 223, 225);
+}
+
 .header,
 .nonogram,
 .nonogram__top-dates,
@@ -34,6 +39,13 @@
   border-bottom: 1px solid black;
 }
 
+.nonogram__top-dates.change,
+.nonogram__field-dates.current,
+.nonogram__top.change,
+.cell-left:not(:last-child).change {
+  border-bottom: 1px solid rgba(229, 223, 225);
+}
+
 /*.nonogram__top-dates:not(:last-child) {
   border-right: 1px solid black;
 }*/
@@ -44,6 +56,10 @@
   border: 1px solid black;
 }
 
+.nonogram.change {
+  border: 1px solid rgb(229, 223, 225);
+}
+
 /*.nonogram__top-dates {
   height: 167px;
 }*/
@@ -51,6 +67,10 @@
 .nonogram__dates-empty {
   width: 167px;
   background-color: gray;
+}
+
+.nonogram__dates-empty.change {
+  background-color: rgb(247, 240, 242);
 }
 
 /*.nonogram__bottom-dates {
@@ -69,27 +89,49 @@
 .nonogram__field-dates {
   border-right: 1px solid black;
 }
+.nonogram__dates-left.change,
+.nonogram__left.change,
+.cell-top:not(:last-child).change,
+.nonogram__field-dates.current {
+  border-right: 1px solid rgb(247, 240, 242);
+}
 
 .nonogram__field-dates:nth-child(5n + 5),
 .nonogram__top-container:nth-child(5n + 5) {
   border-right: 3px solid black;
 }
-/*ten*/
-/*.nonogram__field-dates:nth-child(n + 41) {
-  border-bottom: 3px solid black;
-}*/
+
+.nonogram__field-dates:nth-child(5n + 5).current,
+.nonogram__top-container:nth-child(5n + 5).change {
+  border-right: 3px solid rgb(247, 240, 242);
+}
 
 .nonogram__field-dates:nth-child(n + 51) {
   border-bottom: 1px solid black;
 }
 
+.nonogram__field-dates:nth-child(n + 51).current {
+  border-bottom: 1px solid rgb(247, 240, 242);
+}
+
 .nonogram__field-dates:nth-child(n + 91) {
   border-bottom: 3px solid black;
 }
+
+.nonogram__field-dates:nth-child(n + 91).current {
+  border-bottom: 3px solid rgb(247, 240, 242);
+}
+
 .nonogram__dates-left,
 .nonogram__dates-full {
   border-left: 2px solid black;
   border-top: 2px solid black;
+}
+
+.nonogram__dates-left.change,
+.nonogram__dates-full.change {
+  border-left: 2px solid rgb(247, 240, 242);
+  border-top: 2px solid rgb(247, 240, 242);
 }
 
 .nonogram__dates-full {
@@ -108,22 +150,41 @@
 .nonogram__left-container:nth-child(5n + 5) {
   border-bottom: 3px solid black;
 }
+
+.nonogram__left-container:nth-child(5n + 5).white {
+  border-bottom: 3px solid rgba(247, 240, 242);
+}
 /*15*/
 
 .field-level3:nth-child(n + 61) {
   border-bottom: 3px solid black;
 }
 
+.field-level3:nth-child(n + 61).white {
+  border-bottom: 3px solid rgba(247, 240, 242);
+}
+
 .field-level3:nth-child(n + 76) {
   border-bottom: 1px solid black;
+}
+
+.field-level3:nth-child(n + 76).white {
+  border-bottom: 1px solid rgba(247, 240, 242);
 }
 
 .field-level3:nth-child(n + 136) {
   border-bottom: 3px solid black;
 }
 
+.field-level3:nth-child(n + 136).white {
+  border-bottom: 3px solid rgba(247, 240, 242);
+}
+
 .field-level3:nth-child(n + 151) {
   border-bottom: 1px solid black;
+}
+.field-level3:nth-child(n + 151).white {
+  border-bottom: 1px solid rgba(247, 240, 242);
 }
 
 .nonogram__top-container,
@@ -146,10 +207,16 @@
 }
 .nonogram__field {
   width: 450px;
-  /*height: 450px;*/
+
   border-left: 2px solid black;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+}
+
+.nonogram__field.change {
+  border-left: 2px solid rgb(229, 223, 225);
+  border-top: 2px solid rgb(229, 223, 225);
+  border-bottom: 2px solid rgb(229, 223, 225);
 }
 
 .nonogram__left-container {
@@ -159,7 +226,7 @@
 .nonogram__left,
 .nonogram__top {
   text-align: center;
-  padding-top: 40%;
+  padding: 20%;
   font-size: 24px;
 }
 
@@ -170,6 +237,10 @@
 
 .nonogram__field-dates.active {
   background-color: black;
+}
+
+.nonogram__field-dates.active.active2 {
+  background-color: rgb(229, 223, 225);
 }
 
 .nonogram__field-dates.change .line {
@@ -184,6 +255,9 @@
   background-color: black;
 }
 
+.line.current {
+  background-color: rgb(229, 223, 225);
+}
 .nonogram__incorrect {
   top: 33px;
   left: -20px;
@@ -257,8 +331,17 @@
 .field-level2:nth-child(n + 41) {
   border-bottom: 3px solid black;
 }
+
+.field-level2:nth-child(n + 41).change {
+  border-bottom: 3px solid rgb(229, 223, 225);
+}
+
 .field-level2:nth-child(n + 51) {
   border-bottom: 1px solid black;
+}
+
+.field-level2:nth-child(n + 41).change {
+  border-bottom: 3px solid rgb(229, 223, 225);
 }
 
 .nonogram__button-result,
@@ -271,6 +354,16 @@
   height: 40px;
   background-color: rgba(239, 25, 196, 0.685);
   font-size: 16px;
+}
+
+.nonogram__button-result.change,
+.nonogram__button-solution.change,
+.nonogram__button-continue.change,
+.nonogram__button-save.change,
+.nonogram__button-reset.change {
+  background-color: rgba(240, 105, 68, 0.685);
+  color: rgb(229, 223, 225);
+  border-color: rgb(229, 223, 225);
 }
 
 .nonogram__time {
@@ -308,6 +401,10 @@
   left: -5px;
   background-color: black;
   transform: rotate(135deg);
+}
+
+.nonogram__sound-container.inactive .nonogram__sound-off.change {
+  background-color: rgb(52, 3, 3);
 }
 
 .modal__background,
@@ -407,6 +504,15 @@
 .header__level2.active,
 .header__level3.active {
   background-color: rgb(223, 65, 165);
+}
+
+.btn.change,
+.header__level1.change,
+.header__level2.change,
+.header__level3.change {
+  background-color: rgba(240, 105, 68, 0.685);
+  color: rgb(229, 223, 225);
+  border-color: rgb(229, 223, 225);
 }
 
 .pictures {
@@ -627,4 +733,11 @@
   .nonogram {
     width: 480px;
   }
+}
+
+.nonogram__top-dates.change,
+.nonogram__field-dates.current,
+.nonogram__top.change,
+.cell-left:not(:last-child).change {
+  border-color: rgba(229, 223, 225);
 }

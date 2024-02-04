@@ -13,6 +13,7 @@ const resetButton = document.querySelector(".nonogram__button-reset");
 const nonogramMinute = document.querySelector(".nonogram__minutes");
 const nonogramSecond = document.querySelector(".nonogram__seconds");
 const nonogramSound = document.querySelector(".nonogram__sound-container");
+const nonogramSoundOff = document.querySelector(".nonogram__sound-off");
 const buttonSave = document.querySelector(".nonogram__button-save");
 const buttonContinue = document.querySelector(".nonogram__button-continue");
 const textModal = document.querySelector(".modal__text");
@@ -33,6 +34,24 @@ const levelGame = document.querySelectorAll(".nonogram__success-level");
 const pictureGame = document.querySelectorAll(".nonogram__success-picture");
 const buttonShowResults = document.querySelector(".nonogram__button-result");
 const nonogramResults = document.querySelector(".nonogram__container-results");
+const buttonChangeTheme = document.querySelector(".header__theme");
+const wrapper = document.querySelector(".wrapper");
+const sound = document.querySelector(".nonogram__sound");
+const nonogramTopContainer = document.querySelectorAll(".nonogram__top-dates");
+const nonogramTop = document.querySelectorAll(".nonogram__top");
+const nonogramEmpty = document.querySelectorAll(".nonogram__dates-empty");
+const nonogramDatesTop = document.querySelectorAll(".nonogram__dates-full");
+const nonogramCellTop = document.querySelectorAll(".cell-top");
+const nonogramDatesLeft = document.querySelectorAll(".nonogram__dates-left");
+const nonogramCellLeft = document.querySelectorAll(".cell-left");
+const nonogramDatesField = document.querySelectorAll(".nonogram__field-dates");
+const nonogramLine = document.querySelectorAll(".line");
+const nonogram = document.querySelectorAll(".nonogram");
+const nonogramLeftContainer = document.querySelectorAll(
+  ".nonogram__left-container"
+);
+const nonogramLeft = document.querySelectorAll(".nonogram__left");
+
 //nonograms
 const nonogramContainer1 = document.querySelector(".nonograms__container1");
 //console.log(cellField);
@@ -1126,6 +1145,94 @@ function showResults() {
   });
 }
 showResults();
+
+//change themes
+function changeTheme() {
+  buttonChangeTheme.addEventListener("click", (e) => {
+    buttonChangeTheme.classList.toggle("change");
+    wrapper.classList.toggle("change");
+    resetButton.classList.toggle("change");
+    buttonSave.classList.toggle("change");
+    buttonContinue.classList.toggle("change");
+    buttonSolution.classList.toggle("change");
+    buttonLevel1.classList.toggle("change");
+    buttonLevel2.classList.toggle("change");
+    buttonLevel3.classList.toggle("change");
+    buttonRandom.classList.toggle("change");
+    buttonShowResults.classList.toggle("change");
+    sound.src = "./asserts/img/icons50.png";
+    nonogramSoundOff.classList.toggle("change");
+    nonogramTopContainer.forEach((container, index) => {
+      container.classList.toggle("change");
+    });
+    nonogramEmpty.forEach((item, index) => {
+      item.classList.toggle("change");
+    });
+    nonogramDatesTop.forEach((dates, index) => {
+      dates.classList.toggle("change");
+    });
+    nonogramCellTop.forEach((cell, index) => {
+      cell.classList.toggle("change");
+    });
+    nonogramDatesLeft.forEach((cell, index) => {
+      cell.classList.toggle("change");
+    });
+    nonogramCellLeft.forEach((cell, index) => {
+      cell.classList.toggle("change");
+    });
+    cellsField.forEach((cell, index) => {
+      cell.classList.toggle("change");
+    });
+    nonogramDatesField.forEach((cell, index) => {
+      cell.classList.toggle("current");
+    });
+    nonogramLine.forEach((line, index) => {
+      line.classList.toggle("current");
+    });
+    nonogram.forEach((item, index) => {
+      item.classList.toggle("change");
+    });
+    nonogramLeftContainer.forEach((item, index) => {
+      item.classList.toggle("white");
+    });
+
+    cellsField3.forEach((item, index) => {
+      item.classList.toggle("white");
+    });
+    nonogramDatesField.forEach((cell, index) => {
+      cell.classList.toggle("active2");
+    });
+    nonogramLeft.forEach((cell, index) => {
+      cell.classList.toggle("change");
+      if (cell.getAttribute("style")) {
+        cell.style.backgroundColor = "rgb(120, 16, 16)";
+      }
+    });
+    nonogramTop.forEach((cell, index) => {
+      cell.classList.toggle("change");
+      if (cell.getAttribute("style")) {
+        cell.style.backgroundColor = "rgb(120, 16, 16)";
+      }
+    });
+
+    if (!buttonChangeTheme.classList.contains("change")) {
+      nonogramLeft.forEach((cell, index) => {
+        cell.classList.remove("change");
+        if (cell.getAttribute("style")) {
+          cell.style.backgroundColor = "rgb(194, 188, 188)";
+        }
+      });
+      nonogramTop.forEach((cell, index) => {
+        cell.classList.remove("change");
+        if (cell.getAttribute("style")) {
+          cell.style.backgroundColor = "rgb(194, 188, 188)";
+        }
+      });
+    }
+    //wrapper.classList.toggle("active");
+  });
+}
+changeTheme();
 
 export {
   paintCellField,

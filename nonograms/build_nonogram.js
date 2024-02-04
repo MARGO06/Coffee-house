@@ -38,6 +38,11 @@ random.className = "btn header__random";
 random.textContent = "Random game";
 containerButton.append(random);
 
+const theme = document.createElement("button");
+theme.className = "btn header__theme";
+theme.textContent = "Change theme";
+containerButton.append(theme);
+
 //images
 
 const containerDiv = document.createElement("main");
@@ -286,6 +291,7 @@ class Level1 {
         if (this.array2[i][j] !== "") {
           leftDate.style.backgroundColor = "rgb(194, 188, 188)";
         }
+
         containerLeftDates.append(leftDate);
       }
       console.log(this.array2[i]);
