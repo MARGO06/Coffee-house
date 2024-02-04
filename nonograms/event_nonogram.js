@@ -30,8 +30,9 @@ const nonogramLevel1 = document.querySelectorAll(".nonogram__level1");
 const nonogramLevel2 = document.querySelectorAll(".nonogram__level2");
 const nonogramLevel3 = document.querySelectorAll(".nonogram__level3");
 const buttonRandom = document.querySelector(".header__random");
-const cellsLeft = document.querySelectorAll(".cell-left");
-const cellsTop = document.querySelector(".nonogram__dates-full");
+const timeGame = document.querySelectorAll(".nonogram__success-time");
+const levelGame = document.querySelectorAll(".nonogram__success-level");
+const pictureGame = document.querySelectorAll(".nonogram__success-picture");
 //nonograms
 const nonogramContainer1 = document.querySelector(".nonograms__container1");
 //console.log(cellField);
@@ -47,6 +48,7 @@ let pictureIndex2;
 let pictureIndex3;
 const rightAnswer2 = [];
 const rightAnswer3 = [];
+const allResults = [];
 
 function paintCellField() {
   cellsField.forEach((cellField, index) => {
@@ -56,6 +58,7 @@ function paintCellField() {
       if (time.length === 0) {
         time.push("start");
         autoChangeTime = setInterval(changeTime, 1000);
+        console.log(time);
       }
       showAnswer();
       showAnswer2();
@@ -217,7 +220,7 @@ function saveDataPlay() {
         }
       }
     }
-    console.log(cellField[nonogramLevel1], i);
+    //console.log(cellField[nonogramLevel1], i);
   }
 }
 
@@ -249,7 +252,7 @@ function saveDataPlay2() {
         }
       }
     }
-    console.log(arrayLocal2);
+    // console.log(arrayLocal2);
   }
 }
 
@@ -282,7 +285,7 @@ function saveDataPlay3() {
       }
     }
   }
-  console.log(arrayLocal3);
+  //console.log(arrayLocal3);
 }
 
 function savePlay3() {
@@ -302,7 +305,7 @@ function getDataPlay() {
     for (let i = 0; i < localStorage.length; i++) {
       let localData = localStorage.getItem("last game").split(",");
       dataArray = localData.filter((item) => item !== "");
-      console.log(localData);
+      // console.log(localData);
     }
     for (let j = 0; j < dataArray.length; j++) {
       const data = dataArray[j].split(":");
@@ -326,7 +329,7 @@ function getDataPlay() {
       console.log(dataArray2);
     }
     console.log(localStorage.getItem("last game2"));
-    console.log(dataArray2);
+    //console.log(dataArray2);
     for (let j = 0; j < dataArray2.length; j++) {
       const data = dataArray2[j].split(":");
       for (let k = 0; k < cellsField2.length; k++) {
@@ -338,7 +341,7 @@ function getDataPlay() {
         }
       }
     }
-    console.log("fgt");
+    //console.log("fgt");
   }
   if (buttonLevel3.classList.contains("active")) {
     let dataArray3;
@@ -349,7 +352,7 @@ function getDataPlay() {
       console.log(dataArray3);
     }
     console.log(localStorage.getItem("last game3"));
-    console.log(dataArray3);
+    // console.log(dataArray3);
     for (let j = 0; j < dataArray3.length; j++) {
       const data = dataArray3[j].split(":");
       for (let k = 0; k < cellsField3.length; k++) {
@@ -361,7 +364,7 @@ function getDataPlay() {
         }
       }
     }
-    console.log("fgt");
+    //console.log("fgt");
   }
 }
 
@@ -391,14 +394,14 @@ function continueGame() {
     getTime();
     localStorage.clear();
     autoChangeTime = setInterval(changeTime, 1000);
-    console.log("fr");
+    // console.log("fr");
   });
 }
 
 class Answer {
   constructor(cells, data) {
     this.cell = cells;
-    console.log(this.cell);
+    //console.log(this.cell);
     this.answer = data;
     for (let j = 0; j < data.length; j++) {
       this.answer[j] = data[j];
@@ -410,7 +413,7 @@ class Answer {
       for (let j = 0; j < this.answer.length; j++) {
         if (this.cell[i].classList.contains("active") && this.answer[j] === 1) {
           this.answer.splice(i, 1, 2);
-          console.log(this.answer);
+          //console.log(this.answer);
         }
       }
     }
@@ -427,27 +430,27 @@ function showAnswer() {
   for (let i = 0; i < datesLevel1.length; i++) {
     if (pictureIndex === i && pictureIndex === 0) {
       correctAns.push(datesLevel1[i].answer.flat());
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 1) {
       const emptyArray = new Array(25).fill("0");
       correctAns.push(emptyArray.concat(datesLevel1[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 2) {
       const emptyArray = new Array(50).fill("0");
       correctAns.push(emptyArray.concat(datesLevel1[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 3) {
       const emptyArray = new Array(75).fill("0");
       correctAns.push(emptyArray.concat(datesLevel1[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 4) {
       const emptyArray = new Array(100).fill("0");
       correctAns.push(emptyArray.concat(datesLevel1[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
   }
   const correctAnswer = correctAns.flat(2);
@@ -460,8 +463,8 @@ function showAnswer() {
   }
   const answer1 = new Answer(cellField, allAnswers);
   answer1.addAnswer();
-  console.log(allAnswers);
-  console.log(correctAnswer);
+  //console.log(allAnswers);
+  //console.log(correctAnswer);
 }
 
 function showAnswer2() {
@@ -470,12 +473,12 @@ function showAnswer2() {
   for (let i = 0; i < datesLevel1.length; i++) {
     if (pictureIndex === i && pictureIndex === 0) {
       correctAns.push(datesLevel2[i].answer.flat());
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 1) {
       const emptyArray = new Array(100).fill("0");
       correctAns.push(emptyArray.concat(datesLevel2[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 2) {
       const emptyArray = new Array(200).fill("0");
@@ -485,12 +488,12 @@ function showAnswer2() {
     if (pictureIndex === i && pictureIndex === 3) {
       const emptyArray = new Array(300).fill("0");
       correctAns.push(emptyArray.concat(datesLevel2[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 4) {
       const emptyArray = new Array(400).fill("0");
       correctAns.push(emptyArray.concat(datesLevel2[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
   }
   const correctAnswer = correctAns.flat(2);
@@ -503,8 +506,8 @@ function showAnswer2() {
   }
   const answer1 = new Answer(cellsField2, allAnswers);
   answer1.addAnswer();
-  console.log(allAnswers);
-  console.log(correctAnswer);
+  //console.log(allAnswers);
+  //console.log(correctAnswer);
 }
 
 function showAnswer3() {
@@ -513,27 +516,27 @@ function showAnswer3() {
   for (let i = 0; i < datesLevel1.length; i++) {
     if (pictureIndex === i && pictureIndex === 0) {
       correctAns.push(datesLevel3[i].answer.flat());
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 1) {
       const emptyArray = new Array(225).fill("0");
       correctAns.push(emptyArray.concat(datesLevel3[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 2) {
       const emptyArray = new Array(450).fill("0");
       correctAns.push(emptyArray.concat(datesLevel3[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 3) {
       const emptyArray = new Array(675).fill("0");
       correctAns.push(emptyArray.concat(datesLevel3[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 4) {
       const emptyArray = new Array(900).fill("0");
       correctAns.push(emptyArray.concat(datesLevel3[i].answer.flat()));
-      console.log(correctAns);
+      // console.log(correctAns);
     }
   }
   const correctAnswer = correctAns.flat(2);
@@ -546,8 +549,8 @@ function showAnswer3() {
   }
   const answer1 = new Answer(cellsField3, allAnswers);
   answer1.addAnswer();
-  console.log(allAnswers);
-  console.log(correctAnswer);
+  //console.log(allAnswers);
+  //console.log(correctAnswer);
 }
 
 function viewModalWindow() {
@@ -569,6 +572,7 @@ function viewModalWindow() {
 function showCongratulations() {
   viewModalWindow();
   addSoundWinner();
+  saveResults();
   backgroundModal.classList.add("active");
   modalWindow.classList.add("active");
 }
@@ -618,7 +622,7 @@ function showRightAnswer() {
           if (k === j && allRightAnswers[k] !== 1) {
             cellField[j].classList.remove("active");
             cellField[j].classList.remove("change");
-            console.log(rightAnswer);
+            //console.log(rightAnswer);
           }
         }
       }
@@ -630,12 +634,12 @@ function showRightAnswer() {
         for (let j = 0; j < cellsField2.length; j++) {
           if (k === j && allRightAnswers[k] === 1) {
             cellsField2[j].classList.add("active");
-            console.log(allRightAnswers);
+            // console.log(allRightAnswers);
           }
           if (k === j && allRightAnswers[k] !== 1) {
             cellsField2[j].classList.remove("active");
             cellsField2[j].classList.remove("change");
-            console.log(rightAnswer2);
+            // console.log(rightAnswer2);
           }
         }
       }
@@ -646,12 +650,12 @@ function showRightAnswer() {
         for (let j = 0; j < cellsField3.length; j++) {
           if (k === j && allRightAnswers[k] === 1) {
             cellsField3[j].classList.add("active");
-            console.log(rightAnswer3);
+            // console.log(rightAnswer3);
           }
           if (k === j && allRightAnswers[k] !== 1) {
             cellsField3[j].classList.remove("active");
             cellsField3[j].classList.remove("change");
-            console.log(rightAnswer3);
+            //console.log(rightAnswer3);
           }
         }
       }
@@ -903,8 +907,219 @@ function randomGame() {}
 buttonRandom.addEventListener("click", (e) => {
   getRandomImg();
 });
-
 randomGame();
+
+//show results
+
+const resultsPictures = [];
+const resultsTimes = [];
+const resultsLevel = [];
+
+function keepPictures() {
+  if (!localStorage.getItem("pictures")) {
+    savePicture();
+    localStorage.setItem("pictures", `${resultsPictures}`);
+  } else if (localStorage.getItem("pictures")) {
+    const pictures = localStorage.getItem("pictures");
+    const arrayPictures = pictures.split(",");
+    const resultLength = arrayPictures.length;
+    if (resultLength <= 4) {
+      resultsPictures.push(pictures);
+      savePicture();
+      localStorage.setItem("pictures", `${resultsPictures}`);
+    } else if (resultLength > 4) {
+      arrayPictures.shift();
+      const stringPictures = arrayPictures.join(",");
+      resultsPictures.push(stringPictures);
+      savePicture();
+      localStorage.setItem("pictures", `${resultsPictures}`);
+    }
+  }
+}
+
+function keepTime() {
+  if (!localStorage.getItem("time")) {
+    saveTime();
+    localStorage.setItem("time", `${resultsTimes}`);
+  } else if (localStorage.getItem("time")) {
+    const time = localStorage.getItem("time");
+    const arrayTimes = time.split(",");
+    const resultLength = arrayTimes.length;
+    if (resultLength <= 4) {
+      resultsTimes.push(time);
+      saveTime();
+      localStorage.setItem("time", `${resultsTimes}`);
+    } else if (resultLength > 4) {
+      arrayTimes.shift();
+      const stringTimes = arrayTimes.join(",");
+      resultsTimes.push(stringTimes);
+      saveTime();
+      localStorage.setItem("time", `${resultsTimes}`);
+    }
+  }
+}
+
+function keepLevel() {
+  if (!localStorage.getItem("level")) {
+    saveLevel();
+    localStorage.setItem("level", `${resultsLevel}`);
+  } else if (localStorage.getItem("level")) {
+    const level = localStorage.getItem("level");
+    const arrayLevel = level.split(",");
+    const resultLength = arrayLevel.length;
+    if (resultLength <= 4) {
+      resultsLevel.push(level);
+      saveLevel();
+      localStorage.setItem("level", `${resultsLevel}`);
+    } else if (resultLength > 4) {
+      arrayLevel.shift();
+      const stringLevel = arrayLevel.join(",");
+      resultsLevel.push(stringLevel);
+      saveLevel();
+      localStorage.setItem("level", `${resultsLevel}`);
+    }
+  }
+}
+
+function saveResults() {
+  keepPictures();
+  keepTime();
+  keepLevel();
+}
+
+function saveTime() {
+  if (String(minute).length === 1 && String(second).length === 1) {
+    resultsTimes.push(`0${minute}0${second}`);
+  }
+  if (String(minute).length === 1 && String(second).length === 2) {
+    console.log(minute);
+    resultsTimes.push(`0${minute}${second}`);
+  }
+  if (String(second).length === 1 && String(minute).length === 2) {
+    console.log(second);
+    resultsTimes.push(`${minute}0${second}`);
+  }
+
+  if (String(minute).length === 2 && String(second).length === 2) {
+    resultsTimes.push(`${minute}${second}`);
+  }
+}
+
+function saveLevel() {
+  if (buttonLevel1.classList.contains("active")) {
+    resultsLevel.push("1");
+  }
+  if (buttonLevel2.classList.contains("active")) {
+    resultsLevel.push("2");
+  }
+  if (buttonLevel3.classList.contains("active")) {
+    resultsLevel.push("3");
+  }
+}
+
+function savePicture() {
+  if (pictureIndex === 0) {
+    resultsPictures.push("Picture 1");
+  }
+  if (pictureIndex === 1) {
+    resultsPictures.push("Picture 2");
+  }
+  if (pictureIndex === 2) {
+    resultsPictures.push("Picture 3");
+  }
+  if (pictureIndex === 3) {
+    resultsPictures.push("Picture 4");
+  }
+  if (pictureIndex === 4) {
+    resultsPictures.push("Picture 5");
+  }
+}
+
+function getAllResults() {
+  const resultsPlayerPicture = [];
+  resultsPlayerPicture.push(localStorage.getItem("pictures"));
+  let arrayResultPicture;
+  if (resultsPlayerPicture[0] !== null) {
+    arrayResultPicture = resultsPlayerPicture[0].split(",");
+  }
+
+  const resultsPlayerTime = [];
+  let arrayResultTime;
+  let arraySort;
+  resultsPlayerTime.push(localStorage.getItem("time"));
+  if (resultsPlayerTime[0] !== null) {
+    arrayResultTime = resultsPlayerTime[0].split(",");
+  }
+
+  const resultsPlayerLevel = [];
+  let arrayResultLevel;
+  resultsPlayerLevel.push(localStorage.getItem("level"));
+  if (resultsPlayerLevel[0] !== null) {
+    arrayResultLevel = resultsPlayerLevel[0].split(",");
+  }
+
+  arrayResultPicture.forEach((picture, index) => {
+    arrayResultTime.forEach((time, i) => {
+      arrayResultLevel.forEach((level, j) => {
+        if (i === index && j === index) {
+          allResults.push([time, level, picture]);
+        }
+      });
+    });
+  });
+
+  arraySort = arrayResultTime.sort((a, b) => a - b);
+  for (let i = 0; i < allResults.length; i++) {
+    arraySort.forEach((item, index) => {
+      if (allResults[i][0] === item && i !== index) {
+        let temp = allResults[i];
+        allResults[i] = allResults[index];
+        allResults[index] = temp;
+      }
+    });
+  }
+  console.log(allResults);
+}
+getAllResults();
+
+function getLevel() {
+  levelGame.forEach((level, index) => {
+    allResults.forEach((_, i) => {
+      if (i === index) {
+        level.textContent = `${allResults[i][1]}`;
+      }
+    });
+  });
+}
+getLevel();
+
+function getPicture() {
+  pictureGame.forEach((picture, index) => {
+    allResults.forEach((_, i) => {
+      if (i === index) {
+        picture.textContent = `${allResults[i][2]}`;
+      }
+    });
+  });
+}
+getPicture();
+
+function getResultTime() {
+  timeGame.forEach((time, index) => {
+    allResults.forEach((_, i) => {
+      if (i === index) {
+        let arrayTime = allResults[i][0].split("");
+        const minute = arrayTime[0].concat(arrayTime[1]);
+        const second = arrayTime[2].concat(arrayTime[3]);
+        console.log(arrayTime);
+        console.log(minute);
+        time.textContent = `${minute}:${second}`;
+      }
+    });
+  });
+}
+getResultTime();
+
 export {
   paintCellField,
   clickRightMouse,
