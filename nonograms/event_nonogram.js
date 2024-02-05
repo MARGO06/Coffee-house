@@ -68,6 +68,8 @@ let pictureIndex3;
 const rightAnswer2 = [];
 const rightAnswer3 = [];
 const allResults = [];
+let minute = 0;
+let second = 0;
 
 function paintCellField() {
   cellsField.forEach((cellField, index) => {
@@ -125,7 +127,6 @@ function clickRightMouseLine() {
     });
   });
 }
-
 clickRightMouseLine();
 
 function deleteContextMenu() {
@@ -153,6 +154,8 @@ function clearField() {
   clearField3();
   nonogramMinute.textContent = "00";
   nonogramSecond.textContent = "00";
+  minute = 0;
+  second = 0;
 }
 
 function clearField2() {
@@ -190,8 +193,6 @@ function resetGame() {
 }
 
 //add timer
-let minute = 0;
-let second = 0;
 
 function changeTime() {
   second++;
