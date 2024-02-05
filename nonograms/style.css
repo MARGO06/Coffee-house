@@ -111,14 +111,14 @@
 
 .nonogram__dates-left,
 .nonogram__dates-full {
-  border-left: 2px solid black;
-  border-top: 2px solid black;
+  border-left: 3px solid black;
+  border-top: 3px solid black;
 }
 
 .nonogram__dates-left.change,
 .nonogram__dates-full.change {
-  border-left: 2px solid rgb(247, 240, 242);
-  border-top: 2px solid rgb(247, 240, 242);
+  border-left: 3px solid rgb(247, 240, 242);
+  border-top: 3px solid rgb(247, 240, 242);
 }
 
 .field1,
@@ -186,13 +186,13 @@
 .nonogram__field {
   width: 450px;
   border-left: 2px solid black;
-  border-top: 2px solid black;
+  border-top: 3px solid black;
   border-bottom: 2px solid black;
 }
 
 .nonogram__field.change {
   border-left: 2px solid rgb(229, 223, 225);
-  border-top: 2px solid rgb(229, 223, 225);
+  border-top: 3px solid rgb(229, 223, 225);
   border-bottom: 2px solid rgb(229, 223, 225);
 }
 
@@ -308,7 +308,7 @@
   border-bottom: 3px solid black;
 }
 
-.field-level2:nth-child(n + 41).change {
+.field-level2:nth-child(n + 41).active {
   border-bottom: 3px solid rgb(229, 223, 225);
 }
 
@@ -316,7 +316,7 @@
   border-bottom: 1px solid black;
 }
 
-.field-level2:nth-child(n + 41).change {
+.field-level2:nth-child(n + 51).active {
   border-bottom: 3px solid rgb(229, 223, 225);
 }
 
@@ -422,6 +422,7 @@
   margin-left: auto;
   margin-right: auto;
   font-size: 24px;
+  background-color: rgba(239, 25, 196, 0.685);
 }
 
 .modal__background.active,
@@ -642,6 +643,16 @@
 
   .nonogram__button-result {
     width: 17%;
+  }
+
+  .modal {
+    width: 480px;
+  }
+
+  .modal__result {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

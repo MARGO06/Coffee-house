@@ -264,7 +264,7 @@ class Level1 {
     bottomDates.append(field);
     for (let i = 0; i < this.array.length; i++) {
       const containerTopDates = document.createElement("div");
-      containerTopDates.className = "cell-top nonogram__top-container1";
+      containerTopDates.className = "cell-top nonogram__top-container";
       containerTopDates.style.gridTemplateRows = `repeat(${this.array[i].length},1fr)`;
       //console.log(this.array[i].length);
       topDatesFull.append(containerTopDates);

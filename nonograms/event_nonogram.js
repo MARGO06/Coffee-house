@@ -111,6 +111,23 @@ function clickRightMouse() {
   });
 }
 
+function clickRightMouseLine() {
+  nonogramLine.forEach((line, index) => {
+    line.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      if (e.button === 2) {
+        nonogramDatesField.forEach((cell, index) => {
+          if (cell.classList.contains("change")) {
+            cell.classList.remove("change");
+          }
+        });
+      }
+    });
+  });
+}
+
+clickRightMouseLine();
+
 function deleteContextMenu() {
   cellsField.forEach((cellField, index) => {
     cellField.addEventListener("contextmenu", (e) => {
@@ -598,6 +615,7 @@ function closeCongratulations() {
   buttonWindow.addEventListener("click", (e) => {
     e.preventDefault();
     clearField();
+    audioWinner.muted = true;
     backgroundModal.classList.remove("active");
     modalWindow.classList.remove("active");
   });
