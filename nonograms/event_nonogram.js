@@ -154,8 +154,6 @@ function clearField() {
   clearField3();
   nonogramMinute.textContent = "00";
   nonogramSecond.textContent = "00";
-  minute = 0;
-  second = 0;
 }
 
 function clearField2() {
@@ -188,6 +186,8 @@ function resetGame() {
     e.preventDefault();
     clearField();
     time.splice(0, 1, "reset");
+    minute = 0;
+    second = 0;
     //console.log(time);
   });
 }
