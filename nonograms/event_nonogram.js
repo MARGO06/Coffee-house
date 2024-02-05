@@ -768,6 +768,7 @@ function activeButtonsLevel2() {
     changePictures();
     console.log("rrr");
     savePlay2();
+    hiddenNonogram();
   });
 }
 activeButtonsLevel2();
@@ -785,6 +786,7 @@ function activeButtonsLevel3() {
     }
     savePlay3();
     changePictures3();
+    hiddenNonogram();
   });
 }
 activeButtonsLevel3();
@@ -801,6 +803,7 @@ function activeButtonsLevel1() {
       buttonLevel3.classList.remove("active");
     }
     changePictures1();
+    hiddenNonogram();
   });
 }
 activeButtonsLevel1();
@@ -874,6 +877,21 @@ function getRandomImg() {
   activeNonogram2();
   activeNonogram3();
   showRightAnswer();
+}
+
+function hiddenNonogram() {
+  nonograms.classList.remove("active");
+  containerDiv.classList.remove("hidden");
+  nonogramLevel1.forEach((item, index) => {
+    item.classList.remove("active");
+  });
+  nonogramLevel2.forEach((item, index) => {
+    item.classList.remove("active");
+  });
+  nonogramLevel3.forEach((item, index) => {
+    item.classList.remove("active");
+  });
+  nonogramResults.classList.remove("active");
 }
 
 function activeNonogram1() {

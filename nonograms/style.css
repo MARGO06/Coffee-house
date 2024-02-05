@@ -500,6 +500,27 @@
   border-color: rgb(229, 223, 225);
 }
 
+.header__level1.change.active,
+.header__level2.change.active,
+.header__level3.change.active {
+  background-color: rgba(239, 57, 7, 0.685);
+  color: rgb(229, 223, 225);
+  border-color: rgb(229, 223, 225);
+}
+
+.btn:active,
+.header__level1:active,
+.header__level2:active,
+.header__level3:active,
+.modal__button:active,
+.nonogram__button-continue:active,
+.nonogram__button-reset:active,
+.nonogram__button-save:active,
+.nonogram__button-result:active,
+.nonogram__button-solution:active {
+  background-color: rgb(245, 241, 46);
+}
+
 .pictures {
   flex-wrap: wrap;
   gap: 50px;
