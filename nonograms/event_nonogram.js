@@ -79,7 +79,7 @@ function paintCellField() {
       if (time.length === 0 || time.includes("reset")) {
         time.splice(0, 1, "start");
         autoChangeTime = setInterval(changeTime, 1000);
-        console.log(time);
+        //console.log(time);
       }
       showAnswer();
       showAnswer2();
@@ -359,9 +359,9 @@ function getDataPlay() {
     let dataArray2;
     for (let i = 0; i < localStorage.length; i++) {
       let localData = localStorage.getItem("last game2").split(",");
-      console.log(localData);
+      // console.log(localData);
       dataArray2 = localData.filter((item) => item !== "");
-      console.log(dataArray2);
+      // console.log(dataArray2);
     }
     console.log(localStorage.getItem("last game2"));
     //console.log(dataArray2);
@@ -382,9 +382,9 @@ function getDataPlay() {
     let dataArray3;
     for (let i = 0; i < localStorage.length; i++) {
       let localData = localStorage.getItem("last game3").split(",");
-      console.log(localData);
+      //console.log(localData);
       dataArray3 = localData.filter((item) => item !== "");
-      console.log(dataArray3);
+      //console.log(dataArray3);
     }
     console.log(localStorage.getItem("last game3"));
     // console.log(dataArray3);
@@ -406,7 +406,7 @@ function getDataPlay() {
 function getTime() {
   for (let i = 0; i < localStorage.length; i++) {
     let localData = localStorage.getItem("time").split(" ");
-    console.log(localData);
+    //console.log(localData);
     second = localData[1];
     minute = localData[0];
     if (localData[0].length === 2 || localData[1].length === 2) {
@@ -518,7 +518,7 @@ function showAnswer2() {
     if (pictureIndex === i && pictureIndex === 2) {
       const emptyArray = new Array(200).fill("0");
       correctAns.push(emptyArray.concat(datesLevel2[i].answer.flat()));
-      console.log(correctAns);
+      //console.log(correctAns);
     }
     if (pictureIndex === i && pictureIndex === 3) {
       const emptyArray = new Array(300).fill("0");
@@ -706,7 +706,7 @@ function choseNonogram() {
     imag.addEventListener("click", (e) => {
       e.preventDefault();
       pictureIndex = index;
-      console.log("frt");
+      //console.log("frt");
       for (let i = 0; i < nonogramLevel1.length; i++) {
         if (index === i && buttonLevel1.classList.contains("active")) {
           nonogramLevel1[i].classList.add("active");
@@ -766,7 +766,7 @@ function activeButtonsLevel2() {
       buttonLevel3.classList.remove("active");
     }
     changePictures();
-    console.log("rrr");
+    //console.log("rrr");
     savePlay2();
     hiddenNonogram();
   });
@@ -1046,11 +1046,11 @@ function saveTime() {
     resultsTimes.push(`0${minute}0${second}`);
   }
   if (String(minute).length === 1 && String(second).length === 2) {
-    console.log(minute);
+    //console.log(minute);
     resultsTimes.push(`0${minute}${second}`);
   }
   if (String(second).length === 1 && String(minute).length === 2) {
-    console.log(second);
+    //console.log(second);
     resultsTimes.push(`${minute}0${second}`);
   }
 
@@ -1140,7 +1140,7 @@ function getAllResults() {
       });
     }
   }
-  console.log(allResults);
+  //console.log(allResults);
 }
 getAllResults();
 
@@ -1173,8 +1173,8 @@ function getResultTime() {
         let arrayTime = allResults[i][0].split("");
         const minute = arrayTime[0].concat(arrayTime[1]);
         const second = arrayTime[2].concat(arrayTime[3]);
-        console.log(arrayTime);
-        console.log(minute);
+        //console.log(arrayTime);
+        //console.log(minute);
         time.textContent = `${minute}:${second}`;
       }
     });
