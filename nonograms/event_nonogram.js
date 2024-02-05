@@ -1241,6 +1241,7 @@ function changeTheme() {
     });
 
     if (!buttonChangeTheme.classList.contains("change")) {
+      sound.src = "./asserts/img/icons8.png";
       nonogramLeft.forEach((cell, index) => {
         cell.classList.remove("change");
         if (cell.getAttribute("style")) {
