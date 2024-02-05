@@ -266,7 +266,7 @@ class Level1 {
       const containerTopDates = document.createElement("div");
       containerTopDates.className = "cell-top nonogram__top-container1";
       containerTopDates.style.gridTemplateRows = `repeat(${this.array[i].length},1fr)`;
-      console.log(this.array[i].length);
+      //console.log(this.array[i].length);
       topDatesFull.append(containerTopDates);
       for (let j = 0; j < this.array[i].length; j++) {
         const topDate = document.createElement("p");
@@ -277,7 +277,7 @@ class Level1 {
         }
         containerTopDates.append(topDate);
       }
-      console.log(this.array[i]);
+      //console.log(this.array[i]);
     }
     for (let i = 0; i < this.array2.length; i++) {
       const containerLeftDates = document.createElement("div");
@@ -294,7 +294,7 @@ class Level1 {
 
         containerLeftDates.append(leftDate);
       }
-      console.log(this.array2[i]);
+      // console.log(this.array2[i]);
     }
     for (let i = 0; i < this.array3.length; i++) {
       const fieldDates = document.createElement("div");
@@ -365,7 +365,7 @@ class Level2 {
       const containerTopDates2 = document.createElement("div");
       containerTopDates2.className = "cell-top nonogram__top-container level2";
       containerTopDates2.style.gridTemplateRows = `repeat(${this.array[i].length},1fr)`;
-      console.log(this.array[i].length);
+      //console.log(this.array[i].length);
       topDatesFull2.append(containerTopDates2);
       for (let j = 0; j < this.array[i].length; j++) {
         const topDate2 = document.createElement("p");
@@ -393,7 +393,7 @@ class Level2 {
         }
         containerLeftDates2.append(leftDate2);
       }
-      console.log(this.array2[i]);
+      //console.log(this.array2[i]);
 
       for (let i = 0; i < this.array.length; i++) {
         const fieldDates2 = document.createElement("div");
@@ -407,7 +407,7 @@ class Level2 {
         fieldDates2.append(wrongDatesL22);
       }
 
-      console.log(this.array.length);
+      //console.log(this.array.length);
     }
   }
 }
@@ -481,7 +481,7 @@ class Level3 {
         }
         containerTopDates3.append(topDate3);
       }
-      console.log(this.array[i]);
+      //console.log(this.array[i]);
     }
     for (let i = 0; i < this.array2.length; i++) {
       const containerLeftDates3 = document.createElement("div");
@@ -498,7 +498,7 @@ class Level3 {
         }
         containerLeftDates3.append(leftDate3);
       }
-      console.log(this.array2[i]);
+      //console.log(this.array2[i]);
     }
 
     for (let i = 0; i < this.array3.length; i++) {

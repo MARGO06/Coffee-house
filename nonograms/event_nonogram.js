@@ -74,8 +74,8 @@ function paintCellField() {
     cellField.addEventListener("click", (e) => {
       e.preventDefault;
       e.target.classList.toggle("active");
-      if (time.length === 0) {
-        time.push("start");
+      if (time.length === 0 || time.includes("reset")) {
+        time.splice(0, 1, "start");
         autoChangeTime = setInterval(changeTime, 1000);
         console.log(time);
       }
@@ -129,7 +129,6 @@ function clearField() {
     ) {
       item.classList.remove("active");
       item.classList.remove("change");
-      console.log("fgsb");
     }
   });
   clearInterval(autoChangeTime);
@@ -147,7 +146,6 @@ function clearField2() {
     ) {
       item.classList.remove("active");
       item.classList.remove("change");
-      console.log("ggg");
     }
   });
 }
@@ -160,7 +158,6 @@ function clearField3() {
     ) {
       item.classList.remove("active");
       item.classList.remove("change");
-      console.log("ggg");
     }
   });
 }
@@ -170,6 +167,8 @@ function resetGame() {
   resetButton.addEventListener("click", (e) => {
     e.preventDefault();
     clearField();
+    time.splice(0, 1, "reset");
+    //console.log(time);
   });
 }
 
@@ -228,7 +227,6 @@ function saveDataPlay() {
             //console.log(arrayLocal);
           } else if (cellField[j].classList.contains("change") && j === k) {
             arrayLocal.splice(k, 1, `${j}:change`);
-            console.log(arrayLocal);
           } else if (
             (!cellField[j].classList.contains("change") ||
               !cellField[j].classList.contains("active")) &&
@@ -1077,25 +1075,33 @@ function getAllResults() {
     arrayResultLevel = resultsPlayerLevel[0].split(",");
   }
 
-  arrayResultPicture.forEach((picture, index) => {
-    arrayResultTime.forEach((time, i) => {
-      arrayResultLevel.forEach((level, j) => {
-        if (i === index && j === index) {
-          allResults.push([time, level, picture]);
-        }
+  if (
+    arrayResultPicture !== undefined &&
+    arrayResultTime !== undefined &&
+    arrayResultLevel !== undefined
+  ) {
+    arrayResultPicture.forEach((picture, index) => {
+      arrayResultTime.forEach((time, i) => {
+        arrayResultLevel.forEach((level, j) => {
+          if (i === index && j === index) {
+            allResults.push([time, level, picture]);
+          }
+        });
       });
     });
-  });
+  }
 
-  arraySort = arrayResultTime.sort((a, b) => a - b);
-  for (let i = 0; i < allResults.length; i++) {
-    arraySort.forEach((item, index) => {
-      if (allResults[i][0] === item && i !== index) {
-        let temp = allResults[i];
-        allResults[i] = allResults[index];
-        allResults[index] = temp;
-      }
-    });
+  if (arrayResultTime !== undefined) {
+    arraySort = arrayResultTime.sort((a, b) => a - b);
+    for (let i = 0; i < allResults.length; i++) {
+      arraySort.forEach((item, index) => {
+        if (allResults[i][0] === item && i !== index) {
+          let temp = allResults[i];
+          allResults[i] = allResults[index];
+          allResults[index] = temp;
+        }
+      });
+    }
   }
   console.log(allResults);
 }
