@@ -1175,6 +1175,9 @@ showResults();
 function changeTheme() {
   buttonChangeTheme.addEventListener("click", (e) => {
     buttonChangeTheme.classList.toggle("change");
+    modalWindow.classList.toggle("change");
+    buttonWindow.classList.toggle("change");
+    backgroundModal.classList.toggle("change");
     wrapper.classList.toggle("change");
     resetButton.classList.toggle("change");
     buttonSave.classList.toggle("change");

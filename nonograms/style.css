@@ -393,6 +393,10 @@
   background-color: rgba(64, 63, 61, 0.9);
 }
 
+.modal__background.change {
+  background-color: rgb(229, 223, 225);
+}
+
 .modal {
   width: 800px;
   height: 500px;
@@ -402,6 +406,10 @@
   transform: translate(-50%, -50%);
   z-index: 2;
   flex-direction: column;
+}
+
+.modal.change {
+  background-color: rgb(52, 3, 3);
 }
 
 .modal__text {
@@ -423,6 +431,12 @@
   margin-right: auto;
   font-size: 24px;
   background-color: rgba(239, 25, 196, 0.685);
+}
+
+.modal__button.change {
+  background-color: rgba(240, 105, 68, 0.685);
+  color: rgb(229, 223, 225);
+  border-color: rgb(229, 223, 225);
 }
 
 .modal__background.active,
