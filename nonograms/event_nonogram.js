@@ -59,6 +59,7 @@ let autoChangeTime;
 const time = [];
 const audio = new Audio();
 const audioWinner = new Audio();
+const audio2 = new Audio();
 const arrayLocal = new Array(125);
 const arrayLocal2 = new Array(1000);
 const arrayLocal3 = new Array(1125);
@@ -79,7 +80,7 @@ function paintCellField() {
       if (time.length === 0 || time.includes("reset")) {
         time.splice(0, 1, "start");
         autoChangeTime = setInterval(changeTime, 1000);
-        //console.log(time);
+        // console.log(time);
       }
       showAnswer();
       showAnswer2();
@@ -104,7 +105,7 @@ function clickRightMouse() {
           autoChangeTime = setInterval(changeTime, 1000);
         }
         deleteContextMenu();
-        addSound();
+        addSound2();
         saveDataPlay();
         saveDataPlay2();
         saveDataPlay3();
@@ -188,6 +189,7 @@ function resetGame() {
     time.splice(0, 1, "reset");
     minute = 0;
     second = 0;
+    nonogramResults.classList.remove("active");
     //console.log(time);
   });
 }
@@ -223,14 +225,21 @@ function addSoundWinner() {
   audioWinner.play();
 }
 
+function addSound2() {
+  audio2.src = "./asserts/sounds/00171.mp3";
+  audio2.play();
+}
+
 function clickNonogramSound() {
   nonogramSound.addEventListener("click", (e) => {
     nonogramSound.classList.toggle("inactive");
     audio.muted = true;
     audioWinner.muted = true;
+    audio2.muted = true;
     if (!nonogramSound.classList.contains("inactive")) {
       audio.muted = false;
       audioWinner.muted = false;
+      audio2.muted = false;
     }
   });
 }
@@ -429,6 +438,7 @@ function continueGame() {
     getTime();
     localStorage.clear();
     autoChangeTime = setInterval(changeTime, 1000);
+    nonogramResults.classList.remove("active");
     // console.log("fr");
   });
 }
@@ -602,14 +612,17 @@ function viewModalWindow() {
   if (String(minute).length === 2 && String(second).length === 2) {
     resultModal.textContent = `Great! You have solved the nonogram in ${minute} : ${second} seconds!`;
   }
+  addSoundWinner();
 }
 
 function showCongratulations() {
+  modalWindow.classList.add("active");
   viewModalWindow();
-  addSoundWinner();
   saveResults();
   backgroundModal.classList.add("active");
-  modalWindow.classList.add("active");
+  if (!nonogramSound.classList.contains("inactive")) {
+    audioWinner.muted = false;
+  }
 }
 
 function closeCongratulations() {
@@ -892,6 +905,10 @@ function hiddenNonogram() {
     item.classList.remove("active");
   });
   nonogramResults.classList.remove("active");
+  clearField();
+  time.splice(0, 1, "reset");
+  minute = 0;
+  second = 0;
 }
 
 function activeNonogram1() {
@@ -960,6 +977,11 @@ function activeNonogram3() {
 function randomGame() {}
 buttonRandom.addEventListener("click", (e) => {
   getRandomImg();
+  clearField();
+  nonogramResults.classList.remove("active");
+  time.splice(0, 1, "reset");
+  minute = 0;
+  second = 0;
 });
 randomGame();
 
@@ -977,18 +999,23 @@ function keepPictures() {
     const pictures = localStorage.getItem("pictures");
     const arrayPictures = pictures.split(",");
     const resultLength = arrayPictures.length;
-    if (resultLength <= 4) {
-      resultsPictures.push(pictures);
+    //console.log(arrayPictures, resultLength);
+    //console.log(resultLength);
+    if (resultLength < 5) {
       savePicture();
+      //resultsPictures.push(pictures);
+      // savePicture();
       localStorage.setItem("pictures", `${resultsPictures}`);
-    } else if (resultLength > 4) {
-      arrayPictures.shift();
-      const stringPictures = arrayPictures.join(",");
-      resultsPictures.push(stringPictures);
+    } else if (resultLength >= 5) {
+      resultsPictures.shift();
       savePicture();
+      //const stringPictures = arrayPictures.join(",");
+      //resultsPictures.push(stringPictures);
+      //savePicture();
       localStorage.setItem("pictures", `${resultsPictures}`);
     }
   }
+  //console.log(resultsPictures);
 }
 
 function keepTime() {
@@ -999,14 +1026,14 @@ function keepTime() {
     const time = localStorage.getItem("time");
     const arrayTimes = time.split(",");
     const resultLength = arrayTimes.length;
-    if (resultLength <= 4) {
-      resultsTimes.push(time);
+    if (resultLength < 5) {
+      //resultsTimes.push(time);
       saveTime();
       localStorage.setItem("time", `${resultsTimes}`);
-    } else if (resultLength > 4) {
-      arrayTimes.shift();
-      const stringTimes = arrayTimes.join(",");
-      resultsTimes.push(stringTimes);
+    } else if (resultLength >= 5) {
+      resultsTimes.shift();
+      //const stringTimes = arrayTimes.join(",");
+      //resultsTimes.push(stringTimes);
       saveTime();
       localStorage.setItem("time", `${resultsTimes}`);
     }
@@ -1021,14 +1048,14 @@ function keepLevel() {
     const level = localStorage.getItem("level");
     const arrayLevel = level.split(",");
     const resultLength = arrayLevel.length;
-    if (resultLength <= 4) {
-      resultsLevel.push(level);
+    if (resultLength < 5) {
+      // resultsLevel.push(level);
       saveLevel();
       localStorage.setItem("level", `${resultsLevel}`);
-    } else if (resultLength > 4) {
-      arrayLevel.shift();
-      const stringLevel = arrayLevel.join(",");
-      resultsLevel.push(stringLevel);
+    } else if (resultLength >= 5) {
+      resultsLevel.shift();
+      //const stringLevel = arrayLevel.join(",");
+      //resultsLevel.push(stringLevel);
       saveLevel();
       localStorage.setItem("level", `${resultsLevel}`);
     }
@@ -1087,6 +1114,7 @@ function savePicture() {
   if (pictureIndex === 4) {
     resultsPictures.push("Picture 5");
   }
+  // console.log("hhh");
 }
 
 function getAllResults() {
@@ -1142,7 +1170,6 @@ function getAllResults() {
   }
   //console.log(allResults);
 }
-getAllResults();
 
 function getLevel() {
   levelGame.forEach((level, index) => {
@@ -1153,7 +1180,6 @@ function getLevel() {
     });
   });
 }
-getLevel();
 
 function getPicture() {
   pictureGame.forEach((picture, index) => {
@@ -1164,7 +1190,6 @@ function getPicture() {
     });
   });
 }
-getPicture();
 
 function getResultTime() {
   timeGame.forEach((time, index) => {
@@ -1180,10 +1205,13 @@ function getResultTime() {
     });
   });
 }
-getResultTime();
 
 function showResults() {
   buttonShowResults.addEventListener("click", (e) => {
+    getAllResults();
+    getResultTime();
+    getLevel();
+    getPicture();
     nonogramResults.classList.add("active");
   });
 }
