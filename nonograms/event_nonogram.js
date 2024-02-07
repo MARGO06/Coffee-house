@@ -69,6 +69,9 @@ let pictureIndex3;
 const rightAnswer2 = [];
 const rightAnswer3 = [];
 const allResults = [];
+const resultsPictures = [];
+const resultsTimes = [];
+const resultsLevel = [];
 let minute = 0;
 let second = 0;
 
@@ -77,11 +80,22 @@ function paintCellField() {
     cellField.addEventListener("click", (e) => {
       e.preventDefault;
       e.target.classList.toggle("active");
-      if (time.length === 0 || time.includes("reset")) {
+      if (
+        time.length !== 0 &&
+        !time.includes("start") &&
+        !time.includes("rightMouse")
+        //!time.includes("reset")
+      ) {
         time.splice(0, 1, "start");
         autoChangeTime = setInterval(changeTime, 1000);
-        // console.log(time);
+        //console.log(time, "splicestart");
       }
+      if (time.length === 0) {
+        time.push("start");
+        autoChangeTime = setInterval(changeTime, 1000);
+        //console.log(time, "0start");
+      }
+
       showAnswer();
       showAnswer2();
       showAnswer3();
@@ -100,10 +114,22 @@ function clickRightMouse() {
       e.preventDefault;
       if (e.button === 2) {
         e.target.classList.toggle("change");
-        if (time.length === 0) {
-          time.push("start");
+        if (
+          time.length !== 0 &&
+          !time.includes("start") &&
+          !time.includes("rightMouse")
+          //!time.includes("reset")
+        ) {
+          time.splice(0, 1, "rightMouse");
           autoChangeTime = setInterval(changeTime, 1000);
+          // console.log(time, "splicemouse");
         }
+        if (time.length === 0) {
+          time.push("rightMouse");
+          autoChangeTime = setInterval(changeTime, 1000);
+          //console.log(time, "0right");
+        }
+
         deleteContextMenu();
         addSound2();
         saveDataPlay();
@@ -186,11 +212,11 @@ function resetGame() {
   resetButton.addEventListener("click", (e) => {
     e.preventDefault();
     clearField();
-    time.splice(0, 1, "reset");
+    time.splice(0, 1);
     minute = 0;
     second = 0;
     nonogramResults.classList.remove("active");
-    //console.log(time);
+    //console.log("reset");
   });
 }
 
@@ -271,9 +297,27 @@ function saveDataPlay() {
 function savePlay() {
   buttonSave.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.setItem("last game", `${arrayLocal}`);
-    clearField();
-    localStorage.setItem("time", `${minute} ${second}`);
+    if (buttonLevel1.classList.contains("active")) {
+      localStorage.setItem("last level", "level1");
+      for (let i = 0; i < nonogramLevel1.length; i++) {
+        if (nonogramLevel1[i].classList.contains("active")) {
+          localStorage.setItem("last picture", `Picture${i + 1}`);
+        }
+      }
+      localStorage.setItem("last game", `${arrayLocal}`);
+      clearField();
+      localStorage.setItem("last time", `${minute} ${second}`);
+      //console.log("save1");
+    }
+    if (buttonLevel2.classList.contains("active")) {
+      savePlay2();
+    }
+    if (buttonLevel3.classList.contains("active")) {
+      savePlay3();
+    }
+    if (time.length !== 0) {
+      time.splice(0, 1);
+    }
   });
 }
 
@@ -301,12 +345,16 @@ function saveDataPlay2() {
 }
 
 function savePlay2() {
-  buttonSave.addEventListener("click", (e) => {
-    e.preventDefault();
-    localStorage.setItem("last game2", `${arrayLocal2}`);
-    clearField();
-    localStorage.setItem("time2", `${minute} ${second}`);
-  });
+  localStorage.setItem("last level", "level2");
+  localStorage.setItem("last game", `${arrayLocal2}`);
+  clearField();
+  for (let i = 0; i < nonogramLevel2.length; i++) {
+    if (nonogramLevel2[i].classList.contains("active")) {
+      localStorage.setItem("last picture", `Picture${i + 1}`);
+    }
+  }
+  localStorage.setItem("last time", `${minute} ${second}`);
+  //console.log("save2");
 }
 
 function saveDataPlay3() {
@@ -333,18 +381,45 @@ function saveDataPlay3() {
 }
 
 function savePlay3() {
-  buttonSave.addEventListener("click", (e) => {
-    e.preventDefault();
-    localStorage.setItem("last game3", `${arrayLocal3}`);
-    clearField();
-    localStorage.setItem("time3", `${minute} ${second}`);
-  });
+  localStorage.setItem("last level", "level3");
+  localStorage.setItem("last game", `${arrayLocal3}`);
+  clearField();
+  for (let i = 0; i < nonogramLevel3.length; i++) {
+    if (nonogramLevel3[i].classList.contains("active")) {
+      localStorage.setItem("last picture", `Picture${i + 1}`);
+    }
+  }
+  localStorage.setItem("last time", `${minute} ${second}`);
+  //console.log("save3");
 }
 
 //get data
 
 function getDataPlay() {
-  if (buttonLevel1.classList.contains("active")) {
+  const levelActive = localStorage.getItem("last level");
+  //console.log(levelActive);
+  if (levelActive === "level1") {
+    const pictureActive = localStorage.getItem("last picture");
+    //console.log(pictureActive);
+    const numberActive = pictureActive.split("").pop();
+    //console.log(Number(numberActive));
+    for (let i = 0; i < nonogramLevel1.length; i++) {
+      nonogramLevel1[i].classList.remove("active");
+      if (Number(numberActive) - 1 === i) {
+        pictureIndex = numberActive - 1;
+        nonogramLevel1[i].classList.add("active");
+        nonogramLevel2.forEach((item, index) => {
+          item.classList.remove("active");
+        });
+        nonogramLevel3.forEach((item, index) => {
+          item.classList.remove("active");
+        });
+        buttonLevel1.classList.add("active");
+        buttonLevel2.classList.remove("active");
+        buttonLevel3.classList.remove("active");
+        //console.log("get1");
+      }
+    }
     let dataArray;
     for (let i = 0; i < localStorage.length; i++) {
       let localData = localStorage.getItem("last game").split(",");
@@ -363,16 +438,35 @@ function getDataPlay() {
       }
     }
   }
-
-  if (buttonLevel2.classList.contains("active")) {
+  if (levelActive === "level2") {
+    const pictureActive = localStorage.getItem("last picture");
+    //console.log(pictureActive);
+    const numberActive = pictureActive.split("").pop();
+    for (let i = 0; i < nonogramLevel2.length; i++) {
+      nonogramLevel2[i].classList.remove("active");
+      if (Number(numberActive) - 1 === i) {
+        pictureIndex = numberActive - 1;
+        nonogramLevel2[i].classList.add("active");
+        nonogramLevel1.forEach((item, index) => {
+          item.classList.remove("active");
+        });
+        nonogramLevel3.forEach((item, index) => {
+          item.classList.remove("active");
+        });
+        buttonLevel2.classList.add("active");
+        buttonLevel1.classList.remove("active");
+        buttonLevel3.classList.remove("active");
+        //console.log("get2");
+      }
+    }
     let dataArray2;
     for (let i = 0; i < localStorage.length; i++) {
-      let localData = localStorage.getItem("last game2").split(",");
+      let localData = localStorage.getItem("last game").split(",");
       // console.log(localData);
       dataArray2 = localData.filter((item) => item !== "");
       // console.log(dataArray2);
     }
-    console.log(localStorage.getItem("last game2"));
+    console.log(localStorage.getItem("last game"));
     //console.log(dataArray2);
     for (let j = 0; j < dataArray2.length; j++) {
       const data = dataArray2[j].split(":");
@@ -387,15 +481,39 @@ function getDataPlay() {
     }
     //console.log("fgt");
   }
-  if (buttonLevel3.classList.contains("active")) {
+
+  if (levelActive === "level3") {
+    const pictureActive = localStorage.getItem("last picture");
+    const numberActive = pictureActive.split("").pop();
+    for (let i = 0; i < nonogramLevel3.length; i++) {
+      nonogramLevel3[i].classList.remove("active");
+      if (
+        Number(numberActive) - 1 ===
+        i
+        //!nonogramLevel3[i].classList.contains("active")
+      ) {
+        pictureIndex = numberActive - 1;
+        nonogramLevel3[i].classList.add("active");
+        nonogramLevel1.forEach((item, index) => {
+          item.classList.remove("active");
+        });
+        nonogramLevel2.forEach((item, index) => {
+          item.classList.remove("active");
+        });
+        buttonLevel3.classList.add("active");
+        buttonLevel2.classList.remove("active");
+        buttonLevel1.classList.remove("active");
+        //console.log("get3");
+      }
+    }
     let dataArray3;
     for (let i = 0; i < localStorage.length; i++) {
-      let localData = localStorage.getItem("last game3").split(",");
+      let localData = localStorage.getItem("last game").split(",");
       //console.log(localData);
       dataArray3 = localData.filter((item) => item !== "");
       //console.log(dataArray3);
     }
-    console.log(localStorage.getItem("last game3"));
+    console.log(localStorage.getItem("last game"));
     // console.log(dataArray3);
     for (let j = 0; j < dataArray3.length; j++) {
       const data = dataArray3[j].split(":");
@@ -414,7 +532,7 @@ function getDataPlay() {
 
 function getTime() {
   for (let i = 0; i < localStorage.length; i++) {
-    let localData = localStorage.getItem("time").split(" ");
+    let localData = localStorage.getItem("last time").split(" ");
     //console.log(localData);
     second = localData[1];
     minute = localData[0];
@@ -436,10 +554,20 @@ function continueGame() {
     e.preventDefault();
     getDataPlay();
     getTime();
-    localStorage.clear();
-    autoChangeTime = setInterval(changeTime, 1000);
+    localStorage.removeItem("last game");
+    localStorage.removeItem("last time");
+    localStorage.removeItem("last level");
+    localStorage.removeItem("last picture");
+
+    //time.splice(0, 1, "continue");
+    if (time.includes("start") || time.includes("rightMouse")) {
+      time.splice(0, 1);
+      clearInterval(autoChangeTime);
+    }
+    //autoChangeTime = setInterval(changeTime, 1000);
+    //console.log(time);
     nonogramResults.classList.remove("active");
-    // console.log("fr");
+    //console.log("continue");
   });
 }
 
@@ -508,7 +636,7 @@ function showAnswer() {
   }
   const answer1 = new Answer(cellField, allAnswers);
   answer1.addAnswer();
-  //console.log(allAnswers);
+  console.log(allAnswers);
   //console.log(correctAnswer);
 }
 
@@ -709,6 +837,9 @@ function showRightAnswer() {
         }
       }
     }
+    // time.splice(0, 1);
+    nonogramMinute.textContent = "00";
+    nonogramSecond.textContent = "00";
   });
 }
 
@@ -779,8 +910,10 @@ function activeButtonsLevel2() {
       buttonLevel3.classList.remove("active");
     }
     changePictures();
+
     //console.log("rrr");
-    savePlay2();
+    // savePlay2();
+    showAnswer2();
     hiddenNonogram();
   });
 }
@@ -797,9 +930,10 @@ function activeButtonsLevel3() {
       buttonLevel2.classList.remove("active");
       buttonLevel1.classList.remove("active");
     }
-    savePlay3();
+    // savePlay3();
     changePictures3();
     hiddenNonogram();
+    showAnswer3();
   });
 }
 activeButtonsLevel3();
@@ -817,6 +951,7 @@ function activeButtonsLevel1() {
     }
     changePictures1();
     hiddenNonogram();
+    showAnswer();
   });
 }
 activeButtonsLevel1();
@@ -986,10 +1121,6 @@ buttonRandom.addEventListener("click", (e) => {
 randomGame();
 
 //show results
-
-const resultsPictures = [];
-const resultsTimes = [];
-const resultsLevel = [];
 
 function keepPictures() {
   if (!localStorage.getItem("pictures")) {
@@ -1170,6 +1301,7 @@ function getAllResults() {
   }
   //console.log(allResults);
 }
+//getAllResults();
 
 function getLevel() {
   levelGame.forEach((level, index) => {
