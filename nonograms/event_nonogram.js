@@ -913,7 +913,7 @@ function activeButtonsLevel2() {
 
     //console.log("rrr");
     // savePlay2();
-    showAnswer2();
+    //showAnswer2();
     hiddenNonogram();
   });
 }
@@ -933,7 +933,7 @@ function activeButtonsLevel3() {
     // savePlay3();
     changePictures3();
     hiddenNonogram();
-    showAnswer3();
+    //showAnswer3();
   });
 }
 activeButtonsLevel3();
@@ -951,7 +951,7 @@ function activeButtonsLevel1() {
     }
     changePictures1();
     hiddenNonogram();
-    showAnswer();
+    //showAnswer();
   });
 }
 activeButtonsLevel1();
