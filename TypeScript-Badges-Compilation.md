@@ -15,3 +15,5 @@
 **6.Generics in TypeScript:** [badge-link](https://learn.microsoft.com/api/achievements/share/en-us/MargaritaMasko-4018/J6EGWX5T?sharingId=8BB0169F9B90EC28);
 
 **7.Work with External Libraries in TypeScript:** [badge-link](https://learn.microsoft.com/api/achievements/share/en-us/MargaritaMasko-4018/WACM4JUN?sharingId=8BB0169F9B90EC28);
+
+**8.Organize Code with Namespaces in TypeScript::** [badge-link](https://learn.microsoft.com/api/achievements/share/en-us/MargaritaMasko-4018/ZPFLMB72?sharingId=8BB0169F9B90EC28).
