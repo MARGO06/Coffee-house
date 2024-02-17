@@ -124,3 +124,48 @@ For example:
 let person1: [string, number] = ['Marcia', 35].
 
 **Conclusions** : TS has static type system, it allows to know which type we need to get or assign a value and check the correctness of а code before running a code. A developer can union several types in one.**Not recommended for use _any_ type when it's not necessary, because losing type safety**.
+
+**3.Implement Interfaces in TypeScript.**
+
+**Main tips:**
+
+1. JS doesn't support interfaces, but TS supports interfaces;
+2. an interface only describes an object.
+
+For example:
+
+interface Employee {
+
+    firstName: string;
+    lastName: string;
+    fullName(): string;
+
+};
+
+3. TS has a type alias.
+
+For example:
+
+type Employee = {
+
+    firstName: string;
+    lastName: string;
+    fullName(): string;
+
+};
+
+4. properties can be required, optional(?), or read only;
+5. interfaces can extend each other;
+6. use interfaces that describe array types that you can index into.
+
+For example:
+
+interface IceCreamArray {
+[index: number]: string;
+}
+
+A developer can define own type of an array, to apply it in future;
+
+7. use interfaces to describe existing JS APIs.
+
+**Conclusions** : interfaces are especially useful for checking the required shape of properties, objects passed as parameters, and objects returned from functions. There are differences between interface and type alias is that a developer can't reopen to add new properties in type alias, but a developer can describe a union or tuple using a type alias.
