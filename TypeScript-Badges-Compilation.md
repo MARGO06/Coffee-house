@@ -20,7 +20,7 @@
 
 ## Reflections:
 
-**1.Getting Started with TypeScript**
+**1.Getting Started with TypeScript.**
 
 **TypeScript(TS)** is an extended version of JavaScript(JS). The main feature of TS is its type system. It provides better documentation and allows TS to validate that a code is working correctly.
 
@@ -48,3 +48,79 @@ Browsers understand JavaScript only. It must be compiled a code and convert to J
 - _target_ (ES3 (default))- compiled JS file to need version ES (just need to indicate);
 
 **Conclusions** : before working with TS need to install TS and write necessary options in tsconfig.json. A developer can use acquired skills in JS. TS catches code issues early than JS, thanks to using type hint (through static type checking).
+
+**2.Declare Variable Types in TypeScript.**
+
+**Types TS:**
+
+1. Any;
+2. Primitive types:
+
+- boolean;
+- string;
+- number;
+- enum;
+- void;
+- null;
+- undefined;
+
+3. Object types:
+
+- class;
+- interface;
+- array;
+- literals;
+
+4. Type parameters.
+
+**Main tips:**
+
+1. to declare an explicit type : **variableName: type**;
+2. use a type _void_ when a function nothing is return like undefined in JS;
+3. an _enum_ is a symbolic name for a set of values (use meaningful names).
+
+For example:
+
+enum Season { Winter, Spring, Summer, Autumn };
+
+let current: Season = Season.Summer;
+
+console.log(current); => 2
+
+4. use a type _any_ accepts any type and don't need to check type before running a code;
+
+5. use a type _unknown_ a developer can't interact with a variable of unknown type;
+
+6. use a _type assertion_ if a developer wants to use the same variable as an another type.
+
+For example:
+
+let randomValue: unknown = 10;
+
+(randomValue as string).toUpperCase();
+
+7. a developer can union types, when a value can accept several types.
+
+For example:
+
+let multiType: number | boolean;
+
+8. _an intersection type_ combines two or more types to create a new type that has all properties of the existing types.
+
+For example:
+
+type ManagementEmployee = Employee & Manager;
+
+9. array type (has one type).
+
+For example:
+
+let list: number[] = [1, 2, 3];
+
+10. tuple type is another sort of array type (has more than one type).
+
+For example:
+
+let person1: [string, number] = ['Marcia', 35].
+
+**Conclusions** : TS has static type system, it allows to know which type we need to get or assign a value and check the correctness of а code before running a code. A developer can union several types in one.**Not recommended for use _any_ type when it's not necessary, because losing type safety**.
