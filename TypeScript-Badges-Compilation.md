@@ -204,3 +204,13 @@ interface Calculator {
 let addNumbers: Calculator = (x: number, y: number): number => x + y.
 
 **Conclusions** : adding types to functions helps prevent you from passing values that you shouldn't pass to your functions. A developer can use in function parameters: required, optional, default, rest, deconstructed object parameters. A developer can define a function type using a type alias or an interface and then use them for creating functions (if a developer wants to apply the same function type signature to more than one function).
+
+**5.Declare and Instantiate Classes in TypeScript.**
+
+**Main tip:** implement class from interface.
+
+For example:
+
+class Car implements Vehicle {}
+
+**Conclusions** : as was said before TS has interfaces, so a developer can use an interface to ensure class instance shape. Class declarations may reference one or more interfaces in their implements clause. In TS an error may be raised because an interface can only describe the public side of a class and cannot include private members. One of the main features that a developer can use a interface without a class.
