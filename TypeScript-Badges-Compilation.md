@@ -169,3 +169,38 @@ A developer can define own type of an array, to apply it in future;
 7. use interfaces to describe existing JS APIs.
 
 **Conclusions** : interfaces are especially useful for checking the required shape of properties, objects passed as parameters, and objects returned from functions. There are differences between interface and type alias is that a developer can't reopen to add new properties in type alias, but a developer can describe a union or tuple using a type alias.
+
+**4.Develop Typed Functions in TypeScript.**
+
+**Main tips:**
+
+1. a function accepts two parameters of type number and returns a number (this is only an example).
+
+For example:
+function addNumbers (x: number, y: number): number{};
+
+2. a function can use an optional parameter(to add "?").
+
+For example:
+function addNumbers (x: number, y?: number): number{};
+
+3. to enable named parameters, you can use a technique called deconstructed object parameters;
+
+For example:
+
+interface Message {
+text: string;
+sender: string;
+}
+
+function displayMessage({text, sender}: Message) {}
+
+4. use interface for function;
+
+interface Calculator {
+(x: number, y: number): number;
+}
+
+let addNumbers: Calculator = (x: number, y: number): number => x + y.
+
+**Conclusions** : adding types to functions helps prevent you from passing values that you shouldn't pass to your functions. A developer can use in function parameters: required, optional, default, rest, deconstructed object parameters. A developer can define a function type using a type alias or an interface and then use them for creating functions (if a developer wants to apply the same function type signature to more than one function).
