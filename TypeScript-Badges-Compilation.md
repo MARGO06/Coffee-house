@@ -214,3 +214,66 @@ For example:
 class Car implements Vehicle {}
 
 **Conclusions** : as was said before TS has interfaces, so a developer can use an interface to ensure class instance shape. Class declarations may reference one or more interfaces in their implements clause. In TS an error may be raised because an interface can only describe the public side of a class and cannot include private members. One of the main features that a developer can use a interface without a class.
+
+**6.Generics in TypeScript.**
+
+**Main tips:**
+
+1. generics define one or more type variables to identify the type or types that you will pass to the component, enclosed in angle brackets (< >);
+
+For example:
+
+function getArray<T>(items : T[]) : T[] {
+
+    return new Array<T>().concat(items);
+
+}
+
+let numberArray = getArray<number>([5, 10, 15, 20]);
+
+let stringArray = getArray<string>(['Cats', 'Dogs', 'Birds']);
+
+2. no limited to use a different types variables in generic components;
+
+For example:
+
+function identity<T, U> (value: T, message: U) : T {}
+
+let returnNumber = identity<number, string>(100, 'Hello!');
+
+3. use generic constraint, that means a developer can create a type variable and constrain with some types;
+
+type ValidTypes = string | number;
+
+function identity<T extends ValidTypes, U> (value: T, message: U) : T {}
+
+4. also constrain a type to the property of another object;
+
+For example:
+
+function getPets<T, K extends keyof T>(pet: T, key: K) {
+
+return pet[key];
+
+}
+
+5. use generic with custom types and classes;
+
+For example:
+
+class Car {
+
+    make: string = 'Generic Car';
+    doors: number = 4;
+
+}
+
+function accelerate<T extends Car> (car: T): T {
+
+    console.log(`All ${car.doors} doors are closed.`);
+    console.log(`The ${car.make} is now accelerating!`)
+    return car
+
+}
+
+**Conclusions** : using generic when a code has several data types and using generic in different places, thanks for it a developer can use again the same code and reduce the use of 'any' type.
