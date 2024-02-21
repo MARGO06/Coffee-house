@@ -289,3 +289,13 @@ function accelerate<T extends Car> (car: T): T {
 3. to install type definitions in libraries to use the **@types** prefix.
 
 **Conclusions** : using modules in TS the same like JS, but a developer needs to compile modules for working these modules. A developer can use different libraries, but there is a main condition that a library has to have type definitions.
+
+**8.Organize Code with Namespaces in TypeScript.**
+
+**Main tips:**
+
+1. use namespaces to organize code, it's reduce the amount of code in the global scope and provide a context for names, which helps reduce naming collisions;
+
+2. a developer can also nest namespaces within namespaces,but a code became more and more difficult. A developer can provide more easy code by creating an alias(**import** keyword).
+
+**Conclusions** : to organize code a developer can use namespaces or modules. Namespaces are easy to use for simple implementations and do not depend on a module loader, modules offer some additional benefits that namespaces do not.
