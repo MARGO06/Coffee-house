@@ -277,3 +277,15 @@ function accelerate<T extends Car> (car: T): T {
 }
 
 **Conclusions** : using generic when a code has several data types and using generic in different places, thanks for it a developer can use again the same code and reduce the use of 'any' type.
+
+**7.Work with External Libraries in TypeScript.**
+
+**Main tips:**
+
+1. to compile modules, specify a --module target on the command line or in the tsconfig.json file for the project;
+
+2. to import libraries using the **import** statement;
+
+3. to install type definitions in libraries to use the **@types** prefix.
+
+**Conclusions** : using modules in TS the same like JS, but a developer needs to compile modules for working these modules. A developer can use different libraries, but there is a main condition that a library has to have type definitions.
