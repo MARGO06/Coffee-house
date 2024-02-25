@@ -33,3 +33,13 @@ footer .copyright a:hover {
 footer .copyright:before {
     content: '©';
 }
+.link {
+    display: flex;
+    gap: 50px;
+    margin-right: 50px;
+}
+.footer_rolling {
+    text-decoration: none;
+    color: #1935c2;
+    font-size: 20px;
+}
