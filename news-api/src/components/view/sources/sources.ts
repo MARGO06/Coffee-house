@@ -1,5 +1,6 @@
 import './sources.css';
 import { SourcesNew } from '../../../types/types';
+import { ElementDom } from '../news/news';
 
 class Sources {
     draw(data: SourcesNew[]) {
@@ -8,14 +9,12 @@ class Sources {
 
         data.forEach((item) => {
             const sourceClone = <HTMLTemplateElement>sourceItemTemp.content.cloneNode(true);
-            const sourceName = sourceClone.querySelector('.source__item-name');
-            const sourceItem = sourceClone.querySelector('.source__item');
-            if (sourceName !== null) {
-                sourceName.textContent = item.name;
-            }
-            if (sourceItem !== null) {
-                sourceItem.setAttribute('data-source-id', item.id);
-            }
+            const sourceName: ElementDom = sourceClone.querySelector('.source__item-name')!;
+            const sourceItem: ElementDom = sourceClone.querySelector('.source__item')!;
+
+            sourceName.textContent = item.name;
+            sourceItem.setAttribute('data-source-id', item.id);
+
             fragment.append(sourceClone);
         });
 
