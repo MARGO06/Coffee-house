@@ -5,6 +5,7 @@ type Result = {
     json: () => void;
 };
 type CallFunction = (data: unknown) => void;
+
 class Loader {
     baseLink: string;
     options: {
@@ -21,7 +22,7 @@ class Loader {
             options = {},
         }: {
             endpoint: string;
-            options: {
+            options?: {
                 [key: string]: string;
             };
         },

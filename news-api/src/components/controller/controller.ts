@@ -1,7 +1,12 @@
 import AppLoader from './appLoader';
 
+import { SourcesNews } from '../../types/types';
+import { ArticlesNews } from '../../types/types';
+
+type CallSource<T> = (data?: T) => void;
+
 class AppController extends AppLoader {
-    getSources(callback) {
+    getSources(callback: CallSource<SourcesNews>) {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -10,14 +15,14 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    getNews(e: MouseEvent, callback: CallSource<ArticlesNews>) {
+        let target = <HTMLElement>e.target;
+        const newsContainer = <HTMLElement>e.currentTarget;
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
-                if (newsContainer.getAttribute('data-source') !== sourceId) {
+                if (newsContainer.getAttribute('data-source') !== sourceId && sourceId !== null) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
                         {
@@ -31,7 +36,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            target = <HTMLElement>target.parentNode;
         }
     }
 }
