@@ -74,8 +74,22 @@ body.active {
     color: #17181c;
 }
 
+.link__author .footer_rolling:hover,
+.link__logo .footer_rolling:hover {
+    color: #3fcc59;
+}
+
 .link__author.active .footer_rolling {
     color: #17181c;
+}
+
+.link__logo.active .footer_rolling {
+    color: #17181c;
+}
+
+.link__author.active .footer_rolling:hover,
+.link__logo.active .footer_rolling:hover {
+    color: #79103c;
 }
 
 @media (max-width: 450px) {

@@ -7,6 +7,7 @@ const body: ElementDom = document.querySelector('body')!;
 const button: ElementDom = document.querySelector('.btn')!;
 const sourceItems: ElementDom = document.querySelector('.sources')!;
 const linkAuthor: ElementDom = document.querySelector('.link__author')!;
+const linkLogo: ElementDom = document.querySelector('.link__logo')!;
 
 export function changeTheme() {
     button.addEventListener('click', (e) => {
@@ -15,12 +16,14 @@ export function changeTheme() {
         body.classList.add('active');
         sourceItems.classList.add('active');
         linkAuthor.classList.add('active');
+        linkLogo.classList.add('active');
 
         if (!button.classList.contains('active')) {
             button.classList.remove('active');
             body.classList.remove('active');
             sourceItems.classList.remove('active');
             linkAuthor.classList.remove('active');
+            linkLogo.classList.remove('active');
         }
     });
 }
