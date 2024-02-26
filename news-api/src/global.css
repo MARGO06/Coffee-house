@@ -5,6 +5,8 @@ body {
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
     padding: 10px 30px;
 }
 
@@ -42,4 +44,49 @@ footer .copyright:before {
     text-decoration: none;
     color: #1935c2;
     font-size: 20px;
+}
+
+.btn {
+    height: 30px;
+    background-color: #657ae6;
+    color: #17181c;
+    margin-top: 50px;
+}
+
+.btn:hover {
+    background-color: #90a0f0;
+    color: #17181c;
+    cursor: pointer;
+}
+
+.btn.active {
+    background-color: #79103c;
+    color: #47c0db;
+}
+
+.btn:hover.active {
+    background-color: #d53d7d;
+    color: #47c0db;
+}
+
+body.active {
+    background: #47c0db;
+    color: #17181c;
+}
+
+.link__author.active .footer_rolling {
+    color: #17181c;
+}
+
+@media (max-width: 450px) {
+    .btn {
+        height: 50px;
+    }
+    footer {
+        flex-direction: column;
+    }
+    .link {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

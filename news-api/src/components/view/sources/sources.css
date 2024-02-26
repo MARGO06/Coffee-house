@@ -22,12 +22,24 @@
     cursor: pointer;
 }
 
+.sources.active .source__item {
+    border: 2px solid #79103c;
+    color: #79103c;
+}
+
 .source__item:hover,
 .source__item:focus {
     border-color: #3fcc59;
     color: #69db7e;
     box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
     transform: translateY(-0.25em);
+}
+
+.sources.active .source__item:hover,
+.sources.active .source__item:focus {
+    border-color: #210af4;
+    color: #210af4;
+    box-shadow: 0 0.5em 0.5em -0.4em #210af4;
 }
 
 .source__item-name {
