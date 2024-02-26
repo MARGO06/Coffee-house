@@ -1,0 +1,89 @@
+@mixin font($size,$style,$weight,$line-height){
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+@mixin flex($display,$content){
+  display:$display;
+  justify-content: $content;
+}
+
+@mixin media-1440{
+  @media(max-width: $screen-width-1440) {
+   @content;
+  }
+}
+
+@mixin media-1361{
+  @media(max-width: $screen-width-1361) {
+   @content;
+  }
+}
+
+@mixin media-1281{
+  @media(max-width: $screen-width-1281) {
+   @content;
+  }
+}
+
+@mixin media-1201{
+  @media(max-width: $screen-width-1201) {
+   @content;
+  }
+}
+
+@mixin media-1101{
+  @media(max-width: $screen-width-1101) {
+   @content;
+  }
+}
+
+@mixin media-1001{
+  @media(max-width: $screen-width-1001) {
+   @content;
+  }
+}
+
+@mixin media-901{
+  @media(max-width: $screen-width-901) {
+   @content;
+  }
+}
+
+@mixin media-801{
+  @media(max-width: $screen-width-801) {
+   @content;
+  }
+}
+
+@mixin media-tablet {
+  @media(max-width: $screen-width-tablet) {
+   @content;
+  }
+}
+
+@mixin media-689 {
+  @media(max-width: $screen-width-689) {
+   @content;
+  }
+}
+
+@mixin media-589 {
+  @media(max-width: $screen-width-589) {
+   @content;
+  }
+}
+
+@mixin media-489 {
+  @media(max-width: $screen-width-489) {
+   @content;
+  }
+}
+
+@mixin media-mobile{
+  @media(max-width: $screen-width-mobile) {
+   @content;
+  }
+}
