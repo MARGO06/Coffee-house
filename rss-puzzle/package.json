@@ -37,7 +37,7 @@
     "webpack-dev-server": "^5.0.2"
   },
   "lint-staged": {
-    "*.ts": [
+    "**/*.ts": [
       "eslint --fix",
       "prettier --write --ignore-unknown"
     ]
