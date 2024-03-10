@@ -1,16 +1,6 @@
-import './style.css';
-import pexel from './assets/pexel.jpg';
-console.log('hello');
-// test committttt
-// test 4
-//test 5
-function sum(a: number, b: number) {
-  console.log(a + b);
-}
-sum(5, 10);
+import './pages/entry/login-page';
 
-function summ(a: string, b: string) {
-  console.log(a.concat(b));
-  console.log(pexel);
-}
-summ('hel', 'lo');
+/*import './style.css';
+import { LoginPage } from './pages/entry/login-page';
+//import pexel from './assets/pexel.jpg';
+console.log('hello');*/

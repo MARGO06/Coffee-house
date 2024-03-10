@@ -18,7 +18,7 @@
     "brace-style": "error",
     "array-bracket-spacing": ["error", "never"],
     "object-curly-spacing": ["error", "always"],
-    "object-curly-newline": ["error", { "ImportDeclaration": "always", "ExportDeclaration": "never" }],
+    //"object-curly-newline": ["error", { "ImportDeclaration": "always", "ExportDeclaration": "never" }],
     "space-before-blocks": "error",
     "keyword-spacing": ["error", { "before": true }],
     "space-infix-ops": "error",
