@@ -1,0 +1,33 @@
+import './button.css';
+
+export type Btn = {
+  type: string;
+  text: string;
+  name: string;
+};
+
+export const buttonLogin: Btn = {
+  type: 'submit',
+  text: 'Login',
+  name: 'login_button',
+};
+
+export class Button {
+  type: string;
+  text: string;
+  name: string;
+
+  constructor(button: Btn) {
+    this.type = button.type;
+    this.text = button.text;
+    this.name = button.name;
+  }
+
+  createButton() {
+    const button = document.createElement('button');
+    button.setAttribute('type', this.type);
+    button.textContent = this.text;
+    button.className = this.name;
+    return button;
+  }
+}

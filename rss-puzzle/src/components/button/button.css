@@ -1,0 +1,18 @@
+.login_button {
+  font-family: 'Inter';
+  font-size: 1.6rem;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 30px;
+  border: 1px solid rgb(234, 134, 26);
+  background-color: rgb(234, 134, 26);
+}
+
+.login_button:hover {
+  cursor: pointer;
+}
+
+.login_button:active {
+  background-color: rgb(136, 72, 4);
+}

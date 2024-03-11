@@ -1,30 +1,24 @@
-//import { LoginPage } from '../pages/entry/login-page';
+import './form.css';
 
 export type FormElements = {
   tag: string[];
   text: string;
   type: string;
-  value: string;
   id: string;
 };
-
-//type FormLabel = Pick<FormElements, 'tag' | 'text' | 'id'>;
-//type FormInput = Omit<FormElements, 'text'>;
 
 export const form1: FormElements = {
   tag: ['label', 'input'],
   id: 'fname',
   text: 'First name',
   type: 'text',
-  value: ' ',
 };
 
 export const form2: FormElements = {
   tag: ['label', 'input'],
   id: 'lname',
-  text: 'Last name',
+  text: 'Surname',
   type: 'text',
-  value: ' ',
 };
 
 export class LabelInput {
@@ -32,7 +26,6 @@ export class LabelInput {
   tag2: string;
   text: string;
   type: string;
-  value: string;
   id: string;
 
   constructor(label: FormElements) {
@@ -41,7 +34,6 @@ export class LabelInput {
     this.tag2 = input1;
     this.text = label.text;
     this.type = label.type;
-    this.value = label.value;
     this.id = label.id;
   }
 
@@ -56,7 +48,7 @@ export class LabelInput {
     const input = document.createElement(this.tag2);
     input.id = this.id;
     input.setAttribute('type', this.type);
-    input.setAttribute('value', this.value);
+    input.setAttribute('required', '');
     return input;
   }
 }
