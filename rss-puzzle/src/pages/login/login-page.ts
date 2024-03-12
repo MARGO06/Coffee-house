@@ -1,6 +1,5 @@
 import { LabelInput, form1, form2 } from '../../components/form/form';
 import { Button, buttonLogin } from '../../components/button/button';
-import '../../functions/login-pages-action';
 import './login-page.css';
 import login from '../../assets/three.jpg';
 
