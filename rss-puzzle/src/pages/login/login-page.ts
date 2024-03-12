@@ -22,10 +22,12 @@ class LoginPage {
 const firstName = new LabelInput(form1);
 const label1 = firstName.createLabel();
 const input1 = firstName.createInput();
+const requirement1 = firstName.createRequirements();
 
 const lastName = new LabelInput(form2);
 const label2 = lastName.createLabel();
 const input2 = lastName.createInput();
+const requirement2 = lastName.createRequirements();
 
 const wrapper = new LoginPage('login');
 const loginWrap = wrapper.createPage();
@@ -43,8 +45,10 @@ loginContainer.append(form);
 
 form.append(label1);
 form.append(input1);
+form.append(requirement1);
 form.append(label2);
 form.append(input2);
+form.append(requirement2);
 
 const buttonLog = new Button(buttonLogin);
 const loginButton = buttonLog.createButton();
