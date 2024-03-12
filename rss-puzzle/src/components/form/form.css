@@ -11,7 +11,7 @@
   margin: 0 auto;
 }
 
-.login_form label:nth-child(3) {
+.login_form label:nth-child(4) {
   margin-top: 20px;
 }
 
@@ -23,7 +23,6 @@ input[type='text'] {
 }
 
 input[type='text']:focus {
-  border: 3px solid rgb(5, 248, 5);
   outline: none;
 }
 
@@ -31,4 +30,27 @@ label[for='fname'],
 label[for='lname'] {
   color: rgb(213, 215, 216);
   font-size: 1.6rem;
+}
+
+input[type='text']:valid {
+  border: 3px solid rgba(94, 248, 5, 0.884);
+}
+
+input[type='text']:invalid:focus:not(:placeholder-shown) {
+  border: 3px solid rgba(248, 5, 90, 0.884);
+}
+
+input[type='text']:invalid:focus:not(:placeholder-shown) ~ .requirement {
+  max-height: 200px;
+  padding: 0 10px 20px 10px;
+}
+
+.requirement {
+  padding: 0 10px 0 10px;
+  max-height: 0;
+  transition: 0.2s;
+  overflow: hidden;
+  color: rgba(244, 103, 152, 0.884);
+  font-size: 1.2rem;
+  font-style: italic;
 }
