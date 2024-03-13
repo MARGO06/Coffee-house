@@ -1,18 +1,17 @@
 import './button.css';
-
-export type Btn = {
+type Btn = {
   type: string;
   text: string;
   name: string;
 };
 
-export const buttonLogin: Btn = {
+const buttonLogin: Btn = {
   type: 'submit',
   text: 'Login',
   name: 'login_button',
 };
 
-export class Button {
+class Button {
   type: string;
   text: string;
   name: string;
@@ -31,3 +30,5 @@ export class Button {
     return button;
   }
 }
+
+export const buttonLog = new Button(buttonLogin);
