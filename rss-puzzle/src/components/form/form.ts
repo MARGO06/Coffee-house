@@ -14,7 +14,7 @@ export const form1: FormElements = {
   id: 'fname',
   text: 'First name',
   type: 'text',
-  pattern: '(^[A-Z]).{1}(?=.*[a-z\\-]).{1,}',
+  pattern: '(^[A-Z][a-z\\-]{2,}$)',
   requirement: "The first letter is in uppercase, min length is 3 characters, use english letters and '-'",
 };
 
@@ -23,11 +23,11 @@ export const form2: FormElements = {
   id: 'lname',
   text: 'Surname',
   type: 'text',
-  pattern: '(^[A-Z]).{1}(?=.*[a-z\\-]).{2,}',
+  pattern: '(^[A-Z][a-z\\-]{3,}$)',
   requirement: "The first letter is in uppercase, min length is 4 characters, use english letters and '-'",
 };
 
-export class LabelInput {
+class LabelInput {
   tag1: string;
   tag2: string;
   text: string;
@@ -71,3 +71,15 @@ export class LabelInput {
     return requir;
   }
 }
+
+const firstName = new LabelInput(form1);
+const label1 = firstName.createLabel();
+const input1 = firstName.createInput();
+const requirement1 = firstName.createRequirements();
+
+const lastName = new LabelInput(form2);
+const label2 = lastName.createLabel();
+const input2 = lastName.createInput();
+const requirement2 = lastName.createRequirements();
+
+export { label1, input1, requirement1, label2, input2, requirement2 };
