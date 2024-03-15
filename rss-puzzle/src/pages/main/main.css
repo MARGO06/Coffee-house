@@ -1,12 +1,38 @@
+#main_wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 .main_description {
-  padding: 280px 0;
+  padding: 120px 0;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.main_text {
+.main_text,
+.main_greetings {
   font-size: 2.4rem;
-  color: rgb(213, 215, 216);
-  line-height: 5rem;
   width: 60%;
   margin: 0 auto;
+}
+
+.main_greetings {
+  animation: text 5s ease-in infinite;
+  color: rgb(139, 30, 127);
+  text-align: center;
+  font-weight: bold;
+}
+
+.main_text {
+  color: rgb(213, 215, 216);
+  line-height: 5rem;
+  margin-top: 30px;
+}
+
+@keyframes text {
+  from {
+    color: rgb(221, 34, 199);
+  }
+  to {
+    color: rgb(139, 30, 127);
+  }
 }
