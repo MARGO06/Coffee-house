@@ -1,13 +1,16 @@
 import { LoginPage } from './login/login-page';
 import { MainPage } from './main/main-page';
+import { PlayPage } from './play/play';
 
 export class AllPages {
   loginWrapper: LoginPage;
   mainWrapper: MainPage;
+  playWrapper: PlayPage;
 
   constructor() {
     this.loginWrapper = new LoginPage('login');
     this.mainWrapper = new MainPage('main_wrapper');
+    this.playWrapper = new PlayPage('play_wrapper');
   }
 
   createLogin() {
@@ -29,6 +32,7 @@ export class AllPages {
           document.body.innerHTML = '';
           this.mainWrapper.createPage();
           this.changePages();
+          this.transitionToGame();
         }
       });
     }
@@ -43,6 +47,22 @@ export class AllPages {
         document.body.innerHTML = '';
         this.createLogin();
         this.createMain();
+      });
+    }
+  }
+
+  private createPlayPage() {
+    document.body.innerHTML = '';
+    this.playWrapper.createPage();
+    window.location.hash = 'play_wrapper';
+  }
+
+  private transitionToGame() {
+    const button = document.querySelector('.start_button') as HTMLElement;
+    if (button != null) {
+      button.addEventListener('click', (e: Event) => {
+        e.preventDefault();
+        this.createPlayPage();
       });
     }
   }

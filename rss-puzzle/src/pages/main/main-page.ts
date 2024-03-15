@@ -1,4 +1,5 @@
 import { Header } from '../../components/header/header';
+import { buttonStart } from '../../components/button/button';
 import login from '../../assets/three.jpg';
 import './main.css';
 
@@ -31,6 +32,8 @@ export class MainPage {
     text.textContent =
       'You will have an exciting journey into the world of learning English. You will be presented with 6 levels of the game, starting with the first (easy) level. Each level has 10 rounds.You need to collect the painting in 10 rounds. To assemble a picture you need to make sentences from English words that will be presented to you.You can also use the hints if you have any doubts about writing sentences.';
     description.append(text);
+    const startButton = buttonStart.createButton();
+    description.append(startButton);
     window.location.hash = 'main_wrapper';
     return mainWrapper;
   }
