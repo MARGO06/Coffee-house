@@ -17,6 +17,12 @@ const buttonLogout: Btn = {
   name: 'logout_button',
 };
 
+const buttonSt: Btn = {
+  type: 'button',
+  text: 'Start',
+  name: 'start_button',
+};
+
 class Button {
   type: string;
   text: string;
@@ -39,3 +45,4 @@ class Button {
 
 export const buttonLog = new Button(buttonLogin);
 export const buttonOut = new Button(buttonLogout);
+export const buttonStart = new Button(buttonSt);
