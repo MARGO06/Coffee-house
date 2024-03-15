@@ -25,6 +25,7 @@ export class LoginPage {
 
     const form = document.createElement('form');
     form.className = 'login_form';
+    form.action = '#';
     loginContainer.append(form);
 
     form.append(label1);
@@ -36,9 +37,6 @@ export class LoginPage {
 
     const loginButton = buttonLog.createButton();
     form.append(loginButton);
-
-    location.hash = 'login';
-    console.log('kkk');
     return loginWrapper;
   }
 }

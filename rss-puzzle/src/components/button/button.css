@@ -1,7 +1,11 @@
 .login_button {
+  width: 50%;
+}
+
+.login_button,
+.logout_button {
   font-family: 'Inter';
   font-size: 1.6rem;
-  width: 50%;
   margin: 0 auto;
   margin-top: 30px;
   height: 30px;
@@ -9,10 +13,18 @@
   background-color: rgb(234, 134, 26);
 }
 
-.login_button:hover {
+.logout_button {
+  width: 10%;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.login_button:hover,
+.logout_button:hover {
   cursor: pointer;
 }
 
-.login_button:active {
+.login_button:active,
+.logout_button:active {
   background-color: rgb(136, 72, 4);
 }
