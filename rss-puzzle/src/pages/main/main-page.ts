@@ -22,6 +22,10 @@ export class MainPage {
     const description = document.createElement('div');
     description.className = 'main_description';
     mainWrapper.append(description);
+    const greetings = document.createElement('p');
+    greetings.className = 'main_greetings';
+    greetings.textContent = `Welcome ${this.showNames()}`;
+    description.append(greetings);
     const text = document.createElement('p');
     text.className = 'main_text';
     text.textContent =
@@ -29,5 +33,11 @@ export class MainPage {
     description.append(text);
     window.location.hash = 'main_wrapper';
     return mainWrapper;
+  }
+
+  private showNames() {
+    const firstName = localStorage.getItem('first name');
+    const surname = localStorage.getItem('surname');
+    return `${firstName} ${surname}`;
   }
 }
