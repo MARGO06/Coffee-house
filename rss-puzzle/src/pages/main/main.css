@@ -1,0 +1,12 @@
+.main_description {
+  padding: 280px 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.main_text {
+  font-size: 2.4rem;
+  color: rgb(213, 215, 216);
+  line-height: 5rem;
+  width: 60%;
+  margin: 0 auto;
+}
