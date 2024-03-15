@@ -1,14 +1,19 @@
 //import { firstLevel } from '../interfaces/level_1';
+import './div.css';
 
 export const divRows: string[] = Array.from({ length: 10 });
 
 export class DivCards {
   tag: string;
   row: string[];
+  min: number;
+  max: number;
 
-  constructor(rows: string[]) {
+  constructor(rows: string[], max: number) {
     this.tag = 'div';
     this.row = rows;
+    this.min = 0;
+    this.max = max;
   }
 
   createMainDiv() {
@@ -16,7 +21,7 @@ export class DivCards {
     divWrapper.className = 'game_wrapper';
     for (let i = 0; i < this.row.length; i++) {
       const divRow = document.createElement(this.row[i]);
-      divRow.className = `row${i}`;
+      divRow.className = `game_row${i}`;
       divWrapper.append(divRow);
     }
     return divWrapper;

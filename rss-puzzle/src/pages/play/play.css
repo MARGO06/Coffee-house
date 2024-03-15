@@ -1,0 +1,25 @@
+.play_wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.game_container {
+  margin: 100px 0;
+  width: 90%;
+}
+
+.game_sentence {
+  display: flex;
+  width: 50%;
+  border: 1px solid rgb(6, 77, 6);
+  height: 38px;
+  margin: 0 auto;
+}
+
+.data_column {
+  font-size: 1.6rem;
+  width: 100%;
+  border: 1px solid green;
+  text-align: center;
+  padding: 7px 0;
+}

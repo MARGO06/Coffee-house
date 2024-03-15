@@ -1,0 +1,11 @@
+.game_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid rgb(6, 77, 6);
+  margin: 50px auto;
+}
+
+.game_wrapper div {
+  height: 30px;
+}
