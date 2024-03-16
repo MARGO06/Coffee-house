@@ -1,0 +1,46 @@
+.play_wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.game_container {
+  margin: 100px 0;
+  width: 90%;
+}
+
+.game_sentence {
+  display: flex;
+  width: 50%;
+  border: 1px solid rgb(139, 30, 127);
+  height: 38px;
+  margin: 0 auto;
+}
+
+.data_column,
+.column {
+  font-size: 1.6rem;
+  width: 100%;
+  border: 1px solid rgb(139, 30, 127);
+  background-color: rgb(97, 9, 53);
+  color: rgb(213, 215, 216);
+  text-align: center;
+  padding: 7px 0;
+}
+
+.data_column {
+  transition: 1s;
+}
+
+.data_column:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: rgb(139, 30, 127);
+}
+
+.data_column.hidden {
+  display: none;
+}
+
+.game_row {
+  display: flex;
+}
