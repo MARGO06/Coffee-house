@@ -31,9 +31,14 @@
 }
 
 .data_column:hover {
-  cursor: pointer;
   transform: scale(1.1);
+}
+
+.data_column:hover,
+.column:hover {
+  cursor: pointer;
   background-color: rgb(139, 30, 127);
+  transition-duration: 2s;
 }
 
 .data_column.hidden {
