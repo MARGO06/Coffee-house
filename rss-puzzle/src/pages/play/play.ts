@@ -33,8 +33,8 @@ export class PlayPage {
         divSentence.append(columnDiv);
         this.changeSizeSource();
       }
-      this.clickWord();
     }
+    this.clickWord();
     return playWrapper;
   }
 
@@ -59,28 +59,25 @@ export class PlayPage {
   }
 
   clickWord() {
-    const sentence = document.querySelectorAll('.data_column');
-    const gameContainer = document.querySelectorAll('.game_wrapper div');
-    if (sentence != null && gameContainer != null) {
+    const game = document.querySelector('.game_sentence') as HTMLElement;
+    const gameContainer = document.querySelectorAll('.game_row');
+    if (gameContainer != null && game != null) {
       for (let j = 0; j < gameContainer.length; j += 1) {
-        for (let i = 0; i < sentence.length; i += 1) {
-          sentence[i].addEventListener('click', (e: Event) => {
-            e.preventDefault();
-            if (j === 0) {
-              console.log(gameContainer[j]);
-              sentence[i].classList.add('hidden');
-              const element = (sentence[i] as HTMLElement).dataset.parent;
-              const column = document.createElement('div');
-              column.setAttribute('data-parent', `${element}`);
-              column.className = 'column';
-              column.textContent = `${element}`;
-              gameContainer[j].append(column);
-            }
+        game.addEventListener('click', (e) => {
+          if (j === 0 && e.target instanceof HTMLElement) {
+            e.target.remove();
+            const element = (e.target as HTMLElement).dataset.parent;
+            const column = document.createElement('div');
+            column.setAttribute('data-parent', `${element}`);
+            column.className = 'column';
+            column.textContent = `${element}`;
+            gameContainer[j].append(column);
             this.changeSizeResult();
-          });
-        }
+          }
+        });
       }
     }
+    this.clickWordCards();
   }
 
   private changeSizeSource() {
@@ -110,9 +107,27 @@ export class PlayPage {
           const elementLength = (element.length * 100) / allLength;
           const part = partsResult[i] as HTMLElement;
           part.style.width = `${elementLength}%`;
-          console.log(partsResult[i]);
         }
       }
+    }
+  }
+
+  clickWordCards() {
+    const game = document.querySelector('.game_sentence') as HTMLElement;
+    const gameContainer = document.querySelectorAll('.game_row');
+    for (let i = 0; i < gameContainer.length; i += 1) {
+      gameContainer[i].addEventListener('click', (e) => {
+        if (i === 0 && e.target instanceof HTMLElement) {
+          e.target.remove();
+          const element = (e.target as HTMLElement).dataset.parent;
+          const column = document.createElement('div');
+          column.setAttribute('data-parent', `${element}`);
+          column.className = 'data_column';
+          column.textContent = `${element}`;
+          game.append(column);
+          this.changeSizeSource();
+        }
+      });
     }
   }
 }
