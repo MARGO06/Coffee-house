@@ -28,11 +28,12 @@ export class PlayPage {
       for (let i = 0; i < partSentence.length; i += 1) {
         const columnDiv = document.createElement('div');
         columnDiv.className = 'data_column';
+        columnDiv.setAttribute('data-parent', `${partSentence[i]}`);
         columnDiv.textContent = `${partSentence[i]}`;
         divSentence.append(columnDiv);
       }
+      this.clickWord();
     }
-
     return playWrapper;
   }
 
@@ -54,6 +55,30 @@ export class PlayPage {
     if (sentence != undefined) {
       const mixSentence = sentence.sort(() => Math.random() - 0.5);
       return mixSentence;
+    }
+  }
+
+  clickWord() {
+    const sentence = document.querySelectorAll('.data_column');
+    const gameContainer = document.querySelectorAll('.game_wrapper div');
+    if (sentence != null && gameContainer != null) {
+      console.log(gameContainer);
+      for (let j = 0; j < gameContainer.length; j += 1) {
+        for (let i = 0; i < sentence.length; i += 1) {
+          sentence[i].addEventListener('click', (e: Event) => {
+            e.preventDefault();
+            if (j === 0) {
+              console.log(gameContainer[j]);
+              sentence[i].classList.add('hidden');
+              const element = (sentence[i] as HTMLElement).dataset.parent;
+              const column = document.createElement('div');
+              column.className = 'column';
+              column.textContent = `${element}`;
+              gameContainer[j].append(column);
+            }
+          });
+        }
+      }
     }
   }
 }

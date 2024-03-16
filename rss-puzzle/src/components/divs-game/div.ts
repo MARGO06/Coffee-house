@@ -21,7 +21,7 @@ export class DivCards {
     divWrapper.className = 'game_wrapper';
     for (let i = 0; i < this.row.length; i++) {
       const divRow = document.createElement(this.row[i]);
-      divRow.className = `game_row${i}`;
+      divRow.className = 'game_row';
       divWrapper.append(divRow);
     }
     return divWrapper;
