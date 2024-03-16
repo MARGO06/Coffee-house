@@ -19,7 +19,6 @@
 .data_column,
 .column {
   font-size: 1.6rem;
-  width: 100%;
   border: 1px solid rgb(139, 30, 127);
   background-color: rgb(97, 9, 53);
   color: rgb(213, 215, 216);

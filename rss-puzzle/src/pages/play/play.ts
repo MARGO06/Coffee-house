@@ -31,6 +31,7 @@ export class PlayPage {
         columnDiv.setAttribute('data-parent', `${partSentence[i]}`);
         columnDiv.textContent = `${partSentence[i]}`;
         divSentence.append(columnDiv);
+        this.changeSizeSource();
       }
       this.clickWord();
     }
@@ -44,7 +45,6 @@ export class PlayPage {
       for (let j = 0; j < round.words.length; j += 1) {
         const sentences = round.words[j];
         sentence = sentences.textExample;
-        console.log(sentence);
         return sentence;
       }
     }
@@ -62,7 +62,6 @@ export class PlayPage {
     const sentence = document.querySelectorAll('.data_column');
     const gameContainer = document.querySelectorAll('.game_wrapper div');
     if (sentence != null && gameContainer != null) {
-      console.log(gameContainer);
       for (let j = 0; j < gameContainer.length; j += 1) {
         for (let i = 0; i < sentence.length; i += 1) {
           sentence[i].addEventListener('click', (e: Event) => {
@@ -72,11 +71,46 @@ export class PlayPage {
               sentence[i].classList.add('hidden');
               const element = (sentence[i] as HTMLElement).dataset.parent;
               const column = document.createElement('div');
+              column.setAttribute('data-parent', `${element}`);
               column.className = 'column';
               column.textContent = `${element}`;
               gameContainer[j].append(column);
             }
+            this.changeSizeResult();
           });
+        }
+      }
+    }
+  }
+
+  private changeSizeSource() {
+    const sentence = this.splitSentence();
+    const allLength = sentence?.join('').length;
+    const partsSource = document.querySelectorAll('.data_column');
+    if (partsSource != null) {
+      for (let i = 0; i < partsSource.length; i += 1) {
+        const element = (partsSource[i] as HTMLElement).dataset.parent;
+        if (element != undefined && allLength != undefined) {
+          const elementLength = (element.length * 100) / allLength;
+          const part = partsSource[i] as HTMLElement;
+          part.style.width = `${elementLength}%`;
+        }
+      }
+    }
+  }
+
+  private changeSizeResult() {
+    const sentence = this.splitSentence();
+    const allLength = sentence?.join('').length;
+    const partsResult = document.querySelectorAll('.column');
+    if (partsResult != null) {
+      for (let i = 0; i < partsResult.length; i += 1) {
+        const element = (partsResult[i] as HTMLElement).dataset.parent;
+        if (element != undefined && allLength != undefined) {
+          const elementLength = (element.length * 100) / allLength;
+          const part = partsResult[i] as HTMLElement;
+          part.style.width = `${elementLength}%`;
+          console.log(partsResult[i]);
         }
       }
     }
