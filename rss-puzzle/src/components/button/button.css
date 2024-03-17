@@ -4,7 +4,8 @@
 
 .login_button,
 .logout_button,
-.start_button {
+.start_button,
+.continue_button {
   display: block;
   font-family: 'Inter';
   font-size: 1.6rem;
@@ -47,4 +48,11 @@
 .logout_button:hover,
 .start_button:hover {
   cursor: pointer;
+}
+
+.continue_button {
+  background-color: rgb(97, 9, 53);
+  color: rgb(213, 215, 216);
+  margin: 30px auto;
+  width: 10%;
 }

@@ -1,5 +1,6 @@
 import { firstLevel } from '../../components/interfaces/level_1';
 import { DivCards, divRows } from '../../components/divs-game/div';
+import { buttonContinue } from '../../components/button/button';
 
 import './play.css';
 
@@ -34,6 +35,9 @@ export class PlayPage {
         this.changeSizeSource();
       }
     }
+    const continueButton = buttonContinue.createButton();
+    continueButton.setAttribute('disabled', 'true');
+    divContainer.append(continueButton);
     this.clickWord();
     return playWrapper;
   }
@@ -58,7 +62,7 @@ export class PlayPage {
     }
   }
 
-  clickWord() {
+  private clickWord() {
     const game = document.querySelector('.game_sentence') as HTMLElement;
     const gameContainer = document.querySelectorAll('.game_row');
     if (gameContainer != null && game != null) {
@@ -73,6 +77,7 @@ export class PlayPage {
             column.textContent = `${element}`;
             gameContainer[j].append(column);
             this.changeSizeResult();
+            this.checkSentence();
           }
         });
       }
@@ -112,7 +117,7 @@ export class PlayPage {
     }
   }
 
-  clickWordCards() {
+  private clickWordCards() {
     const game = document.querySelector('.game_sentence') as HTMLElement;
     const gameContainer = document.querySelectorAll('.game_row');
     for (let i = 0; i < gameContainer.length; i += 1) {
@@ -128,6 +133,27 @@ export class PlayPage {
           this.changeSizeSource();
         }
       });
+    }
+  }
+
+  checkSentence() {
+    const rightSentence = this.showSentence();
+    const gameContainer = document.querySelectorAll('.game_row');
+    const elements = document.querySelectorAll('.column');
+    const resultSentence: string[] = [];
+    for (let i = 0; i < gameContainer.length; i += 1) {
+      if (i === 0) {
+        console.log(elements);
+        for (let j = 0; j < elements.length; j += 1) {
+          const element = (elements[j] as HTMLElement).innerHTML;
+          resultSentence.push(element);
+        }
+        const sentence = resultSentence.join(' ');
+        if (sentence.length === rightSentence?.length) {
+          const result = sentence === rightSentence ? 'true' : 'false';
+          console.log(result);
+        }
+      }
     }
   }
 }
