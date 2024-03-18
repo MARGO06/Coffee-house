@@ -58,3 +58,8 @@
 .game_row {
   display: flex;
 }
+
+.column.active {
+  background-color: rgb(245, 62, 62);
+  transition-duration: 2s;
+}

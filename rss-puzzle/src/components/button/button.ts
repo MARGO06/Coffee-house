@@ -29,6 +29,12 @@ const buttonCont: Btn = {
   name: 'continue_button',
 };
 
+const buttonCheck: Btn = {
+  type: 'button',
+  text: 'Check',
+  name: 'check_button',
+};
+
 class Button {
   type: string;
   text: string;
@@ -53,3 +59,4 @@ export const buttonLog = new Button(buttonLogin);
 export const buttonOut = new Button(buttonLogout);
 export const buttonStart = new Button(buttonSt);
 export const buttonContinue = new Button(buttonCont);
+export const checkButton = new Button(buttonCheck);
