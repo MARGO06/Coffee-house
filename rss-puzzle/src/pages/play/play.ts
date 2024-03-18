@@ -1,6 +1,6 @@
 import { firstLevel } from '../../components/interfaces/level_1';
 import { DivCards, divRows } from '../../components/divs-game/div';
-import { buttonContinue } from '../../components/button/button';
+import { buttonContinue, checkButton } from '../../components/button/button';
 
 import './play.css';
 
@@ -27,6 +27,9 @@ export class PlayPage {
     const continueButton = buttonContinue.createButton();
     continueButton.setAttribute('disabled', 'true');
     divContainer.append(continueButton);
+    const buttonCheck = checkButton.createButton();
+    buttonCheck.setAttribute('disabled', 'true');
+    divContainer.append(buttonCheck);
     const partSentence = this.showSplitSentence();
     if (partSentence != undefined) {
       for (let i = 0; i < partSentence.length; i += 1) {
@@ -207,7 +210,7 @@ export class PlayPage {
             }
             const sentence = resultSentence.join(' ');
             if (sentence.length === rightSentence?.length) {
-              const result = sentence === rightSentence ? this.showNextSentence() : 'false';
+              const result = sentence === rightSentence ? this.showNextSentence() : this.showIncorrectWords();
               return result;
             }
           }
@@ -242,6 +245,37 @@ export class PlayPage {
       }
       continueButton.setAttribute('disabled', 'true');
       continueButton?.classList.remove('active');
+    });
+  }
+
+  showIncorrectWords() {
+    const elements = document.querySelectorAll('.column');
+    const checkButton = document.querySelector('.check_button');
+    const rightSentences = this.showSentences();
+    checkButton?.removeAttribute('disabled');
+    checkButton?.classList.add('active');
+    const resultSentence: string[] = [];
+    checkButton?.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      if (rightSentences != undefined) {
+        for (let j = 0; j < elements.length; j += 1) {
+          const element = (elements[j] as HTMLElement).innerHTML;
+          resultSentence.push(element);
+          const oneSentence = rightSentences[0].split(' ');
+          for (let i = 0; i < oneSentence.length; i += 1) {
+            for (let k = 0; k < resultSentence.length; k += 1) {
+              if (k === i && oneSentence[i] !== resultSentence[k]) {
+                elements[j].classList.add('active');
+                console.log(element);
+                console.log(resultSentence[k]);
+              }
+            }
+          }
+          console.log(resultSentence);
+          console.log(oneSentence);
+        }
+      }
+      //console.log(gameContainer);
     });
   }
 }

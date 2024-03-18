@@ -5,7 +5,8 @@
 .login_button,
 .logout_button,
 .start_button,
-.continue_button {
+.continue_button,
+.check_button {
   display: block;
   font-family: 'Inter';
   font-size: 1.6rem;
@@ -50,14 +51,16 @@
   cursor: pointer;
 }
 
-.continue_button {
+.continue_button,
+.check_button {
   background-color: rgb(97, 9, 53);
   color: rgb(213, 215, 216);
   margin: 30px auto;
   width: 10%;
 }
 
-.continue_button.active:hover {
+.continue_button.active:hover,
+.check_button.active:hover {
   transition-duration: 2s;
   background-color: rgb(221, 34, 199);
   cursor: pointer;
