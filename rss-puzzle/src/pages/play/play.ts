@@ -1,5 +1,6 @@
 import { firstLevel } from '../../components/interfaces/level_1';
 import { DivCards, divRows } from '../../components/divs-game/div';
+import { buttonContinue } from '../../components/button/button';
 
 import './play.css';
 
@@ -23,111 +24,224 @@ export class PlayPage {
     const divSentence = document.createElement('div');
     divSentence.className = 'game_sentence';
     divContainer.append(divSentence);
-    const partSentence = this.splitSentence();
+    const continueButton = buttonContinue.createButton();
+    continueButton.setAttribute('disabled', 'true');
+    divContainer.append(continueButton);
+    const partSentence = this.showSplitSentence();
     if (partSentence != undefined) {
       for (let i = 0; i < partSentence.length; i += 1) {
         const columnDiv = document.createElement('div');
-        columnDiv.className = 'data_column';
-        columnDiv.setAttribute('data-parent', `${partSentence[i]}`);
-        columnDiv.textContent = `${partSentence[i]}`;
+        columnDiv.className = 'data_container';
         divSentence.append(columnDiv);
+        const parts = partSentence[i].split(' ');
+        for (let j = 0; j < parts.length; j += 1) {
+          const columnPart = document.createElement('div');
+          columnPart.className = `data_column data_sentence${i}`;
+          columnPart.setAttribute('data-parent', `${parts[j]}`);
+          columnPart.textContent = `${parts[j]}`;
+          columnDiv.append(columnPart);
+        }
         this.changeSizeSource();
       }
     }
     this.clickWord();
+    this.checkSentence();
     return playWrapper;
   }
 
-  private showSentence() {
-    let sentence = '';
+  private showSentences() {
     for (let i = 0; i < firstLevel.rounds.length; i += 1) {
-      const round = firstLevel.rounds[i];
-      for (let j = 0; j < round.words.length; j += 1) {
-        const sentences = round.words[j];
-        sentence = sentences.textExample;
-        return sentence;
+      if (firstLevel.rounds[i].levelData.id === `1_01`) {
+        const allSentence: string[] = [];
+        const round = firstLevel.rounds[0];
+        for (let j = 0; j < round.words.length; j += 1) {
+          const sentences = round.words[j].textExample;
+          allSentence.push(sentences);
+        }
+        return allSentence;
       }
     }
   }
 
-  private splitSentence() {
-    const sentence = this.showSentence()?.split(' ');
+  private splitSentences() {
+    const sentence = this.showSentences();
+    const mixSentences: string[] = [];
     if (sentence != undefined) {
-      const mixSentence = sentence.sort(() => Math.random() - 0.5);
-      return mixSentence;
+      for (let i = 0; i < sentence.length; i += 1) {
+        const newSentence = sentence[i].split(' ');
+        const mixSentence = newSentence.sort(() => Math.random() - 0.5);
+        mixSentences.push(mixSentence.join(' '));
+      }
+      return mixSentences;
     }
   }
 
-  clickWord() {
+  private showSentence() {
+    const sentence = this.showSentences();
+    if (sentence != undefined) {
+      console.log(sentence);
+      return sentence[0];
+    }
+  }
+
+  private showSplitSentence() {
+    const sentence = this.splitSentences();
+    const result: string[] = [];
+    if (sentence != undefined) {
+      for (let i = 0; i < sentence?.length; i += 1) {
+        result.push(sentence[i]);
+      }
+    }
+    return result;
+  }
+
+  private clickWord() {
     const game = document.querySelector('.game_sentence') as HTMLElement;
     const gameContainer = document.querySelectorAll('.game_row');
+    const dataContainer = document.querySelectorAll('.data_container');
     if (gameContainer != null && game != null) {
       for (let j = 0; j < gameContainer.length; j += 1) {
-        game.addEventListener('click', (e) => {
-          if (j === 0 && e.target instanceof HTMLElement) {
-            e.target.remove();
-            const element = (e.target as HTMLElement).dataset.parent;
-            const column = document.createElement('div');
-            column.setAttribute('data-parent', `${element}`);
-            column.className = 'column';
-            column.textContent = `${element}`;
-            gameContainer[j].append(column);
-            this.changeSizeResult();
-          }
-        });
+        for (let i = 0; i < dataContainer.length; i += 1) {
+          game.addEventListener('click', (e) => {
+            if (i === j && e.target instanceof HTMLElement && gameContainer[j].classList.contains('active')) {
+              e.target.remove();
+              const element = (e.target as HTMLElement).dataset.parent;
+              const column = document.createElement('div');
+              column.setAttribute('data-parent', `${element}`);
+              column.className = 'column';
+              column.textContent = `${element}`;
+              gameContainer[j].append(column);
+              this.changeSizeResult();
+              this.checkSentence();
+            }
+          });
+        }
       }
     }
     this.clickWordCards();
   }
 
   private changeSizeSource() {
-    const sentence = this.splitSentence();
-    const allLength = sentence?.join('').length;
-    const partsSource = document.querySelectorAll('.data_column');
-    if (partsSource != null) {
+    const sentence = this.showSentences();
+    const partsSource = document.querySelectorAll('.data_container');
+    if (partsSource != null && sentence != null) {
       for (let i = 0; i < partsSource.length; i += 1) {
-        const element = (partsSource[i] as HTMLElement).dataset.parent;
-        if (element != undefined && allLength != undefined) {
-          const elementLength = (element.length * 100) / allLength;
-          const part = partsSource[i] as HTMLElement;
-          part.style.width = `${elementLength}%`;
+        for (let k = 0; k < sentence.length; k += 1) {
+          if (i === k) {
+            const oneSentence = sentence[k].split(' ').join('').length;
+            const parts = document.querySelectorAll(`.data_sentence${i}`);
+            for (let j = 0; j < parts.length; j += 1) {
+              const element = (parts[j] as HTMLElement).dataset.parent;
+              if (element != undefined && oneSentence != undefined) {
+                const elementLength = (element.length * 100) / oneSentence;
+                const part = parts[j] as HTMLElement;
+                part.style.width = `${elementLength}%`;
+              }
+            }
+          }
         }
       }
     }
   }
 
   private changeSizeResult() {
-    const sentence = this.splitSentence();
-    const allLength = sentence?.join('').length;
+    const sentence = this.showSplitSentence();
     const partsResult = document.querySelectorAll('.column');
+    const rows = document.querySelectorAll('.game_row');
     if (partsResult != null) {
-      for (let i = 0; i < partsResult.length; i += 1) {
-        const element = (partsResult[i] as HTMLElement).dataset.parent;
-        if (element != undefined && allLength != undefined) {
-          const elementLength = (element.length * 100) / allLength;
-          const part = partsResult[i] as HTMLElement;
-          part.style.width = `${elementLength}%`;
+      for (let j = 0; j < sentence.length; j += 1) {
+        for (let k = 0; k < rows.length; k += 1) {
+          if (j === k && rows[k].classList.contains('active')) {
+            const oneSentence = sentence[j].split(' ').join('').length;
+            for (let i = 0; i < partsResult.length; i += 1) {
+              const element = (partsResult[i] as HTMLElement).dataset.parent;
+              if (element != undefined && oneSentence != undefined) {
+                const elementLength = (element.length * 100) / oneSentence;
+                const part = partsResult[i] as HTMLElement;
+                part.style.width = `${elementLength}%`;
+              }
+            }
+          }
         }
       }
     }
   }
 
-  clickWordCards() {
-    const game = document.querySelector('.game_sentence') as HTMLElement;
+  private clickWordCards() {
+    const game = document.querySelectorAll('.data_container');
     const gameContainer = document.querySelectorAll('.game_row');
     for (let i = 0; i < gameContainer.length; i += 1) {
-      gameContainer[i].addEventListener('click', (e) => {
-        if (i === 0 && e.target instanceof HTMLElement) {
-          e.target.remove();
-          const element = (e.target as HTMLElement).dataset.parent;
-          const column = document.createElement('div');
-          column.setAttribute('data-parent', `${element}`);
-          column.className = 'data_column';
-          column.textContent = `${element}`;
-          game.append(column);
+      for (let j = 0; j < game.length; j += 1) {
+        if (i === j && gameContainer[i].classList.contains('active')) {
+          console.log(gameContainer[i]);
+          gameContainer[i].addEventListener('click', (e) => {
+            if (e.target instanceof HTMLElement) {
+              e.target.remove();
+              const element = (e.target as HTMLElement).dataset.parent;
+              const column = document.createElement('div');
+              column.setAttribute('data-parent', `${element}`);
+              column.className = `data_column data_sentence${i}`;
+              column.textContent = `${element}`;
+              game[j].append(column);
+              this.changeSizeSource();
+            }
+          });
+        }
+      }
+    }
+  }
+
+  checkSentence() {
+    const rightSentences = this.showSentences();
+    const gameContainer = document.querySelectorAll('.game_row');
+    const elements = document.querySelectorAll('.column');
+    const resultSentence: string[] = [];
+    if (rightSentences != undefined) {
+      for (let i = 0; i < gameContainer.length; i += 1) {
+        for (let k = 0; k < rightSentences.length; k += 1) {
+          if (i === k && gameContainer[i].classList.contains('active')) {
+            const rightSentence = rightSentences[k];
+            for (let j = 0; j < elements.length; j += 1) {
+              const element = (elements[j] as HTMLElement).innerHTML;
+              resultSentence.push(element);
+            }
+            const sentence = resultSentence.join(' ');
+            if (sentence.length === rightSentence?.length) {
+              const result = sentence === rightSentence ? this.showNextSentence() : 'false';
+              return result;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  showNextSentence() {
+    const continueButton = document.querySelector('.continue_button');
+    const gameContainer = document.querySelectorAll('.game_row');
+    const game = document.querySelectorAll('.data_container');
+    continueButton?.removeAttribute('disabled');
+    continueButton?.classList.add('active');
+    let count: number = 0;
+    continueButton?.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      count += 1;
+      for (let i = 0; i < game.length; i += 1) {
+        for (let j = 0; j < gameContainer.length; j += 1) {
+          if (count === i && count === j) {
+            const minus = count - 1;
+            (game[minus] as HTMLElement).style.display = 'none';
+            (game[i] as HTMLElement).style.display = 'flex';
+            gameContainer[minus].classList.remove('active');
+            gameContainer[j].classList.add('active');
+            this.checkSentence();
+            this.clickWordCards();
+          }
           this.changeSizeSource();
         }
-      });
-    }
+      }
+      continueButton.setAttribute('disabled', 'true');
+      continueButton?.classList.remove('active');
+    });
   }
 }
