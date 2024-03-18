@@ -2,3 +2,33 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+
+@media (max-width: 1440px) {
+  #login {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #login {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #login {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 900px) {
+  #login {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 760px) {
+  #login {
+    max-width: 740px;
+  }
+}

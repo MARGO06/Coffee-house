@@ -63,3 +63,33 @@
   background-color: rgb(245, 62, 62);
   transition-duration: 2s;
 }
+
+@media (max-width: 1440px) {
+  .game_sentence {
+    width: 57%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .game_sentence {
+    width: 62%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .game_sentence {
+    width: 69%;
+  }
+}
+
+@media (max-width: 900px) {
+  .game_sentence {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 760px) {
+  .game_sentence {
+    width: 80%;
+  }
+}

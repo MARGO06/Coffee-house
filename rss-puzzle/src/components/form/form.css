@@ -54,3 +54,33 @@ input[type='text']:invalid:focus:not(:placeholder-shown) ~ .requirement {
   font-size: 1.2rem;
   font-style: italic;
 }
+
+@media (max-width: 1440px) {
+  .login_form {
+    width: 25%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .login_form {
+    width: 30%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .login_form {
+    width: 35%;
+  }
+}
+
+@media (max-width: 900px) {
+  .login_form {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 760px) {
+  .login_form {
+    width: 42%;
+  }
+}

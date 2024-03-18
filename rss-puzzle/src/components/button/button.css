@@ -65,3 +65,48 @@
   background-color: rgb(221, 34, 199);
   cursor: pointer;
 }
+
+@media (max-width: 1440px) {
+  .start_button,
+  .logout_button,
+  .continue_button,
+  .check_button {
+    width: 12%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .start_button,
+  .logout_button,
+  .continue_button,
+  .check_button {
+    width: 14%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .start_button,
+  .logout_button,
+  .continue_button,
+  .check_button {
+    width: 16%;
+  }
+}
+
+@media (max-width: 900px) {
+  .start_button,
+  .logout_button,
+  .continue_button,
+  .check_button {
+    max-width: 18%;
+  }
+}
+
+@media (max-width: 760px) {
+  .login_form,
+  .logout_button,
+  .continue_button,
+  .check_button {
+    width: 21%;
+  }
+}
