@@ -9,3 +9,33 @@
 .game_wrapper div {
   height: 30px;
 }
+
+@media (max-width: 1440px) {
+  .game_wrapper {
+    width: 57%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .game_wrapper {
+    width: 62%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .game_wrapper {
+    width: 69%;
+  }
+}
+
+@media (max-width: 900px) {
+  .game_wrapper {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 760px) {
+  .game_wrapper {
+    width: 80%;
+  }
+}

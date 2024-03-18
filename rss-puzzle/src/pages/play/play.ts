@@ -266,16 +266,11 @@ export class PlayPage {
             for (let k = 0; k < resultSentence.length; k += 1) {
               if (k === i && oneSentence[i] !== resultSentence[k]) {
                 elements[j].classList.add('active');
-                console.log(element);
-                console.log(resultSentence[k]);
               }
             }
           }
-          console.log(resultSentence);
-          console.log(oneSentence);
         }
       }
-      //console.log(gameContainer);
     });
   }
 }
