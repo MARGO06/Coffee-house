@@ -9,9 +9,15 @@
 }
 
 .game_sentence {
-  display: flex;
   width: 50%;
   border: 1px solid rgb(139, 30, 127);
+  height: 38px;
+  margin: 0 auto;
+}
+
+.data_container {
+  display: flex;
+  width: 100%;
   height: 38px;
   margin: 0 auto;
 }
@@ -24,6 +30,10 @@
   color: rgb(213, 215, 216);
   text-align: center;
   padding: 7px 0;
+}
+
+.data_container:not(:first-child) {
+  display: none;
 }
 
 .data_column {
@@ -41,7 +51,7 @@
   transition-duration: 2s;
 }
 
-.data_column.hidden {
+.data_container.hidden {
   display: none;
 }
 

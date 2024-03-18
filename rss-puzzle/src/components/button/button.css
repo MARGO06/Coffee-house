@@ -56,3 +56,9 @@
   margin: 30px auto;
   width: 10%;
 }
+
+.continue_button.active:hover {
+  transition-duration: 2s;
+  background-color: rgb(221, 34, 199);
+  cursor: pointer;
+}
