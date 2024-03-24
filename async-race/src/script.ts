@@ -1,15 +1,13 @@
-// const request = fetch('http://127.0.0.1:3000/garage');
-// console.log(request.json());
-type Car = {
+/*type Car = {
   name: string;
   color: string;
   id: number;
-};
+};*/
 
-type Cars = Car[];
-const bbbb = 'he';
+// type Cars = Car[];
+const bbbb = 'hello';
 console.log(bbbb);
-const fetchMovies = async function () {
+/*const fetchMovies = async function () {
   const response = await fetch('http://127.0.0.1:3000/garage');
   const movies: Cars = await response.json();
   console.log(movies);
@@ -41,14 +39,14 @@ button.className = 'click';
 button.textContent = 'click';
 card.append(button);
 
-const hhh = getCar().then((car) => {
+ getCar().then((car) => {
   const newCar = document.createElement('div');
   newCar.className = 'newCar';
   newCar.textContent = `${car.name}`;
   card.append(newCar);
 });
 
-console.log(hhh.call(button));
+console.log();
 /* button.addEventListener('click', () => {
   getCar().then((car) => {
     const newCar = document.createElement('div');
