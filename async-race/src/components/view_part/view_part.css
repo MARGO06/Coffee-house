@@ -1,0 +1,9 @@
+.parts {
+  display: flex;
+  gap: 8px;
+}
+
+.view_part2,
+.view_part3 {
+  margin-top: 10px;
+}

@@ -1,0 +1,17 @@
+.btn_winners {
+  margin-left: 20px;
+}
+
+.btn,
+.btn-view {
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.btn {
+  background-color: rgb(242, 232, 87);
+}
+
+.btn-view {
+  background-color: rgb(239, 158, 45);
+}

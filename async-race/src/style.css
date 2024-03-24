@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('../src/assets/fonts/Inter-Regular.ttf');
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+  line-height: 16px;
+}
+
+body {
+  font-family: Inter, Verdana, sans-serif;
+  background-color: rgb(113, 4, 93);
+}

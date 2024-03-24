@@ -1,3 +1,9 @@
+import { wrap } from './components/wrapper/wrapper';
+import { allHeader } from './components/header/header';
+import { createView } from './components/view/view';
+
+import './style.css';
+// import { part1 } from './components/view_part/view_part';
 /*type Car = {
   name: string;
   color: string;
@@ -55,3 +61,16 @@ console.log();
     card.append(newCar);
   });
 }); */
+
+class Page {
+  createPage() {
+    const wrapper = wrap.createElement();
+    document.body.append(wrapper);
+    const header = allHeader.collectElements();
+    wrapper.append(header);
+    const view = createView.createElement();
+    wrapper.append(view);
+  }
+}
+const page = new Page();
+page.createPage();
