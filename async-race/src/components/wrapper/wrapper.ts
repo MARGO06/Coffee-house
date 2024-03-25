@@ -25,6 +25,16 @@ const containerPagination: Element = {
   class: 'button-pagination',
 };
 
+const winnersResults: Element = {
+  tag: 'div',
+  class: 'winner-results',
+};
+
+const winnersName: Element = {
+  tag: 'div',
+  class: 'winner-name',
+};
+
 export class Wrapper {
   tag: string;
   class: string;
@@ -43,3 +53,5 @@ export const wrap = new Wrapper(element);
 export const containerCar = new Wrapper(container);
 export const containerImages = new Wrapper(containerImgs);
 export const paginationContainer = new Wrapper(containerPagination);
+export const resultWinner = new Wrapper(winnersResults);
+export const nameCategory = new Wrapper(winnersName);

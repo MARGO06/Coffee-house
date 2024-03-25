@@ -3,6 +3,7 @@ import { allHeader } from './components/header/header';
 import { createView } from './components/view/view';
 import { garagePage } from './components/one-page/one-page';
 import { btnPrev, btnNext } from './components/button/button';
+import { pageWinner } from './components/second-page/second-page';
 
 import './style.css';
 
@@ -51,6 +52,8 @@ class Page {
     wrapper.append(view);
     const garage = garagePage.createPartPage();
     wrapper.append(garage);
+    const winners = pageWinner.createPartPage();
+    wrapper.append(winners);
     const pagination = paginationContainer.createElement();
     const buttonPrev = btnPrev.createElement();
     const buttonNext = btnNext.createElement();
