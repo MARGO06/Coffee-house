@@ -20,3 +20,8 @@
 .btn-move {
   width: 30px;
 }
+
+.btn_next,
+.btn_prev {
+  width: 60px;
+}

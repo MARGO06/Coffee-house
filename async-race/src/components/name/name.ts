@@ -6,6 +6,16 @@ const carName: Element = {
   class: 'name',
 };
 
+const pageName: Element = {
+  tag: 'p',
+  class: 'page page-name',
+};
+
+const pageNumber: Element = {
+  tag: 'p',
+  class: 'page page-number',
+};
+
 export class Name extends Wrapper {
   constructor(element: Element) {
     super(element);
@@ -16,3 +26,5 @@ export class Name extends Wrapper {
 }
 
 export const nameCar = new Name(carName);
+export const namePage = new Name(pageName);
+export const nameNumber = new Name(pageNumber);

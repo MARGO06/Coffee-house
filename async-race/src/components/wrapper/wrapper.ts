@@ -20,6 +20,11 @@ const containerImgs: Element = {
   class: 'car-images',
 };
 
+const containerPagination: Element = {
+  tag: 'div',
+  class: 'button-pagination',
+};
+
 export class Wrapper {
   tag: string;
   class: string;
@@ -37,3 +42,4 @@ export class Wrapper {
 export const wrap = new Wrapper(element);
 export const containerCar = new Wrapper(container);
 export const containerImages = new Wrapper(containerImgs);
+export const paginationContainer = new Wrapper(containerPagination);

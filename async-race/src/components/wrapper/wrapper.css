@@ -4,11 +4,17 @@
 
 .car-container {
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 25px;
   border-bottom: 1px dashed rgb(230, 224, 224);
 }
 
 .car-images {
   display: flex;
   margin-left: 10%;
+}
+
+.button-pagination {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0 20px 20px;
 }

@@ -57,6 +57,16 @@ const backBut: Element = {
   class: 'btn-move btn_back',
 };
 
+const prevBut: Element = {
+  tag: 'button',
+  class: 'btn-view btn_prev',
+};
+
+const nextBut: Element = {
+  tag: 'button',
+  class: 'btn-view btn_next',
+};
+
 export class Button extends Wrapper {
   text: string;
 
@@ -82,3 +92,5 @@ export const btnSelect = new Button(selectBut, 'SELECT');
 export const btnRemove = new Button(removeBut, 'REMOVE');
 export const btnStart = new Button(startBut, 'A');
 export const btnBack = new Button(backBut, 'B');
+export const btnPrev = new Button(prevBut, 'PREV');
+export const btnNext = new Button(nextBut, 'NEXT');
