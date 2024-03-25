@@ -4,6 +4,7 @@ import { createView } from './components/view/view';
 import { garagePage } from './components/one-page/one-page';
 import { btnPrev, btnNext } from './components/button/button';
 import { pageWinner } from './components/second-page/second-page';
+import { partsPages } from './components/functions/change-pages';
 
 import './style.css';
 
@@ -64,3 +65,5 @@ class Page {
 }
 const page = new Page();
 page.createPage();
+
+partsPages.activeButton();

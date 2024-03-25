@@ -2,7 +2,9 @@ import { Page } from '../one-page/one-page';
 import { namePage, nameNumber } from '../name/name';
 import { resultWinner, nameCategory } from '../wrapper/wrapper';
 
-const winnerPage: Page = {
+type PageWinner = Omit<Page, 'class'>;
+
+const winnerPage: PageWinner = {
   tag: 'div',
   id: 'winner',
 };
@@ -12,7 +14,7 @@ const names: string[] = ['Number', 'Car', 'Name', 'Wins', 'Best time(seconds)'];
 class Winner {
   tag: string;
   id: string;
-  constructor(element: Page) {
+  constructor(element: PageWinner) {
     this.tag = element.tag;
     this.id = element.id;
   }

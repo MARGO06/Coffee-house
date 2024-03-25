@@ -5,7 +5,7 @@ import './view.css';
 
 const view: Element = {
   tag: 'div',
-  class: 'view',
+  class: 'view active',
 };
 
 export class View extends Wrapper {

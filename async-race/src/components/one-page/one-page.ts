@@ -4,27 +4,34 @@ import { carFooter, carHeader } from '../car-header/car_parts';
 import { carImage, flagImage } from '../svg/svg';
 import { nameCar, nameNumber, namePage } from '../name/name';
 
+import './one-page.css';
+
 export type Page = {
   tag: string;
   id: string;
+  class: string;
 };
 
 const page: Page = {
   tag: 'div',
   id: 'garage',
+  class: 'active',
 };
 
 export class PageGarage {
   tag: string;
   id: string;
+  class: string;
   constructor(element: Page) {
     this.tag = element.tag;
     this.id = element.id;
+    this.class = element.class;
   }
 
   createPartPage() {
     const element = document.createElement(this.tag);
     element.id = this.id;
+    element.className = this.class;
     const garageName = namePage.createElement();
     garageName.textContent = 'Garage(4)';
     element.append(garageName);

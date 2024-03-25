@@ -25,3 +25,9 @@
 .btn_prev {
   width: 60px;
 }
+.btn:hover {
+  cursor: pointer;
+}
+.btn.active {
+  background-color: rgb(236, 77, 14);
+}

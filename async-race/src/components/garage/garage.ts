@@ -11,20 +11,7 @@ class Place extends Wrapper {
     super(element);
   }
 
-  /*async createElem() {
-    // const element = super.createElement();
-    return getCars().then((cars) => {
-      cars.forEach((car) => {
-        const elem = document.createElement('div');
-        elem.className = `${car}`;
-        console.log(elem);
-        return elem;
-      });
-    });
-  }*/
-
   collectElements() {
-    // const place = this.createElement();
     getCars().then((cars) => {
       cars.forEach((car) => {
         const header = carHeader.collectElements();

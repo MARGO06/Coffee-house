@@ -4,7 +4,7 @@ import './button.css';
 
 const garageBut: Element = {
   tag: 'button',
-  class: 'btn btn_garage',
+  class: 'btn btn_garage active',
 };
 
 const winnersBut: Element = {
