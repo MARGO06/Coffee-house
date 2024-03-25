@@ -1,3 +1,14 @@
 .wrapper {
   max-width: 1360px;
 }
+
+.car-container {
+  margin-left: 20px;
+  margin-top: 10px;
+  border-bottom: 1px dashed rgb(230, 224, 224);
+}
+
+.car-images {
+  display: flex;
+  margin-left: 10%;
+}

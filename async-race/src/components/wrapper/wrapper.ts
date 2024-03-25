@@ -10,6 +10,16 @@ const element: Element = {
   class: 'wrapper',
 };
 
+const container: Element = {
+  tag: 'div',
+  class: 'car-container',
+};
+
+const containerImgs: Element = {
+  tag: 'div',
+  class: 'car-images',
+};
+
 export class Wrapper {
   tag: string;
   class: string;
@@ -25,3 +35,5 @@ export class Wrapper {
   }
 }
 export const wrap = new Wrapper(element);
+export const containerCar = new Wrapper(container);
+export const containerImages = new Wrapper(containerImgs);

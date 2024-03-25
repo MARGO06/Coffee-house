@@ -37,6 +37,26 @@ const generateBut: Element = {
   class: 'btn-view btn_generate',
 };
 
+const selectBut: Element = {
+  tag: 'button',
+  class: 'btn-view btn_select',
+};
+
+const removeBut: Element = {
+  tag: 'button',
+  class: 'btn-view btn_remove',
+};
+
+const startBut: Element = {
+  tag: 'button',
+  class: 'btn-move btn_start',
+};
+
+const backBut: Element = {
+  tag: 'button',
+  class: 'btn-move btn_back',
+};
+
 export class Button extends Wrapper {
   text: string;
 
@@ -58,3 +78,7 @@ export const btnUpdate = new Button(updateBut, 'UPDATE');
 export const btnReset = new Button(resetBut, 'RESET');
 export const btnRace = new Button(raceBut, 'RACE');
 export const btnGenerate = new Button(generateBut, 'GENERATE');
+export const btnSelect = new Button(selectBut, 'SELECT');
+export const btnRemove = new Button(removeBut, 'REMOVE');
+export const btnStart = new Button(startBut, 'A');
+export const btnBack = new Button(backBut, 'B');

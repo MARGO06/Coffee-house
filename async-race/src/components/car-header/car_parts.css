@@ -1,0 +1,8 @@
+.car {
+  display: flex;
+  gap: 10px;
+}
+
+.car_footer {
+  margin-top: 10px;
+}
