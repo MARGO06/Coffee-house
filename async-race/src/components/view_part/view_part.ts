@@ -1,7 +1,6 @@
 import { Element, Wrapper } from '../wrapper/wrapper';
-import { Input, createInput, updateInput } from '../input/input';
-import { Color, createColor, updateColor } from '../color/color';
-import { Button, btnCreate, btnGenerate, btnRace, btnReset, btnUpdate } from '../button/button';
+import { Form, formCreate, formUpdate } from '../form/form';
+import { Button, btnGenerate, btnRace, btnReset } from '../button/button';
 
 import './view_part.css';
 
@@ -21,14 +20,10 @@ const viewPart3: Element = {
 };
 
 class Part extends Wrapper {
-  input: Input;
-  color: Color;
-  button: Button;
-  constructor(element: Element, input: Input, color: Color, button: Button) {
+  form: Form;
+  constructor(element: Element, form: Form) {
     super(element);
-    this.input = input;
-    this.color = color;
-    this.button = button;
+    this.form = form;
   }
 
   createElement() {
@@ -37,12 +32,8 @@ class Part extends Wrapper {
 
   collectElements() {
     const part = this.createElement();
-    const input = this.input.createElement();
-    const color = this.color.createElement();
-    const button = this.button.createElement();
+    const input = this.form.collectElements();
     part.append(input);
-    part.append(color);
-    part.append(button);
     return part;
   }
 }
@@ -73,6 +64,7 @@ class Part3 extends Wrapper {
     return part;
   }
 }
-export const part1 = new Part(viewPart1, createInput, createColor, btnCreate);
-export const part2 = new Part(viewPart2, updateInput, updateColor, btnUpdate);
+
+export const part1 = new Part(viewPart1, formCreate);
+export const part2 = new Part(viewPart2, formUpdate);
 export const part3 = new Part3(viewPart3, btnRace, btnReset, btnGenerate);

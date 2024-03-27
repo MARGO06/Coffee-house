@@ -25,7 +25,8 @@
 .btn_prev {
   width: 60px;
 }
-.btn:hover {
+.btn:hover,
+.btn-view:hover {
   cursor: pointer;
 }
 .btn.active {

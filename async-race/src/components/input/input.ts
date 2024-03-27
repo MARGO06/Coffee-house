@@ -1,4 +1,5 @@
 import { Element, Wrapper } from '../wrapper/wrapper';
+
 const inputCreate: Element = {
   tag: 'input',
   class: 'input input_create',
@@ -20,6 +21,7 @@ export class Input extends Wrapper {
   createElement() {
     const input = super.createElement();
     input.setAttribute('type', this.type);
+    input.setAttribute('list', 'cars');
     return input;
   }
 }

@@ -43,6 +43,23 @@ console.log();
   });
 }); */
 
+/*const data = {
+  name: 'hello',
+  color: 'red',
+};
+
+export const getCars = async function () {
+  const response = await fetch('http://127.0.0.1:3000/garage', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  });
+  const cars: Cars = await response.json();
+  return cars;
+};*/
+
 class Page {
   createPage() {
     const wrapper = wrap.createElement();

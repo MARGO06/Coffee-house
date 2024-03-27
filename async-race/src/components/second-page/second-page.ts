@@ -2,7 +2,7 @@ import { Page } from '../one-page/one-page';
 import { namePage, nameNumber } from '../name/name';
 import { resultWinner, nameCategory } from '../wrapper/wrapper';
 
-type PageWinner = Omit<Page, 'class'>;
+export type PageWinner = Omit<Page, 'class'>;
 
 const winnerPage: PageWinner = {
   tag: 'div',
