@@ -1,5 +1,5 @@
-import { Element, Wrapper } from '../wrapper/wrapper';
-import { btnGarage, btnWinners } from '../button/button';
+import { Element, Wrapper } from '../../elements/wrapper/wrapper';
+import { btnGarage, btnWinners } from '../../elements/button/button';
 
 import './header.css';
 

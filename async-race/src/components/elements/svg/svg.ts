@@ -1,5 +1,5 @@
 import { Element, Wrapper } from '../wrapper/wrapper';
-import flags from '../../assets/icons/flag.svg';
+import flags from '../../../assets/icons/flag.svg';
 
 import './svg.css';
 const flag: Element = {

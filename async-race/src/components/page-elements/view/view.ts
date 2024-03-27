@@ -1,5 +1,5 @@
-import { Element, Wrapper } from '../wrapper/wrapper';
-import { part1, part2, part3 } from '../view_part/view_part';
+import { Element, Wrapper } from '../../elements/wrapper/wrapper';
+import { part1, part2, part3 } from '../../elements/view_part/view_part';
 
 import './view.css';
 

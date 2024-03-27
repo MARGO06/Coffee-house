@@ -1,6 +1,6 @@
-import { Element, Wrapper } from '../wrapper/wrapper';
-import { carFooter, carHeader } from '../car-header/car_parts';
-import { getCars } from '../../api-requests/get-cars';
+import { Element, Wrapper } from '../../elements/wrapper/wrapper';
+import { carFooter, carHeader } from '../../elements/car-header/car_parts';
+import { getCars } from '../../../api-requests/get-cars';
 const placeCar: Element = {
   tag: 'div',
   class: 'place',

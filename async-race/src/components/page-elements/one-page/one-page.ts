@@ -1,8 +1,8 @@
-import { containerCar, containerImages } from '../wrapper/wrapper';
-import { getCars } from '../../api-requests/get-cars';
-import { carFooter, carHeader } from '../car-header/car_parts';
-import { carImage, flagImage } from '../svg/svg';
-import { nameCar, nameNumber, namePage } from '../name/name';
+import { containerCar, containerImages } from '../../elements/wrapper/wrapper';
+import { getCars } from '../../../api-requests/get-cars';
+import { carFooter, carHeader } from '../../elements/car-header/car_parts';
+import { carImage, flagImage } from '../../elements/svg/svg';
+import { nameCar, nameNumber, namePage } from '../../elements/name/name';
 
 import './one-page.css';
 
@@ -46,6 +46,7 @@ export class PageGarage {
         const name = nameCar.createElement();
         name.className = `name ${car.name}`;
         name.textContent = `${car.name}`;
+        name.style.color = car.color;
         header.append(name);
         const footer = carFooter.collectElements();
         const carColor = carImage.createElement();

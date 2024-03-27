@@ -1,10 +1,11 @@
-import { wrap, paginationContainer } from './components/wrapper/wrapper';
-import { allHeader } from './components/header/header';
-import { createView } from './components/view/view';
-import { garagePage } from './components/one-page/one-page';
-import { btnPrev, btnNext } from './components/button/button';
-import { pageWinner } from './components/second-page/second-page';
+import { wrap, paginationContainer } from './components/elements/wrapper/wrapper';
+import { allHeader } from './components/page-elements/header/header';
+import { createView } from './components/page-elements/view/view';
+import { garagePage } from './components/page-elements/one-page/one-page';
+import { btnPrev, btnNext } from './components/elements/button/button';
+import { pageWinner } from './components/page-elements/second-page/second-page';
 import { partsPages } from './components/functions/change-pages';
+import { car } from './components/functions/create-car';
 
 import './style.css';
 
@@ -79,8 +80,12 @@ class Page {
     pagination.append(buttonNext);
     wrapper.append(pagination);
   }
+  getItem() {
+    return car.getValues();
+  }
 }
 const page = new Page();
 page.createPage();
+page.getItem();
 
 partsPages.activeButton();

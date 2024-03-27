@@ -1,4 +1,4 @@
-import { PageWinner } from '../second-page/second-page';
+import { PageWinner } from '../../page-elements/second-page/second-page';
 
 import './option.css';
 

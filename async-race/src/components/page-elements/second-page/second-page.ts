@@ -1,6 +1,6 @@
 import { Page } from '../one-page/one-page';
-import { namePage, nameNumber } from '../name/name';
-import { resultWinner, nameCategory } from '../wrapper/wrapper';
+import { namePage, nameNumber } from '../../elements/name/name';
+import { resultWinner, nameCategory } from '../../elements/wrapper/wrapper';
 
 export type PageWinner = Omit<Page, 'class'>;
 
