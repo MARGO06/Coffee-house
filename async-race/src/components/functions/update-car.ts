@@ -1,36 +1,66 @@
-import { createCars } from '../../api-requests/create-car';
-import { Cars, getCars } from '../../api-requests/get-cars';
-import { containerImages, containerCar } from '../elements/wrapper/wrapper';
+import { getCars, Cars, Car } from '../../api-requests/get-cars';
+import { updateCars } from '../../api-requests/update-cars';
+import { containerCar, containerImages } from '../elements/wrapper/wrapper';
+import { btnReset, btnSelect, btnStart, btnBack } from '../elements/button/button';
+import { flagImage, carImage } from '../elements/svg/svg';
 import { carHeader, carFooter } from '../elements/car-header/car_parts';
 import { nameCar } from '../elements/name/name';
-import { carImage, flagImage } from '../elements/svg/svg';
-import { btnBack, btnReset, btnSelect, btnStart } from '../elements/button/button';
+import { getCar } from '../../api-requests/get-car';
 
-class NewCar {
-  getValues() {
-    const inputCrete = document.querySelector('.input_create');
-    const newColor = document.querySelector('.color_create');
-    const buttonCreate = document.querySelector('.btn_create');
+class changeCar {
+  id: number;
 
-    buttonCreate?.addEventListener('click', (e: Event) => {
-      e.preventDefault();
-      if (inputCrete instanceof HTMLInputElement && newColor instanceof HTMLInputElement) {
-        createCars('http://127.0.0.1:3000/garage', { name: inputCrete.value, color: newColor.value }).then((data) =>
-          console.log(data)
-        );
-        inputCrete.value = '';
-        newColor.value = '#FFFFFF';
+  constructor() {
+    this.id = 0;
+  }
+  choiceCar() {
+    const buttonSelect = document.getElementById('garage');
+    if (buttonSelect != null) {
+      buttonSelect.addEventListener('click', (e: Event) => {
+        e.preventDefault();
+        if (e.target instanceof HTMLElement && e.target.classList.contains('btn_select')) {
+          this.id = Number(e.target.id);
+          this.getData();
+          this.changeCar();
+        }
+      });
+    }
+  }
+
+  getData() {
+    const inputUpdate = document.querySelector('.input_update');
+    const newColor = document.querySelector('.color_update');
+
+    getCar(`http://127.0.0.1:3000/garage/${this.id}`).then((car: Car) => {
+      if (inputUpdate instanceof HTMLInputElement && newColor instanceof HTMLInputElement) {
+        inputUpdate.value = car.name;
+        newColor.value = car.color;
       }
-      return this.createCar();
     });
   }
 
-  createCar() {
+  changeCar() {
+    const inputUpdate = document.querySelector('.input_update');
+    const newColor = document.querySelector('.color_update');
+    const buttonUpdate = document.querySelector('.btn_update');
+    buttonUpdate?.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      if (inputUpdate instanceof HTMLInputElement && newColor instanceof HTMLInputElement) {
+        updateCars(`http://127.0.0.1:3000/garage/${this.id}`, {
+          name: inputUpdate.value,
+          color: newColor.value,
+        }).then((data) => {
+          console.log(data), this.getUpdateCar();
+        });
+      }
+    });
+  }
+
+  getUpdateCar() {
     const garage = document.getElementById('garage');
     getCars().then((cars: Cars) => {
       cars.forEach((car) => {
-        const number = cars.length;
-        if (number === car.id) {
+        if (this.id === car.id) {
           const container = containerCar.createElement();
           const containerImg = containerImages.createElement();
           const header = carHeader.createElement();
@@ -55,14 +85,14 @@ class NewCar {
           footer.append(start, back);
           containerImg.append(carColor, flags);
           container.append(footer, containerImg);
-          if (garage != null) {
-            garage.append(container);
+          if (garage instanceof HTMLElement) {
+            garage.replaceChild(container, garage.children[this.id + 1]);
           }
         }
       });
+      return garage;
     });
-    return garage;
   }
 }
 
-export const car = new NewCar();
+export const carChange = new changeCar();

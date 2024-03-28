@@ -6,6 +6,7 @@ import { btnPrev, btnNext } from './components/elements/button/button';
 import { pageWinner } from './components/page-elements/second-page/second-page';
 import { partsPages } from './components/functions/change-pages';
 import { car } from './components/functions/create-car';
+import { carChange } from './components/functions/update-car';
 
 import './style.css';
 
@@ -80,12 +81,17 @@ class Page {
     pagination.append(buttonNext);
     wrapper.append(pagination);
   }
-  getItem() {
+  createCar() {
     return car.getValues();
   }
+  updateCar() {
+    return carChange.choiceCar();
+  }
 }
-const page = new Page();
+export const page = new Page();
 page.createPage();
-page.getItem();
+page.createCar();
+
+page.updateCar();
 
 partsPages.activeButton();

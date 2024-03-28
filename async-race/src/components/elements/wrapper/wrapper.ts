@@ -3,6 +3,7 @@ import './wrapper.css';
 export type Element = {
   tag: string;
   class: string;
+  id?: number;
 };
 
 const element: Element = {
