@@ -7,6 +7,7 @@ import { pageWinner } from './components/page-elements/second-page/second-page';
 import { partsPages } from './components/functions/change-pages';
 import { car } from './components/functions/create-car';
 import { carChange } from './components/functions/update-car';
+import { carDelete } from './components/functions/delete-car';
 
 import './style.css';
 
@@ -87,10 +88,15 @@ class Page {
   updateCar() {
     return carChange.choiceCar();
   }
+
+  deleteCar() {
+    return carDelete.choiceCar();
+  }
 }
 export const page = new Page();
 page.createPage();
 page.createCar();
+page.deleteCar();
 
 page.updateCar();
 

@@ -41,6 +41,7 @@ export class PageGarage {
     getCars().then((cars) => {
       cars.forEach((car) => {
         const container = containerCar.createElement();
+        container.id = `${car.id}`;
         const containerImg = containerImages.createElement();
         const header = carHeader.createElement();
         const select = btnSelect.createElement();

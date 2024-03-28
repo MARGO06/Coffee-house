@@ -39,6 +39,7 @@ const winnersName: Element = {
 export class Wrapper {
   tag: string;
   class: string;
+  id?: string;
   constructor(element: Element) {
     this.tag = element.tag;
     this.class = element.class;

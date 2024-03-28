@@ -11,5 +11,3 @@ export const createCars = async (url = '', data = {}) => {
   console.log(cars);
   return cars;
 };
-//'http://127.0.0.1:3000/garage'
-//car.showData()

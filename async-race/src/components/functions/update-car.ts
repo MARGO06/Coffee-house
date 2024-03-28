@@ -7,24 +7,36 @@ import { carHeader, carFooter } from '../elements/car-header/car_parts';
 import { nameCar } from '../elements/name/name';
 import { getCar } from '../../api-requests/get-car';
 
-class changeCar {
+class ChangeCar {
   id: number;
+  index: number;
 
   constructor() {
     this.id = 0;
+    this.index = 0;
   }
   choiceCar() {
     const buttonSelect = document.getElementById('garage');
+    const containers = buttonSelect?.children;
     if (buttonSelect != null) {
       buttonSelect.addEventListener('click', (e: Event) => {
         e.preventDefault();
         if (e.target instanceof HTMLElement && e.target.classList.contains('btn_select')) {
           this.id = Number(e.target.id);
-          this.getData();
-          this.changeCar();
+          if (containers != undefined) {
+            Array.from(containers).forEach((element, index) => {
+              if (Number(element.id) === this.id) {
+                this.index = index;
+              }
+            });
+            this.getData();
+          }
         }
+        // this.changeCar();
       });
+      // this.changeCar();
     }
+    // this.changeCar();
   }
 
   getData() {
@@ -35,8 +47,11 @@ class changeCar {
       if (inputUpdate instanceof HTMLInputElement && newColor instanceof HTMLInputElement) {
         inputUpdate.value = car.name;
         newColor.value = car.color;
+        this.changeCar();
       }
+      //this.changeCar();
     });
+    //this.changeCar();
   }
 
   changeCar() {
@@ -50,7 +65,8 @@ class changeCar {
           name: inputUpdate.value,
           color: newColor.value,
         }).then((data) => {
-          console.log(data), this.getUpdateCar();
+          console.log(data), this.getUpdateCar(), (inputUpdate.value = '');
+          newColor.value = '#FFFFFF';
         });
       }
     });
@@ -60,8 +76,10 @@ class changeCar {
     const garage = document.getElementById('garage');
     getCars().then((cars: Cars) => {
       cars.forEach((car) => {
+        console.log(this.id, car.id);
         if (this.id === car.id) {
           const container = containerCar.createElement();
+          container.id = `${car.id}`;
           const containerImg = containerImages.createElement();
           const header = carHeader.createElement();
           const select = btnSelect.createElement();
@@ -86,7 +104,7 @@ class changeCar {
           containerImg.append(carColor, flags);
           container.append(footer, containerImg);
           if (garage instanceof HTMLElement) {
-            garage.replaceChild(container, garage.children[this.id + 1]);
+            garage.replaceChild(container, garage.children[this.index]);
           }
         }
       });
@@ -95,4 +113,4 @@ class changeCar {
   }
 }
 
-export const carChange = new changeCar();
+export const carChange = new ChangeCar();
