@@ -9,6 +9,10 @@
   font-size: 1rem;
 }
 
+.btn.active {
+  background-color: rgb(241, 122, 42);
+}
+
 .btn {
   background-color: rgb(242, 232, 87);
 }
