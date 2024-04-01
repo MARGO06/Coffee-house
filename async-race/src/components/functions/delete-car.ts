@@ -17,15 +17,12 @@ class DeleteCar {
 
   choiceCar() {
     const buttonSelect = document.getElementById('garage');
-    // const countCars = document.querySelector('.page-name');
 
     if (buttonSelect != null) {
       buttonSelect.addEventListener('click', (e: Event) => {
         e.preventDefault();
         if (e.target instanceof HTMLElement && e.target.classList.contains('btn_reset')) {
           this.id = Number(e.target.id);
-
-          // this.deleteCars();
           this.deleteCarOnServer();
         }
       });
@@ -75,6 +72,7 @@ class DeleteCar {
           const footer = carFooter.createElement();
           const back = btnBack.createElement();
           back.id = `${car.id}`;
+          back.setAttribute('disabled', '');
           const start = btnStart.createElement();
           start.id = `${car.id}`;
           const carColor = carImage.createElement();

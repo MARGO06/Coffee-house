@@ -19,7 +19,6 @@ class NewCar {
     const inputCrete = document.querySelector('.input_create');
     const newColor = document.querySelector('.color_create');
     const buttonCreate = document.querySelector('.btn_create');
-    //const buttonNext = document.querySelector('.btn_next');
 
     buttonCreate?.addEventListener('click', (e: Event) => {
       e.preventDefault();
@@ -68,6 +67,7 @@ class NewCar {
           const flags = flagImage.createElement();
           const back = btnBack.createElement();
           back.id = `${car.id}`;
+          back.setAttribute('disabled', '');
           const start = btnStart.createElement();
           start.id = `${car.id}`;
           container.append(header);

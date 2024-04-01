@@ -19,6 +19,7 @@
 
 .btn-move {
   width: 30px;
+  background-color: rgb(87, 87, 249);
 }
 
 .btn_next,
@@ -29,6 +30,8 @@
 .btn-view:hover {
   cursor: pointer;
 }
-.btn.active {
-  background-color: rgb(236, 77, 14);
+.btn:active,
+.btn-view:active,
+.btn-move:active {
+  background-color: rgb(127, 239, 127);
 }

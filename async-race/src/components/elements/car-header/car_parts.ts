@@ -14,27 +14,14 @@ const footerCar: Element = {
 };
 
 class PartCar extends Wrapper {
-  //button1: Button;
-  // button2: Button;
-  constructor(element: Element /* button1: Button, button2: Button*/) {
+  constructor(element: Element) {
     super(element);
-    //this.button1 = button1;
-    //this.button2 = button2;
   }
 
   createElement() {
     return super.createElement();
   }
-
-  /*collectElements() {
-    const part = this.createElement();
-    const button1 = this.button1.createElement();
-    const button2 = this.button2.createElement();
-    part.append(button1);
-    part.append(button2);
-    return part;
-  }*/
 }
 
-export const carHeader = new PartCar(headerCar /*, btnSelect, btnReset*/);
-export const carFooter = new PartCar(footerCar /* btnStart, btnBack*/);
+export const carHeader = new PartCar(headerCar);
+export const carFooter = new PartCar(footerCar);

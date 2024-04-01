@@ -32,11 +32,8 @@ class ChangeCar {
             this.getData();
           }
         }
-        // this.changeCar();
       });
-      // this.changeCar();
     }
-    // this.changeCar();
   }
 
   getData() {
@@ -49,9 +46,7 @@ class ChangeCar {
         newColor.value = car.color;
         this.changeCar();
       }
-      //this.changeCar();
     });
-    //this.changeCar();
   }
 
   changeCar() {
@@ -96,6 +91,7 @@ class ChangeCar {
           const flags = flagImage.createElement();
           const back = btnBack.createElement();
           back.id = `${car.id}`;
+          back.setAttribute('disabled', '');
           const start = btnStart.createElement();
           start.id = `${car.id}`;
           container.append(header);

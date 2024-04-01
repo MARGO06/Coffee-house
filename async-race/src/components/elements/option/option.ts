@@ -7,7 +7,7 @@ const list: PageWinner = {
   id: 'cars',
 };
 
-const namesCar: string[] = [
+export const namesCar: string[] = [
   'Honda',
   'Mazda',
   'Kia',

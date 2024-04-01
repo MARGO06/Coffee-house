@@ -57,6 +57,7 @@ export class PageGarage {
           const footer = carFooter.createElement();
           const back = btnBack.createElement();
           back.id = `${car.id}`;
+          back.setAttribute('disabled', '');
           const start = btnStart.createElement();
           start.id = `${car.id}`;
           const carColor = carImage.createElement();

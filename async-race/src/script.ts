@@ -8,83 +8,9 @@ import { partsPages } from './components/functions/change-pages';
 import { car } from './components/functions/create-car';
 import { carChange } from './components/functions/update-car';
 import { carDelete } from './components/functions/delete-car';
+import { carsGenerate } from './components/functions/generate-car';
 
 import './style.css';
-
-/*const card = document.createElement('div');
-card.className = 'cars';
-document.body.append(card);
-fetchMovies().then((name) => {
-  for (let i = 0; i < name.length; i += 1) {
-    const cars = document.createElement('div');
-    cars.className = `car{i}`;
-    cars.textContent = `${name[i].name}`;
-    card.append(cars);
-  }
-  console.log(name[0]);
-});
-
-const button = document.createElement('button');
-button.className = 'click';
-button.textContent = 'click';
-card.append(button);
-
- getCar().then((car) => {
-  const newCar = document.createElement('div');
-  newCar.className = 'newCar';
-  newCar.textContent = `${car.name}`;
-  card.append(newCar);
-});
-
-console.log();
-/* button.addEventListener('click', () => {
-  getCar().then((car) => {
-    const newCar = document.createElement('div');
-    newCar.className = 'newCar';
-    newCar.textContent = `${car.name}`;
-    card.append(newCar);
-  });
-}); */
-
-/*const data = {
-  name: 'hello',
-  color: 'red',
-};
-
-export const getCars = async function () {
-  const response = await fetch('http://127.0.0.1:3000/garage', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-  });
-  const cars: Cars = await response.json();
-  return cars;
-};*/
-///routing
-/*const route = (event: Event) => {
-  event.preventDefault();
-  if (event.target instanceof HTMLLinkElement) {
-    window.history.pushState({}, '', event.target.href);
-    handleLocation();
-  }
-};
-
-const routes = {
-  404: '/pages/404.html',
-  '/': '/src/components/page-elements/one-page.ts',
-};
-
-const handleLocation = async () => {
-  const path = window.location.pathname;
-  const route: string | number = routes[path] || routes[404];
-  const html = await fetch(route).then((data) => data.text());
-  document.getElementById('garage')?.innerHTML = html;
-};
-window.onpopstate = handleLocation;
-window.route = route;
-handleLocation();*/
 
 class Page {
   createPage() {
@@ -127,3 +53,4 @@ page.deleteCar();
 page.updateCar();
 
 partsPages.activeButton();
+carsGenerate.clickGenerateCars();
