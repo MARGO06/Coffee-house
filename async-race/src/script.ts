@@ -62,6 +62,29 @@ export const getCars = async function () {
   const cars: Cars = await response.json();
   return cars;
 };*/
+///routing
+/*const route = (event: Event) => {
+  event.preventDefault();
+  if (event.target instanceof HTMLLinkElement) {
+    window.history.pushState({}, '', event.target.href);
+    handleLocation();
+  }
+};
+
+const routes = {
+  404: '/pages/404.html',
+  '/': '/src/components/page-elements/one-page.ts',
+};
+
+const handleLocation = async () => {
+  const path = window.location.pathname;
+  const route: string | number = routes[path] || routes[404];
+  const html = await fetch(route).then((data) => data.text());
+  document.getElementById('garage')?.innerHTML = html;
+};
+window.onpopstate = handleLocation;
+window.route = route;
+handleLocation();*/
 
 class Page {
   createPage() {
@@ -78,6 +101,9 @@ class Page {
     const pagination = paginationContainer.createElement();
     const buttonPrev = btnPrev.createElement();
     const buttonNext = btnNext.createElement();
+    buttonNext.setAttribute('data-page', '1');
+    buttonPrev.setAttribute('data-page', '1');
+    buttonPrev.setAttribute('disabled', '');
     pagination.append(buttonPrev);
     pagination.append(buttonNext);
     wrapper.append(pagination);
