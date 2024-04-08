@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+  line-height: 16px;
+}
+
+body {
+  font-family: Inter, Verdana, sans-serif;
+}

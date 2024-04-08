@@ -24,7 +24,8 @@ export class Wrapper {
   createElement() {
     const el = document.createElement(this.tag);
     el.className = this.class;
+    el.textContent = 'info';
     return el;
   }
 }
-export const wrap = new Wrapper(element);
+export const wrap3 = new Wrapper(element);

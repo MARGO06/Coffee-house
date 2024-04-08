@@ -5,7 +5,7 @@
     "es6": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "eslint-config-airbnb-base", "prettier"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -18,14 +18,14 @@
     "brace-style": "error",
     "array-bracket-spacing": ["error", "never"],
     "object-curly-spacing": ["error", "always"],
-    "lines-between-class-members": ["error", "always"],
+    "lines-between-class-members": "off",
+    "no-use-before-define": ["error", { "functions": false }],
     "space-before-blocks": "error",
-
+    "no-shadow": ["error", { "allow": ["done"] }],
     "keyword-spacing": ["error", { "before": true }],
     "space-infix-ops": "error",
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-explicit-any": 2
   },
-  "noInlineConfig": true,
   "ignorePatterns": ["dist/*"]
 }
