@@ -22,7 +22,6 @@ class Form extends Element {
       formLogin.append(label2, input2, requirement2);
     }
     const loginButton = buttonLogin.createElement();
-    loginButton.setAttribute('disabled', '');
     const infoButton = buttonInfo.createElement();
     formLogin.append(loginButton, infoButton);
     return formLogin;

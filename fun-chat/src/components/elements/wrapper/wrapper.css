@@ -1,5 +1,32 @@
 .login_wrapper {
-  position: relative;
   max-width: 1440px;
   margin: 0 auto;
+}
+
+.modal_wrapper.hidden,
+.modal_background.hidden {
+  display: none;
+}
+
+.modal_background {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(64, 63, 61, 0.9);
+}
+.modal_background,
+.modal_wrapper {
+  display: block;
+  position: fixed;
+}
+.modal_wrapper {
+  width: 30%;
+  height: 30%;
+  background-color: rgba(241, 236, 232);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  flex-direction: column;
 }

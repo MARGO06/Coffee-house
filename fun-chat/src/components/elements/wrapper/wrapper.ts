@@ -7,6 +7,21 @@ const loginWrapper: ElementPage = {
   class: 'login_wrapper',
 };
 
+const modalWrapper: ElementPage = {
+  tag: 'div',
+  class: 'modal_wrapper hidden',
+};
+
+const modalWindow: ElementPage = {
+  tag: 'div',
+  class: 'modal_window',
+};
+
+const modalBackground: ElementPage = {
+  tag: 'div',
+  class: 'modal_background hidden',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -17,3 +32,6 @@ class Wrapper extends Element {
 }
 
 export const wrapperLogin = new Wrapper(loginWrapper);
+export const wrapperModal = new Wrapper(modalWrapper);
+export const windowModal = new Wrapper(modalWindow);
+export const backgroundModal = new Wrapper(modalBackground);

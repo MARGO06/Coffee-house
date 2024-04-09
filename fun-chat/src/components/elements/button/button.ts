@@ -12,6 +12,11 @@ const infoButton: ElementPage = {
   class: 'info_button',
 };
 
+const modalButton: ElementPage = {
+  tag: 'button',
+  class: 'modal_button',
+};
+
 class Button extends Element {
   type: string;
   text: string;
@@ -32,3 +37,4 @@ class Button extends Element {
 
 export const buttonLogin = new Button(loginButton, 'submit', 'Login');
 export const buttonInfo = new Button(infoButton, 'button', 'Information');
+export const buttonModal = new Button(modalButton, 'button', 'OK');
