@@ -2,6 +2,7 @@ import { Login } from './login/login';
 import { Chat } from './chat/chat';
 import { socket, sendMessage } from '../websocket/send-message';
 import { ModalWindow } from '../elements/modal/modal';
+import { sendForm } from '../actions/send-form';
 
 export class AllPages {
   loginPage: Login;
@@ -38,9 +39,10 @@ export class AllPages {
         socket.send(JSON.stringify(data));
         nameInput.value = '';
         passwordInput.value = '';
-        this.showModalWindows();
       }
     });
+    sendForm();
+    this.showModalWindows();
   }
 
   private showModalWindows() {
@@ -50,7 +52,6 @@ export class AllPages {
         document.body.innerHTML = '';
         this.chatPage.createPage();
         window.location.hash = '#chat';
-        console.log('hhh');
       }
       if (result === 'a user with this login is already authorized') {
         const window = new ModalWindow();
