@@ -22,10 +22,11 @@ export class AllPages {
     const form = document.querySelector('.login_form') as HTMLElement;
     const nameInput = document.getElementById('name') as HTMLInputElement;
     const passwordInput = document.getElementById('password') as HTMLInputElement;
-    form.addEventListener('submit', () => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
       if (!nameInput.validity.patternMismatch && !passwordInput.validity.patternMismatch) {
-        localStorage.setItem('first name', nameInput.value);
-        localStorage.setItem('password', passwordInput.value);
+        sessionStorage.setItem('first name', nameInput.value);
+        sessionStorage.setItem('password', passwordInput.value);
         const data = {
           id: '1',
           type: 'USER_LOGIN',
@@ -39,33 +40,25 @@ export class AllPages {
         socket.send(JSON.stringify(data));
         nameInput.value = '';
         passwordInput.value = '';
+        this.showModalWindows();
       }
     });
     sendForm();
-    this.showModalWindows();
   }
 
-  private showModalWindows() {
+  showModalWindows() {
     sendMessage().then((result) => {
       console.log(result);
       if (result === 'USER_LOGIN') {
         document.body.innerHTML = '';
         this.chatPage.createPage();
         window.location.hash = '#chat';
-      }
-      if (result === 'a user with this login is already authorized') {
+      } else if (result === 'a user with this login is already authorized') {
         const window = new ModalWindow();
-        const modal = window.createModalWindow(result);
-        const background = document.querySelector('.modal_background');
-        modal.classList.remove('hidden');
-        if (background != null) background.classList.remove('hidden');
-      }
-      if (result === 'incorrect password') {
+        window.createModalWindow(result);
+      } else if (result === 'incorrect password') {
         const window = new ModalWindow();
-        const modal = window.createModalWindow(result);
-        const background = document.querySelector('.modal_background');
-        modal.classList.remove('hidden');
-        if (background != null) background.classList.remove('hidden');
+        window.createModalWindow(result);
       }
     });
   }

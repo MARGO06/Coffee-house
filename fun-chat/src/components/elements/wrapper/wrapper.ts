@@ -9,7 +9,7 @@ const loginWrapper: ElementPage = {
 
 const modalWrapper: ElementPage = {
   tag: 'div',
-  class: 'modal_wrapper hidden',
+  class: 'modal_wrapper',
 };
 
 const modalWindow: ElementPage = {
@@ -19,7 +19,7 @@ const modalWindow: ElementPage = {
 
 const modalBackground: ElementPage = {
   tag: 'div',
-  class: 'modal_background hidden',
+  class: 'modal_background',
 };
 
 class Wrapper extends Element {

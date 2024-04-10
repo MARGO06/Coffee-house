@@ -3,11 +3,6 @@
   margin: 0 auto;
 }
 
-.modal_wrapper.hidden,
-.modal_background.hidden {
-  display: none;
-}
-
 .modal_background {
   left: 0;
   top: 0;

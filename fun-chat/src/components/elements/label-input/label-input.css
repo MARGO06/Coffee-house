@@ -1,14 +1,16 @@
 .login_form label:nth-child(4) {
   margin-top: 20px;
 }
-input[type='text'] {
+input[type='text'],
+input[type='password'] {
   font-size: 1.2rem;
   height: 30px;
   padding-left: 5px;
   border: 3px solid rgb(188 114 224);
 }
 
-input[type='text']:focus {
+input[type='text']:focus,
+input[type='password']:focus {
   outline: none;
 }
 
@@ -17,15 +19,18 @@ label[for='password'] {
   font-size: 1.2rem;
 }
 
-input[type='text']:valid {
+input[type='text']:valid,
+input[type='password']:valid {
   border: 3px solid rgba(94, 248, 5, 0.884);
 }
 
-input[type='text']:invalid:focus:not(:placeholder-shown) {
+input[type='text']:invalid:focus:not(:placeholder-shown),
+input[type='password']:invalid:focus:not(:placeholder-shown) {
   border: 3px solid rgba(248, 5, 90, 0.884);
 }
 
-input[type='text']:invalid:focus:not(:placeholder-shown) ~ .requirement {
+input[type='text']:invalid:focus:not(:placeholder-shown) ~ .requirement,
+input[type='password']:invalid:focus:not(:placeholder-shown) ~ .requirement {
   max-height: 200px;
   padding: 0 10px 20px 10px;
 }

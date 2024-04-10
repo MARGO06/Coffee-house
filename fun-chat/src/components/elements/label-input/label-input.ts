@@ -22,7 +22,7 @@ export const passwordInput: FormElements = {
   tag: ['label', 'input'],
   id: 'password',
   text: 'Password',
-  type: 'text',
+  type: 'password',
   pattern: '(^[A-Z][a-z\\-]{3,}$)',
   requirement: "The first letter is in uppercase, min length is 4 characters, use english letters and '-'",
 };
