@@ -28,8 +28,18 @@ const mainWrapper: ElementPage = {
 };
 
 const headerWrapper: ElementPage = {
-  tag: 'div',
+  tag: 'header',
   class: 'main_header',
+};
+
+const userWrapper: ElementPage = {
+  tag: 'section',
+  class: 'field',
+};
+
+const footerWrapper: ElementPage = {
+  tag: 'footer',
+  class: 'main_footer',
 };
 
 class Wrapper extends Element {
@@ -47,3 +57,5 @@ export const windowModal = new Wrapper(modalWindow);
 export const backgroundModal = new Wrapper(modalBackground);
 export const wrapperMain = new Wrapper(mainWrapper);
 export const wrapperHeader = new Wrapper(headerWrapper);
+export const wrapperUser = new Wrapper(userWrapper);
+export const wrapperFooter = new Wrapper(footerWrapper);

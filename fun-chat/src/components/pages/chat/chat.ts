@@ -1,9 +1,10 @@
 import { Page } from '../pages';
-import { wrapperMain, wrapperHeader } from '../../elements/wrapper/wrapper';
+import { wrapperMain, wrapperHeader, wrapperUser } from '../../elements/wrapper/wrapper';
 import { buttonInfo, buttonLogout } from '../../elements/button/button';
 import { appName } from '../../elements/text/text';
 import { AllPages } from '../all-pages';
 import { userLogout } from '../../websocket/user-logout';
+import { footerChat } from '../../elements/footer/footer';
 
 import './chat.css';
 
@@ -24,10 +25,12 @@ export class Chat extends Page {
     const nameUser = document.createElement('p');
     nameUser.className = 'main_user';
     nameUser.textContent = `User: ${this.getName()}`;
+    const userSection = wrapperUser.createElement();
+    const footer = footerChat.createFooter();
     header.append(nameApp, nameUser, infoButton, logoutButton);
     document.body.append(page);
     page.append(wrapper);
-    wrapper.append(header);
+    wrapper.append(header, userSection, footer);
   }
 
   getName() {

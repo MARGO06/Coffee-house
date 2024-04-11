@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.main_wrapper {
+  margin: 0 50px;
+}
+
 .modal_background {
   left: 0;
   top: 0;
@@ -27,8 +31,18 @@
   flex-direction: column;
 }
 
-.main_header {
+.main_header,
+.main_footer,
+.field {
   display: flex;
   padding: 20px;
-  margin: 0 50px;
+}
+
+.main_header {
+  align-items: center;
+}
+
+.main_footer {
+  justify-content: space-between;
+  align-items: center;
 }
