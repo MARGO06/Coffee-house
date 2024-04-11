@@ -17,6 +17,11 @@ const modalButton: ElementPage = {
   class: 'modal_button',
 };
 
+const logoutButton: ElementPage = {
+  tag: 'button',
+  class: 'logout_button',
+};
+
 class Button extends Element {
   type: string;
   text: string;
@@ -38,3 +43,4 @@ class Button extends Element {
 export const buttonLogin = new Button(loginButton, 'submit', 'Login');
 export const buttonInfo = new Button(infoButton, 'button', 'Information');
 export const buttonModal = new Button(modalButton, 'button', 'OK');
+export const buttonLogout = new Button(logoutButton, 'button', 'Logout');

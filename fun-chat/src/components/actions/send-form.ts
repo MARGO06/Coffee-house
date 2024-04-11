@@ -27,6 +27,7 @@ export const sendForm = () => {
         passwordInput.value = '';
         const window = new AllPages();
         window.showModalWindows();
+        window.backToLoginPage();
       }
     }
   });

@@ -18,7 +18,7 @@ export class AllPages {
     window.location.hash = 'login';
   }
 
-  createChatPage() {
+  createChatPageButton() {
     const form = document.querySelector('.login_form') as HTMLElement;
     const nameInput = document.getElementById('name') as HTMLInputElement;
     const passwordInput = document.getElementById('password') as HTMLInputElement;
@@ -41,8 +41,12 @@ export class AllPages {
         nameInput.value = '';
         passwordInput.value = '';
         this.showModalWindows();
+        this.backToLoginPage();
       }
     });
+  }
+
+  createChatPageInput() {
     sendForm();
   }
 
@@ -61,5 +65,12 @@ export class AllPages {
         window.createModalWindow(result);
       }
     });
+  }
+
+  backToLoginPage() {
+    document.body.innerHTML = '';
+    this.createLoginPage();
+    this.createChatPageButton();
+    this.createChatPageInput();
   }
 }

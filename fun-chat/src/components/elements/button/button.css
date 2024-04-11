@@ -1,6 +1,7 @@
 .login_button,
 .info_button,
-.modal_button {
+.modal_button,
+.logout_button {
   display: block;
   height: 30px;
   margin-top: 20px;
@@ -20,4 +21,13 @@
 .info_button:active,
 .modal_button:active {
   background-color: rgb(94, 238, 190);
+}
+
+.main_header .info_button {
+  margin-left: 35%;
+  width: 10%;
+}
+.logout_button {
+  margin-left: 5%;
+  width: 10%;
 }
