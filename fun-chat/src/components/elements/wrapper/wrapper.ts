@@ -42,6 +42,11 @@ const footerWrapper: ElementPage = {
   class: 'main_footer',
 };
 
+const leftWrapper: ElementPage = {
+  tag: 'div',
+  class: 'main_left',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -59,3 +64,4 @@ export const wrapperMain = new Wrapper(mainWrapper);
 export const wrapperHeader = new Wrapper(headerWrapper);
 export const wrapperUser = new Wrapper(userWrapper);
 export const wrapperFooter = new Wrapper(footerWrapper);
+export const wrapperLeft = new Wrapper(leftWrapper);

@@ -5,6 +5,8 @@ import { appName } from '../../elements/text/text';
 import { AllPages } from '../all-pages';
 import { userLogout } from '../../websocket/user-logout';
 import { footerChat } from '../../elements/footer/footer';
+import { user } from '../../elements/main-left-side/main-left-side';
+import { newActive } from '../../actions/create-new-active';
 
 import './chat.css';
 
@@ -13,7 +15,7 @@ export class Chat extends Page {
     super(id);
   }
 
-  createPage() {
+  async createPage() {
     const page = document.createElement('div');
     page.id = this.id;
     const wrapper = wrapperMain.createElement();
@@ -26,11 +28,14 @@ export class Chat extends Page {
     nameUser.className = 'main_user';
     nameUser.textContent = `User: ${this.getName()}`;
     const userSection = wrapperUser.createElement();
+    const users = await user.createLeftSide();
+    userSection.append(users);
     const footer = footerChat.createFooter();
     header.append(nameApp, nameUser, infoButton, logoutButton);
     document.body.append(page);
     page.append(wrapper);
     wrapper.append(header, userSection, footer);
+    newActive();
   }
 
   getName() {
