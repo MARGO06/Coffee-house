@@ -42,12 +42,33 @@
   align-items: center;
 }
 
-.main_footer {
+.main_footer,
+.field,
+.main_destination {
   justify-content: space-between;
+}
+
+.main_footer {
   align-items: center;
 }
 
 .field {
-  width: 20%;
+  width: 100%;
+}
+
+.main_users {
+  display: flex;
   flex-direction: column;
+  width: 20%;
+}
+
+.main_right {
+  width: 75%;
+}
+
+.main_destination {
+  display: flex;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
 }

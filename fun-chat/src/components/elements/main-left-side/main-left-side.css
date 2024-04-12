@@ -1,0 +1,7 @@
+.users_inactive::marker {
+  color: rgba(194, 6, 6, 0.847);
+}
+
+.users_active::marker {
+  color: rgba(24, 227, 14, 0.847);
+}

@@ -17,6 +17,16 @@ const year: ElementPage = {
   class: 'footer_year',
 };
 
+const destination: ElementPage = {
+  tag: 'p',
+  class: 'main_destination-name',
+};
+
+const destinationStatus: ElementPage = {
+  tag: 'p',
+  class: 'main_destination-status',
+};
+
 class Text extends Element {
   text: string;
 
@@ -36,3 +46,5 @@ class Text extends Element {
 export const appName = new Text(nameApp, 'FUN CHAT');
 export const schoolName = new Text(nameSchool, 'RS School');
 export const footerYear = new Text(year, '2024');
+export const destinationName = new Text(destination, '');
+export const statusDestination = new Text(destinationStatus, '');

@@ -47,6 +47,21 @@ const leftWrapper: ElementPage = {
   class: 'main_left',
 };
 
+const rightWrapper: ElementPage = {
+  tag: 'div',
+  class: 'main_right',
+};
+
+const destinationWrapper: ElementPage = {
+  tag: 'div',
+  class: 'main_destination',
+};
+
+const allUsersWrapper: ElementPage = {
+  tag: 'div',
+  class: 'main_users',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -65,3 +80,6 @@ export const wrapperHeader = new Wrapper(headerWrapper);
 export const wrapperUser = new Wrapper(userWrapper);
 export const wrapperFooter = new Wrapper(footerWrapper);
 export const wrapperLeft = new Wrapper(leftWrapper);
+export const wrapperRight = new Wrapper(rightWrapper);
+export const wrapperDestination = new Wrapper(destinationWrapper);
+export const usersWrapper = new Wrapper(allUsersWrapper);

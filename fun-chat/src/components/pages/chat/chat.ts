@@ -1,5 +1,5 @@
 import { Page } from '../pages';
-import { wrapperMain, wrapperHeader, wrapperUser } from '../../elements/wrapper/wrapper';
+import { wrapperMain, wrapperHeader, wrapperUser, usersWrapper } from '../../elements/wrapper/wrapper';
 import { buttonInfo, buttonLogout } from '../../elements/button/button';
 import { appName } from '../../elements/text/text';
 import { AllPages } from '../all-pages';
@@ -11,6 +11,7 @@ import { input } from '../../elements/label-input/label-input';
 
 import './chat.css';
 import { searchName } from '../../actions/search-name';
+import { rightWrapper } from '../../elements/main-right-side/main-right-side';
 
 export class Chat extends Page {
   constructor(id: string) {
@@ -30,9 +31,12 @@ export class Chat extends Page {
     nameUser.className = 'main_user';
     nameUser.textContent = `User: ${this.getName()}`;
     const userSection = wrapperUser.createElement();
+    const sideLeft = usersWrapper.createElement();
+    userSection.append(sideLeft);
+    const sideRight = rightWrapper.createRightSide();
     const users = await user.createLeftSide();
-    userSection.append(input);
-    userSection.append(users);
+    sideLeft.append(input, users);
+    userSection.append(sideRight);
     const footer = footerChat.createFooter();
     header.append(nameApp, nameUser, infoButton, logoutButton);
     document.body.append(page);
@@ -40,6 +44,7 @@ export class Chat extends Page {
     wrapper.append(header, userSection, footer);
     newActive();
     searchName();
+    rightWrapper.getNameDestination();
   }
 
   getName() {

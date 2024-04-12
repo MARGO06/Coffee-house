@@ -2,6 +2,8 @@ import { getActiveUsers, activeUsers } from '../../websocket/all-authenticated-u
 import { wrapperLeft } from '../wrapper/wrapper';
 import { inactiveUsers } from '../../websocket/all-unauthenticated-users';
 
+import './main-left-side.css';
+
 class LeftWrapper {
   async createLeftSide() {
     const wrapper = wrapperLeft.createElement();
@@ -12,6 +14,7 @@ class LeftWrapper {
   }
 
   async createActiveUsers() {
+    const name = sessionStorage.getItem('first name');
     const active = document.createElement('ul');
     active.className = 'active';
     activeUsers();
@@ -19,10 +22,12 @@ class LeftWrapper {
     if (answer.type === 'USER_ACTIVE') {
       const users = answer.payload.users;
       users.forEach((user) => {
-        const userActive = document.createElement('li');
-        userActive.className = 'users_active';
-        userActive.textContent = user.login;
-        active.append(userActive);
+        if (user.login !== name) {
+          const userActive = document.createElement('li');
+          userActive.className = 'users_active';
+          userActive.textContent = user.login;
+          active.append(userActive);
+        }
       });
     }
     return active;
