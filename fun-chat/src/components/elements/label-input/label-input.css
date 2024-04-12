@@ -44,3 +44,11 @@ input[type='password']:invalid:focus:not(:placeholder-shown) ~ .requirement {
   font-size: 1rem;
   font-style: italic;
 }
+
+#search {
+  display: block;
+  font-size: 1rem;
+  height: 25px;
+  padding-left: 5px;
+  border: 3px solid rgb(188 114 224);
+}

@@ -27,6 +27,18 @@ export const passwordInput: FormElements = {
   requirement: "The first letter is in uppercase, min length is 4 characters, use english letters and '-'",
 };
 
+type InputSearch = {
+  tag: string;
+  id: string;
+  placeholder: string;
+};
+
+const searchInput: InputSearch = {
+  tag: 'input',
+  id: 'search',
+  placeholder: 'Search',
+};
+
 class LabelInput {
   tag1: string;
   tag2: string;
@@ -72,6 +84,26 @@ class LabelInput {
   }
 }
 
+class Input {
+  tag: string;
+  id: string;
+  placeholder: string;
+
+  constructor(input: InputSearch) {
+    this.tag = input.tag;
+    this.id = input.id;
+    this.placeholder = input.placeholder;
+  }
+
+  createInput() {
+    const input = document.createElement(this.tag);
+    input.id = this.id;
+    input.setAttribute('type', 'text');
+    input.setAttribute('placeholder', this.placeholder);
+    return input;
+  }
+}
+
 const firstName = new LabelInput(nameInput);
 const label1 = firstName.createLabel();
 const input1 = firstName.createInput();
@@ -81,5 +113,8 @@ const lastName = new LabelInput(passwordInput);
 const label2 = lastName.createLabel();
 const input2 = lastName.createInput();
 const requirement2 = lastName.createRequirements();
+
+const search = new Input(searchInput);
+export const input = search.createInput();
 
 export { label1, input1, requirement1, label2, input2, requirement2 };
