@@ -52,7 +52,6 @@ export class AllPages {
 
   showModalWindows() {
     sendMessage().then((result) => {
-      console.log(result);
       if (result === 'USER_LOGIN') {
         document.body.innerHTML = '';
         this.chatPage.createPage();

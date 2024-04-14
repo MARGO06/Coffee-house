@@ -6,8 +6,9 @@ import { AllPages } from '../all-pages';
 import { userLogout } from '../../websocket/user-logout';
 import { footerChat } from '../../elements/footer/footer';
 import { user } from '../../elements/main-left-side/main-left-side';
-import { newActive } from '../../actions/create-new-active';
+import { exitNewActive, newActive } from '../../actions/create-new-active';
 import { input } from '../../elements/label-input/label-input';
+import { sendMessage } from '../../actions/send-message';
 
 import './chat.css';
 import { searchName } from '../../actions/search-name';
@@ -43,8 +44,10 @@ export class Chat extends Page {
     page.append(wrapper);
     wrapper.append(header, userSection, footer);
     newActive();
+    exitNewActive();
     searchName();
     rightWrapper.getNameDestination();
+    sendMessage();
   }
 
   getName() {

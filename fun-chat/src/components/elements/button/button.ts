@@ -22,6 +22,11 @@ const logoutButton: ElementPage = {
   class: 'logout_button',
 };
 
+const sendButton: ElementPage = {
+  tag: 'button',
+  class: 'send_button',
+};
+
 class Button extends Element {
   type: string;
   text: string;
@@ -44,3 +49,4 @@ export const buttonLogin = new Button(loginButton, 'submit', 'Login');
 export const buttonInfo = new Button(infoButton, 'button', 'Information');
 export const buttonModal = new Button(modalButton, 'button', 'OK');
 export const buttonLogout = new Button(logoutButton, 'button', 'Logout');
+export const buttonSend = new Button(sendButton, 'button', 'Send');

@@ -31,3 +31,8 @@
   margin-left: 5%;
   width: 10%;
 }
+
+.send_button {
+  width: 10%;
+  background-color: #d496e5;
+}

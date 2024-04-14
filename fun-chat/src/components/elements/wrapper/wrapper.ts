@@ -62,6 +62,16 @@ const allUsersWrapper: ElementPage = {
   class: 'main_users',
 };
 
+const fieldMessage: ElementPage = {
+  tag: 'div',
+  class: 'main_field-message',
+};
+
+const sendMessage: ElementPage = {
+  tag: 'div',
+  class: 'main_message-send',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -83,3 +93,5 @@ export const wrapperLeft = new Wrapper(leftWrapper);
 export const wrapperRight = new Wrapper(rightWrapper);
 export const wrapperDestination = new Wrapper(destinationWrapper);
 export const usersWrapper = new Wrapper(allUsersWrapper);
+export const messageField = new Wrapper(fieldMessage);
+export const messageSend = new Wrapper(sendMessage);

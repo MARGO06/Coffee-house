@@ -1,12 +1,19 @@
-import { wrapperRight, wrapperDestination } from '../wrapper/wrapper';
+import { wrapperRight, wrapperDestination, messageSend, messageField } from '../wrapper/wrapper';
 import { destinationName, statusDestination } from '../text/text';
+import { newMessage } from '../label-input/label-input';
+import { buttonSend } from '../button/button';
+
 export class RightSide {
   createRightSide() {
     const rightWrapper = wrapperRight.createElement();
     const destinationWrapper = wrapperDestination.createElement();
     const name = destinationName.createElement();
     const status = statusDestination.createElement();
-    rightWrapper.append(destinationWrapper);
+    const field = messageField.createElement();
+    const send = messageSend.createElement();
+    const sendButton = buttonSend.createElement();
+    send.append(newMessage, sendButton);
+    rightWrapper.append(destinationWrapper, field, send);
     destinationWrapper.append(name, status);
     return rightWrapper;
   }
@@ -17,12 +24,13 @@ export class RightSide {
     const allUsers = Array.from(active).concat(Array.from(inactive));
     const nameDestination = document.querySelector('.main_destination-name');
     const status = document.querySelector('.main_destination-status');
+    const field = document.querySelector('.main_field-message');
     allUsers.forEach((name) => {
       name.addEventListener('click', (e) => {
         e.preventDefault();
+        if (field instanceof HTMLElement) field.innerHTML = '';
         if (nameDestination instanceof HTMLElement && status instanceof HTMLElement) {
           nameDestination.innerHTML = name.innerHTML;
-          console.log(name.className);
           if (name.className === 'users_inactive') {
             status.innerHTML = 'inactive';
             status.style.color = 'rgba(194, 6, 6, 0.847)';
@@ -32,8 +40,6 @@ export class RightSide {
             status.style.color = 'rgb(27, 243, 8)';
           }
         }
-
-        console.log(name.innerHTML);
       });
     });
   }

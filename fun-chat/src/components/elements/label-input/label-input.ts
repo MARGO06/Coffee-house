@@ -39,6 +39,12 @@ const searchInput: InputSearch = {
   placeholder: 'Search',
 };
 
+const messageInput: InputSearch = {
+  tag: 'input',
+  id: 'message',
+  placeholder: 'your text',
+};
+
 class LabelInput {
   tag1: string;
   tag2: string;
@@ -115,6 +121,8 @@ const input2 = lastName.createInput();
 const requirement2 = lastName.createRequirements();
 
 const search = new Input(searchInput);
+const message = new Input(messageInput);
 export const input = search.createInput();
+export const newMessage = message.createInput();
 
 export { label1, input1, requirement1, label2, input2, requirement2 };
