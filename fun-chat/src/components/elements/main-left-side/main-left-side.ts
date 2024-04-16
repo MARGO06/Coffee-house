@@ -26,7 +26,10 @@ class LeftWrapper {
           const userActive = document.createElement('li');
           userActive.className = 'users_active';
           userActive.textContent = user.login;
-          active.append(userActive);
+          const countMessages = document.createElement('div');
+          countMessages.className = `count ${user.login}`;
+          countMessages.dataset.count = `0`;
+          active.append(userActive, countMessages);
         }
       });
     }
@@ -44,7 +47,10 @@ class LeftWrapper {
         const userActive = document.createElement('li');
         userActive.className = 'users_inactive';
         userActive.textContent = user.login;
-        inactive.append(userActive);
+        const countMessages = document.createElement('div');
+        countMessages.className = `count ${user.login}`;
+        countMessages.dataset.count = `0`;
+        inactive.append(userActive, countMessages);
       });
     }
     return inactive;

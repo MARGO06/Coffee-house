@@ -13,6 +13,7 @@ import { sendMessage } from '../../actions/send-message';
 import './chat.css';
 import { searchName } from '../../actions/search-name';
 import { rightWrapper } from '../../elements/main-right-side/main-right-side';
+import { countMessage } from '../../actions/getMessageFromUser';
 
 export class Chat extends Page {
   constructor(id: string) {
@@ -48,6 +49,7 @@ export class Chat extends Page {
     searchName();
     rightWrapper.getNameDestination();
     sendMessage();
+    countMessage();
   }
 
   getName() {

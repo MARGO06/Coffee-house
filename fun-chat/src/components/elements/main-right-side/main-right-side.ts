@@ -3,6 +3,8 @@ import { destinationName, statusDestination } from '../text/text';
 import { newMessage } from '../label-input/label-input';
 import { buttonSend } from '../button/button';
 
+import './main-right-side.css';
+
 export class RightSide {
   createRightSide() {
     const rightWrapper = wrapperRight.createElement();

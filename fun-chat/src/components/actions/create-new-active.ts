@@ -8,6 +8,9 @@ export const newActive = async () => {
     const userActive = document.createElement('li');
     userActive.className = 'users_active';
     userActive.textContent = users;
+    const countMessages = document.createElement('div');
+    countMessages.className = `count ${users}`;
+    countMessages.dataset.count = `0`;
     userActive.addEventListener('click', (e) => {
       const nameDestination = document.querySelector('.main_destination-name');
       const status = document.querySelector('.main_destination-status');
@@ -18,7 +21,8 @@ export const newActive = async () => {
         status.style.color = 'rgb(27, 243, 8)';
       }
     });
-    if (active instanceof HTMLUListElement) active.append(userActive);
+
+    if (active instanceof HTMLUListElement) active.append(userActive, countMessages);
   }
   exitNewActive();
   return active;

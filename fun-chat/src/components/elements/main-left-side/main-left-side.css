@@ -3,5 +3,16 @@
 }
 
 .users_active::marker {
-  color: rgba(24, 227, 14, 0.847);
+  color: rgb(27, 243, 8);
+}
+
+.users_active {
+  position: relative;
+}
+
+.count {
+  display: inline-block;
+  position: absolute;
+  margin-left: 10%;
+  margin-top: -17px;
 }

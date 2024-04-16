@@ -1,10 +1,10 @@
 import { sendMessageToUser } from '../websocket/send-message-to-user';
+
 export const sendMessage = () => {
   const input = document.getElementById('message');
   const button = document.querySelector('.send_button');
   const name = document.querySelector('.main_destination-name');
   const field = document.querySelector('.main_field-message');
-  console.log(field);
   if (button instanceof HTMLButtonElement && name instanceof HTMLElement) {
     button.addEventListener('click', (e) => {
       e.preventDefault();
