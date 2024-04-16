@@ -72,6 +72,11 @@ const sendMessage: ElementPage = {
   class: 'main_message-send',
 };
 
+const scrollField: ElementPage = {
+  tag: 'div',
+  class: 'main_scroll-field',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -95,3 +100,4 @@ export const wrapperDestination = new Wrapper(destinationWrapper);
 export const usersWrapper = new Wrapper(allUsersWrapper);
 export const messageField = new Wrapper(fieldMessage);
 export const messageSend = new Wrapper(sendMessage);
+export const fieldScroll = new Wrapper(scrollField);

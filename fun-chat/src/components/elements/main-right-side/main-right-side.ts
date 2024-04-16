@@ -1,9 +1,11 @@
-import { wrapperRight, wrapperDestination, messageSend, messageField } from '../wrapper/wrapper';
+import { wrapperRight, wrapperDestination, messageSend, messageField, fieldScroll } from '../wrapper/wrapper';
 import { destinationName, statusDestination } from '../text/text';
 import { newMessage } from '../label-input/label-input';
 import { buttonSend } from '../button/button';
+import { sendHistoryRequest } from '../../websocket/sendHistoryRequest';
 
 import './main-right-side.css';
+import { showAllHistoryMessages } from '../../actions/showHistoryMessage';
 
 export class RightSide {
   createRightSide() {
@@ -11,11 +13,13 @@ export class RightSide {
     const destinationWrapper = wrapperDestination.createElement();
     const name = destinationName.createElement();
     const status = statusDestination.createElement();
+    const scroll = fieldScroll.createElement();
     const field = messageField.createElement();
     const send = messageSend.createElement();
     const sendButton = buttonSend.createElement();
     send.append(newMessage, sendButton);
-    rightWrapper.append(destinationWrapper, field, send);
+    scroll.append(field);
+    rightWrapper.append(destinationWrapper, scroll, send);
     destinationWrapper.append(name, status);
     return rightWrapper;
   }
@@ -42,6 +46,8 @@ export class RightSide {
             status.style.color = 'rgb(27, 243, 8)';
           }
         }
+        sendHistoryRequest(name.innerHTML);
+        showAllHistoryMessages();
       });
     });
   }

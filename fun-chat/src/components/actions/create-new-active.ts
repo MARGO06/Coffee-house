@@ -1,4 +1,6 @@
+import { sendHistoryRequest } from '../websocket/sendHistoryRequest';
 import { getNewActive } from '../websocket/user_external';
+import { showAllHistoryMessages } from './showHistoryMessage';
 
 export const newActive = async () => {
   const active = document.querySelector('.active');
@@ -28,6 +30,8 @@ export const newActive = async () => {
         status.innerHTML = 'active';
         status.style.color = 'rgb(27, 243, 8)';
       }
+      sendHistoryRequest(users);
+      showAllHistoryMessages();
       newActive();
       exitNewActive();
     });

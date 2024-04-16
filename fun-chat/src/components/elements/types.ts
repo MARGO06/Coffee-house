@@ -40,3 +40,24 @@ export type Message = {
     };
   };
 };
+
+export type HistoryMessage = {
+  id: string;
+  type: 'MSG_FROM_USER';
+  payload: {
+    messages: [];
+  };
+};
+
+export type AllMessage = {
+  id: string;
+  from: string;
+  to: string;
+  text: string;
+  datetime: number;
+  status: {
+    isDelivered: boolean;
+    isReaded: boolean;
+    isEdited: boolean;
+  };
+};

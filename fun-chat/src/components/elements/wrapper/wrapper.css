@@ -81,9 +81,19 @@
   display: flex;
 }
 
-.main_field-message {
+.main_scroll-field {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: auto;
   margin-top: 10px;
   height: 90%;
+  background-color: rgb(172 219 213);
+}
+
+.main_field-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   background-color: rgb(172 219 213);
 }
 

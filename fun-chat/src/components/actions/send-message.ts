@@ -13,6 +13,7 @@ export const sendMessage = () => {
         message.className = `message ${name.innerHTML}`;
         sendMessageToUser(name.innerHTML, input.value);
         message.textContent = input.value;
+        message.style.alignItems = 'end';
         field.append(message);
       }
     });

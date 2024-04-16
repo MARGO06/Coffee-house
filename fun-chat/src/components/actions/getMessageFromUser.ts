@@ -38,6 +38,7 @@ function showMessage(user: Element, data: Message) {
       message.classList.remove('hidden');
     }
     message.textContent = data.payload.message.text;
+    message.style.alignSelf = 'start';
     if (field instanceof HTMLElement) field.append(message);
   }
 }
