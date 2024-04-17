@@ -35,11 +35,6 @@ function blockButtonAndInput() {
       input.setAttribute('disabled', 'true');
       button.setAttribute('disabled', 'true');
     }
-    if (name.innerHTML) {
-      console.log(name.innerHTML);
-      input.setAttribute('disabled', 'false');
-      button.setAttribute('disabled', 'false');
-    }
   }
 }
 
@@ -52,4 +47,32 @@ export function unBlockButtonAndInput(name: string) {
       button.removeAttribute('disabled');
     }
   }
+}
+
+export function sendMessageClickButton() {
+  const input = document.getElementById('message');
+  const name = document.querySelector('.main_destination-name');
+  const field = document.querySelector('.main_field-message');
+  const scroll = document.querySelector('.main_scroll-field');
+  if (name instanceof HTMLElement && scroll instanceof HTMLElement && input instanceof HTMLInputElement) {
+    document.addEventListener('keydown', (e) => {
+      console.log(input.value);
+      if (e.key === 'Enter' && input.value) {
+        e.preventDefault();
+        if (field instanceof HTMLElement && input instanceof HTMLInputElement) {
+          if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
+            field.children[0].remove();
+          }
+          const message = document.createElement('p');
+          message.className = `message ${name.innerHTML}`;
+          sendMessageToUser(name.innerHTML, input.value);
+          message.textContent = input.value;
+          message.style.alignItems = 'end';
+          field.append(message);
+        }
+        scroll.scrollTop = scroll.scrollHeight;
+      }
+    });
+  }
+  blockButtonAndInput();
 }
