@@ -28,9 +28,10 @@ export const countMessage = async () => {
 function showMessage(user: Element, data: Message) {
   const name = document.querySelector('.main_destination-name');
   const field = document.querySelector('.main_field-message');
+  const scroll = document.querySelector('.main_scroll-field');
   const message = document.createElement('p');
   message.className = `message ${user.innerHTML}`;
-  if (name instanceof HTMLElement) {
+  if (name instanceof HTMLElement && scroll instanceof HTMLElement) {
     if (!name.innerHTML) {
       message.classList.add('hidden');
     }
@@ -39,6 +40,13 @@ function showMessage(user: Element, data: Message) {
     }
     message.textContent = data.payload.message.text;
     message.style.alignSelf = 'start';
-    if (field instanceof HTMLElement) field.append(message);
+    if (field instanceof HTMLElement) {
+      if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
+        field.children[0].remove();
+      }
+      field.append(message);
+    }
+
+    scroll.scrollTop = scroll.scrollHeight;
   }
 }

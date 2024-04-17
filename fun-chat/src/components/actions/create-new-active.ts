@@ -1,5 +1,6 @@
 import { sendHistoryRequest } from '../websocket/sendHistoryRequest';
 import { getNewActive } from '../websocket/user_external';
+
 import { showAllHistoryMessages } from './showHistoryMessage';
 
 export const newActive = async () => {
@@ -7,15 +8,10 @@ export const newActive = async () => {
   const inactive = document.querySelectorAll('.users_inactive');
   const nameDestination = document.querySelector('.main_destination-name');
   const status = document.querySelector('.main_destination-status');
+  const field = document.querySelector('.main_field-message');
   const answer = await getNewActive();
   if (answer.type === 'USER_EXTERNAL_LOGIN' || answer.type === 'USER_ACTIVE') {
     const users = answer.payload.user.login;
-    const userActive = document.createElement('li');
-    userActive.className = 'users_active';
-    userActive.textContent = users;
-    const countMessages = document.createElement('div');
-    countMessages.className = `count ${users}`;
-    countMessages.dataset.count = `0`;
     inactive.forEach((name) => {
       if (name.innerHTML === users) {
         console.log(name.innerHTML);
@@ -23,19 +19,25 @@ export const newActive = async () => {
         deleteCount(users);
       }
     });
+    const userActive = document.createElement('li');
+    userActive.className = 'users_active';
+    userActive.textContent = users;
+    const countMessages = document.createElement('div');
+    countMessages.className = `count ${users}`;
+    countMessages.dataset.count = `0`;
     userActive.addEventListener('click', (e) => {
       e.preventDefault();
-      if (nameDestination instanceof HTMLElement && status instanceof HTMLElement) {
+      if (nameDestination instanceof HTMLElement && status instanceof HTMLElement && field instanceof HTMLElement) {
         nameDestination.innerHTML = users;
         status.innerHTML = 'active';
         status.style.color = 'rgb(27, 243, 8)';
+        createFirstScreen();
       }
+      newActive();
+
       sendHistoryRequest(users);
       showAllHistoryMessages();
-      newActive();
-      exitNewActive();
     });
-
     if (active instanceof HTMLUListElement) active.append(userActive, countMessages);
   }
   exitNewActive();
@@ -72,7 +74,6 @@ function deleteCount(data: string) {
   const counts = document.querySelectorAll('.count');
   counts.forEach((count) => {
     if (count.classList.contains(data)) {
-      console.log(count);
       count.remove();
     }
   });
@@ -86,5 +87,14 @@ function changeStatus(data: string) {
       status.innerHTML = 'inactive';
       status.style.color = 'rgba(194, 6, 6, 0.847)';
     }
+  }
+}
+
+export function createFirstScreen() {
+  const field = document.querySelector('.main_field-message');
+  if (field instanceof HTMLElement) {
+    field.innerHTML = '<p class="first_message">You can write your first message...</p>';
+    field.style.height = '100%';
+    field.style.justifyContent = 'center';
   }
 }

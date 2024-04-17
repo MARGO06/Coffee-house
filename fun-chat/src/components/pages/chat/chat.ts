@@ -8,12 +8,12 @@ import { footerChat } from '../../elements/footer/footer';
 import { user } from '../../elements/main-left-side/main-left-side';
 import { exitNewActive, newActive } from '../../actions/create-new-active';
 import { input } from '../../elements/label-input/label-input';
-import { sendMessage } from '../../actions/send-message';
-
-import './chat.css';
 import { searchName } from '../../actions/search-name';
 import { rightWrapper } from '../../elements/main-right-side/main-right-side';
 import { countMessage } from '../../actions/getMessageFromUser';
+import { sendMessage } from '../../actions/send-message';
+
+import './chat.css';
 
 export class Chat extends Page {
   constructor(id: string) {

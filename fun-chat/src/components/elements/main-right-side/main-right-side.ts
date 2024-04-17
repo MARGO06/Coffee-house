@@ -3,6 +3,7 @@ import { destinationName, statusDestination } from '../text/text';
 import { newMessage } from '../label-input/label-input';
 import { buttonSend } from '../button/button';
 import { sendHistoryRequest } from '../../websocket/sendHistoryRequest';
+import { createFirstScreen } from '../../actions/create-new-active';
 
 import './main-right-side.css';
 import { showAllHistoryMessages } from '../../actions/showHistoryMessage';
@@ -34,9 +35,10 @@ export class RightSide {
     allUsers.forEach((name) => {
       name.addEventListener('click', (e) => {
         e.preventDefault();
-        if (field instanceof HTMLElement) field.innerHTML = '';
-        if (nameDestination instanceof HTMLElement && status instanceof HTMLElement) {
+        createFirstScreen();
+        if (nameDestination instanceof HTMLElement && status instanceof HTMLElement && field instanceof HTMLElement) {
           nameDestination.innerHTML = name.innerHTML;
+
           if (name.className === 'users_inactive') {
             status.innerHTML = 'inactive';
             status.style.color = 'rgba(194, 6, 6, 0.847)';
