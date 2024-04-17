@@ -29,8 +29,10 @@ function showMessage(user: Element, data: Message) {
   const name = document.querySelector('.main_destination-name');
   const field = document.querySelector('.main_field-message');
   const scroll = document.querySelector('.main_scroll-field');
+
   const message = document.createElement('p');
   message.className = `message ${user.innerHTML}`;
+
   if (name instanceof HTMLElement && scroll instanceof HTMLElement) {
     if (!name.innerHTML) {
       message.classList.add('hidden');
@@ -48,5 +50,6 @@ function showMessage(user: Element, data: Message) {
     }
 
     scroll.scrollTop = scroll.scrollHeight;
+    return field;
   }
 }

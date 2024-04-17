@@ -27,6 +27,11 @@ const destinationStatus: ElementPage = {
   class: 'main_destination-status',
 };
 
+const notUser: ElementPage = {
+  tag: 'p',
+  class: 'main_not-user',
+};
+
 class Text extends Element {
   text: string;
 
@@ -48,3 +53,4 @@ export const schoolName = new Text(nameSchool, 'RS School');
 export const footerYear = new Text(year, '2024');
 export const destinationName = new Text(destination, '');
 export const statusDestination = new Text(destinationStatus, '');
+export const mainNotUser = new Text(notUser, 'You need to check recipient');

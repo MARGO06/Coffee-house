@@ -1,5 +1,6 @@
 import { sendHistoryRequest } from '../websocket/sendHistoryRequest';
 import { getNewActive } from '../websocket/user_external';
+import { unBlockButtonAndInput } from './send-message';
 
 import { showAllHistoryMessages } from './showHistoryMessage';
 
@@ -31,6 +32,7 @@ export const newActive = async () => {
         nameDestination.innerHTML = users;
         status.innerHTML = 'active';
         status.style.color = 'rgb(27, 243, 8)';
+        unBlockButtonAndInput(nameDestination.innerHTML);
         createFirstScreen();
       }
       newActive();
