@@ -77,6 +77,16 @@ const scrollField: ElementPage = {
   class: 'main_scroll-field',
 };
 
+const datesWrapper: ElementPage = {
+  tag: 'div',
+  class: 'message_dates',
+};
+
+const statusWrapper: ElementPage = {
+  tag: 'div',
+  class: 'message_status',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -101,3 +111,5 @@ export const usersWrapper = new Wrapper(allUsersWrapper);
 export const messageField = new Wrapper(fieldMessage);
 export const messageSend = new Wrapper(sendMessage);
 export const fieldScroll = new Wrapper(scrollField);
+export const wrapperDates = new Wrapper(datesWrapper);
+export const wrapperStatus = new Wrapper(statusWrapper);

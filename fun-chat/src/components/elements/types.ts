@@ -41,14 +41,6 @@ export type Message = {
   };
 };
 
-export type HistoryMessage = {
-  id: string;
-  type: 'MSG_FROM_USER';
-  payload: {
-    messages: [];
-  };
-};
-
 export type AllMessage = {
   id: string;
   from: string;
@@ -60,4 +52,21 @@ export type AllMessage = {
     isReaded: boolean;
     isEdited: boolean;
   };
+};
+
+export type HistoryMessage = {
+  id: string;
+  type: 'MSG_FROM_USER';
+  payload: {
+    messages: AllMessage[];
+  };
+};
+
+export type Options = {
+  month: string;
+  day: string;
+  year: string;
+  hour: string;
+  minute: string;
+  second: string;
 };

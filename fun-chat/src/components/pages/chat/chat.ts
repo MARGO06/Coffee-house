@@ -49,6 +49,7 @@ export class Chat extends Page {
     searchName();
     rightWrapper.getNameDestination();
     sendMessage();
+
     sendMessageClickButton();
     countMessage();
   }
