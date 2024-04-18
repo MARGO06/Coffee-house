@@ -4,7 +4,7 @@ import { newMessage } from '../label-input/label-input';
 import { buttonSend } from '../button/button';
 import { sendHistoryRequest } from '../../websocket/sendHistoryRequest';
 import { createFirstScreen } from '../../actions/create-new-active';
-import { unBlockButtonAndInput } from '../../actions/send-message';
+import { unBlockButtonAndInput, blockInputMessage } from '../../actions/send-message';
 
 import './main-right-side.css';
 import { showAllHistoryMessages } from '../../actions/showHistoryMessage';
@@ -53,6 +53,7 @@ export class RightSide {
             status.style.color = 'rgb(27, 243, 8)';
           }
         }
+        blockInputMessage();
         sendHistoryRequest(name.innerHTML);
         showAllHistoryMessages();
       });

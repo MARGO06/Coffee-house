@@ -48,6 +48,7 @@ export class Chat extends Page {
     exitNewActive();
     searchName();
     rightWrapper.getNameDestination();
+
     sendMessage();
 
     sendMessageClickButton();

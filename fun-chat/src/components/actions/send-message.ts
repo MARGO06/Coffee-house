@@ -20,7 +20,6 @@ export const sendMessage = () => {
   const scroll = document.querySelector('.main_scroll-field');
   if (button instanceof HTMLButtonElement && name instanceof HTMLElement && scroll instanceof HTMLElement) {
     button.addEventListener('click', async (e) => {
-      console.log('hhh');
       e.preventDefault();
       if (field instanceof HTMLElement && input instanceof HTMLInputElement) {
         if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
@@ -34,8 +33,10 @@ export const sendMessage = () => {
         const wrapper = await createMessage(message);
 
         field.append(wrapper);
+        input.value = '';
       }
       scroll.scrollTop = scroll.scrollHeight;
+      blockInputMessage();
     });
   }
   blockButtonAndInput();
@@ -69,25 +70,34 @@ export function sendMessageClickButton() {
   const name = document.querySelector('.main_destination-name');
   const field = document.querySelector('.main_field-message');
   const scroll = document.querySelector('.main_scroll-field');
+  const button = document.querySelector('.send_button');
   if (name instanceof HTMLElement && scroll instanceof HTMLElement && input instanceof HTMLInputElement) {
-    console.log(input, name, field);
-    document.addEventListener('keydown', async (e) => {
-      console.log(input.value);
+    input.addEventListener('keydown', async (e) => {
       if (e.key === 'Enter') {
-        e.preventDefault();
-        if (field instanceof HTMLElement && input instanceof HTMLInputElement) {
-          if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
-            field.children[0].remove();
-          }
-          const message = document.createElement('p');
-          message.className = `message ${name.innerHTML}`;
-          sendMessageToUser(name.innerHTML, input.value);
-          message.style.alignItems = 'end';
-          const wrapper = await createMessage(message);
-          console.log('kkkk');
-          field.append(wrapper);
+        if (!input.value) {
+          e.preventDefault();
         }
-        scroll.scrollTop = scroll.scrollHeight;
+        if (input.value) {
+          e.preventDefault();
+          if (
+            field instanceof HTMLElement &&
+            input instanceof HTMLInputElement &&
+            button instanceof HTMLButtonElement
+          ) {
+            if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
+              field.children[0].remove();
+            }
+            const message = document.createElement('p');
+            message.className = `message ${name.innerHTML}`;
+            sendMessageToUser(name.innerHTML, input.value);
+            message.style.alignItems = 'end';
+            const wrapper = await createMessage(message);
+            field.append(wrapper);
+            input.value = '';
+            button.setAttribute('disabled', 'true');
+          }
+          scroll.scrollTop = scroll.scrollHeight;
+        }
       }
     });
   }
@@ -112,4 +122,19 @@ export async function createMessage(wrapper: HTMLElement) {
   messageStatus.append(editStatus, deliveryStatus);
   wrapper.append(messageDates, textMessage, messageStatus);
   return wrapper;
+}
+
+export function blockInputMessage() {
+  const input = document.getElementById('message');
+  const button = document.querySelector('.send_button');
+  if (input instanceof HTMLInputElement && button instanceof HTMLButtonElement) {
+    if (!input.value) {
+      button.setAttribute('disabled', 'true');
+    }
+    input.addEventListener('input', () => {
+      if (input.value) {
+        button.removeAttribute('disabled');
+      }
+    });
+  }
 }
