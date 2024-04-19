@@ -57,6 +57,14 @@ const deliveryStatus: ElementPage = {
   class: 'delivery_status',
 };
 
+const information: ElementPage = {
+  tag: 'p',
+  class: 'information',
+};
+
+const testAbout =
+  'Fun Chat is an application created for communication between people. You can exchange messages, delete or edit messages.';
+
 class Text extends Element {
   text: string;
 
@@ -84,3 +92,4 @@ export const messageData = new Text(dataMessage, '');
 export const messageText = new Text(textMessage, '');
 export const statusEdit = new Text(editStatus, '');
 export const statusDelivery = new Text(deliveryStatus, '');
+export const informationApp = new Text(information, testAbout);

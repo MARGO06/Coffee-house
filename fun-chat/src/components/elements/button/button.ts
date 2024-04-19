@@ -12,6 +12,11 @@ const infoButton: ElementPage = {
   class: 'info_button',
 };
 
+const infoButtonChat: ElementPage = {
+  tag: 'button',
+  class: 'info_button-chat',
+};
+
 const modalButton: ElementPage = {
   tag: 'button',
   class: 'modal_button',
@@ -25,6 +30,11 @@ const logoutButton: ElementPage = {
 const sendButton: ElementPage = {
   tag: 'button',
   class: 'send_button',
+};
+
+const backButton: ElementPage = {
+  tag: 'button',
+  class: 'back_button',
 };
 
 class Button extends Element {
@@ -50,3 +60,5 @@ export const buttonInfo = new Button(infoButton, 'button', 'Information');
 export const buttonModal = new Button(modalButton, 'button', 'OK');
 export const buttonLogout = new Button(logoutButton, 'button', 'Logout');
 export const buttonSend = new Button(sendButton, 'button', 'Send');
+export const buttonBack = new Button(backButton, 'button', 'Come back');
+export const buttonInfoChat = new Button(infoButtonChat, 'button', 'Information');

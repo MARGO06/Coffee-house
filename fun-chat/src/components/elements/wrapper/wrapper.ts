@@ -87,6 +87,16 @@ const statusWrapper: ElementPage = {
   class: 'message_status',
 };
 
+const aboutWrapper: ElementPage = {
+  tag: 'div',
+  class: 'about_wrapper',
+};
+
+const aboutInformation: ElementPage = {
+  tag: 'div',
+  class: 'about_information',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -113,3 +123,5 @@ export const messageSend = new Wrapper(sendMessage);
 export const fieldScroll = new Wrapper(scrollField);
 export const wrapperDates = new Wrapper(datesWrapper);
 export const wrapperStatus = new Wrapper(statusWrapper);
+export const wrapperAbout = new Wrapper(aboutWrapper);
+export const informationAbout = new Wrapper(aboutInformation);

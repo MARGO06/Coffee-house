@@ -1,7 +1,9 @@
 .login_button,
 .info_button,
 .modal_button,
-.logout_button {
+.logout_button,
+.info_button-chat,
+.back_button {
   display: block;
   height: 30px;
   margin-top: 20px;
@@ -13,17 +15,19 @@
 
 .login_button:hover,
 .info_button:hover,
-.modal_button:hover {
+.modal_button:hover,
+.info_button-chat:hover {
   cursor: pointer;
 }
 
 .login_button:active,
 .info_button:active,
-.modal_button:active {
+.modal_button:active,
+.info_button-chat:active {
   background-color: rgb(94, 238, 190);
 }
 
-.main_header .info_button {
+.main_header .info_button-chat {
   margin-left: 35%;
   width: 10%;
 }
@@ -35,4 +39,8 @@
 .send_button {
   width: 10%;
   background-color: #d496e5;
+}
+
+.back_button {
+  width: 20%;
 }

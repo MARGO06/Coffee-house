@@ -1,5 +1,6 @@
 .login_wrapper,
-.main_wrapper {
+.main_wrapper,
+.about_wrapper {
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -101,4 +102,12 @@
   height: 100%;
   overflow: auto;
   margin-top: 20px;
+}
+
+.about_information {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 20%;
+  width: 50%;
 }

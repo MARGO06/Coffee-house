@@ -3,14 +3,17 @@ import { Chat } from './chat/chat';
 import { socket, sendMessage } from '../websocket/send-message';
 import { ModalWindow } from '../elements/modal/modal';
 import { sendForm } from '../actions/send-form';
+import { About } from './about/about';
 
 export class AllPages {
   loginPage: Login;
   chatPage: Chat;
+  aboutPage: About;
 
   constructor() {
     this.loginPage = new Login('login');
     this.chatPage = new Chat('chat');
+    this.aboutPage = new About('about');
   }
 
   createLoginPage() {
@@ -71,5 +74,24 @@ export class AllPages {
     this.createLoginPage();
     this.createChatPageButton();
     this.createChatPageInput();
+    this.createAboutPage();
+  }
+
+  createAboutPage() {
+    const infoButton = document.querySelector('.info_button');
+    if (infoButton instanceof HTMLButtonElement) {
+      this.backToPage(infoButton);
+    }
+  }
+
+  backToPage(button: HTMLElement) {
+    button.addEventListener('click', (e) => {
+      console.log(location.hash);
+      e.preventDefault();
+      sessionStorage.setItem('location', `${location.hash}`);
+      document.body.innerHTML = '';
+      this.aboutPage.createPage();
+      window.location.hash = 'about';
+    });
   }
 }

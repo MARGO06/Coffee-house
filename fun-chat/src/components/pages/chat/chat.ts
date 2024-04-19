@@ -1,6 +1,6 @@
 import { Page } from '../pages';
 import { wrapperMain, wrapperHeader, wrapperUser, usersWrapper } from '../../elements/wrapper/wrapper';
-import { buttonInfo, buttonLogout } from '../../elements/button/button';
+import { buttonInfoChat, buttonLogout } from '../../elements/button/button';
 import { appName } from '../../elements/text/text';
 import { AllPages } from '../all-pages';
 import { userLogout } from '../../websocket/user-logout';
@@ -25,7 +25,10 @@ export class Chat extends Page {
     page.id = this.id;
     const wrapper = wrapperMain.createElement();
     const header = wrapperHeader.createElement();
-    const infoButton = buttonInfo.createElement();
+    const infoButton = buttonInfoChat.createElement();
+    const pageAbout = new AllPages();
+    pageAbout.backToPage(infoButton);
+    console.log('fff');
     const logoutButton = buttonLogout.createElement();
     if (logoutButton instanceof HTMLButtonElement) this.backToPage(logoutButton);
     const nameApp = appName.createElement();
@@ -44,7 +47,7 @@ export class Chat extends Page {
     document.body.append(page);
     page.append(wrapper);
     wrapper.append(header, userSection, footer);
-    newActive();
+    if (sessionStorage.getItem('first name') === null) newActive();
     exitNewActive();
     searchName();
     rightWrapper.getNameDestination();

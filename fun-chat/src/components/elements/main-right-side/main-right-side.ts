@@ -5,9 +5,8 @@ import { buttonSend } from '../button/button';
 import { sendHistoryRequest } from '../../websocket/sendHistoryRequest';
 import { createFirstScreen } from '../../actions/create-new-active';
 import { unBlockButtonAndInput, blockInputMessage } from '../../actions/send-message';
-
-import './main-right-side.css';
 import { showAllHistoryMessages } from '../../actions/showHistoryMessage';
+import './main-right-side.css';
 
 export class RightSide {
   createRightSide() {
