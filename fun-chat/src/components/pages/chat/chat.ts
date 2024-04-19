@@ -47,9 +47,9 @@ export class Chat extends Page {
     document.body.append(page);
     page.append(wrapper);
     wrapper.append(header, userSection, footer);
-    if (sessionStorage.getItem('first name') === null) newActive();
+    newActive();
     exitNewActive();
-    searchName();
+    searchName(undefined);
     rightWrapper.getNameDestination();
 
     sendMessage();

@@ -1,5 +1,6 @@
 import { sendHistoryRequest } from '../websocket/sendHistoryRequest';
 import { getNewActive } from '../websocket/user_external';
+import { searchName } from './search-name';
 import { unBlockButtonAndInput, blockInputMessage } from './send-message';
 
 import { showAllHistoryMessages } from './showHistoryMessage';
@@ -11,7 +12,7 @@ export const newActive = async () => {
   const status = document.querySelector('.main_destination-status');
   const field = document.querySelector('.main_field-message');
   const answer = await getNewActive();
-  if (answer.type === 'USER_EXTERNAL_LOGIN' || answer.type === 'USER_ACTIVE') {
+  if (answer.type === 'USER_EXTERNAL_LOGIN') {
     const users = answer.payload.user.login;
     inactive.forEach((name) => {
       if (name.innerHTML === users) {
@@ -37,10 +38,10 @@ export const newActive = async () => {
         blockInputMessage();
       }
       newActive();
-
       sendHistoryRequest(users);
       showAllHistoryMessages();
     });
+    searchName(userActive);
     if (active instanceof HTMLUListElement) active.append(userActive, countMessages);
   }
   exitNewActive();
