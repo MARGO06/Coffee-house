@@ -18,6 +18,7 @@ export class AllPages {
 
   createLoginPage() {
     this.loginPage.createPage();
+    this.loginPage.createFavicon();
     window.location.hash = 'login';
   }
 
