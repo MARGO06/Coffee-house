@@ -16,11 +16,23 @@ export const newActive = async () => {
     const users = answer.payload.user.login;
     inactive.forEach((name) => {
       if (name.innerHTML === users) {
-        console.log(name.innerHTML);
+        if (nameDestination instanceof HTMLElement && status instanceof HTMLElement) {
+          if (name.innerHTML === nameDestination.innerHTML) {
+            status.innerHTML = 'active';
+            status.style.color = 'rgb(27, 243, 8)';
+          }
+        }
         name.remove();
         deleteCount(users);
       }
     });
+    /*if (nameDestination instanceof HTMLElement && status instanceof HTMLElement) {
+      if (users === nameDestination.innerHTML) {
+        status.innerHTML = 'active';
+        status.style.color = 'rgb(27, 243, 8)';
+      }
+    }*/
+
     const userActive = document.createElement('li');
     userActive.className = 'users_active';
     userActive.textContent = users;
@@ -37,10 +49,10 @@ export const newActive = async () => {
         createFirstScreen();
         blockInputMessage();
       }
-      newActive();
       sendHistoryRequest(users);
       showAllHistoryMessages();
     });
+    newActive();
     searchName(userActive);
     if (active instanceof HTMLUListElement) active.append(userActive, countMessages);
   }

@@ -3,7 +3,7 @@ import { Message } from '../elements/types';
 import { options } from './send-message';
 import { wrapperDates, wrapperStatus } from '../elements/wrapper/wrapper';
 import { messageData, messageText, statusDelivery, statusEdit, userName } from '../elements/text/text';
-//import { createMessage } from './send-message';
+import { exitNewActive } from './create-new-active';
 
 export const countMessage = async () => {
   const data = await getMessage();
@@ -70,5 +70,6 @@ async function showMessage(user: Element, data: Message) {
       scroll.scrollTop = scroll.scrollHeight;
     }
   }
+  exitNewActive();
   return field;
 }

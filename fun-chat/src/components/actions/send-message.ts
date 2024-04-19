@@ -2,6 +2,7 @@ import { sendMessageToUser } from '../websocket/send-message-to-user';
 import { getMessage } from '../websocket/getMessage';
 import { wrapperDates, wrapperStatus } from '../elements/wrapper/wrapper';
 import { userName, messageText, messageData, statusDelivery, statusEdit } from '../elements/text/text';
+import { exitNewActive } from './create-new-active';
 
 export const options: Intl.DateTimeFormatOptions = {
   month: '2-digit',
@@ -102,6 +103,7 @@ export function sendMessageClickButton() {
     });
   }
   blockButtonAndInput();
+  exitNewActive();
 }
 
 export async function createMessage(wrapper: HTMLElement) {
