@@ -1,5 +1,7 @@
 import { sendHistoryRequest } from '../websocket/sendHistoryRequest';
 import { getNewActive } from '../websocket/user_external';
+import { countMessage } from './getMessageFromUser';
+
 import { searchName } from './search-name';
 import { unBlockButtonAndInput, blockInputMessage } from './send-message';
 
@@ -12,27 +14,23 @@ export const newActive = async () => {
   const status = document.querySelector('.main_destination-status');
   const field = document.querySelector('.main_field-message');
   const answer = await getNewActive();
-  if (answer.type === 'USER_EXTERNAL_LOGIN') {
+  if (answer.type === 'USER_EXTERNAL_LOGIN' || answer.type === 'USER_LOGIN') {
     const users = answer.payload.user.login;
     inactive.forEach((name) => {
       if (name.innerHTML === users) {
+        name.remove();
+        //deleteCount(users);
         if (nameDestination instanceof HTMLElement && status instanceof HTMLElement) {
           if (name.innerHTML === nameDestination.innerHTML) {
             status.innerHTML = 'active';
             status.style.color = 'rgb(27, 243, 8)';
+            countMessage();
+            name.remove();
+            deleteCount(users);
           }
         }
-        name.remove();
-        deleteCount(users);
       }
     });
-    /*if (nameDestination instanceof HTMLElement && status instanceof HTMLElement) {
-      if (users === nameDestination.innerHTML) {
-        status.innerHTML = 'active';
-        status.style.color = 'rgb(27, 243, 8)';
-      }
-    }*/
-
     const userActive = document.createElement('li');
     userActive.className = 'users_active';
     userActive.textContent = users;
@@ -48,16 +46,15 @@ export const newActive = async () => {
         unBlockButtonAndInput(nameDestination.innerHTML);
         createFirstScreen();
         blockInputMessage();
+        countMessage();
       }
       sendHistoryRequest(users);
       showAllHistoryMessages();
     });
-    newActive();
     searchName(userActive);
     if (active instanceof HTMLUListElement) active.append(userActive, countMessages);
   }
   exitNewActive();
-
   return active;
 };
 
@@ -80,9 +77,8 @@ export async function exitNewActive() {
         changeStatus(name.innerHTML);
         if (inactive instanceof HTMLElement) inactive.append(userActive, countMessages);
       }
+      newActive();
     });
-
-    newActive();
   }
 }
 

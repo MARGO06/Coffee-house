@@ -3,6 +3,8 @@ import { getHistoryMessage } from '../websocket/getHistoryRequest';
 import { wrapperDates, wrapperStatus } from '../elements/wrapper/wrapper';
 import { userName, messageData, messageText, statusDelivery, statusEdit } from '../elements/text/text';
 import { options } from './send-message';
+import { countMessage } from './getMessageFromUser';
+import { exitNewActive } from './create-new-active';
 
 export const showAllHistoryMessages = async () => {
   const data = await getHistoryMessage();
@@ -30,14 +32,12 @@ export const showAllHistoryMessages = async () => {
         if (userFrom === name.innerHTML) {
           messageFrom.className = `message ${userFrom}`;
           textMessage.textContent = message.text;
-          // messageFrom.textContent = `${message.text}`;
-          messageFrom.style.alignSelf = 'end';
+          messageFrom.style.alignSelf = 'start';
         }
         if (userFrom === sessionStorage.getItem('first name')) {
           messageFrom.className = `message ${userFrom}`;
           textMessage.textContent = message.text;
-          //messageFrom.textContent = `${message.text}`;
-          messageFrom.style.alignSelf = 'start';
+          messageFrom.style.alignSelf = 'end';
         }
         field.style.justifyContent = 'end';
         messageDates.append(nameSend, dataSend);
@@ -47,4 +47,6 @@ export const showAllHistoryMessages = async () => {
       }
     });
   }
+  countMessage();
+  exitNewActive();
 };

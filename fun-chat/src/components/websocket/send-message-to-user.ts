@@ -11,4 +11,5 @@ export const sendMessageToUser = (name: string, message: string) => {
     },
   };
   socket.send(JSON.stringify(data));
+  console.log(data);
 };

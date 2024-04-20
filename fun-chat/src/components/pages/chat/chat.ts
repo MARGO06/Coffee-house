@@ -11,7 +11,7 @@ import { input } from '../../elements/label-input/label-input';
 import { searchName } from '../../actions/search-name';
 import { rightWrapper } from '../../elements/main-right-side/main-right-side';
 import { countMessage } from '../../actions/getMessageFromUser';
-import { sendMessage, sendMessageClickButton } from '../../actions/send-message';
+import { sendMessage /*, sendMessageClickButton*/ } from '../../actions/send-message';
 
 import './chat.css';
 
@@ -51,13 +51,10 @@ export class Chat extends Page {
     exitNewActive();
     searchName(undefined);
     rightWrapper.getNameDestination();
-
     sendMessage();
-
-    sendMessageClickButton();
+    //sendMessageClickButton();
     countMessage();
   }
-
   getName() {
     const userName = sessionStorage.getItem('first name');
     return userName;

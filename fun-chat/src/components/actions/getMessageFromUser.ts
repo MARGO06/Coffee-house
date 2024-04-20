@@ -10,27 +10,29 @@ export const countMessage = async () => {
   const active = document.querySelectorAll('.users_active');
   const inactive = document.querySelectorAll('.users_inactive');
   const allUsers = Array.from(active).concat(Array.from(inactive));
-  const messageCounts = document.querySelectorAll('.message');
-  console.log(data);
+  //const messageCounts = document.querySelectorAll('.message');
+
   if (data.type === 'MSG_SEND') {
     for (let i = 0; i < allUsers.length; i += 1) {
+      console.log(allUsers[i], data.payload.message.from);
       if (allUsers[i].innerHTML.includes(data.payload.message.from)) {
-        const currentCounts = document.querySelectorAll('.count');
-        const count = messageCounts.length + 1;
-        currentCounts.forEach((currentCount) => {
+        // const currentCounts = document.querySelectorAll('.count');
+        // const count = messageCounts.length + 1;
+        /* currentCounts.forEach((currentCount) => {
           if (currentCount.classList.contains(allUsers[i].innerHTML) && currentCount instanceof HTMLElement) {
             currentCount.dataset.count = `${count}`;
             currentCount.innerHTML = `${count}`;
           }
-        });
+        });*/
         showMessage(allUsers[i], data);
+        await countMessage();
       }
     }
   }
-  countMessage();
+  exitNewActive();
 };
 
-async function showMessage(user: Element, data: Message) {
+function showMessage(user: Element, data: Message) {
   const name = document.querySelector('.main_destination-name');
   const field = document.querySelector('.main_field-message');
   const scroll = document.querySelector('.main_scroll-field');
@@ -51,21 +53,22 @@ async function showMessage(user: Element, data: Message) {
       messageWrapper.style.alignSelf = 'start';
       //const wrapper = await createMessage(message);
       // console.log(wrapper);
-      const message = data.payload.message;
+      const messageN = data.payload.message;
       const messageDates = wrapperDates.createElement();
       const nameSend = userName.createElement();
-      nameSend.textContent = message.from;
+      nameSend.textContent = messageN.from;
       const dataSend = messageData.createElement();
-      const dataMessage = new Intl.DateTimeFormat('en-US', options).format(message.datetime);
+      const dataMessage = new Intl.DateTimeFormat('en-US', options).format(messageN.datetime);
       dataSend.textContent = dataMessage;
       const textMessage = messageText.createElement();
-      textMessage.textContent = message.text;
+      textMessage.textContent = messageN.text;
       const messageStatus = wrapperStatus.createElement();
       const editStatus = statusEdit.createElement();
       const deliveryStatus = statusDelivery.createElement();
       messageDates.append(nameSend, dataSend);
       messageStatus.append(editStatus, deliveryStatus);
       messageWrapper.append(messageDates, textMessage, messageStatus);
+      field.style.justifyContent = 'end';
       field.append(messageWrapper);
       scroll.scrollTop = scroll.scrollHeight;
     }

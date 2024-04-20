@@ -3,6 +3,7 @@ import { getMessage } from '../websocket/getMessage';
 import { wrapperDates, wrapperStatus } from '../elements/wrapper/wrapper';
 import { userName, messageText, messageData, statusDelivery, statusEdit } from '../elements/text/text';
 import { exitNewActive } from './create-new-active';
+import { countMessage } from './getMessageFromUser';
 
 export const options: Intl.DateTimeFormatOptions = {
   month: '2-digit',
@@ -22,6 +23,7 @@ export const sendMessage = () => {
   if (button instanceof HTMLButtonElement && name instanceof HTMLElement && scroll instanceof HTMLElement) {
     button.addEventListener('click', async (e) => {
       e.preventDefault();
+      console.log('sss');
       if (field instanceof HTMLElement && input instanceof HTMLInputElement) {
         if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
           field.children[0].remove();
@@ -30,16 +32,17 @@ export const sendMessage = () => {
         message.className = `message ${name.innerHTML}`;
         sendMessageToUser(name.innerHTML, input.value);
         message.style.alignItems = 'end';
-
         const wrapper = await createMessage(message);
-
+        field.style.justifyContent = 'end';
         field.append(wrapper);
         input.value = '';
       }
       scroll.scrollTop = scroll.scrollHeight;
       blockInputMessage();
+      await countMessage();
     });
   }
+  exitNewActive();
   blockButtonAndInput();
 };
 
@@ -67,12 +70,19 @@ export function unBlockButtonAndInput(name: string) {
 }
 
 export function sendMessageClickButton() {
+  console.log('hhhh');
   const input = document.getElementById('message');
   const name = document.querySelector('.main_destination-name');
   const field = document.querySelector('.main_field-message');
   const scroll = document.querySelector('.main_scroll-field');
   const button = document.querySelector('.send_button');
-  if (name instanceof HTMLElement && scroll instanceof HTMLElement && input instanceof HTMLInputElement) {
+  if (
+    name instanceof HTMLElement &&
+    scroll instanceof HTMLElement &&
+    input instanceof HTMLInputElement &&
+    field instanceof HTMLElement &&
+    button instanceof HTMLButtonElement
+  ) {
     input.addEventListener('keydown', async (e) => {
       if (e.key === 'Enter') {
         if (!input.value) {
@@ -80,23 +90,20 @@ export function sendMessageClickButton() {
         }
         if (input.value) {
           e.preventDefault();
-          if (
-            field instanceof HTMLElement &&
-            input instanceof HTMLInputElement &&
-            button instanceof HTMLButtonElement
-          ) {
-            if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
-              field.children[0].remove();
-            }
-            const message = document.createElement('p');
-            message.className = `message ${name.innerHTML}`;
-            sendMessageToUser(name.innerHTML, input.value);
-            message.style.alignItems = 'end';
-            const wrapper = await createMessage(message);
-            field.append(wrapper);
-            input.value = '';
-            button.setAttribute('disabled', 'true');
+
+          if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
+            field.children[0].remove();
           }
+          const message = document.createElement('p');
+          message.className = `message ${name.innerHTML}`;
+          sendMessageToUser(name.innerHTML, input.value);
+          message.style.alignSelf = 'end';
+          message.style.justifyContent = 'end';
+          const wrapper = await createMessage(message);
+          field.append(wrapper);
+          input.value = '';
+          button.setAttribute('disabled', 'true');
+          await countMessage();
           scroll.scrollTop = scroll.scrollHeight;
         }
       }

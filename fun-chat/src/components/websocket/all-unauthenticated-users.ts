@@ -6,7 +6,7 @@ export const getActiveUsers = function (): Promise<Active> {
     let answer: Active;
     socket.addEventListener('message', (event) => {
       answer = JSON.parse(event.data);
-      console.log(answer);
+      // console.log(answer);
       resolve(answer);
     });
   });
