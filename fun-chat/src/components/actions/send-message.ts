@@ -4,6 +4,7 @@ import { wrapperDates, wrapperStatus } from '../elements/wrapper/wrapper';
 import { userName, messageText, messageData, statusDelivery, statusEdit } from '../elements/text/text';
 import { exitNewActive } from './create-new-active';
 import { countMessage } from './getMessageFromUser';
+import { clickSendButton } from './deleteSeparete';
 
 export const options: Intl.DateTimeFormatOptions = {
   month: '2-digit',
@@ -36,6 +37,7 @@ export const sendMessage = () => {
         field.style.justifyContent = 'end';
         field.append(wrapper);
         input.value = '';
+        clickSendButton();
       }
       scroll.scrollTop = scroll.scrollHeight;
       blockInputMessage();

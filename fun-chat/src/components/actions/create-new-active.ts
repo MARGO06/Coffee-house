@@ -46,7 +46,6 @@ export const newActive = async () => {
         unBlockButtonAndInput(nameDestination.innerHTML);
         createFirstScreen();
         blockInputMessage();
-        countMessage();
       }
       sendHistoryRequest(users);
       showAllHistoryMessages();
@@ -109,4 +108,5 @@ export function createFirstScreen() {
     field.style.height = '100%';
     field.style.justifyContent = 'center';
   }
+  return field;
 }

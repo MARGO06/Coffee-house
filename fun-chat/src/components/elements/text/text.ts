@@ -62,6 +62,10 @@ const information: ElementPage = {
   class: 'information',
 };
 
+const textSeparator: ElementPage = {
+  tag: 'span',
+  class: 'separator_text',
+};
 const testAbout =
   'Fun Chat is an application created for communication between people. You can exchange messages, delete or edit messages.';
 
@@ -93,3 +97,4 @@ export const messageText = new Text(textMessage, '');
 export const statusEdit = new Text(editStatus, '');
 export const statusDelivery = new Text(deliveryStatus, '');
 export const informationApp = new Text(information, testAbout);
+export const separatorText = new Text(textSeparator, 'Unread messages');

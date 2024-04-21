@@ -111,3 +111,20 @@
   padding: 20%;
   width: 50%;
 }
+
+.separator {
+  position: relative;
+  border: none;
+  border-top: 2px solid #098d8b;
+  width: 100%;
+}
+
+.separator_text {
+  display: inline-block;
+  background-color: rgb(172 219 213);
+  padding: 0 10px;
+  position: absolute;
+  top: -5px;
+  left: 40%;
+  height: 10px;
+}

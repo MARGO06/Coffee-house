@@ -97,6 +97,16 @@ const aboutInformation: ElementPage = {
   class: 'about_information',
 };
 
+const separatorMessages: ElementPage = {
+  tag: 'div',
+  class: 'separator',
+};
+
+const unreadMessages: ElementPage = {
+  tag: 'div',
+  class: 'unread_messages unread',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -125,3 +135,5 @@ export const wrapperDates = new Wrapper(datesWrapper);
 export const wrapperStatus = new Wrapper(statusWrapper);
 export const wrapperAbout = new Wrapper(aboutWrapper);
 export const informationAbout = new Wrapper(aboutInformation);
+export const lineSeparator = new Wrapper(separatorMessages);
+export const messagesUnread = new Wrapper(unreadMessages);

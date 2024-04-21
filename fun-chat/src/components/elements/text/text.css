@@ -11,3 +11,9 @@
 .information {
   font-size: 1.6rem;
 }
+
+.separator_text {
+  padding: 0 10px;
+  line-height: 1px;
+  color: #333;
+}

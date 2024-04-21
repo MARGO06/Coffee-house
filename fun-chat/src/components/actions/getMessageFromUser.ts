@@ -1,20 +1,20 @@
 import { getMessage } from '../websocket/getMessage';
 import { Message } from '../elements/types';
 import { options } from './send-message';
-import { wrapperDates, wrapperStatus } from '../elements/wrapper/wrapper';
-import { messageData, messageText, statusDelivery, statusEdit, userName } from '../elements/text/text';
+import { lineSeparator, wrapperDates, wrapperStatus } from '../elements/wrapper/wrapper';
+import { messageData, messageText, separatorText, statusDelivery, statusEdit, userName } from '../elements/text/text';
 import { exitNewActive } from './create-new-active';
+import { clickDisplay, scrollField } from './deleteSeparete';
 
 export const countMessage = async () => {
   const data = await getMessage();
+
   const active = document.querySelectorAll('.users_active');
   const inactive = document.querySelectorAll('.users_inactive');
   const allUsers = Array.from(active).concat(Array.from(inactive));
-  //const messageCounts = document.querySelectorAll('.message');
 
   if (data.type === 'MSG_SEND') {
     for (let i = 0; i < allUsers.length; i += 1) {
-      console.log(allUsers[i], data.payload.message.from);
       if (allUsers[i].innerHTML.includes(data.payload.message.from)) {
         // const currentCounts = document.querySelectorAll('.count');
         // const count = messageCounts.length + 1;
@@ -24,7 +24,11 @@ export const countMessage = async () => {
             currentCount.innerHTML = `${count}`;
           }
         });*/
+
         showMessage(allUsers[i], data);
+        createSeparatorLine();
+        clickDisplay();
+        scrollField();
         await countMessage();
       }
     }
@@ -36,12 +40,14 @@ function showMessage(user: Element, data: Message) {
   const name = document.querySelector('.main_destination-name');
   const field = document.querySelector('.main_field-message');
   const scroll = document.querySelector('.main_scroll-field');
+
   if (field instanceof HTMLElement) {
     if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
       field.children[0].remove();
     }
+
     const messageWrapper = document.createElement('div');
-    messageWrapper.className = `message ${user.innerHTML}`;
+    messageWrapper.className = `message ${user.innerHTML} unread`;
     if (name instanceof HTMLElement && scroll instanceof HTMLElement) {
       if (!name.innerHTML) {
         messageWrapper.classList.add('hidden');
@@ -53,6 +59,7 @@ function showMessage(user: Element, data: Message) {
       messageWrapper.style.alignSelf = 'start';
       //const wrapper = await createMessage(message);
       // console.log(wrapper);
+
       const messageN = data.payload.message;
       const messageDates = wrapperDates.createElement();
       const nameSend = userName.createElement();
@@ -73,6 +80,19 @@ function showMessage(user: Element, data: Message) {
       scroll.scrollTop = scroll.scrollHeight;
     }
   }
+
   exitNewActive();
-  return field;
+}
+
+export function createSeparatorLine() {
+  const messages = document.querySelectorAll('.unread');
+  const separators = document.querySelector('.separator');
+  messages.forEach((message, index) => {
+    if (index === 0 && !separators) {
+      const separator = lineSeparator.createElement();
+      const textSeparator = separatorText.createElement();
+      message.before(separator);
+      separator.appendChild(textSeparator);
+    }
+  });
 }
