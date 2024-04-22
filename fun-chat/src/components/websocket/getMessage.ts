@@ -6,7 +6,6 @@ export const getMessage = function (): Promise<Message> {
     let answer: Message;
     socket.addEventListener('message', (event) => {
       answer = JSON.parse(event.data);
-      // console.log(answer);
       resolve(answer);
     });
   });
