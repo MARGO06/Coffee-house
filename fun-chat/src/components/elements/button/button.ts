@@ -37,6 +37,16 @@ const backButton: ElementPage = {
   class: 'back_button',
 };
 
+const deleteButton: ElementPage = {
+  tag: 'button',
+  class: 'delete_button',
+};
+
+const editButton: ElementPage = {
+  tag: 'button',
+  class: 'edit_button',
+};
+
 class Button extends Element {
   type: string;
   text: string;
@@ -62,3 +72,5 @@ export const buttonLogout = new Button(logoutButton, 'button', 'Logout');
 export const buttonSend = new Button(sendButton, 'button', 'Send');
 export const buttonBack = new Button(backButton, 'button', 'Come back');
 export const buttonInfoChat = new Button(infoButtonChat, 'button', 'Information');
+export const buttonDelete = new Button(deleteButton, 'button', 'Delete');
+export const buttonEdit = new Button(editButton, 'button', 'Edit');

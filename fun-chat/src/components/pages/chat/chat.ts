@@ -14,6 +14,7 @@ import { countMessage } from '../../actions/getMessageFromUser';
 import { sendMessage /*, sendMessageClickButton*/ } from '../../actions/send-message';
 
 import './chat.css';
+import { deleteMessageOfUser } from '../../actions/deleteMessages';
 
 export class Chat extends Page {
   constructor(id: string) {
@@ -51,7 +52,9 @@ export class Chat extends Page {
     exitNewActive();
     searchName(undefined);
     rightWrapper.getNameDestination();
+    deleteMessageOfUser();
     sendMessage();
+
     //sendMessageClickButton();
     countMessage();
   }

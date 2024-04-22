@@ -2,3 +2,9 @@
   margin-top: 15%;
   text-align: center;
 }
+
+.message_action {
+  display: none;
+  position: absolute;
+  width: 30%;
+}

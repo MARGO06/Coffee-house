@@ -5,6 +5,8 @@ import { userName, messageData, messageText, statusDelivery, statusEdit } from '
 import { options } from './send-message';
 import { countMessage } from './getMessageFromUser';
 import { exitNewActive } from './create-new-active';
+import { showActionWindow } from './deleteMessages';
+import { actionsWindow } from '../elements/modal/modal';
 
 export const showAllHistoryMessages = async () => {
   const data = await getHistoryMessage();
@@ -18,7 +20,9 @@ export const showAllHistoryMessages = async () => {
           field.children[0].remove();
         }
         const userFrom = message.from;
+        const actions = actionsWindow.createActionWindow();
         const messageFrom = document.createElement('div');
+        messageFrom.id = message.id;
         const messageDates = wrapperDates.createElement();
         const nameSend = userName.createElement();
         nameSend.textContent = message.from;
@@ -42,8 +46,9 @@ export const showAllHistoryMessages = async () => {
         field.style.justifyContent = 'end';
         messageDates.append(nameSend, dataSend);
         messageStatus.append(editStatus, deliveryStatus);
-        messageFrom.append(messageDates, textMessage, messageStatus);
+        messageFrom.append(actions, messageDates, textMessage, messageStatus);
         field.append(messageFrom);
+        showActionWindow(messageFrom);
       }
     });
   }

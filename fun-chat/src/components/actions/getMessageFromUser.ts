@@ -24,11 +24,12 @@ export const countMessage = async () => {
             currentCount.innerHTML = `${count}`;
           }
         });*/
-
         showMessage(allUsers[i], data);
         createSeparatorLine();
         clickDisplay();
         scrollField();
+        console.log('oooo');
+        //  deleteMessage();
         await countMessage();
       }
     }
@@ -40,7 +41,6 @@ function showMessage(user: Element, data: Message) {
   const name = document.querySelector('.main_destination-name');
   const field = document.querySelector('.main_field-message');
   const scroll = document.querySelector('.main_scroll-field');
-
   if (field instanceof HTMLElement) {
     if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
       field.children[0].remove();
@@ -61,6 +61,7 @@ function showMessage(user: Element, data: Message) {
       // console.log(wrapper);
 
       const messageN = data.payload.message;
+      messageWrapper.id = messageN.id;
       const messageDates = wrapperDates.createElement();
       const nameSend = userName.createElement();
       nameSend.textContent = messageN.from;
@@ -80,7 +81,6 @@ function showMessage(user: Element, data: Message) {
       scroll.scrollTop = scroll.scrollHeight;
     }
   }
-
   exitNewActive();
 }
 

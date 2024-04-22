@@ -44,3 +44,9 @@
 .back_button {
   width: 20%;
 }
+
+.delete_button,
+.edit_button {
+  width: 100%;
+  background-color: #d496e5;
+}

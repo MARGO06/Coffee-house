@@ -70,3 +70,16 @@ export type Options = {
   minute: string;
   second: string;
 };
+
+export type deletedMessage = {
+  id: string;
+  type: 'MSG_DELETE';
+  payload: {
+    message: {
+      id: string;
+      status: {
+        isDeleted: boolean;
+      };
+    };
+  };
+};

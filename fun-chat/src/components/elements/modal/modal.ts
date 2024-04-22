@@ -1,7 +1,8 @@
-import { wrapperModal, windowModal, backgroundModal } from '../wrapper/wrapper';
-import { buttonModal } from '../button/button';
+import { wrapperModal, windowModal, backgroundModal, actionWindow } from '../wrapper/wrapper';
+import { buttonModal, buttonDelete, buttonEdit } from '../button/button';
 
 import './modal.css';
+import { deleteMessageByUser } from '../../actions/deleteMessages';
 
 export class ModalWindow {
   createModalWindow(text: string) {
@@ -25,3 +26,16 @@ export class ModalWindow {
     return wrapper;
   }
 }
+
+class MessageActionWindow {
+  createActionWindow() {
+    const window = actionWindow.createElement();
+    const deleteButton = buttonDelete.createElement();
+    deleteMessageByUser(deleteButton);
+    const editButton = buttonEdit.createElement();
+    window.append(deleteButton, editButton);
+    return window;
+  }
+}
+
+export const actionsWindow = new MessageActionWindow();

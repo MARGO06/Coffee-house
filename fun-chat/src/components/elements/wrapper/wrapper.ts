@@ -107,6 +107,11 @@ const unreadMessages: ElementPage = {
   class: 'unread_messages unread',
 };
 
+const windowAction: ElementPage = {
+  tag: 'div',
+  class: 'message_action',
+};
+
 class Wrapper extends Element {
   constructor(element: ElementPage) {
     super(element);
@@ -137,3 +142,4 @@ export const wrapperAbout = new Wrapper(aboutWrapper);
 export const informationAbout = new Wrapper(aboutInformation);
 export const lineSeparator = new Wrapper(separatorMessages);
 export const messagesUnread = new Wrapper(unreadMessages);
+export const actionWindow = new Wrapper(windowAction);

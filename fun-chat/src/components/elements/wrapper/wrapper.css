@@ -93,6 +93,7 @@
 
 .main_field-message {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: flex-end;
   background-color: rgb(172 219 213);

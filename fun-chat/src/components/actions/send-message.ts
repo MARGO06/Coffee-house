@@ -5,6 +5,8 @@ import { userName, messageText, messageData, statusDelivery, statusEdit } from '
 import { exitNewActive } from './create-new-active';
 import { countMessage } from './getMessageFromUser';
 import { clickSendButton } from './deleteSeparete';
+import { showActionWindow } from './deleteMessages';
+import { actionsWindow } from '../elements/modal/modal';
 
 export const options: Intl.DateTimeFormatOptions = {
   month: '2-digit',
@@ -37,6 +39,7 @@ export const sendMessage = () => {
         field.style.justifyContent = 'end';
         field.append(wrapper);
         input.value = '';
+        showActionWindow(message);
         clickSendButton();
       }
       scroll.scrollTop = scroll.scrollHeight;
@@ -102,6 +105,7 @@ export function sendMessageClickButton() {
           message.style.alignSelf = 'end';
           message.style.justifyContent = 'end';
           const wrapper = await createMessage(message);
+          wrapper.id = message.id;
           field.append(wrapper);
           input.value = '';
           button.setAttribute('disabled', 'true');
@@ -117,6 +121,7 @@ export function sendMessageClickButton() {
 
 export async function createMessage(wrapper: HTMLElement) {
   const data = await getMessage();
+  const actions = actionsWindow.createActionWindow();
   const message = data.payload.message;
   const messageDates = wrapperDates.createElement();
   const nameSend = userName.createElement();
@@ -131,7 +136,10 @@ export async function createMessage(wrapper: HTMLElement) {
   const deliveryStatus = statusDelivery.createElement();
   messageDates.append(nameSend, dataSend);
   messageStatus.append(editStatus, deliveryStatus);
-  wrapper.append(messageDates, textMessage, messageStatus);
+  wrapper.id = message.id;
+  console.log(wrapper);
+  console.log(wrapper.id);
+  wrapper.append(actions, messageDates, textMessage, messageStatus);
   return wrapper;
 }
 
