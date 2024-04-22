@@ -6,7 +6,6 @@ export const getDeletedMessage = function (): Promise<deletedMessage> {
     let answer: deletedMessage;
     socket.addEventListener('message', (event) => {
       answer = JSON.parse(event.data);
-      console.log(answer);
       resolve(answer);
     });
   });

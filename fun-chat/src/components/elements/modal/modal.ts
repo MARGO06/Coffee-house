@@ -3,6 +3,7 @@ import { buttonModal, buttonDelete, buttonEdit } from '../button/button';
 
 import './modal.css';
 import { deleteMessageByUser } from '../../actions/deleteMessages';
+import { editMessageByUser } from '../../actions/editTextMessages';
 
 export class ModalWindow {
   createModalWindow(text: string) {
@@ -33,6 +34,7 @@ class MessageActionWindow {
     const deleteButton = buttonDelete.createElement();
     deleteMessageByUser(deleteButton);
     const editButton = buttonEdit.createElement();
+    editMessageByUser(editButton);
     window.append(deleteButton, editButton);
     return window;
   }

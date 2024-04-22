@@ -19,7 +19,7 @@ export const newActive = async () => {
     inactive.forEach((name) => {
       if (name.innerHTML === users) {
         name.remove();
-        //deleteCount(users);
+        deleteCount(users);
         if (nameDestination instanceof HTMLElement && status instanceof HTMLElement) {
           if (name.innerHTML === nameDestination.innerHTML) {
             status.innerHTML = 'active';

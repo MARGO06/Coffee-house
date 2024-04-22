@@ -16,14 +16,18 @@
 .login_button:hover,
 .info_button:hover,
 .modal_button:hover,
-.info_button-chat:hover {
+.info_button-chat:hover,
+.edit_button:hover,
+.delete_button:hover {
   cursor: pointer;
 }
 
 .login_button:active,
 .info_button:active,
 .modal_button:active,
-.info_button-chat:active {
+.info_button-chat:active,
+.edit_button:active,
+.delete_button:active {
   background-color: rgb(94, 238, 190);
 }
 

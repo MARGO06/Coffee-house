@@ -62,15 +62,6 @@ export type HistoryMessage = {
   };
 };
 
-export type Options = {
-  month: string;
-  day: string;
-  year: string;
-  hour: string;
-  minute: string;
-  second: string;
-};
-
 export type deletedMessage = {
   id: string;
   type: 'MSG_DELETE';
@@ -79,6 +70,20 @@ export type deletedMessage = {
       id: string;
       status: {
         isDeleted: boolean;
+      };
+    };
+  };
+};
+
+export type EditMessage = {
+  id: string;
+  type: 'MSG_EDIT';
+  payload: {
+    message: {
+      id: string;
+      text: string;
+      status: {
+        isEdited: boolean;
       };
     };
   };

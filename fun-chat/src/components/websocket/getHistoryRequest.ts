@@ -6,7 +6,6 @@ export const getHistoryMessage = function (): Promise<HistoryMessage> {
     let answer: HistoryMessage;
     socket.addEventListener('message', (event) => {
       answer = JSON.parse(event.data);
-      // console.log(answer);
       resolve(answer);
     });
   });

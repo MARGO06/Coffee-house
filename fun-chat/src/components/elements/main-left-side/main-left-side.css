@@ -16,3 +16,9 @@
   margin-left: 10%;
   margin-top: -17px;
 }
+
+.users_active:hover,
+.users_inactive:hover {
+  cursor: pointer;
+  color: #d496e5;
+}

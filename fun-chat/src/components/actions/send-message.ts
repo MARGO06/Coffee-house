@@ -26,7 +26,6 @@ export const sendMessage = () => {
   if (button instanceof HTMLButtonElement && name instanceof HTMLElement && scroll instanceof HTMLElement) {
     button.addEventListener('click', async (e) => {
       e.preventDefault();
-      console.log('sss');
       if (field instanceof HTMLElement && input instanceof HTMLInputElement) {
         if (field.innerHTML.includes('<p class="first_message">You can write your first message...</p>')) {
           field.children[0].remove();

@@ -11,10 +11,11 @@ import { input } from '../../elements/label-input/label-input';
 import { searchName } from '../../actions/search-name';
 import { rightWrapper } from '../../elements/main-right-side/main-right-side';
 import { countMessage } from '../../actions/getMessageFromUser';
-import { sendMessage /*, sendMessageClickButton*/ } from '../../actions/send-message';
+import { sendMessage } from '../../actions/send-message';
 
 import './chat.css';
 import { deleteMessageOfUser } from '../../actions/deleteMessages';
+import { sendChangeMessage } from '../../actions/editTextMessages';
 
 export class Chat extends Page {
   constructor(id: string) {
@@ -53,9 +54,8 @@ export class Chat extends Page {
     searchName(undefined);
     rightWrapper.getNameDestination();
     deleteMessageOfUser();
+    sendChangeMessage();
     sendMessage();
-
-    //sendMessageClickButton();
     countMessage();
   }
   getName() {

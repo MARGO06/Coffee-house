@@ -28,8 +28,7 @@ export const countMessage = async () => {
         createSeparatorLine();
         clickDisplay();
         scrollField();
-        console.log('oooo');
-        //  deleteMessage();
+
         await countMessage();
       }
     }
