@@ -1,4 +1,4 @@
-const dates = [
+export const dates = [
   { question: "Which country is between France and Spain?", answer: "ANDORRA" },
   { question: "What is the third planet from the Sun?", answer: "EARTH" },
   {
@@ -30,5 +30,3 @@ const dates = [
     answer: "MERCURY",
   },
 ];
-
-export { dates };
