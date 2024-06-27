@@ -986,6 +986,12 @@ h1 {
 .choose__carusel {
   width: 98%;
 }
+@media (max-width: 1361px) {
+  .choose__carusel {
+    width: 90%;
+    height: 83vh;
+  }
+}
 @media (max-width: 768px) {
   .choose__carusel {
     width: 90%;
@@ -994,6 +1000,16 @@ h1 {
 @media (max-width: 380px) {
   .choose__carusel {
     width: 100%;
+  }
+}
+@media (max-width: 489px) {
+  .choose__carusel {
+    height: 70vh;
+  }
+}
+@media (max-width: 380px) {
+  .choose__carusel {
+    height: 75vh;
   }
 }
 
@@ -1006,26 +1022,14 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
-@media (max-width: 1440px) {
-  .coffee-cards {
-    height: 90.5vh;
-  }
-}
 @media (max-width: 1361px) {
   .coffee-cards {
     width: 42.7%;
-    height: 95.5vh;
-  }
-}
-@media (max-width: 1281px) {
-  .coffee-cards {
-    height: 97.5vh;
   }
 }
 @media (max-width: 1101px) {
   .coffee-cards {
     width: 53%;
-    height: 99.5vh;
   }
 }
 @media (max-width: 1001px) {
@@ -1053,16 +1057,6 @@ h1 {
     width: 95%;
   }
 }
-@media (max-width: 589px) {
-  .coffee-cards {
-    height: 85.5vh;
-  }
-}
-@media (max-width: 489px) {
-  .coffee-cards {
-    height: 77.5vh;
-  }
-}
 @media (max-width: 380px) {
   .coffee-cards {
     width: 100%;
@@ -1072,7 +1066,6 @@ h1 {
 
 .coffee {
   position: absolute;
-  height: inherit;
   width: 100%;
 }
 
@@ -1164,6 +1157,11 @@ h1 {
     margin-left: 35.8%;
   }
 }
+@media (max-width: 589px) {
+  .pagination {
+    margin-top: 0px;
+  }
+}
 @media (max-width: 489px) {
   .pagination {
     margin-left: 33.8%;
@@ -1210,13 +1208,14 @@ h1 {
 }
 .coffe__img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  align-self: center;
 }
 @media (max-width: 589px) {
   .coffe__img {
     display: block;
-    width: 100%;
+    width: 97%;
   }
 }
 

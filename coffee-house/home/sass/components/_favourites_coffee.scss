@@ -104,12 +104,25 @@
 .choose__carusel {
   width: 98%;
 
+  @include media-1361 {
+    width: 90%;
+    height: 83vh;
+  }
+
   @include media-tablet {
     width: 90%;
   }
 
   @include media-mobile {
     width: 100%;
+  }
+
+  @include media-489 {
+    height: 70vh;
+  }
+
+  @include media-mobile {
+    height: 75vh;
   }
 }
 
@@ -122,22 +135,12 @@
   margin-left: auto;
   margin-right: auto;
 
-  @include media-1440 {
-    height: 90.5vh;
-  }
-
   @include media-1361 {
     width: 42.7%;
-    height: 95.5vh;
-  }
-
-  @include media-1281 {
-    height: 97.5vh;
   }
 
   @include media-1101 {
     width: 53%;
-    height: 99.5vh;
   }
 
   @include media-1001 {
@@ -160,14 +163,6 @@
     width: 95%;
   }
 
-  @include media-589 {
-    height: 85.5vh;
-  }
-
-  @include media-489 {
-    height: 77.5vh;
-  }
-
   @include media-mobile {
     width: 100%;
     height: 85vh;
@@ -176,7 +171,6 @@
 
 .coffee {
   position: absolute;
-  height: inherit;
   width: 100%;
 }
 
@@ -267,6 +261,10 @@
     margin-left: 35.8%;
   }
 
+  @include media-589 {
+    margin-top: 0px;
+  }
+
   @include media-489 {
     margin-left: 33.8%;
   }
@@ -311,11 +309,12 @@
 
 .coffe__img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  object-fit: cover;
+  align-self: center;
+
   @include media-589 {
     display: block;
-    width: 100%;
+    width: 97%;
   }
 }
 
