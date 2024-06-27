@@ -874,13 +874,6 @@ h1 {
   width: 92px;
   padding-left: 43px;
 }
-@media (hover: none) {
-  .menu__tea:hover {
-    background-color: #E1D4C9;
-    color: #403F3D;
-  }
-}
-
 .menu__tea:before {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/tea.svg);
   margin-left: -35px;
@@ -892,11 +885,6 @@ h1 {
   transition-duration: 2s;
   cursor: pointer;
 }
-@media (hover: none) {
-  .menu__tea:hover:before {
-    background-color: #C1B6AD;
-  }
-}
 
 .menu__tea:hover label {
   cursor: pointer;
@@ -905,12 +893,6 @@ h1 {
 .menu__dessert {
   width: 117px;
   padding-left: 43px;
-}
-@media (hover: none) {
-  .menu__dessert:hover {
-    background-color: #E1D4C9;
-    color: #403F3D;
-  }
 }
 @media (max-width: 380px) {
   .menu__dessert {
@@ -927,11 +909,6 @@ h1 {
 .menu__dessert:hover:before {
   background-color: #E1D4C9;
   transition-duration: 2s;
-}
-@media (hover: none) {
-  .menu__dessert:hover:before {
-    background-color: #C1B6AD;
-  }
 }
 
 .menu__dessert:hover label {
