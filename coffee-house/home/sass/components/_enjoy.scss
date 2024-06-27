@@ -1,9 +1,9 @@
-.enjoy{
+.enjoy {
   position: relative;
   overflow: hidden;
   border-radius: 40px;
 
-  &.hidden{
+  &.hidden {
     position: static;
   }
 }
@@ -14,11 +14,17 @@
   width: 100%;
   object-fit: cover;
 
-  @include media-1101{
+  @include media-1101 {
     height: 100%;
   }
+
+  @include media-tablet {
+    &.active {
+      position: static;
+    }
+  }
 }
-.enjoy__inform{
+.enjoy__inform {
   padding: 100px 0;
   width: 38.9%;
   margin-left: 100px;
@@ -69,23 +75,33 @@
   }
 }
 
-.enjoy__word{
+.enjoy__word {
   font-style: italic;
   color: $color-word;
 }
-.enjoy__text{
+.enjoy__text {
   margin-top: 40px;
-  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-normal, $line-height:$line-height-primary-text);
+  @include font(
+    $size: $size-primary-text,
+    $style: normal,
+    $weight: $font-weight-normal,
+    $line-height: $line-height-primary-text
+  );
   color: $color-background-body;
 }
 
-.enjoy__btn{
+.enjoy__btn {
   display: block;
   @extend %text-decor;
   color: $color-primary-text;
   margin-top: 40px;
   width: 37.7%;
-  @include font($size:$size-primary-text, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-primary-text);
+  @include font(
+    $size: $size-primary-text,
+    $style: normal,
+    $weight: $font-weight-bold,
+    $line-height: $line-height-primary-text
+  );
   padding: 20px 78px;
   @extend %border;
   background-color: $color-background-body;
@@ -105,9 +121,9 @@
   }
 }
 
-.enjoy__btn:after{
+.enjoy__btn:after {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/coffee-cup.svg);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
   content: " ";
   padding-left: 40px;
@@ -118,23 +134,20 @@
     opacity: 1;
   }
 }
-.enjoy__btn:hover{
+.enjoy__btn:hover {
   padding: 20px 58px;
   transition-duration: 2s;
 
-  @media (hover:none) {
+  @media (hover: none) {
     padding: 20px 78px;
   }
 }
 
-.enjoy__btn:hover:after{
+.enjoy__btn:hover:after {
   opacity: 1;
   transition-duration: 2s;
 
-  @media (hover:none) {
-    opacity:0;
+  @media (hover: none) {
+    opacity: 0;
   }
 }
-
-
-

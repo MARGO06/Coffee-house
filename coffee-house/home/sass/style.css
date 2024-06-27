@@ -49,6 +49,7 @@
   padding: 0px;
   margin: 0px;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -725,6 +726,11 @@ h1 {
 @media (max-width: 1101px) {
   .enjoy__video {
     height: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .enjoy__video.active {
+    position: static;
   }
 }
 
