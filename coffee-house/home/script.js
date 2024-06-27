@@ -79,17 +79,8 @@ function showProgressBar() {
 function clickButtonRight() {
   buttonLeft.addEventListener("click", (e) => {
     e.preventDefault();
-    if (currentSlide === slideLength) {
-      currentSlide = 0;
-    } else {
-      currentSlide += 1;
-    }
-    coffeeSliders.forEach((coffeeSlider) => {
-      coffeeSlider.classList.add("active");
-    });
-    stopAutoProgress();
-    showProgressBar(currentBar);
-    changeSliders(currentSlide);
+    currentSlide === slideLength ? (currentSlide = 0) : (currentSlide += 1);
+    updateSlideState();
   });
 }
 
@@ -100,32 +91,28 @@ clickButtonRight();
 function clickButtonLeft() {
   buttonRight.addEventListener("click", (e) => {
     e.preventDefault();
-    if (currentSlide === 0) {
-      currentSlide = slideLength;
-    } else {
-      currentSlide -= 1;
-    }
-    coffeeSliders.forEach((coffeeSlider) => {
-      coffeeSlider.classList.add("active");
-    });
-    stopAutoProgress();
-    showProgressBar(currentBar);
-    changeSliders(currentSlide);
+    currentSlide === 0 ? (currentSlide = slideLength) : (currentSlide -= 1);
+    updateSlideState();
   });
 }
 
 clickButtonLeft();
+
+function updateSlideState() {
+  coffeeSliders.forEach((coffeeSlider) => {
+    coffeeSlider.classList.add("active");
+  });
+  stopAutoProgress();
+  showProgressBar(currentBar);
+  changeSliders(currentSlide);
+}
 
 // auto change slides
 
 const showFirstProgressBar = setTimeout(showProgressBar(0), 0);
 
 function autoSlider() {
-  if (currentSlide === slideLength) {
-    currentSlide = 0;
-  } else {
-    currentSlide += 1;
-  }
+  currentSlide === slideLength ? (currentSlide = 0) : (currentSlide += 1);
   coffeeSliders.forEach((coffeeSlider) => {
     coffeeSlider.classList.add("active");
   });
@@ -206,38 +193,36 @@ touchEndMobile();
 
 // add stop auto change slider (mouse event)
 
-function mouseOverOnCoffee() {
-  coffeeSliders.forEach((coffeeSlider) => {
-    coffeeSlider.addEventListener("mouseenter", (e) => {
-      e.preventDefault;
-      if (coffeeSlider.classList.contains("active")) {
-        coffeeSlider.classList.add("pause");
-        clearInterval(autoChangeSlides);
-      }
-      progressBars.forEach((progressBar) => {
-        if (progressBar.classList.contains("active")) {
-          progressBar.classList.add("pause");
-        }
-      });
-    });
-  });
+function toggleAutoProgress(isPaused) {
+  if (isPaused) {
+    clearInterval(autoChangeSlides);
+  } else {
+    stopAutoProgress();
+  }
 }
-mouseOverOnCoffee();
 
-function mouseOutOnCoffee() {
-  coffeeSliders.forEach((coffeeSlider) => {
-    coffeeSlider.addEventListener("mouseleave", (e) => {
-      e.preventDefault;
-      if (coffeeSlider.classList.contains("pause")) {
-        coffeeSlider.classList.remove("pause");
-        stopAutoProgress();
-      }
-      progressBars.forEach((progressBar) => {
-        if (progressBar.classList.contains("pause")) {
-          progressBar.classList.remove("pause");
-        }
-      });
-    });
+function togglePauseOnElements(isPaused) {
+  coffeeSliders.forEach((slider) => {
+    slider.classList.toggle(
+      "pause",
+      isPaused && slider.classList.contains("active")
+    );
+  });
+  progressBars.forEach((bar) => {
+    bar.classList.toggle("pause", isPaused && bar.classList.contains("active"));
   });
 }
-mouseOutOnCoffee();
+
+coffeeSliders.forEach((slider) => {
+  slider.addEventListener("mouseenter", () => {
+    toggleAutoProgress(true);
+    togglePauseOnElements(true);
+  });
+});
+
+coffeeSliders.forEach((slider) => {
+  slider.addEventListener("mouseleave", () => {
+    toggleAutoProgress(false);
+    togglePauseOnElements(false);
+  });
+});
