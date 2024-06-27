@@ -131,8 +131,6 @@ function autoSlider() {
   });
   changeSliders(currentSlide);
   showProgressBar(currentBar);
-  mouseOverOnCoffee();
-  mouseOutOnCoffee();
 }
 
 let autoChangeSlides = setInterval(autoSlider, 5000);
@@ -199,9 +197,6 @@ function touchEndMobile() {
         stopAutoProgress();
         changeSliders(currentSlide);
         showProgressBar(currentBar);
-        console.log(e);
-
-        console.log(x2);
       },
       false
     );
@@ -213,30 +208,36 @@ touchEndMobile();
 
 function mouseOverOnCoffee() {
   coffeeSliders.forEach((coffeeSlider) => {
-    coffeeSlider.addEventListener("mouseover", (e) => {
+    coffeeSlider.addEventListener("mouseenter", (e) => {
       e.preventDefault;
-      coffeeSlider.classList.add("pause");
+      if (coffeeSlider.classList.contains("active")) {
+        coffeeSlider.classList.add("pause");
+        clearInterval(autoChangeSlides);
+      }
       progressBars.forEach((progressBar) => {
-        progressBar.classList.add("pause");
+        if (progressBar.classList.contains("active")) {
+          progressBar.classList.add("pause");
+        }
       });
-      console.log("ggg");
     });
   });
 }
-
 mouseOverOnCoffee();
 
 function mouseOutOnCoffee() {
   coffeeSliders.forEach((coffeeSlider) => {
-    coffeeSlider.addEventListener("mouseout", (e) => {
+    coffeeSlider.addEventListener("mouseleave", (e) => {
       e.preventDefault;
-      coffeeSlider.classList.remove("pause");
+      if (coffeeSlider.classList.contains("pause")) {
+        coffeeSlider.classList.remove("pause");
+        stopAutoProgress();
+      }
       progressBars.forEach((progressBar) => {
-        progressBar.classList.remove("pause");
+        if (progressBar.classList.contains("pause")) {
+          progressBar.classList.remove("pause");
+        }
       });
-      console.log("ggg");
     });
   });
 }
-
 mouseOutOnCoffee();

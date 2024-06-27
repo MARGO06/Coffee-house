@@ -1080,10 +1080,6 @@ h1 {
   transition: all 1.2s ease-in-out;
 }
 
-.coffee.pause {
-  transition: none;
-}
-
 .coffee__call {
   width: 100%;
   margin-top: 16px;
@@ -1199,7 +1195,7 @@ h1 {
   animation: progress 5s linear forwards;
 }
 
-.pagination__rectg.pause {
+.paginaton__color.active.pause {
   animation-play-state: paused;
 }
 
