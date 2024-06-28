@@ -1198,6 +1198,20 @@ h1 {
   margin-left: -76px;
 }
 
+.offers__small--checked::after {
+  background-color: #E1D4C9;
+  color: #403F3D;
+}
+
+.offers__small--checked::before {
+  background-color: #E1D4C9;
+}
+
+.offers__small--checked {
+  background-color: #665F55;
+  color: #E1D4C9;
+}
+
 .offers__medium::after {
   content: "M";
   font-size: 1.6rem;
@@ -1273,6 +1287,59 @@ h1 {
   content: "3";
   margin-left: -70px;
   position: absolute;
+}
+
+.offers__two--tea::after {
+  margin-left: -85px;
+}
+
+.offers__two--tea::before {
+  margin-left: -42px;
+}
+
+.offers__two--dessert::after {
+  margin-left: -76px;
+}
+
+.offers__two--dessert::before {
+  margin-left: -50px;
+}
+
+.offers__one--dessert::after {
+  margin-left: -50px;
+  margin-top: -23px;
+}
+
+.offers__three--dessert::after {
+  margin-left: -66px;
+}
+
+.offers__three--dessert::before {
+  margin-left: -45px;
+}
+
+.offers__small--dessert::after {
+  margin-left: -66px;
+}
+
+.offers__small--dessert::before {
+  margin-left: -42px;
+}
+
+.offers__medium--dessert::after {
+  margin-left: -72px;
+}
+
+.offers__medium--dessert::before {
+  margin-left: -38px;
+}
+
+.offers__large--dessert::after {
+  margin-left: -70px;
+}
+
+.offers__large--dessert::before {
+  margin-left: -38px;
 }
 
 .modal__total {
