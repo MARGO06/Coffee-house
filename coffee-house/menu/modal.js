@@ -208,20 +208,25 @@ function getPrice(menuItems) {
   let finalPrice = basePrice;
   let added = false;
   menuItems.map((item) => {
+    let additives = Object.values(item.additives);
     let sizes = Object.values(item.sizes);
     if (!added && elementSmall.classList.contains("checked")) {
       finalPrice;
       added = true;
+      finalPrice = getPriceAdditives(finalPrice, additives);
     }
     if (!added && elementMedium.classList.contains("active")) {
       finalPrice += Number(sizes[1]["add-price"]);
       added = true;
+      finalPrice = getPriceAdditives(finalPrice, additives);
     }
     if (!added && elementLarge.classList.contains("active")) {
       finalPrice += Number(sizes[2]["add-price"]);
       added = true;
+      finalPrice = getPriceAdditives(finalPrice, additives);
     }
   });
+
   allPrice = finalPrice.toFixed(2);
   return allPrice;
 }
@@ -231,4 +236,33 @@ function getPrices() {
   price.textContent = getPrice(teas);
   price.textContent = getPrice(desserts);
 }
+
+//add additives
+
+function clickAdditives(button) {
+  button.addEventListener("click", () => {
+    button.classList.toggle("active");
+    getPrices();
+  });
+}
+function showAddedAdditives() {
+  clickAdditives(elementOne);
+  clickAdditives(elementTwo);
+  clickAdditives(elementThree);
+}
+showAddedAdditives();
+
+function getPriceAdditives(finalPrice, additives) {
+  if (elementOne.classList.contains("active")) {
+    finalPrice += Number(additives[0]["add-price"]);
+  }
+  if (elementTwo.classList.contains("active")) {
+    finalPrice += Number(additives[1]["add-price"]);
+  }
+  if (elementThree.classList.contains("active")) {
+    finalPrice += Number(additives[2]["add-price"]);
+  }
+  return finalPrice;
+}
+
 export { closeModalWindow, showActiveModalWindow };

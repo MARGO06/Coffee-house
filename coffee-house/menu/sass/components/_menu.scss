@@ -482,24 +482,30 @@
 }
 
 .offers__small.checked::after,
-.offers__small.active::after,
 .offers__medium.active::after,
-.offers__large.active::after {
+.offers__large.active::after,
+.offers__one.active::after,
+.offers__two.active::after,
+.offers__three.active::after {
   background-color: $color-background-body;
   color: $color-primary-text;
 }
 
 .offers__small.checked::before,
-.offers__small.active::before,
 .offers__medium.active::before,
-.offers__large.active::before {
+.offers__large.active::before,
+.offers__one.active::before,
+.offers__two.active::before,
+.offers__three.active::before {
   background-color: $color-background-body;
 }
 
 .offers__small.checked,
-.offers__small.active,
 .offers__medium.active,
-.offers__large.active {
+.offers__large.active,
+.offers__one.active,
+.offers__two.active,
+.offers__three.active {
   background-color: $color-background-container;
   color: $color-background-body;
 }
