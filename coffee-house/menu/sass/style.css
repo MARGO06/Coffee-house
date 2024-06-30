@@ -1198,16 +1198,25 @@ h1 {
   margin-left: -76px;
 }
 
-.offers__small--checked::after {
+.offers__small.checked::after,
+.offers__small.active::after,
+.offers__medium.active::after,
+.offers__large.active::after {
   background-color: #E1D4C9;
   color: #403F3D;
 }
 
-.offers__small--checked::before {
+.offers__small.checked::before,
+.offers__small.active::before,
+.offers__medium.active::before,
+.offers__large.active::before {
   background-color: #E1D4C9;
 }
 
-.offers__small--checked {
+.offers__small.checked,
+.offers__small.active,
+.offers__medium.active,
+.offers__large.active {
   background-color: #665F55;
   color: #E1D4C9;
 }

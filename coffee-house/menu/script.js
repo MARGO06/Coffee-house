@@ -6,14 +6,7 @@ import {
   clickButtonCoffee,
   openCardsMedia,
 } from "./load_goods.js";
-import {
-  showModalCoffee,
-  openModalDessert,
-  openModalTea,
-  openModalCoffee,
-  clickButtonClose,
-  clickBackModal,
-} from "./modal.js";
+import { showActiveModalWindow, closeModalWindow } from "./modal.js";
 showNavigation();
 closeNavigation();
 fillArrays();
@@ -21,9 +14,5 @@ clickButtonTea();
 clickButtonDesert();
 clickButtonCoffee();
 openCardsMedia();
-showModalCoffee();
-openModalCoffee();
-openModalDessert();
-openModalTea();
-clickButtonClose();
-clickBackModal();
+showActiveModalWindow();
+closeModalWindow();

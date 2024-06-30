@@ -1,4 +1,3 @@
-import { dates } from "./json.js";
 import {
   coffees,
   teas,
@@ -30,7 +29,9 @@ const elementThree = document.querySelector(".offers__three");
 const elementSmall = document.querySelector(".offers__small");
 const elementMedium = document.querySelector(".offers__medium");
 const elementLarge = document.querySelector(".offers__large");
-
+const price = document.querySelector(".modal__total-price");
+let basePrice = 0;
+let allPrice = 0;
 //create modal windows
 
 function showGeneralContent() {
@@ -57,41 +58,10 @@ function showGeneralContent() {
   });
 }
 
-function showModalCoffee() {
+function showModalAdditives(modalItem) {
   products.forEach((product, index) => {
-    coffees.forEach((coffee) => {
-      let additives = Object.values(coffee.additives);
-      if (additives[index]) {
-        product.textContent = additives[index].name;
-      }
-    });
-  });
-}
-
-function showModalTea() {
-  showGeneralContent();
-  products.forEach((product, index) => {
-    teas.forEach((tea) => {
-      let additives = Object.values(tea.additives);
-      if (additives[index]) {
-        product.textContent = additives[index].name;
-      }
-    });
-  });
-}
-
-function showModalDessert() {
-  modalChoiceSizes.forEach((modalSize, index) => {
-    desserts.forEach((dessert) => {
-      let sizes = Object.values(dessert.sizes);
-      if (sizes[index]) {
-        modalSize.textContent = sizes[index].size;
-      }
-    });
-  });
-  products.forEach((product, index) => {
-    desserts.forEach((dessert) => {
-      let additives = Object.values(dessert.additives);
+    modalItem.forEach((item) => {
+      let additives = Object.values(item.additives);
       if (additives[index]) {
         product.textContent = additives[index].name;
       }
@@ -102,6 +72,7 @@ function showModalDessert() {
 //show modal windows
 
 function openWindow() {
+  elementSmall.classList.add("checked");
   updateStyles();
   showGeneralContent();
   modalWindow.classList.remove("hidden");
@@ -109,46 +80,32 @@ function openWindow() {
   document.body.classList.add("lock");
 }
 
-function openModalCoffee() {
+function openModalWindow(modalItem, button, state) {
   cards.forEach((card, index) => {
     card.addEventListener("click", (e) => {
-      coffees.forEach((coffee, i) => {
-        if (
-          index === i &&
-          (butCoffee.classList.contains("active") ||
-            butCoffee.classList.contains("checked"))
-        ) {
-          modalImg.src = `${coffee.img}`;
-          modalTitle.textContent = `${coffee.name}`;
-          modalDescription.textContent = `${coffee.description}`;
-          modalPrice.textContent = `${coffee.price}`;
-          showModalCoffee();
+      modalItem.forEach((item, i) => {
+        if (index === i && button.classList.contains(`${state}`)) {
+          modalImg.src = `${item.img}`;
+          modalTitle.textContent = `${item.name}`;
+          modalDescription.textContent = `${item.description}`;
+          modalPrice.textContent = `${item.price}`;
+          basePrice = Number(item.price);
+          showModalAdditives(modalItem);
           openWindow();
         }
       });
     });
   });
+}
+
+function showActiveModalWindow() {
+  openModalWindow(coffees, butCoffee, "checked");
+  openModalWindow(teas, butTea, "active");
+  openModalWindow(desserts, butDesert, "active");
 }
 
 function setStyleForTea() {
   elementTwo.classList.add("offers__two--tea");
-}
-
-function openModalTea() {
-  cards.forEach((card, index) => {
-    card.addEventListener("click", (e) => {
-      teas.forEach((tea, i) => {
-        if (index === i && butTea.classList.contains("active")) {
-          modalImg.src = `${tea.img}`;
-          modalTitle.textContent = `${tea.name}`;
-          modalDescription.textContent = `${tea.description}`;
-          modalPrice.textContent = `${tea.price}`;
-          showModalTea();
-          openWindow();
-        }
-      });
-    });
-  });
 }
 
 function setStyleForDessert() {
@@ -160,22 +117,6 @@ function setStyleForDessert() {
   elementLarge.classList.add("offers__large--dessert");
 }
 
-function openModalDessert() {
-  cards.forEach((card, index) => {
-    card.addEventListener("click", (e) => {
-      desserts.forEach((dessert, i) => {
-        if (index === i && butDesert.classList.contains("active")) {
-          modalImg.src = `${dessert.img}`;
-          modalTitle.textContent = `${dessert.name}`;
-          modalDescription.textContent = `${dessert.description}`;
-          modalPrice.textContent = `${dessert.price}`;
-          showModalDessert();
-          openWindow();
-        }
-      });
-    });
-  });
-}
 // clear all styles
 function clearAllStyles() {
   const elements = [
@@ -199,6 +140,7 @@ function clearAllStyles() {
     );
   });
 }
+
 // change margin styles
 function updateStyles() {
   clearAllStyles();
@@ -221,28 +163,72 @@ updateStyles();
 //close modal window
 
 function hiddenModalWindow() {
+  elementMedium.classList.remove("active");
+  elementLarge.classList.remove("active");
   modalWindow.classList.add("hidden");
   backModal.classList.add("hidden");
   document.body.classList.remove("lock");
 }
 
-function clickButtonClose() {
-  butClose.addEventListener("click", (e) => {
+function clickButtonClose(button) {
+  button.addEventListener("click", () => {
     hiddenModalWindow();
   });
 }
 
-function clickBackModal() {
-  backModal.addEventListener("click", (e) => {
-    hiddenModalWindow();
-  });
+function closeModalWindow() {
+  clickButtonClose(butClose);
+  clickButtonClose(backModal);
 }
 
-export {
-  showModalCoffee,
-  openModalDessert,
-  openModalTea,
-  openModalCoffee,
-  clickButtonClose,
-  clickBackModal,
-};
+//change size
+function activeSize() {
+  elementSmall.addEventListener("click", () => {
+    elementMedium.classList.remove("active");
+    elementLarge.classList.remove("active");
+    elementSmall.classList.add("checked");
+    getPrices();
+  });
+  elementMedium.addEventListener("click", () => {
+    elementMedium.classList.add("active");
+    elementLarge.classList.remove("active");
+    elementSmall.classList.remove("checked");
+    getPrices();
+  });
+  elementLarge.addEventListener("click", () => {
+    elementLarge.classList.add("active");
+    elementMedium.classList.remove("active");
+    elementSmall.classList.remove("checked");
+    getPrices();
+  });
+}
+activeSize();
+
+function getPrice(menuItems) {
+  let finalPrice = basePrice;
+  let added = false;
+  menuItems.map((item) => {
+    let sizes = Object.values(item.sizes);
+    if (!added && elementSmall.classList.contains("checked")) {
+      finalPrice;
+      added = true;
+    }
+    if (!added && elementMedium.classList.contains("active")) {
+      finalPrice += Number(sizes[1]["add-price"]);
+      added = true;
+    }
+    if (!added && elementLarge.classList.contains("active")) {
+      finalPrice += Number(sizes[2]["add-price"]);
+      added = true;
+    }
+  });
+  allPrice = finalPrice.toFixed(2);
+  return allPrice;
+}
+
+function getPrices() {
+  price.textContent = getPrice(coffees);
+  price.textContent = getPrice(teas);
+  price.textContent = getPrice(desserts);
+}
+export { closeModalWindow, showActiveModalWindow };
