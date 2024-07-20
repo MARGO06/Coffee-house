@@ -847,7 +847,7 @@ h1 {
 }
 
 .menu__coffee:before {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/coffee.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/coffee.svg);
   margin-left: -37px;
 }
 
@@ -875,7 +875,7 @@ h1 {
   padding-left: 43px;
 }
 .menu__tea:before {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/tea.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/tea.svg);
   margin-left: -35px;
   transition-duration: 2s;
 }
@@ -901,7 +901,7 @@ h1 {
 }
 
 .menu__dessert:before {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/cake.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/cake.svg);
   margin-left: -35px;
   transition-duration: 2s;
 }
@@ -1232,6 +1232,9 @@ h1 {
   margin-left: -35px;
   margin-top: -3px;
 }
+.offers-btn:hover {
+  cursor: pointer;
+}
 @media (max-width: 768px) {
   .offers-btn {
     width: 125px;
@@ -1319,6 +1322,9 @@ h1 {
   background-color: #C1B6AD;
   margin-left: -35px;
   margin-top: -3px;
+}
+.product:hover {
+  cursor: pointer;
 }
 
 .offers__one {
