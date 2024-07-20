@@ -116,7 +116,7 @@
 }
 
 .menu__coffee:before {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/coffee.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/coffee.svg);
   @extend %circle;
   margin-left: -37px;
 }
@@ -149,7 +149,7 @@
 }
 
 .menu__tea:before {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/tea.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/tea.svg);
   @extend %circle;
   margin-left: -35px;
   transition-duration: 2s;
@@ -179,7 +179,7 @@
 }
 
 .menu__dessert:before {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/cake.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/cake.svg);
   @extend %circle;
   margin-left: -35px;
   transition-duration: 2s;
