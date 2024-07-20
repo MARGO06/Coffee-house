@@ -50,6 +50,7 @@
   padding: 0px;
   margin: 0px;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -209,12 +210,12 @@ h1 {
     right: -100%;
     background-color: #E1D4C9;
     transition-duration: 1.5s;
+    height: 100vh;
     z-index: 2;
   }
   .header__navigation.active {
     right: 0;
     width: 100%;
-    height: 1004px;
     transition: right 1s ease 0s;
   }
 }
@@ -873,13 +874,6 @@ h1 {
   width: 92px;
   padding-left: 43px;
 }
-@media (hover: none) {
-  .menu__tea:hover {
-    background-color: #E1D4C9;
-    color: #403F3D;
-  }
-}
-
 .menu__tea:before {
   background-image: url(/margo06-JSFE2023Q4/coffee-house/source/tea.svg);
   margin-left: -35px;
@@ -891,11 +885,6 @@ h1 {
   transition-duration: 2s;
   cursor: pointer;
 }
-@media (hover: none) {
-  .menu__tea:hover:before {
-    background-color: #C1B6AD;
-  }
-}
 
 .menu__tea:hover label {
   cursor: pointer;
@@ -904,12 +893,6 @@ h1 {
 .menu__dessert {
   width: 117px;
   padding-left: 43px;
-}
-@media (hover: none) {
-  .menu__dessert:hover {
-    background-color: #E1D4C9;
-    color: #403F3D;
-  }
 }
 @media (max-width: 380px) {
   .menu__dessert {
@@ -926,11 +909,6 @@ h1 {
 .menu__dessert:hover:before {
   background-color: #E1D4C9;
   transition-duration: 2s;
-}
-@media (hover: none) {
-  .menu__dessert:hover:before {
-    background-color: #C1B6AD;
-  }
 }
 
 .menu__dessert:hover label {
@@ -1139,6 +1117,41 @@ h1 {
   transform: translate(-50%, -50%);
   z-index: 10;
 }
+@media (max-width: 801px) {
+  .modal {
+    width: 750px;
+    height: 524px;
+  }
+}
+@media (max-width: 768px) {
+  .modal {
+    width: 690px;
+    height: 614px;
+  }
+}
+@media (max-width: 689px) {
+  .modal {
+    width: 590px;
+    height: 490px;
+  }
+}
+@media (max-width: 589px) {
+  .modal {
+    width: 490px;
+  }
+}
+@media (max-width: 489px) {
+  .modal {
+    width: 379px;
+    height: 620px;
+  }
+}
+@media (max-width: 380px) {
+  .modal {
+    width: 342px;
+    height: 626px;
+  }
+}
 
 .modal__info {
   margin-left: 20px;
@@ -1148,6 +1161,11 @@ h1 {
   width: 310px;
   height: 310px;
   border-radius: 40px;
+}
+@media (max-width: 689px) {
+  .modal__img {
+    display: none;
+  }
 }
 
 .modal__title {
@@ -1184,6 +1202,11 @@ h1 {
   display: flex;
   gap: 8px;
 }
+@media (max-width: 768px) {
+  .offers__buttons {
+    flex-wrap: wrap;
+  }
+}
 
 .offers-btn {
   width: 115px;
@@ -1209,6 +1232,11 @@ h1 {
   margin-left: -35px;
   margin-top: -3px;
 }
+@media (max-width: 768px) {
+  .offers-btn {
+    width: 125px;
+  }
+}
 
 .offers__small::after {
   content: "S";
@@ -1218,6 +1246,35 @@ h1 {
   line-height: 2.4rem;
   position: absolute;
   margin-left: -76px;
+}
+
+.offers__small.checked::after,
+.offers__medium.active::after,
+.offers__large.active::after,
+.offers__one.active::after,
+.offers__two.active::after,
+.offers__three.active::after {
+  background-color: #E1D4C9;
+  color: #403F3D;
+}
+
+.offers__small.checked::before,
+.offers__medium.active::before,
+.offers__large.active::before,
+.offers__one.active::before,
+.offers__two.active::before,
+.offers__three.active::before {
+  background-color: #E1D4C9;
+}
+
+.offers__small.checked,
+.offers__medium.active,
+.offers__large.active,
+.offers__one.active,
+.offers__two.active,
+.offers__three.active {
+  background-color: #665F55;
+  color: #E1D4C9;
 }
 
 .offers__medium::after {
@@ -1295,6 +1352,59 @@ h1 {
   content: "3";
   margin-left: -70px;
   position: absolute;
+}
+
+.offers__two--tea::after {
+  margin-left: -85px;
+}
+
+.offers__two--tea::before {
+  margin-left: -42px;
+}
+
+.offers__two--dessert::after {
+  margin-left: -76px;
+}
+
+.offers__two--dessert::before {
+  margin-left: -50px;
+}
+
+.offers__one--dessert::after {
+  margin-left: -50px;
+  margin-top: -23px;
+}
+
+.offers__three--dessert::after {
+  margin-left: -66px;
+}
+
+.offers__three--dessert::before {
+  margin-left: -45px;
+}
+
+.offers__small--dessert::after {
+  margin-left: -66px;
+}
+
+.offers__small--dessert::before {
+  margin-left: -42px;
+}
+
+.offers__medium--dessert::after {
+  margin-left: -72px;
+}
+
+.offers__medium--dessert::before {
+  margin-left: -38px;
+}
+
+.offers__large--dessert::after {
+  margin-left: -70px;
+}
+
+.offers__large--dessert::before {
+  margin-left: -38px;
 }
 
 .modal__total {

@@ -1,18 +1,19 @@
-*{
+* {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 
-html{
+html {
   font-size: 10px;
   line-height: 16px;
   scroll-behavior: smooth;
   height: 100%;
 }
 
-body{
+body {
   margin: 0, auto;
   background-color: $color-background-body;
   font-family: Inter, Verdana, sans-serif;
@@ -24,11 +25,21 @@ body{
   }
 }
 
-h1{
-  @include font($size:$size-h1, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-h1);
+h1 {
+  @include font(
+    $size: $size-h1,
+    $style: normal,
+    $weight: $font-weight-bold,
+    $line-height: $line-height-h1
+  );
   color: $color-background-body;
 
   @include media-mobile {
-    @include font($size:$size-mobile-h1, $style:normal, $weight:$font-weight-bold, $line-height:$line-height-mobile-h1);
+    @include font(
+      $size: $size-mobile-h1,
+      $style: normal,
+      $weight: $font-weight-bold,
+      $line-height: $line-height-mobile-h1
+    );
   }
 }
