@@ -496,6 +496,9 @@
     margin-left: -35px;
     margin-top: -3px;
   }
+  &:hover {
+    cursor: pointer;
+  }
   @include media-tablet {
     width: 125px;
   }
@@ -590,6 +593,9 @@
     background-color: $color-primary-border;
     margin-left: -35px;
     margin-top: -3px;
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 

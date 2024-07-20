@@ -841,7 +841,7 @@ h1 {
 }
 
 .enjoy__btn:after {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/coffee-cup.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/coffee-cup.svg);
   background-repeat: no-repeat;
   background-position: center;
   content: " ";
@@ -1571,15 +1571,15 @@ h1 {
 }
 
 .mobile_download__apple {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/icon-app.svg);
   transition-duration: 2s;
 }
 .mobile_download__apple:hover {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app-hover.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/icon-app-hover.svg);
 }
 @media (hover: none) {
   .mobile_download__apple:hover {
-    background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-app.svg);
+    background-image: url(/Frontend-2023Q4/coffee-house/source/icon-app.svg);
   }
 }
 @media (max-width: 380px) {
@@ -1589,17 +1589,17 @@ h1 {
 }
 
 .mobile_download__google {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/icon-google.svg);
   margin-left: 18px;
   text-align: start;
   padding-left: 60px;
 }
 .mobile_download__google:hover {
-  background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google-hover.svg);
+  background-image: url(/Frontend-2023Q4/coffee-house/source/icon-google-hover.svg);
 }
 @media (hover: none) {
   .mobile_download__google:hover {
-    background-image: url(/margo06-JSFE2023Q4/coffee-house/source/icon-google.svg);
+    background-image: url(/Frontend-2023Q4/coffee-house/source/icon-google.svg);
   }
 }
 @media (max-width: 489px) {
