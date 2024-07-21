@@ -450,6 +450,12 @@
   flex-direction: column;
 }
 
+.pictures__container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition-duration: 2s;
+}
+
 .pictures__container.hidden {
   display: none;
 }
@@ -485,6 +491,12 @@
   background-color: rgb(239, 186, 220);
 }
 
+.btn:hover {
+  cursor: pointer;
+  background-color: rgb(167, 63, 241);
+  transition-duration: 2s;
+}
+
 .header__level1.active,
 .header__level2.active,
 .header__level3.active {
@@ -506,6 +518,16 @@
   background-color: rgba(239, 57, 7, 0.685);
   color: rgb(229, 223, 225);
   border-color: rgb(229, 223, 225);
+}
+
+.nonogram__button-continue:hover,
+.nonogram__button-reset:hover,
+.nonogram__button-save:hover,
+.nonogram__button-result:hover,
+.nonogram__button-solution:hover {
+  cursor: pointer;
+  background-color: rgb(151, 92, 239);
+  transition-duration: 2s;
 }
 
 .btn:active,
